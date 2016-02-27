@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Archmee</title>
+  <subtitle>Eat, drink, fuck and life.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://archmee.github.io/"/>
+  <updated>2016-02-27T17:36:14.532Z</updated>
+  <id>http://archmee.github.io/</id>
+  
+  <author>
+    <name>Archmee</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>故乡</title>
+    <link href="http://archmee.github.io/201602/a-lais-home.html"/>
+    <id>http://archmee.github.io/201602/a-lais-home.html</id>
+    <published>2016-02-27T17:00:38.000Z</published>
+    <updated>2016-02-27T17:36:14.532Z</updated>
+    
+    <content type="html">&lt;center&gt;&lt;br&gt;—— &lt;em&gt;阿来&lt;/em&gt;&lt;br&gt;&lt;br&gt;我现在坐在群山之巅&lt;br&gt;我把头埋在双膝之间&lt;br&gt;感到风，像时光的水流&lt;br&gt;漫过我的脊梁&lt;br&gt;河流轰鸣，道路回转&lt;br&gt;现在我要独自一人&lt;br&gt;任群山的波涛把我充满&lt;br&gt;任大地重新向我涌来&lt;br&gt;&lt;br&gt;今天我又穿过了十二个村庄&lt;br&gt;接下来我还要穿过一百多个村庄&lt;br&gt;而所有这些栽培着这些&lt;br&gt;玉米  小麦  苹果  梨的村庄&lt;br&gt;放牧着牛羊的村庄——&lt;br&gt;都跟我出生的村子一模一样&lt;br&gt;&lt;br&gt;有一座水磨坊，有一所小学堂&lt;br&gt;晴天的早上&lt;br&gt;小学堂的钟声叮当作响&lt;br&gt;所有这一切&lt;br&gt;都跟我出生的那个村子一模一样&lt;br&gt;所以你们这些所有的村子&lt;br&gt;你们都是我的故乡&lt;br&gt;&lt;br&gt;&lt;/center&gt;
+
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;PS&lt;/strong&gt;：2016.2.24 摘自 &lt;a href=&quot;http://tv.cntv.cn/video/VSET100173543987/d250c6328bdd4cab9feeed410382c2aa&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《开讲啦》第20160205期&lt;/a&gt; 14分20秒处，作者阿来写于香烟盒子上的一首诗，无名，我暂取名为故乡。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;center&gt;&lt;br&gt;—— &lt;em&gt;阿来&lt;/em&gt;&lt;br&gt;&lt;br&gt;我现在坐在群山之巅&lt;br&gt;我把头埋在双膝之间&lt;br&gt;感到风，像时光的水流&lt;br&gt;漫过我的脊梁&lt;br&gt;河流轰鸣，道路回转&lt;br&gt;现在我要独自一人&lt;br&gt;任群山的波涛把我充满&lt;br&gt;任大地重新向我涌来&lt;br&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="life" scheme="http://archmee.github.io/categories/life/"/>
+    
+    
+      <category term="摘抄" scheme="http://archmee.github.io/tags/%E6%91%98%E6%8A%84/"/>
+    
+      <category term="诗" scheme="http://archmee.github.io/tags/%E8%AF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github + Hexo 三步曲</title>
+    <link href="http://archmee.github.io/201602/github-and-hexo-three-steps.html"/>
+    <id>http://archmee.github.io/201602/github-and-hexo-three-steps.html</id>
+    <published>2016-02-26T21:24:25.000Z</published>
+    <updated>2016-02-26T22:12:21.588Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;序曲&quot;&gt;&lt;a href=&quot;#序曲&quot; class=&quot;headerlink&quot; title=&quot;序曲&quot;&gt;&lt;/a&gt;序曲&lt;/h3&gt;&lt;p&gt;之前有过一次搭建博客的经历，当时购买了自己的第一个 .COM 域名，并用 Wordpress 挂在了同学的服务器上，一年下来只写了有寥寥几篇博客，虽然都还算认真写的，但写作动力不足，最后域名过期便无疾而终了，想来还因为 Wordpress 太慢，且臃肿难用，二来每次在网页上写文章很不方便，一旦网页挂掉就 Game Over 了，Evernote 和有道笔记用过之后也不是很满意，一个太慢，一个除了慢而且长得丑（每次都要登陆登陆，登陆你个大头鬼啊，你知不知道我每次都是写的本地笔记本啊，而且最近每用一次必崩溃一次），两者功能都太多，我现在只偶尔用 Evernote 的剪藏功能来收藏网页。&lt;/p&gt;
+&lt;p&gt;其余，我想有一个能记录想法或笔记的工具，随时能用，并且有一个展示的地方，仅此而已。本来也可以写在Lofter、新浪博客、点点等博客平台上，但是总感觉不够『独立』，尤其在习惯了 Markdown 后，更被 Markdown 的优雅所吸引。最最重要的是我最近要开始学习 iOS 开发，到时会记录一些学习笔记和总结在这里，因为我发现很多大牛都有在博客上记录总结的习惯。与此同时还可以好好用下 Git 和 Github，综上，才有了我的新博客。&lt;/p&gt;
+&lt;p&gt;So，Let’s start！&lt;/p&gt;
+&lt;h3 id=&quot;第一步：准备工作&quot;&gt;&lt;a href=&quot;#第一步：准备工作&quot; class=&quot;headerlink&quot; title=&quot;第一步：准备工作&quot;&gt;&lt;/a&gt;第一步：准备工作&lt;/h3&gt;&lt;p&gt;首先，你要：&lt;/p&gt;
+&lt;h4 id=&quot;1-注册-GitHub&quot;&gt;&lt;a href=&quot;#1-注册-GitHub&quot; class=&quot;headerlink&quot; title=&quot;1. 注册 GitHub&quot;&gt;&lt;/a&gt;1. 注册 GitHub&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://www.github.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;GitHub&lt;/strong&gt;&lt;/a&gt; 是我们放博客的地方，它是开源世界的一个代码仓库，甚至可以毫不夸张地说是它推动了开源运动的发展，同时它也是世界上最大的同性交友社区，咳咳——严肃点！&lt;/p&gt;
+&lt;h4 id=&quot;2-学习Markdown&quot;&gt;&lt;a href=&quot;#2-学习Markdown&quot; class=&quot;headerlink&quot; title=&quot;2. 学习Markdown&quot;&gt;&lt;/a&gt;2. 学习Markdown&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://wowubuntu.com/markdown/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt; 简洁优雅的语法让人可以专注于写作，越来越多的网站和作者都在使用和支持 Markdown，当然你最好找一个支持         Markdown 的编辑器。我在用的是 Evernote 的『&lt;a href=&quot;http://maxiang.info&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;马克飞象&lt;/a&gt;』，有网页版和 Chrome 插件，可以绑定Evernote账号同步，支持离线写作。因为我只需要一个编辑器，而且写完后会发布到博客，所以并没有绑定账号。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;如果使用马克飞象没有绑定账号的话，不管是网页版还是插件版估计都会有缓存容量限制，而且文章多了会影响打开时的加载速度，所以记得写完后即使清理以前的文章。&lt;/li&gt;
+&lt;li&gt;其实绑定账号后，文章都被同步到 Evernote，这样就不用考虑博客的备份问题了，是吧？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;第二步：安装软件&quot;&gt;&lt;a href=&quot;#第二步：安装软件&quot; class=&quot;headerlink&quot; title=&quot;第二步：安装软件&quot;&gt;&lt;/a&gt;第二步：安装软件&lt;/h3&gt;&lt;h4 id=&quot;1-安装Git&quot;&gt;&lt;a href=&quot;#1-安装Git&quot; class=&quot;headerlink&quot; title=&quot;1. 安装Git&quot;&gt;&lt;/a&gt;1. 安装Git&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://git-scm.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;Git&lt;/strong&gt;&lt;/a&gt; 是一个非常流行的分布式版本控制工具，全世界的搬砖工人、射击师都在用它，据不完全统计，这些人手拉手可以绕地球……多少圈来着，还没人统计过，估计因为人太多了！！！关于 Git 到底是什么以及可以用来干什么，请自行搜索。关于 Git 的使用，甚至可以用一整本书来讲解，因为它太复杂了，但是不用担心，我们只需要学会它简单的几条命令的就可以了，这里有份 &lt;a href=&quot;http://www.bootcss.com/p/git-guide/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Git 简易指南&lt;/a&gt;，它对于我们的使用已经足够，甚至你连这份这份简易指南也可以不用看，后面我们会提到。但是如果你想深入学习 Git 的话，这里有官方的 &lt;a href=&quot;http://git-scm.com/book/en/v2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Pro Git 英文版&lt;/a&gt; 和 &lt;a href=&quot;http://git-scm.com/book/zh/v2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Pro Git 中文版&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;关于 Git 客户端的选择，我只讨论 Windows，我之前用过一段时间使用过 &lt;a href=&quot;https://desktop.github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub Desktop For Windows&lt;/a&gt;，但是感觉有点重，不管是 GUI 还是 Git Bash 启动都很慢，所以我现在只想找个轻量一点的类似 Linux 下的命令行工具，几经搜寻后，决定使用 &lt;a href=&quot;http://git-scm.com/download/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Git 官网提供的客户端&lt;/a&gt; ，同时它还有 Linux 和 Mac 的版本。&lt;/p&gt;
+&lt;p&gt;客户端安装好后，发现它也提供了Git GUI，但是从安装到现在我一次都没开过，打开 Git Bash，默认样式不是很好看，自己在右键 &lt;code&gt;Options&lt;/code&gt; 里面进行调整。然后输入如下命令对 Git 进行基本配置：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git config --global user.name=&lt;span class=&quot;string&quot;&gt;&quot;你的github用户名&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config --global user.email=&lt;span class=&quot;string&quot;&gt;&quot;你的github注册邮箱&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git config --global core.autocrlf &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#注释：为了避免稍后通过Hexo发布博客时出现LF would be replaced by CRLF in xxx.html 错误，我们先配置这条，Stackoverflow上有关于这个问题的讨论：http://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后因为你以后大多时候可能会使用 SSH 方式和 GitHub 建立连接，你可能需要 &lt;a href=&quot;https://help.github.com/articles/generating-an-ssh-key/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;配置 ssh-key&lt;/a&gt;，大致原理是在本地产生一个加密串，然后将这个加密串保存到 GitHub 里面，链接里面是 GitHub 提供的详细教程。&lt;/p&gt;
+&lt;p&gt;这一步最后你可以尝试 &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;利用 GitHub Pages 发布第一篇博客&lt;/a&gt;，GitHub Pages 是 GitHub 提供的一个托管个人主页的服务。这个链接里面会一步步教你建立一个repo，存放你的二级域名指向的站点，成功后 &lt;code&gt;username.github.io&lt;/code&gt; 可能不能立即访问，等十几分钟就行了。这一步算是看看你的阶段性成果。哦，差点忘了提，掌握这里面使用的 Git 命令就差不多了，前面提到的那个简易指南相对来说都有点多了。&lt;/p&gt;
+&lt;h4 id=&quot;2-安装-Nodejs&quot;&gt;&lt;a href=&quot;#2-安装-Nodejs&quot; class=&quot;headerlink&quot; title=&quot;2. 安装 Nodejs&quot;&gt;&lt;/a&gt;2. 安装 Nodejs&lt;/h4&gt;&lt;p&gt;由于 Hexo 是用 Nodejs 写的，所以不解释。&lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;NodeJs&lt;/strong&gt;&lt;/a&gt; 官网首页提供了 Windows 版的下载，下载完成后直接运行安装即可，最近的版本已经不需要配置环境变量什么鬼了。当然使用其它系统的请参考 Hexo &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;英文文档&lt;/a&gt; 或 &lt;a href=&quot;https://hexo.io/zh-cn/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;中文文档&lt;/a&gt;，首页介绍了 Nodejs 在各个系统的安装方法。&lt;/p&gt;
+&lt;h4 id=&quot;3-安装-Hexo&quot;&gt;&lt;a href=&quot;#3-安装-Hexo&quot; class=&quot;headerlink&quot; title=&quot;3. 安装 Hexo&quot;&gt;&lt;/a&gt;3. 安装 Hexo&lt;/h4&gt;&lt;p&gt;安装完 Git 和 Nodejs 后，就可以安装 &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;Hexo&lt;/strong&gt;&lt;/a&gt; 了，其实这一步以后的过程， &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo 官方文档&lt;/a&gt; 里都包括了，但我还是想捋一下。关于为什么是 Hexo，其实我也是在 Hexo、jekyll、FarBox 等等工具上调查纠结了几天，这是 Hexo 官网的slogan：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hexo&lt;/strong&gt; —— &lt;em&gt;A fast, simple &amp;amp; powerful blog framework&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我觉得光是 Hexo 这个名字就很简洁犀利、够Geek，所以就它了，嗯~&lt;br&gt;由于安装了 Nodejs，改变了系统环境变量，所以需要 &lt;strong&gt;重启Git Bash&lt;/strong&gt;，再执行如下命令：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g hexo-cli &lt;span class=&quot;comment&quot;&gt;#安装Hexo，下面的是初始化过程&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo init &amp;lt;folder&amp;gt; &lt;span class=&quot;comment&quot;&gt;#初始化博客文件夹，folder是你想写博客的文件夹&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; &amp;lt;folder&amp;gt; &lt;span class=&quot;comment&quot;&gt;#进入该文件夹&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install &lt;span class=&quot;comment&quot;&gt;#安装依赖&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后你应该把 &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo 官方文档&lt;/a&gt; 的Getting Started 和 Basic Usage 这两部分浏览一遍，了解 Hexo 的配置以及博客从写作到发布的流程，当然如果你有时间的话，可以浏览一下整个文档，这对于你以后想 Hack 别人的 Hexo 主题或者写自己的 Hexo 主题会有用。&lt;/p&gt;
+&lt;h3 id=&quot;第三步：发布博客&quot;&gt;&lt;a href=&quot;#第三步：发布博客&quot; class=&quot;headerlink&quot; title=&quot;第三步：发布博客&quot;&gt;&lt;/a&gt;第三步：发布博客&lt;/h3&gt;&lt;p&gt;到了这里，我们的节目基本就接近尾声了，“啪~，套话又来了……”&lt;/p&gt;
+&lt;h4 id=&quot;1-安装必要插件&quot;&gt;&lt;a href=&quot;#1-安装必要插件&quot; class=&quot;headerlink&quot; title=&quot;1. 安装必要插件&quot;&gt;&lt;/a&gt;1. 安装必要插件&lt;/h4&gt;&lt;p&gt;其实到这里，我们的安装软件的任务已经结束了，但为了稍后少走弯路，我直接按照解决问题后的思路来写了。&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-deployer-git --save &lt;span class=&quot;comment&quot;&gt;#安装Hexo的git插件，因为我们会在Hexo里面用git发布文章&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-generator-feed --save &lt;span class=&quot;comment&quot;&gt;#安装生成RSS的插件，方便用户订阅&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install hexo-generator-sitemap --save &lt;span class=&quot;comment&quot;&gt;#安装生成sitemap插件，提供给蜘蛛&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2-更改-Hexo-配置&quot;&gt;&lt;a href=&quot;#2-更改-Hexo-配置&quot; class=&quot;headerlink&quot; title=&quot;2. 更改 Hexo 配置&quot;&gt;&lt;/a&gt;2. 更改 Hexo 配置&lt;/h4&gt;&lt;p&gt;Hexo 配置文件 _config.yml 位于 Hexo 根目录，可用 Vim 或其他编辑工具打开修改。&lt;br&gt;&lt;figure class=&quot;highlight markdown&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;header&quot;&gt;## Docs: https://hexo.io/docs/configuration.html&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;title: 网站标题&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;subtitle: 网站的子标题&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;description: 网站描述&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;author: 作者，即博客拥有者名字&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;language: en #关于language的使用各个主题都稍有不同，看主题文档配置&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...中间省略若干...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;theme: again #主题名字,每次更换主题都要一定改这里&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;deploy: #发布博客平台的配置，还可以增加诸如国内的gitcafe&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  type: git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  repo: git@github.com:username/username.github.io.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  branch: master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt; 配置文件里面我只列出了主要需要修改的地方，剩余其他选项可以看看 &lt;a href=&quot;https://hexo.io/docs/configuration.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文档的Configuration部分&lt;/a&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：每个配置名称和配置内容之间要至少一个空格！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;3-更换主题&quot;&gt;&lt;a href=&quot;#3-更换主题&quot; class=&quot;headerlink&quot; title=&quot;3. 更换主题&quot;&gt;&lt;/a&gt;3. 更换主题&lt;/h4&gt;&lt;p&gt;Hexo 默认的主题有点丑，但功能还算完善，&lt;a href=&quot;https://hexo.io/themes/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo官网展示了部分主题&lt;/a&gt;以及&lt;a href=&quot;https://github.com/hexojs/hexo/wiki/themes&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub wiki上列出了比较全的主题&lt;/a&gt;，选定喜欢的主题后，可以到主题的项目主页看看README，有没有需要安装的包依赖，那么如何更换主题呢？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;将主题克隆到本地，在 Hexo 根目录执行如下命令：&lt;/p&gt;
+ &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/username/theme-name.git themes/theme-name&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;修改配置文件，打开 Hexo 根目录的 _config.yml：&lt;/p&gt;
+ &lt;figure class=&quot;highlight markdown&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;theme: theme-name #在这里填写你更换的主题名称&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;4-写博客&quot;&gt;&lt;a href=&quot;#4-写博客&quot; class=&quot;headerlink&quot; title=&quot;4. 写博客&quot;&gt;&lt;/a&gt;4. 写博客&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;按照Scaffolds目录下提供的layout之一新建一个文件，当然你也可以写一个属于自己的layout放到此目录下，而写文章要用 post 类型的 layout，而 post 在 Hexo 的配置文件里被配置成了默认的 layout，所以如下命令的 loyout 可省略。&lt;/p&gt;
+ &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hexo new layout &lt;span class=&quot;string&quot;&gt;&quot;postName&quot;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;#postName是博客名字，博客文件名称也是根据该名字来生成的，博客文件默认在source/_post目录下，当然这些也都是可配置的。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;然后用你喜欢的Markdown编辑器打开刚刚生成的博客文件，写下你想写的文字。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;生成博客：&lt;/p&gt;
+ &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hexo generate &lt;span class=&quot;comment&quot;&gt;#生成网页静态文件，Hexo会在根目录新建public文件夹来存放&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo server &lt;span class=&quot;comment&quot;&gt;#启动本地服务器，成功后可通过浏览器输入localhost:4000来测试博客效果&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hexo deploy &lt;span class=&quot;comment&quot;&gt;#发布，如果前面的git插件安装后正确配置，就不会有太大问题&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：hexo deploy 时每次都会覆盖原来的内容，所以记得备份。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;发布成功后，就可通过 &lt;code&gt;username.github.io&lt;/code&gt;来访问你的博客。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;关于我正在使用的主题，我用的是 Hexo 官网展示的第一款主题 Again，不是因为我懒，而是我调查了几十个主题纠结之后的果断选择，这款主题不是很令人满意，也不是很完善，甚至没有提供分类和标签功能，但是这样反而让它看起来简单简洁，我想有时间我会将它改的更让人满意。&lt;br&gt; &lt;strong&gt;Ps&lt;/strong&gt;：关于如何创建分类和标签页面在我参考的文章里面估计可以找到&lt;/p&gt;
+&lt;p&gt;关于404页面，在没有购买顶级域名的情况下，配置404页面并没什么用。&lt;/p&gt;
+&lt;h3 id=&quot;曲终&quot;&gt;&lt;a href=&quot;#曲终&quot; class=&quot;headerlink&quot; title=&quot;曲终&quot;&gt;&lt;/a&gt;曲终&lt;/h3&gt;&lt;p&gt;感谢 Git、GitHub、Hexo、Markdown、Nodejs 的技术支持以及开源世界的贡献者！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;参考&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo官网&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub Pages 主页&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ibruce.info/2013/11/22/hexo-your-blog/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ibruce 的 hexo-your-blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://zipperary.com/categories/hexo/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;zipperary的Hexo系列&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.v2ex.com/t/175940&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;V2关于hexo deploy报错的讨论&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;u&gt;还包括文中其他链接&lt;/u&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;序曲&quot;&gt;&lt;a href=&quot;#序曲&quot; class=&quot;headerlink&quot; title=&quot;序曲&quot;&gt;&lt;/a&gt;序曲&lt;/h3&gt;&lt;p&gt;之前有过一次搭建博客的经历，当时购买了自己的第一个 .COM 域名，并用 Wordpress 挂在了同学的服务器上，一年下来只写了有寥寥几篇
+    
+    </summary>
+    
+      <category term="technology" scheme="http://archmee.github.io/categories/technology/"/>
+    
+    
+      <category term="git" scheme="http://archmee.github.io/tags/git/"/>
+    
+      <category term="github" scheme="http://archmee.github.io/tags/github/"/>
+    
+      <category term="hexo" scheme="http://archmee.github.io/tags/hexo/"/>
+    
+      <category term="markdown" scheme="http://archmee.github.io/tags/markdown/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Github + Hexo 三步曲 | 阿奇米</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'>
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201602/github-and-hexo-three-steps.html">Github + Hexo 三步曲</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">February 27 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <h3 id="序曲"><a href="#序曲" class="headerlink" title="序曲"></a>序曲</h3><p>之前有过一次搭建博客的经历，当时购买了自己的第一个 .COM 域名，并用 Wordpress 挂在了同学的服务器上，一年下来只写了有寥寥几篇博客，虽然都还算认真写的，但写作动力不足，最后域名过期便无疾而终了，想来还因为 Wordpress 太慢，且臃肿难用，二来每次在网页上写文章很不方便，一旦网页挂掉就 Game Over 了，Evernote 和有道笔记用过之后也不是很满意，一个太慢，一个除了慢而且长得丑（每次都要登陆登陆，登陆你个大头鬼啊，你知不知道我每次都是写的本地笔记本啊，而且最近每用一次必崩溃一次），两者功能都太多，我现在只偶尔用 Evernote 的剪藏功能来收藏网页。</p>
+<p>其余，我想有一个能记录想法或笔记的工具，随时能用，并且有一个展示的地方，仅此而已。本来也可以写在Lofter、新浪博客、点点等博客平台上，但是总感觉不够『独立』，尤其在习惯了 Markdown 后，更被 Markdown 的优雅所吸引。最最重要的是我最近要开始学习 iOS 开发，到时会记录一些学习笔记和总结在这里，因为我发现很多大牛都有在博客上记录总结的习惯。与此同时还可以好好用下 Git 和 Github，综上，才有了我的新博客。</p>
+<p>So，Let’s start！</p>
+<h3 id="第一步：准备工作"><a href="#第一步：准备工作" class="headerlink" title="第一步：准备工作"></a>第一步：准备工作</h3><p>首先，你要：</p>
+<h4 id="1-注册-GitHub"><a href="#1-注册-GitHub" class="headerlink" title="1. 注册 GitHub"></a>1. 注册 GitHub</h4><p><a href="http://www.github.com" target="_blank" rel="external"><strong>GitHub</strong></a> 是我们放博客的地方，它是开源世界的一个代码仓库，甚至可以毫不夸张地说是它推动了开源运动的发展，同时它也是世界上最大的同性交友社区，咳咳——严肃点！</p>
+<h4 id="2-学习Markdown"><a href="#2-学习Markdown" class="headerlink" title="2. 学习Markdown"></a>2. 学习Markdown</h4><p><a href="http://wowubuntu.com/markdown/" target="_blank" rel="external"><strong>Markdown</strong></a> 简洁优雅的语法让人可以专注于写作，越来越多的网站和作者都在使用和支持 Markdown，当然你最好找一个支持         Markdown 的编辑器。我在用的是 Evernote 的『<a href="http://maxiang.info" target="_blank" rel="external">马克飞象</a>』，有网页版和 Chrome 插件，可以绑定Evernote账号同步，支持离线写作。因为我只需要一个编辑器，而且写完后会发布到博客，所以并没有绑定账号。</p>
+<blockquote>
+<ul>
+<li>如果使用马克飞象没有绑定账号的话，不管是网页版还是插件版估计都会有缓存容量限制，而且文章多了会影响打开时的加载速度，所以记得写完后即使清理以前的文章。</li>
+<li>其实绑定账号后，文章都被同步到 Evernote，这样就不用考虑博客的备份问题了，是吧？</li>
+</ul>
+</blockquote>
+<h3 id="第二步：安装软件"><a href="#第二步：安装软件" class="headerlink" title="第二步：安装软件"></a>第二步：安装软件</h3><h4 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1. 安装Git"></a>1. 安装Git</h4><p><a href="http://git-scm.org" target="_blank" rel="external"><strong>Git</strong></a> 是一个非常流行的分布式版本控制工具，全世界的搬砖工人、射击师都在用它，据不完全统计，这些人手拉手可以绕地球……多少圈来着，还没人统计过，估计因为人太多了！！！关于 Git 到底是什么以及可以用来干什么，请自行搜索。关于 Git 的使用，甚至可以用一整本书来讲解，因为它太复杂了，但是不用担心，我们只需要学会它简单的几条命令的就可以了，这里有份 <a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="external">Git 简易指南</a>，它对于我们的使用已经足够，甚至你连这份这份简易指南也可以不用看，后面我们会提到。但是如果你想深入学习 Git 的话，这里有官方的 <a href="http://git-scm.com/book/en/v2/" target="_blank" rel="external">Pro Git 英文版</a> 和 <a href="http://git-scm.com/book/zh/v2/" target="_blank" rel="external">Pro Git 中文版</a>。</p>
+<p>关于 Git 客户端的选择，我只讨论 Windows，我之前用过一段时间使用过 <a href="https://desktop.github.com/" target="_blank" rel="external">GitHub Desktop For Windows</a>，但是感觉有点重，不管是 GUI 还是 Git Bash 启动都很慢，所以我现在只想找个轻量一点的类似 Linux 下的命令行工具，几经搜寻后，决定使用 <a href="http://git-scm.com/download/" target="_blank" rel="external">Git 官网提供的客户端</a> ，同时它还有 Linux 和 Mac 的版本。</p>
+<p>客户端安装好后，发现它也提供了Git GUI，但是从安装到现在我一次都没开过，打开 Git Bash，默认样式不是很好看，自己在右键 <code>Options</code> 里面进行调整。然后输入如下命令对 Git 进行基本配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name=<span class="string">"你的github用户名"</span></span><br><span class="line">git config --global user.email=<span class="string">"你的github注册邮箱"</span></span><br><span class="line">git config --global core.autocrlf <span class="literal">false</span> <span class="comment">#注释：为了避免稍后通过Hexo发布博客时出现LF would be replaced by CRLF in xxx.html 错误，我们先配置这条，Stackoverflow上有关于这个问题的讨论：http://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf.</span></span><br></pre></td></tr></table></figure></p>
+<p>然后因为你以后大多时候可能会使用 SSH 方式和 GitHub 建立连接，你可能需要 <a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">配置 ssh-key</a>，大致原理是在本地产生一个加密串，然后将这个加密串保存到 GitHub 里面，链接里面是 GitHub 提供的详细教程。</p>
+<p>这一步最后你可以尝试 <a href="https://pages.github.com/" target="_blank" rel="external">利用 GitHub Pages 发布第一篇博客</a>，GitHub Pages 是 GitHub 提供的一个托管个人主页的服务。这个链接里面会一步步教你建立一个repo，存放你的二级域名指向的站点，成功后 <code>username.github.io</code> 可能不能立即访问，等十几分钟就行了。这一步算是看看你的阶段性成果。哦，差点忘了提，掌握这里面使用的 Git 命令就差不多了，前面提到的那个简易指南相对来说都有点多了。</p>
+<h4 id="2-安装-Nodejs"><a href="#2-安装-Nodejs" class="headerlink" title="2. 安装 Nodejs"></a>2. 安装 Nodejs</h4><p>由于 Hexo 是用 Nodejs 写的，所以不解释。<a href="https://nodejs.org/en/" target="_blank" rel="external"><strong>NodeJs</strong></a> 官网首页提供了 Windows 版的下载，下载完成后直接运行安装即可，最近的版本已经不需要配置环境变量什么鬼了。当然使用其它系统的请参考 Hexo <a href="https://hexo.io/docs/" target="_blank" rel="external">英文文档</a> 或 <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">中文文档</a>，首页介绍了 Nodejs 在各个系统的安装方法。</p>
+<h4 id="3-安装-Hexo"><a href="#3-安装-Hexo" class="headerlink" title="3. 安装 Hexo"></a>3. 安装 Hexo</h4><p>安装完 Git 和 Nodejs 后，就可以安装 <a href="https://hexo.io/" target="_blank" rel="external"><strong>Hexo</strong></a> 了，其实这一步以后的过程， <a href="https://hexo.io/docs/" target="_blank" rel="external">Hexo 官方文档</a> 里都包括了，但我还是想捋一下。关于为什么是 Hexo，其实我也是在 Hexo、jekyll、FarBox 等等工具上调查纠结了几天，这是 Hexo 官网的slogan：</p>
+<blockquote>
+<p><strong>Hexo</strong> —— <em>A fast, simple &amp; powerful blog framework</em></p>
+</blockquote>
+<p>我觉得光是 Hexo 这个名字就很简洁犀利、够Geek，所以就它了，嗯~<br>由于安装了 Nodejs，改变了系统环境变量，所以需要 <strong>重启Git Bash</strong>，再执行如下命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli <span class="comment">#安装Hexo，下面的是初始化过程</span></span><br><span class="line">hexo init &lt;folder&gt; <span class="comment">#初始化博客文件夹，folder是你想写博客的文件夹</span></span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt; <span class="comment">#进入该文件夹</span></span><br><span class="line">npm install <span class="comment">#安装依赖</span></span><br></pre></td></tr></table></figure></p>
+<p>然后你应该把 <a href="https://hexo.io/docs/" target="_blank" rel="external">Hexo 官方文档</a> 的Getting Started 和 Basic Usage 这两部分浏览一遍，了解 Hexo 的配置以及博客从写作到发布的流程，当然如果你有时间的话，可以浏览一下整个文档，这对于你以后想 Hack 别人的 Hexo 主题或者写自己的 Hexo 主题会有用。</p>
+<h3 id="第三步：发布博客"><a href="#第三步：发布博客" class="headerlink" title="第三步：发布博客"></a>第三步：发布博客</h3><p>到了这里，我们的节目基本就接近尾声了，“啪~，套话又来了……”</p>
+<h4 id="1-安装必要插件"><a href="#1-安装必要插件" class="headerlink" title="1. 安装必要插件"></a>1. 安装必要插件</h4><p>其实到这里，我们的安装软件的任务已经结束了，但为了稍后少走弯路，我直接按照解决问题后的思路来写了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save <span class="comment">#安装Hexo的git插件，因为我们会在Hexo里面用git发布文章</span></span><br><span class="line">npm install hexo-generator-feed --save <span class="comment">#安装生成RSS的插件，方便用户订阅</span></span><br><span class="line">npm install hexo-generator-sitemap --save <span class="comment">#安装生成sitemap插件，提供给蜘蛛</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="2-更改-Hexo-配置"><a href="#2-更改-Hexo-配置" class="headerlink" title="2. 更改 Hexo 配置"></a>2. 更改 Hexo 配置</h4><p>Hexo 配置文件 _config.yml 位于 Hexo 根目录，可用 Vim 或其他编辑工具打开修改。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="header">## Docs: https://hexo.io/docs/configuration.html</span></span><br><span class="line">title: 网站标题</span><br><span class="line">subtitle: 网站的子标题</span><br><span class="line">description: 网站描述</span><br><span class="line">author: 作者，即博客拥有者名字</span><br><span class="line">language: en #关于language的使用各个主题都稍有不同，看主题文档配置</span><br><span class="line"></span><br><span class="line">...中间省略若干...</span><br><span class="line"></span><br><span class="line">theme: again #主题名字,每次更换主题都要一定改这里</span><br><span class="line"></span><br><span class="line">deploy: #发布博客平台的配置，还可以增加诸如国内的gitcafe</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:username/username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p> 配置文件里面我只列出了主要需要修改的地方，剩余其他选项可以看看 <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">文档的Configuration部分</a>。</p>
+<blockquote>
+<p><strong>注意</strong>：每个配置名称和配置内容之间要至少一个空格！！！</p>
+</blockquote>
+<h4 id="3-更换主题"><a href="#3-更换主题" class="headerlink" title="3. 更换主题"></a>3. 更换主题</h4><p>Hexo 默认的主题有点丑，但功能还算完善，<a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo官网展示了部分主题</a>以及<a href="https://github.com/hexojs/hexo/wiki/themes" target="_blank" rel="external">GitHub wiki上列出了比较全的主题</a>，选定喜欢的主题后，可以到主题的项目主页看看README，有没有需要安装的包依赖，那么如何更换主题呢？</p>
+<ol>
+<li><p>将主题克隆到本地，在 Hexo 根目录执行如下命令：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/username/theme-name.git themes/theme-name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件，打开 Hexo 根目录的 _config.yml：</p>
+ <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: theme-name #在这里填写你更换的主题名称</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="4-写博客"><a href="#4-写博客" class="headerlink" title="4. 写博客"></a>4. 写博客</h4><ol>
+<li><p>按照Scaffolds目录下提供的layout之一新建一个文件，当然你也可以写一个属于自己的layout放到此目录下，而写文章要用 post 类型的 layout，而 post 在 Hexo 的配置文件里被配置成了默认的 layout，所以如下命令的 loyout 可省略。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new layout <span class="string">"postName"</span> <span class="comment">#postName是博客名字，博客文件名称也是根据该名字来生成的，博客文件默认在source/_post目录下，当然这些也都是可配置的。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后用你喜欢的Markdown编辑器打开刚刚生成的博客文件，写下你想写的文字。</p>
+</li>
+<li><p>生成博客：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo generate <span class="comment">#生成网页静态文件，Hexo会在根目录新建public文件夹来存放</span></span><br><span class="line">hexo server <span class="comment">#启动本地服务器，成功后可通过浏览器输入localhost:4000来测试博客效果</span></span><br><span class="line">hexo deploy <span class="comment">#发布，如果前面的git插件安装后正确配置，就不会有太大问题</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：hexo deploy 时每次都会覆盖原来的内容，所以记得备份。</p>
+</blockquote>
+</li>
+<li><p>发布成功后，就可通过 <code>username.github.io</code>来访问你的博客。</p>
+</li>
+</ol>
+<p>关于我正在使用的主题，我用的是 Hexo 官网展示的第一款主题 Again，不是因为我懒，而是我调查了几十个主题纠结之后的果断选择，这款主题不是很令人满意，也不是很完善，甚至没有提供分类和标签功能，但是这样反而让它看起来简单简洁，我想有时间我会将它改的更让人满意。<br> <strong>Ps</strong>：关于如何创建分类和标签页面在我参考的文章里面估计可以找到</p>
+<p>关于404页面，在没有购买顶级域名的情况下，配置404页面并没什么用。</p>
+<h3 id="曲终"><a href="#曲终" class="headerlink" title="曲终"></a>曲终</h3><p>感谢 Git、GitHub、Hexo、Markdown、Nodejs 的技术支持以及开源世界的贡献者！</p>
+<p><strong>参考</strong></p>
+<ol>
+<li><a href="https://hexo.io/" target="_blank" rel="external">Hexo官网</a></li>
+<li><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages 主页</a></li>
+<li><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">ibruce 的 hexo-your-blog</a></li>
+<li><a href="http://zipperary.com/categories/hexo/" target="_blank" rel="external">zipperary的Hexo系列</a></li>
+<li><a href="http://www.v2ex.com/t/175940" target="_blank" rel="external">V2关于hexo deploy报错的讨论</a></li>
+<li><u>还包括文中其他链接</u></li>
+</ol>
+<hr>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="/images/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 阿奇米 </p>
+      <p class="subtitle"> 努力挣钱，包养文艺女青年。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it~ </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="序曲"><a href="#序"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+  <script src="/js/app.js" type="text/javascript"></script>
+</body>
+</html>
