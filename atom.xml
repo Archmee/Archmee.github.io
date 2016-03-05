@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Archmee</title>
-  <subtitle>Eat, drink, fuck and life.</subtitle>
+  <subtitle>Eat, drink, fuck and live.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-02-27T17:36:14.532Z</updated>
+  <updated>2016-03-05T16:55:23.054Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -16,16 +16,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>立场诗</title>
+    <link href="http://archmee.github.io/201603/stand-poems.html"/>
+    <id>http://archmee.github.io/201603/stand-poems.html</id>
+    <published>2016-03-05T16:37:14.000Z</published>
+    <updated>2016-03-05T16:55:23.054Z</updated>
+    
+    <content type="html">&lt;center&gt;—— &lt;em&gt;德兰修女&lt;/em&gt;&lt;/center&gt;
+
+
+&lt;p&gt;人们不讲道理、没有逻辑、以自我为中心，不管怎样，总是爱他们；&lt;/p&gt;
+&lt;p&gt;即使你是友善的，人们还是说你自私和别有用心，不管怎样，总是要友善；&lt;/p&gt;
+&lt;p&gt;当你功成名就，身边尽是真的敌人和假的朋友，不管怎样，总是要成功；&lt;/p&gt;
+&lt;p&gt;诚实和率直，使你受到欺骗和攻击，不管怎样，总是诚实、率直；&lt;/p&gt;
+&lt;p&gt;你多年营造的一切，可能毁于一夜之间，不管怎样，总是要去营造；&lt;/p&gt;
+&lt;p&gt;如果你得到平静和喜悦，可能会遭人妒嫉，不管怎样，总是要快乐；&lt;/p&gt;
+&lt;p&gt;你今天做的善事，人们往往明天就会忘记，不管怎样，总是要做善事；&lt;/p&gt;
+&lt;p&gt;把你所拥有最好的东西献给这个世界，也许微不足道，不管怎样，总是要把最好的东西献给世界。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;偶然读到的一首诗，读完让人觉得很通透。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;center&gt;—— &lt;em&gt;德兰修女&lt;/em&gt;&lt;/center&gt;
+
+
+&lt;p&gt;人们不讲道理、没有逻辑、以自我为中心，不管怎样，总是爱他们；&lt;/p&gt;
+&lt;p&gt;即使你是友善的，人们还是说你自私和别有用心，不管怎样，总是要友善；&lt;/p&gt;
+&lt;p&gt;当你功成名就，身边尽是真的敌人和假的朋友，不
+    
+    </summary>
+    
+      <category term="life" scheme="http://archmee.github.io/categories/life/"/>
+    
+    
+      <category term="摘抄" scheme="http://archmee.github.io/tags/%E6%91%98%E6%8A%84/"/>
+    
+  </entry>
+  
+  <entry>
     <title>故乡</title>
     <link href="http://archmee.github.io/201602/a-lais-home.html"/>
     <id>http://archmee.github.io/201602/a-lais-home.html</id>
     <published>2016-02-27T17:00:38.000Z</published>
-    <updated>2016-02-27T17:36:14.532Z</updated>
+    <updated>2016-03-05T16:48:12.179Z</updated>
     
     <content type="html">&lt;center&gt;&lt;br&gt;—— &lt;em&gt;阿来&lt;/em&gt;&lt;br&gt;&lt;br&gt;我现在坐在群山之巅&lt;br&gt;我把头埋在双膝之间&lt;br&gt;感到风，像时光的水流&lt;br&gt;漫过我的脊梁&lt;br&gt;河流轰鸣，道路回转&lt;br&gt;现在我要独自一人&lt;br&gt;任群山的波涛把我充满&lt;br&gt;任大地重新向我涌来&lt;br&gt;&lt;br&gt;今天我又穿过了十二个村庄&lt;br&gt;接下来我还要穿过一百多个村庄&lt;br&gt;而所有这些栽培着这些&lt;br&gt;玉米  小麦  苹果  梨的村庄&lt;br&gt;放牧着牛羊的村庄——&lt;br&gt;都跟我出生的村子一模一样&lt;br&gt;&lt;br&gt;有一座水磨坊，有一所小学堂&lt;br&gt;晴天的早上&lt;br&gt;小学堂的钟声叮当作响&lt;br&gt;所有这一切&lt;br&gt;都跟我出生的那个村子一模一样&lt;br&gt;所以你们这些所有的村子&lt;br&gt;你们都是我的故乡&lt;br&gt;&lt;br&gt;&lt;/center&gt;
 
 &lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;PS&lt;/strong&gt;：2016.2.24 摘自 &lt;a href=&quot;http://tv.cntv.cn/video/VSET100173543987/d250c6328bdd4cab9feeed410382c2aa&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《开讲啦》第20160205期&lt;/a&gt; 14分20秒处，作者阿来写于香烟盒子上的一首诗，无名，我暂取名为故乡。&lt;/p&gt;
+&lt;p&gt;2016.2.24 摘自 &lt;a href=&quot;http://tv.cntv.cn/video/VSET100173543987/d250c6328bdd4cab9feeed410382c2aa&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《开讲啦》第20160205期&lt;/a&gt; 14分20秒处，作者阿来写于香烟盒子上的一首诗，无名，我暂取名为故乡。&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -48,7 +88,7 @@
     <link href="http://archmee.github.io/201602/github-and-hexo-three-steps.html"/>
     <id>http://archmee.github.io/201602/github-and-hexo-three-steps.html</id>
     <published>2016-02-26T21:24:25.000Z</published>
-    <updated>2016-02-26T22:12:21.588Z</updated>
+    <updated>2016-03-03T18:09:30.186Z</updated>
     
     <content type="html">&lt;h3 id=&quot;序曲&quot;&gt;&lt;a href=&quot;#序曲&quot; class=&quot;headerlink&quot; title=&quot;序曲&quot;&gt;&lt;/a&gt;序曲&lt;/h3&gt;&lt;p&gt;之前有过一次搭建博客的经历，当时购买了自己的第一个 .COM 域名，并用 Wordpress 挂在了同学的服务器上，一年下来只写了有寥寥几篇博客，虽然都还算认真写的，但写作动力不足，最后域名过期便无疾而终了，想来还因为 Wordpress 太慢，且臃肿难用，二来每次在网页上写文章很不方便，一旦网页挂掉就 Game Over 了，Evernote 和有道笔记用过之后也不是很满意，一个太慢，一个除了慢而且长得丑（每次都要登陆登陆，登陆你个大头鬼啊，你知不知道我每次都是写的本地笔记本啊，而且最近每用一次必崩溃一次），两者功能都太多，我现在只偶尔用 Evernote 的剪藏功能来收藏网页。&lt;/p&gt;
 &lt;p&gt;其余，我想有一个能记录想法或笔记的工具，随时能用，并且有一个展示的地方，仅此而已。本来也可以写在Lofter、新浪博客、点点等博客平台上，但是总感觉不够『独立』，尤其在习惯了 Markdown 后，更被 Markdown 的优雅所吸引。最最重要的是我最近要开始学习 iOS 开发，到时会记录一些学习笔记和总结在这里，因为我发现很多大牛都有在博客上记录总结的习惯。与此同时还可以好好用下 Git 和 Github，综上，才有了我的新博客。&lt;/p&gt;
