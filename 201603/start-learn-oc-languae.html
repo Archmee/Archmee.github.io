@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>iOS学习笔记之OC基础 | 阿奇米</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'>
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201603/start-learn-oc-languae.html">iOS学习笔记之OC基础</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">March 03 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>从2.29号开始看 BigNerd 出版的《Objective-C编程》，花了两天时间将 C 语言部分温习了一遍，由于我是计算机专业的毕业生，所以 C 系的语言还算靠谱，但毕竟做了一年 Web 开发，重点都放在  PHP 和其他 Web 开发知识上，所以关于 C 的知识也已忘却不少。无论如何，我还是认真的把 C 的基础过了一遍(PS：有个讨论苹果开发入门的知乎贴有人说这本书只需要一天时间，实在佩服！)，并且跟着作者YY了一下 iOS 的开发工具 Xcode IDE，为什么YY呢，因为书上用的是 Mac 下的 Xcode，而我先前的C语言部分都是用的 Win 下的 Codeblocks，原因且看下面。</p>
+<h2 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h2><p>因为我手头并不宽裕，只有一个 iPad mini 2，当时买来是为了看书看视频用的，而 MAC 呢，虽然我没有，但是我姐有，可是她白天上班要带到公司去，所以我们的计划就是我白天在家看书，晚上等电脑回来再敲代码。然而这几天晚上我都在熟悉 MAC 的使用以及……<strong>下载Xcode</strong>，是的，连我自己也没想到。在鬼畜的 iTunes 上下载4.5G的 Xcode 7.2.1 尝试了2个晚上，就看到菊花一直转啊转啊，也不知道进度多少，？下载无果后，我姐利用上班时间在 Apple 官网下载了最新的 Xcode 7.3 Beta 版，这个版本我之前在官网看到过，因为是 Beta 版，所以才没有下载。那好吧，既然下载了，那就安装吧……,安装完运行才提示 Xcode 7.3 只支持 OS X 10.11 以上，而我的系统还是 OS X 10.10.1，试问隔壁的Windows有按照系统小版本更新来支持工具的吗？那我想估计下载 Xcode 6 就可以了吧，然而翻遍官网也没找到 Xcode 6 或者其他不是最新版的 Xcode 的链接，最后通过Google找到了 <a href="http://stackoverflow.com/questions/10335747/how-to-download-xcode-4-5-6-7-and-get-the-dmg-file" target="_blank" rel="external">StackOverflow上同样的问题：<code>how-to-download-xcode-4-5-6-7-and-get-the-dmg-file ?</code></a>，才知道要 <a href="https://developer.apple.com/downloads" target="_blank" rel="external">访问Apple官网的这个页面</a>，登陆 Apple ID，然后就可以下载Xcode的历史版本了。oh，妈妈咪呀，终于找到了你了，真是“皇天不负有心人”“踏波铁屑无觅处，得来全不费工夫。”“蓦然回首，那人却在灯火阑珊处”啊！好歹看见了一丝曙光，耗费昨晚一晚上，终于下载下来了 2.6 G 的 Xcode 6.4，等今晚上安装吧，这下应该是没问题的。结果晚上我姐回家说已经为此更新了系统。<br>吐槽结束，回到正题吧。<br>前面说过，我们这里省略 C 语言的部分，所以直接从13章开始。</p>
+<h2 id="OC-13章：对象"><a href="#OC-13章：对象" class="headerlink" title="OC-13章：对象"></a>OC-13章：对象</h2><ul>
+<li>对象和结构体类似，结构体中的<strong>成员</strong>在对象中称为<strong>实例变量</strong>（instance variable），对象和结构体的不同点在于：对象还可以包含一组函数。</li>
+<li>类负责描述特定类型的对象，一个类定义了一种对象。</li>
+<li>画对象图时，类一般用<strong>虚线</strong>，实例（对象）一般用<strong>实线</strong>。</li>
+<li>OC 头文件后缀为<code>.h</code>,其他代码后缀为<code>.m</code>。</li>
+<li>OC 用<code>#import</code>导入头文件，类似于 C 的<code>#include</code>，但是<code>#import</code>导入更有效率。</li>
+<li><strong>Foundation</strong>框架是 iOS 项目的一个基础框架，由多种类、函数、常量以及数据类型组成。</li>
+<li><code>NSLog()</code>函数类似于C语言的<code>printf()</code>函数，它与<code>printf()</code>的区别在于会先输出日期、时间、程序名称和进程ID，再输出实际内容。格式打印符<code>%p</code>会输出指针地址，<code>%@</code>会输出对象的‘描述信息’。</li>
+<li>在 OC 中，若要执行方法里的代码，<u>首先需要发送一条<strong>消息</strong>给包含这个方法的对象或类</u>。</li>
+<li>消息发送：必须写在一对方括号中，并且必须包含接收方（receiver）和选择器（selector）。<br><img src="/images/22-56-05.jpg" alt="Message"></li>
+<li><strong>类方法</strong>（class method）会创建类的实例，并初始化实例变量，如date。<br><strong>实例方法</strong>（instance method）会提供实例中实例变量的信息，或是对实例的实例变量进行操作，如timeIntervalSince1970。</li>
+<li>OC 区分大小写，以下为 OC 的语言命名习惯：<ul>
+<li>指向实例的变量使用<strong>驼峰命名法</strong>（camel case），以小写字母开头，接下来每个单词首字母大写。</li>
+<li>方法的命名也使用驼峰命名法。</li>
+<li>类的名称以大写字母开头，接下来的单词继续使用驼峰命名法。</li>
+<li>很多苹果创建的类型和常量的命名也是前缀大写的驼峰命名法，如NSInteger，他并不是类，只是一种整型类型。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p> 2016.3.5 12:46 更新</p>
+<hr>
+<h2 id="OC-14章：消息"><a href="#OC-14章：消息" class="headerlink" title="OC-14章：消息"></a>OC-14章：消息</h2><ul>
+<li>传递实参的消息，方法名后带有冒号<code>:</code>意味需要发送带有实参的消息，而且每个冒号后面都要传递参数。在写代码时，多个实参应该对齐冒号。</li>
+<li><code>NSDate</code>是时间类，<code>NSCalendar</code>是日历类。</li>
+<li>消息可以<strong>嵌套</strong>发送，系统会最先从最里面的消息由内之外依次执行。</li>
+<li>唯一必须以嵌套的形式连续发送的消息是alloc和init。<br>每个类都有一个 alloc 方法，它能创建一个对象，并返回指向该对象的指针，通过 alloc 出来的对象，必须要经过初始化才能使用，它存放在内存里，但是无法接收消息，每个类也都有一个 init 方法，它用来初始化实例。eg.<code>[[Class alloc] init]</code>。</li>
+<li><strong>nil</strong> 是不指向任何对象的指针，nil 值为0。在OC中向 nil 发送消息，没有任何影响。<ul>
+<li><strong>重点1：</strong>如果程序向某个对象发送了消息，但却没得到预期的结果，应先检查消息接收方是否为 nil。</li>
+<li><strong>重点2：</strong>向 nil 发送消息，得到的返回值没有任何意义。</li>
+</ul>
+</li>
+<li>声明指针时如不知道指针所指对象的准确类型，可以使用<code>id</code>类型。id 类型的含义是：可以指向任意类型的OC对象的指针，并且已经隐含了<code>*</code>的作用。eg.<code>id example</code>。</li>
+</ul>
+<h2 id="OC-15章：对象与内存"><a href="#OC-15章：对象与内存" class="headerlink" title="OC-15章：对象与内存"></a>OC-15章：对象与内存</h2><ul>
+<li>函数的帧在函数结束后会自动释放，堆里的对象不会自动释放。</li>
+<li><strong>ARC：</strong>自动销毁不被引用的对象的机制，自动引用计数（automatic reference counting）的简称。当对象对指向自己的指针计数为0时，程序便自动销毁该对象。<br>如果不再需要某个对象，则可以将<u>指向它</u>的指针设置为 nil。</li>
+</ul>
+<h2 id="OC-16章：NSString"><a href="#OC-16章：NSString" class="headerlink" title="OC-16章：NSString"></a>OC-16章：NSString</h2><ul>
+<li><code>@&quot;...&quot;</code>是OC中的一个缩写，代表根据给定的字符串创建一个 NSString 对象。这种缩写称为<strong>字面量语法</strong>（literal syntax）。</li>
+<li><p>NSString 实例可以保存任意 Unicode 字符，如需插入非 ASCII 字符，则可以使用<code>\u</code>，后面加上该字符的 Unicode 编码。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *str = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"I \u2661 You"</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p> 2016.3.5 23:46 更新</p>
+<hr>
+<h2 id="OC-17章：NSArray"><a href="#OC-17章：NSArray" class="headerlink" title="OC-17章：NSArray"></a>OC-17章：NSArray</h2><h3 id="NSArray"><a href="#NSArray" class="headerlink" title="NSArray"></a>NSArray</h3><ul>
+<li><p>NSArray 也可以用<strong>字面量语法</strong>来创建实例，数组的内容写在方括号，使用逗号分隔。eg:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *list = @[eleOne, eleTwo, eleTree];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>NSArray 创建的是<strong>静态数组</strong>（static array），一旦 NSArray 实例被创建，就无法添加或删除数组里的指针，也无法改变数组的指针顺序。</li>
+<li>NSArray 中的指针是有序的，并可以通过相应索引来存取，索引从0开始。这一点和C语言类似。</li>
+<li><code>count</code>方法会返回 NSArray 对象中所含指针的个数。</li>
+<li><p>遍历数组：</p>
+<ul>
+<li><p>标准方式</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(init; condtion; step)&#123;</span><br><span class="line"><span class="comment">//操作数组元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>OC的快速枚举</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(variable <span class="keyword">in</span> array) &#123;</span><br><span class="line"><span class="comment">//操作数组元素</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>旧式数组方法：</p>
+<ul>
+<li><p>还没有字面量语法的时候（用<code>@</code>创建数组），只能用 <code>arrayWithObjects:</code> 类方法来创建 NSArray 实例。eg:</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *list = [<span class="built_in">NSArray</span> arrayWithObjects:eleOne, eleTwo, eleThree, <span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+<p>最后的<code>nil</code>告诉方法停止运行。</p>
+</li>
+<li><p>还没有下标语法的时候，一般使用<code>ObjectAtIndex</code>来访问数组中的指针。eg:</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[list objectAtIndex:<span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="NSMutableArray"><a href="#NSMutableArray" class="headerlink" title="NSMutableArray"></a>NSMutableArray</h3><ul>
+<li>NSMutableArray 是 NSArray 的子类。</li>
+<li>NSMutableArray 创建的是<strong>动态数组</strong>（dynamic array），和 NSArray 实例不同的是，它可以添加、删除或对指针重新进行排序。<ul>
+<li><code>addObject:</code>方法给 NSMutableArray 在尾部添加对象。</li>
+<li><code>insertObject:atIndex:</code>在指定位置添加对象。</li>
+<li><code>removeObjectAtIndex:</code>删除数组中指定位置的对象，数组中的对象个数会随之减少。</li>
+<li>如果遍历数组时需要添加或删除指针，则需要使用标准的 for 循环。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p> 2016.3.6 23:10 更新</p>
+<hr>
+<h2 id="OC-18章：自定义类"><a href="#OC-18章：自定义类" class="headerlink" title="OC-18章：自定义类"></a>OC-18章：自定义类</h2><ul>
+<li>OC的头文件.h又称<strong>接口文件</strong>（interface file），包含实例变量和方法的声明。OC的.m文件称为<strong>实现文件</strong>（implementation file），包含所有方法的代码实现。</li>
+<li><p>OC <strong>头文件</strong> 以<code>@interface</code>开始，以<code>@end</code>结束。</p>
+<ul>
+<li>在花括号<code>{}</code>里声明实例变量，实例变量以下划线<code>_</code>开始，后跟实例变量的名字。书上说明<code>_</code>没有特别语法含义，仅仅是易于区分实例变量和局部变量。</li>
+<li>声明实例方法以减号<code>-</code>开始（类方法以加号<code>+</code>开始？），后面跟方法声明。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ClassName</span> : <span class="title">ExtendsClassName</span> </span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//声明实例变量 </span></span><br><span class="line">  <span class="keyword">int</span> _stockNumber;     </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//声明方法，或者属性</span></span><br><span class="line"><span class="comment">// - (返回类型)函数名:参数;</span></span><br><span class="line">- (<span class="keyword">float</span>)valueStock:(<span class="keyword">float</span>)rate;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>OC <strong>实现文件</strong> 以<code>@implementation</code>开始，以<code>@end</code>结束。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"ClassName.h"</span></span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ClassName</span></span></span><br><span class="line"><span class="comment">//实现方法</span></span><br><span class="line">- (<span class="keyword">float</span>)valueStock:(<span class="keyword">float</span>)rate &#123;</span><br><span class="line">  <span class="comment">//code  </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>存取方法（accessor method）：<strong>取方法</strong>（getter method）用去掉下划线前缀的实例变量命名。<strong>存方法</strong>（setter method）用set后跟去掉下划线前缀的实例变量命名，并且要遵循驼峰命名。eg：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>) setHeightInMeters:(<span class="keyword">float</span>)h;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>&lt;&gt;</code>和<code>&quot;&quot;</code>包含头文件的区别：<code>&lt;&gt;</code>包含系统头文件，<code>&quot;&quot;</code>包含当前项目头文件。</p>
+</li>
+<li><code>self</code>是一个指针，指向当前对象。可以作为实参传递给其他方法。</li>
+<li>OC没有命名空间（namespace），所以为了避免同一个项目中名字冲突，推荐使用三个或者三个以上的字母最为类前缀。</li>
+</ul>
+<h2 id="OC-19章：属性"><a href="#OC-19章：属性" class="headerlink" title="OC-19章：属性"></a>OC-19章：属性</h2><p>OC有一条便捷途径，可以简化存取方法的过程，该途径称为<strong>属性</strong>。</p>
+<ul>
+<li><p>声明属性：可以取而代之18章在花括号中声明实例变量，且声明属性不用写在花括号里，而是和声明方法在同一个级别。<br>声明属性以<code>@property</code>开始，后跟属性的特性、类型和名称。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="keyword">float</span> heightInMeters;</span><br></pre></td></tr></table></figure>
+<p>声明属性的优点：</p>
+<ol>
+<li>让头文件更简洁。</li>
+<li>减少代码输入。</li>
+<li>最重要的是，编译器会帮你声明和实现存取方法。</li>
+</ol>
+</li>
+<li><p>属性的特性：属性的声明可以有一个或多个属性特性（property attributes），属性特性告诉编译器关于属性行为的更多信息，多个属性特性用逗号<code>,</code>分隔。</p>
+<ol>
+<li>属性的特性分为<strong>原子性</strong>（atomic）和<strong>非原子性</strong>（nonatomic），默认为原子性。</li>
+<li>属性的另一种特性：<ul>
+<li>readonly（只读）：只有取方法，没有存方法。</li>
+<li>readwrite（读写）：默认值，既有存方法，也有取方法。</li>
+<li>copy（可拷贝）：每当声明一个指向NSString或NSArray的对象的属性时，都需要设置copy属性。</li>
+<li>还有更多……</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>点号调用存取方法：dot notation 是苹果公司提供的一种快捷调用存取方法的语法。它和获取结构体成员方法一样，但是不同之处在于，使用 dot notation 实际是在发送消息。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下面的代码对于属性的存取是等价的</span></span><br><span class="line">object<span class="variable">.var</span> = <span class="number">10</span>;</span><br><span class="line">[object setVar:<span class="number">10</span>]; <span class="comment">//setVar是编译生成的存方法</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>测试发现，也可以用点号调用其他非存取方法。</p>
+</blockquote>
+<h2 id="OC-20章：继承"><a href="#OC-20章：继承" class="headerlink" title="OC-20章：继承"></a>OC-20章：继承</h2><ul>
+<li><p>本书所有对象（无论间接的还是直接的）都继承自NSObject。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ClassName</span> : <span class="title">NSObject</span> </span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当有属性指向某个对象的时候，需要对内存进行管理。</p>
+</li>
+<li>子类的实例可以毫无疑问的代替父类的实例，因为它继承了父类的所有东西。</li>
+<li><strong>覆盖方法</strong>：覆盖方法只能改变方法的实现，而无法改变它的声明方式，方法名称、返回类型以及实参类型都必须保持相同。</li>
+<li><p>子类可以利用父类的实现，而不是完全替换，不过需要用到 <strong>super</strong> 指令。super 的含义是：运行指定的方法，但是从对象的父类开始查找与之匹配的实现。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在实现方法代码中</span></span><br><span class="line">[<span class="keyword">super</span> parentClassMethod]; <span class="comment">//运行父类</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>NSObject 虽然拥有很多方法，但是只有一个实例变量： <strong>isa</strong> 指针。任何一个对象的 isa 指针都指向创建该对象的类.</li>
+<li>给对象发送消息的时候，对象就会查询是否有该消息名的方法。搜索会通过 isa 指针找到该对象的类并查询，如果没有匹配该消息名的方法，如果没有，就会继续查询它的父类。依次类推，对象会沿着继承链向上查询，直到找到匹配消息名的方法，或者到达继承链的顶端（NSObject）为止，如果还是没找到，就报错。</li>
+<li><p><code>%@</code> 和 <strong>description</strong> 方法的转换：处理<code>%@</code>时，程序会先向相应的指针变量所指的对象发送 description 消息，description 方法会返回一个描述类实例的字符串。description 是一个NSObject方法，所以所有对象都有这个方法，类可以覆盖 description 方法来定义类实例的描述。eg:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)description &#123;</span><br><span class="line"><span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"..."</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p> 2016.3.9 22:50 更新</p>
+<hr>
+<h2 id="OC-21章：对象实例变量及属性"><a href="#OC-21章：对象实例变量及属性" class="headerlink" title="OC-21章：对象实例变量及属性"></a>OC-21章：对象实例变量及属性</h2><ul>
+<li>对象实例变量的三种常见用途：<ul>
+<li>对象属性：指向某个单一的、代表某个值的对象，如NSString对象。</li>
+<li>一对一关系：指向单个复杂对象的指针。</li>
+<li>一对多关系：指向某个collection类的实例的指针。如NSMutableArray实例。</li>
+</ul>
+</li>
+<li>任何一个对象不会在其内部保存其他对象，而只会在内部保存相应对象的地址。与“包含其他对象”相比，这样会产生两大副作用。<ul>
+<li>单个对象可能会扮演多个角色。</li>
+<li>导致产生大量独立的对象，耗尽程序的可用内存。</li>
+</ul>
+</li>
+<li>为了解决上个问题的副作用，OC提出了<strong>对象所有权</strong>（object owership）概念，当A对象拥有某个对象实例变量B时，称A拥有了B指向的对象。当某个对象的拥有方个数为0时，可以判定程序不再需要该对象，从而释放该对象。</li>
+<li>有一个NSObject方法：<strong>dealloc</strong>，如果类覆盖了该方法，那么当类的实例被释放时，就会执行dealloc方法。</li>
+<li>一对多关系是由collection对象（如数组）和其包含的对象组成的。<ul>
+<li>当在collection对象中加入某个对象的时，会在collection对象中保存指向该对象的指针，并成为该对象的拥有方。</li>
+<li>当从collection中移除某个对象时，会删除指向该对象的指针，并不再是该对象的拥有方。</li>
+</ul>
+</li>
+<li>用<code>@class ClassName</code>引用某个头文件时，和<code>#import</code>不同的是，编译器不会查看文件的全部内容，因此处理速度更快，这样是因为编译器不需要知道实现细节就能处理文件中的所有声明了。</li>
+<li>创建collection对象的时机有两个：<ul>
+<li>创建本地对象时。</li>
+<li>需要使用相应collection对象时（延迟创建机制）。</li>
+</ul>
+</li>
+<li>如果程序有用不到的但有没有释放的对象，就称程序有内存泄露（memory leak）。</li>
+</ul>
+<h2 id="OC-22章：类扩展"><a href="#OC-22章：类扩展" class="headerlink" title="OC-22章：类扩展"></a>OC-22章：类扩展</h2><ul>
+<li>涉及实现细节的属性或方法最好在<strong>类扩展</strong>（class extension）中声明，类扩展是一组私有的声明，只有类和该类的实例才能使用在类扩展中声明的属性、实例变量或方法。</li>
+<li><p>通常，类扩展是添加在类实现文件中的，并且是位于<code>@implementation</code>之上的，并且和头文件中一样要用<code>@interface ... @end</code>包起来，但是类名字后面是跟一对括号<code>()</code>，声明方法都一样。eg：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ClassName</span>()</span></span><br><span class="line"><span class="comment">//...类扩展声明内容放在这里...</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ClassName</span></span></span><br><span class="line"><span class="comment">//...原来实现方法的代码...</span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可用类扩展<strong>隐藏可变属性</strong>。比如 NSMutableArray。</p>
+</li>
+<li>子类无法获取父类的类扩展。</li>
+<li><u>在类的头文件中声明属性的时候，其他对象只能看到属性的存取方法，对象（包括子类）无法直接获取属性声明生成的实例变量。</u></li>
+</ul>
+<hr>
+<p> 2016.3.10 22:05 更新</p>
+<hr>
+<h2 id="OC-23章：避免内存泄露"><a href="#OC-23章：避免内存泄露" class="headerlink" title="OC-23章：避免内存泄露"></a>OC-23章：避免内存泄露</h2><ul>
+<li>“互相拥有”的所有权关系导致相关的对象都无法被释放。这种情况称为<strong>强引用循环</strong>（strong reference cycle），强引用循环是导致内存泄露的常见原因。</li>
+<li><p>通过 <strong>弱引用</strong> （weak reference）可以解决强引用循环问题。在声明属性的时候在特性中采用<strong>weak</strong>关键字，eg：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) Object *pointer;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果需要明确的将指针变量声明为弱引用，则可以标注<strong>__weak</strong>，eg：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> Object *pointer;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>为了避免强引用循环，通常需要遵守此规则：父对象拥有子对象，但是子对象不拥有父对象。</li>
+<li>弱引用有自动置0特性，当某个由弱引用指向的对象被释放时，相应的指针变量会被<strong>归零</strong>（zeroed），即赋为nil。</li>
+<li>总结：强引用会保留对象的拥有方，使其不被释放。而弱引用则不会保留，因此标为弱引用的实例变量与属性指向的对象可能会消失。</li>
+<li><p>在没有ARC之前，都是采用手动引用计数：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Code block</span></span><br><span class="line">[anObject retain]; <span class="comment">//获取anObject的拥有权</span></span><br><span class="line">[anObject release]; <span class="comment">//释放anObject的拥有权</span></span><br><span class="line">[anObject autorelease]; <span class="comment">//自动释放anObject的拥有权，自动一般在autorelease池（对象）被排干（drain）的时候；</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Another code block  </span></span><br><span class="line"><span class="comment">//手动创建autorelease池</span></span><br><span class="line"><span class="built_in">NSAutoreleasePool</span> *arp = [[<span class="built_in">NSAutoreleasePool</span> alloc] init];</span><br><span class="line"><span class="comment">//coding here</span></span><br><span class="line">[arp drain] <span class="comment">//排干autorelease池</span></span><br><span class="line"><span class="comment">//--------------</span></span><br><span class="line"><span class="comment">//Objective-c加入ARC，也加入了用于创建autorelease池的新语法。</span></span><br><span class="line"><span class="keyword">@autoreleasepool</span> &#123; <span class="comment">//创建autorelease池（对象）</span></span><br><span class="line"> <span class="comment">// coding here</span></span><br><span class="line">&#125; <span class="comment">//autorelease池已经被排空</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>理解内存管理的技巧“从局部的角度，以分类为分界”。</li>
+</ul>
+<h2 id="OC-24章：Collection-类"><a href="#OC-24章：Collection-类" class="headerlink" title="OC-24章：Collection 类"></a>OC-24章：Collection 类</h2><h3 id="NSSet-NSMutable（集合）"><a href="#NSSet-NSMutable（集合）" class="headerlink" title="NSSet/NSMutable（集合）"></a>NSSet/NSMutable（集合）</h3><ul>
+<li>NSSet对象所包含的内容是无序的，而且在NSset对象那个中，某个对象只能出现一次。</li>
+<li>NSset对象的最大用处就是检查某个对象是否存在。</li>
+<li>NSset对象也分为可对指针进行修改和不可对指针进行修改两类：NSSet对象是不能对指针进行修改的，对象创建好后就不能对其中的指针进行添加或删除等操作，而NSMutableSet是它的子类，它是动态可变的。</li>
+<li>NSset对象中的对象是无序的，所以不能通过索引来访问。</li>
+<li>如果程序要检查某两个对象是否相等，可以用NSObject类中的<strong>isEqual:</strong>方法。</li>
+<li>相同的变量一定是相等的，而相等的变量不一定相同。</li>
+</ul>
+<h3 id="NSDictionary-NSMutableDictionary-字典"><a href="#NSDictionary-NSMutableDictionary-字典" class="headerlink" title="NSDictionary/NSMutableDictionary(字典)"></a>NSDictionary/NSMutableDictionary(字典)</h3><ul>
+<li><p>NSDictionary是一组<strong>键-值对</strong>（key-value pair）集合，键通常是字符串，值可以是任意类型的对象。字典对象中的键都是独一无二的，字典对象所保存的键-值对是无序的。字典的字面量语法由<code>@</code>和<code>{}</code>组成，键值对之间用逗号<code>,</code>分割。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建字典</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *dic = @&#123;</span><br><span class="line">       <span class="string">@"key-1"</span> : @<span class="number">0</span>, <span class="comment">//值是数字对象</span></span><br><span class="line">       <span class="string">@"key-2"</span> : @[<span class="string">@"Lua"</span>, <span class="string">@"xiba"</span>], <span class="comment">//值是数组对象</span></span><br><span class="line">       <span class="string">@"key-3"</span> : <span class="string">@"abc"</span>, <span class="comment">//值是字符串对象</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//从字典取值</span></span><br><span class="line">dic[<span class="string">@"key-2"</span>];</span><br><span class="line"><span class="comment">//还没引入下标的用法</span></span><br><span class="line">[dic setObject:<span class="string">"key-x"</span> fouKey:<span class="string">"Hello"</span>]; <span class="comment">//添加字典对象那个</span></span><br><span class="line">[dic objectForKey:<span class="string">@"key-x"</span>]; <span class="comment">//从字典取值</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="不可修改对象"><a href="#不可修改对象" class="headerlink" title="不可修改对象"></a>不可修改对象</h3><ul>
+<li><p>问：前面讲的 collection 都有不可更改和可更改的，那么为什么要提供不能修改的 collection 呢？<br>答：使用不能修改的 collection 可以节约内存提高性能，因为它永远无法拷贝。而对于可修改对象，则可能发生这样一种情况：程序中的其它代码可能在你使用这个对象时修改这个对象的内容。为了避免这种情况，就需要复制一份私有拷贝。而每个程序的代码都有可能做一份私有拷贝，这样就有可能会有多份一样的对象拷贝。</p>
+<p>比如 NSArray 的 copy 方法实际上不会做任何额外的操作，仅仅返回指向自身的指针而已。而 NSMutableArray 的 copy 方法则会制作一份自己的拷贝，并返回指向新数组的对象的指针。</p>
+</li>
+<li>很多类都有不可修改对象，这些类都有可修改的子类（一般在中间加入Mutable），<u>但是 <strong>NSDate</strong> 和 <strong>NSDate</strong> 只有不可修改的版本</u>。</li>
+</ul>
+<h3 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h3><ul>
+<li>不可修改的数组不能排序。</li>
+<li><p><strong>排序描述对象</strong>（sort descriptor）包含两个信息：一个是数组中的对象的属性名，而是根据该属性是要升序（ascending）还是降序（descending）。eg:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSSortDescriptor</span> *desc = [<span class="built_in">NSSortDescriptor</span> sordDescriptorWithKey: <span class="string">@"key"</span> ascending:<span class="literal">YES</span>]; <span class="comment">//key可以是方法名，也可以是实例变量或属性的名字。</span></span><br><span class="line">[mutableList sortUsingDescriptors: @[desc]];<span class="comment">//将mutableList数组按照descriptor排序后，结果依然放在mutableList中。</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h3><ul>
+<li><p>对collection进行过滤的时候，程序将对collection对象和一条逻辑语句进行比较，得到一个合成的collection，这个collection包含满足这条语句的对象：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSPredicate</span> *predicate = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"value &gt; 70"</span>]; <span class="comment">//设置过滤条件</span></span><br><span class="line"><span class="built_in">NSArray</span> *result = [list filteredArrayUsingPredicate:predicate]; <span class="comment">//过滤</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>Predicate对象的条件语句可以支持非常复杂的格式。</li>
+</ul>
+<h3 id="collection-注意事项"><a href="#collection-注意事项" class="headerlink" title="collection 注意事项"></a>collection 注意事项</h3><ul>
+<li>向collection对象加入某个对象时，collection对象会成为该对象的拥有方，如果从collection对象中移除该对象，collection对象就不再是该对象的拥有方了。</li>
+<li>本章节提到的collection只能保存对象，如果要保存C语言的基本类型，可以创建相应的对象进行封装。NSValue 实例可以用来保存任意的数量值。</li>
+<li><p>本章节提到的collection对象都不能保存 nil ，如果要将“空”加入collection对象，则可以使用NSNull类，它只有一个实例，代表“空”。eg:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[collection addObject:[<span class="built_in">NSNull</span> null]];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="OC-25章：常量"><a href="#OC-25章：常量" class="headerlink" title="OC-25章：常量"></a>OC-25章：常量</h2><ul>
+<li>将代码中不变的值称为<strong>常量</strong>。</li>
+<li>OC中可以通过 <strong>#define</strong> 和 <strong>全局变量</strong> 来定义常量。</li>
+<li>在OC中π的常量是<code>M_PI</code>。</li>
+<li>通过 #define，不仅可以替换代码中某个特定值，还可以构建类似函数的代码段，称为<strong>宏</strong>（macro）。</li>
+<li><strong>NSLocale</strong> 实例可以保存针对不同地理位置的相关信息。</li>
+<li><strong>extern</strong> 关键字导入其他文件中的定义。</li>
+<li>苹果引入了一种新的enum声明语法：<strong>NS_ENUM()</strong>，它有两个参数，分别是数据类型和名字。</li>
+<li>在 #define 和 全局变量 中<u>更倾向于</u>使用全局变量来定义常量。</li>
+</ul>
+<h2 id="OC-26章：NSString和NSData写入文件"><a href="#OC-26章：NSString和NSData写入文件" class="headerlink" title="OC-26章：NSString和NSData写入文件"></a>OC-26章：NSString和NSData写入文件</h2><ul>
+<li><p>将NSString对象写入文件</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSMutableString</span> *str = <span class="string">@"Hello world!\n"</span>;</span><br><span class="line"><span class="built_in">NSError</span> *error=<span class="literal">nil</span>; <span class="comment">//用于处理错误的参数</span></span><br><span class="line"><span class="built_in">BOOL</span> success = [str writeToFile:<span class="string">@"/tmp/test.txt atomiclly:YES encoding:NSUTF8StringEncoding error:&amp;error"</span>];</span><br><span class="line"><span class="keyword">if</span> (!success) &#123;<span class="comment">//写入文件失败</span></span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [error localizedDescription]); <span class="comment">//输出时要格式化错误信息</span></span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//否则写入成功</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"Success!"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>将文件读入NSString对象</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSError</span> *error=<span class="literal">nil</span>;</span><br><span class="line"><span class="built_in">NSString</span> *str = [[<span class="built_in">NSString</span> alloc] initWithContentsOfFile:<span class="string">@"/tmp/test.txt"</span> encoding:<span class="built_in">NSASCIIStringEncoding</span> error:&amp;error];</span><br><span class="line"><span class="keyword">if</span> (!str) &#123;</span><br><span class="line">       <span class="comment">//读取失败</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       <span class="comment">//读取成功 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>将NSData对象写入文件</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSError</span> *error=<span class="literal">nil</span>;</span><br><span class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://google.com/images/logo/ps_logo.png"</span>]; <span class="comment">//给一个有效图片地址就行</span></span><br><span class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</span><br><span class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSURLCollection</span> sentSynchronousRequest:request returningResponse:<span class="literal">NULL</span> error:&amp;error];</span><br><span class="line"><span class="keyword">if</span> (!data) &#123;</span><br><span class="line"><span class="comment">//读取失败</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">//读取成功</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取文件存入NSData对象</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSData</span> *readData = [<span class="built_in">NSData</span> dataWithContentOffile:<span class="string">@"/tmp/test.txt"</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>寻找特别目录：苹果公司创建了一个函数告诉你正确的目录</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *deskTop = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDesktopDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>);<span class="comment">//NSDesktopDirectory是桌面目录，还有其他目录常量可以查看文档</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p> 2016.3.17 16:15 更新</p>
+<hr>
+<h2 id="OC-27章：回调"><a href="#OC-27章：回调" class="headerlink" title="OC-27章：回调"></a>OC-27章：回调</h2><ul>
+<li><p><strong>回调</strong> （callback）就是将一段可执行的代码和一个特定的事件绑定起来，当特定的事件发生时，就会执行这段代码。在OC中，有四种可实现回调的方法：</p>
+<ul>
+<li><strong>目标-动作对</strong>：在程序开始等待前，要求“当事件发生时，向指定的对象发送某个特定的消息”。这里接收消息的对象是目标（target），消息的选择器（selector）是动作（action）。</li>
+<li><strong>辅助对象</strong>：在程序开始等待前，要求“当事件发生时，向遵守相应协议的辅助对象发送消息”，<strong>委托对象</strong>（delegate）和<strong>数据源</strong>（data source）是常见的辅助对象。</li>
+<li><strong>通知</strong>（notification）：苹果提供了一种称为通知中心的对象。在程序开始等待前，告知通知中心“某个对象正在等待某些特定的通知，当其中某个通知出现时，向指定的对象发送特定的消息”。</li>
+<li><strong>Block对象</strong>：Block 是一段可执行的代码。当程序开始等待前，声明一个Block对象，当事件发生时，执行这段Block对象。</li>
+</ul>
+</li>
+<li><p>事件驱动的程序需要有一个对象，专门等待事件的发生。NSRunLoop实例会在特定的事件发生时触发回调。</p>
+</li>
+<li><code>@selector</code>语句用来传递动作消息的名称给相应方法。</li>
+<li>可以在声明一个变量前使用<code>__unused</code>修饰符标记，消除编译器“变量未使用”警告。</li>
+<li><code>NSURLConnection</code>在异步模式时，不会一次性发送全部数据，他会发送块状的数据，并多次发送。</li>
+<li><strong>协议</strong>（protocol）是一系列方法声明，辅助对象可以根据协议实现相应方法</li>
+<li>如何选择除了 Block 外的三种回调方法：<ul>
+<li>对于只做一件事情的对象，使用目标-动作对。</li>
+<li>对于功能更复杂的对象，使用辅助对象。</li>
+<li>对于要触发多个回调的对象，使用通知。</li>
+</ul>
+</li>
+<li><p>创建的对象拥有一个指向回调对象的指针，而这个回调对象的指针指向你创建的对象。就陷入了一个强引用循环，这两个对象都无法释放。所以编写回调代码时，应该遵循以下规则：</p>
+<ul>
+<li><strong>通知中心不拥有观察者</strong>。如果将某个对象注册为观察者，那么通常应该在释放该对象将其移出通知中心。</li>
+<li><strong>对象不拥有委托对象或数据源对象</strong>。如果某个新创建的对象是另一个对象的委托对象或数据源对象，那么该对象应该在其<code>dealloc</code>方法中取消相应的关联。</li>
+<li><strong>对象不拥有目标</strong>。如果新创建的对象是另一个对象的目标，那么该对象应该在其<code>dealloc</code>方法中取消相应的关联。</li>
+</ul>
+</li>
+<li><p>如果使用方法的实际名称进行查询，那么查询速度会很慢，为了提速，编译器会为了每个其解除过的方法附上一个唯一的数字。这个数字称为选择器，通过编译指令<code>@selector</code>可以得到与方法名相对应的选择器。</p>
+</li>
+</ul>
+<h2 id="OC-28章：Block对象"><a href="#OC-28章：Block对象" class="headerlink" title="OC-28章：Block对象"></a>OC-28章：Block对象</h2><ul>
+<li><code>^</code>开始表示这段代码是一个 Block 对象。Block 对象也可以有实参和返回值。</li>
+<li>Block 对象可以被当成一个实参来传递给可以接收 block 的方法。</li>
+<li>声明一个 Block 时，要参考要使用该 Block 对象的方法期望的 Block 类型。</li>
+<li>对于有返回值的 Block 对象，可以像调用函数那样调用 Block 对象，然后使用其返回值。</li>
+<li>匿名 Block 对象是可以传递给方法的 Block 对象的，而不需要先赋值给变量。</li>
+<li><p>当在 Block 中使用在 Block 对象外声明的变量（外部变量）时，相应的 Block 对象会捕获这些变量。</p>
+<p>对基本类型的变量，捕获意味着程序会拷贝变量的值，并用 Block 对象中的局部变量保存。对指针类型的变量， Block 对象会使用强引用，这意味着凡是 Block 对象使用到的对象，都会被保留，所以在相应的 Block 对象被释放前，这些对象一定不会被释放（这也是block对象和函数的区别，函数无法做到）。</p>
+</li>
+<li><p>在 Block 对象中捕获的外部变量是常数，程序无法修改变量所保存的值。如果需要在 Block 对象中修改某个外部变量，则可以在声明外部变量前，加上<code>__block</code>关键字。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">__block <span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">^&#123; count++; &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>在 Block 对象中使用<code>self</code>时，又会陷入强引用循环，为了打破它，可以在 Block 对象外声明一个<code>__weak</code>指针，然后指向 Block 对象中要使用的 <code>self</code>，然后在 Block对象中使用新的指针。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> Object *weakself = <span class="keyword">self</span>; <span class="comment">//弱引用</span></span><br><span class="line">myBlock = ^&#123;</span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"Object: %@"</span>, weakself);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>然而是由于是弱引用，<code>self</code>指向的对象有可能在运行时被释放。可以在 Block 对象中创建一个对<code>self</code>的局部强引用。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> Object *weakself = <span class="keyword">self</span>; <span class="comment">//弱引用</span></span><br><span class="line">myBlock = ^&#123;</span><br><span class="line">   Object *innerSelf = weakself; <span class="comment">//局部强引用</span></span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"Object: %@"</span>, innerSelf);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>如果直接在 Block 对象中使用实例变量，那么 Block 对象会捕获 <code>self</code>，而不会捕获实例变量。这样又会陷入强引用循环，所以不要直接存取实例变量，尽量使用存取方法。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> Object *weakself = <span class="keyword">self</span>; <span class="comment">//弱引用</span></span><br><span class="line">myBlock = ^&#123;</span><br><span class="line">   Object *innerSelf = weakself; <span class="comment">//局部强引用</span></span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"Object: %@"</span>, innerSelf);</span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"value is %@"</span>, _value); <span class="comment">//不推荐：Block 对象会捕获self</span></span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"value is %@"</span>, innerSelf<span class="variable">.value</span>);<span class="comment">// 推荐使用存取方法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="OC-29章：协议"><a href="#OC-29章：协议" class="headerlink" title="OC-29章：协议"></a>OC-29章：协议</h2><ul>
+<li>协议可以为一个对象指定角色。</li>
+<li>协议是一组方法声明，一些是必须的，一些是可选的。如果要某个对象扮演特定的角色，就一定要实现必须的方法，选择实现可选方法。</li>
+<li><p>在创建要遵守某个协议的新类时，要在头文件中进行说明，eg：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TerrificView</span>: <span class="title">UIViewController</span> &lt;<span class="title">ProtocolName</span>，<span class="title">ProtocolName</span>&gt; //该类继承自<span class="title">UIViewController</span>类，并且遵守尖括号中列举的协议，多个协议用逗号隔开</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果给一个对象发送消息，而这个对象没有相应的方法，程序会崩溃。如果在遵守某协议的类中没有实现某个可选方法，也是如此。为了避免这种情况，可以使用<code>respondsToSelector:</code>询问对象是否实现了某个方法，该方法在<code>NSObject</code>中实现了，返回值是<code>BOOL</code>型。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">if</span> ([_data respondsToSelector:<span class="keyword">@selector</span>(totalValue)]) &#123;</span><br><span class="line">   [_data totalValue];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="OC-30章：Proper-List-格式"><a href="#OC-30章：Proper-List-格式" class="headerlink" title="OC-30章：Proper List 格式"></a>OC-30章：Proper List 格式</h2><p>一个NSArray里面放上N个NSDictionary就组成了P-List格式，再输出到后缀<code>.plist</code>的文件中即可，好像没什么重点……</p>
+<p>——— 结束de分割线 ———</p>
+<p>到今天为止，Objective-C基础部分就学习结束了，这篇笔记也更新结束了，因为中途情绪比较低落，看书容易走神，所以速度还是有点慢。希望后面能好起来。</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="/images/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 阿奇米 </p>
+      <p class="subtitle"> 努力挣钱，包养文艺女青年。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it~ </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="序"><a href="#序""
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+  <script src="/js/app.js" type="text/javascript"></script>
+</body>
+</html>
