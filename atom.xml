@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-03-05T16:55:23.054Z</updated>
+  <updated>2016-04-05T15:55:46.210Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -14,6 +14,97 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS开发之OC高级笔记</title>
+    <link href="http://archmee.github.io/201603/start-learn-oc-advanced.html"/>
+    <id>http://archmee.github.io/201603/start-learn-oc-advanced.html</id>
+    <published>2016-03-24T10:30:00.000Z</published>
+    <updated>2016-04-05T15:55:46.210Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;OC-33章：init&quot;&gt;&lt;a href=&quot;#OC-33章：init&quot; class=&quot;headerlink&quot; title=&quot;OC-33章：init&quot;&gt;&lt;/a&gt;OC-33章：init&lt;/h2&gt;&lt;p&gt;alloc负责分配对象空间，init负责初始化对象。&lt;br&gt;&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSMutableArray&lt;/span&gt; *things = [[&lt;span class=&quot;built_in&quot;&gt;NSMutableArray&lt;/span&gt; alloc] init]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;init方法可以被重写覆盖，像description方法一样。&lt;br&gt;&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (instancetype) init &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; = [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; init]; &lt;span class=&quot;comment&quot;&gt;//初始化父类&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//初始化自己的代码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;instancetype&lt;/strong&gt; 关键字会告诉编译器返回什么类型的对象。自己编写的或是覆盖的任何初始化方法都应该返回 instancetype 类型的值。如果返回具体的类类型，会在继承的时候导致强制转换，所以使用 instancetype 确保可以安全的继承初始化方法。当然也可以使用 &lt;strong&gt;id&lt;/strong&gt; 类型，但是更推荐 instancetype。&lt;/p&gt;
+&lt;p&gt;对于实现自己的初始化方法的注意事项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;出于优化考虑，init 方法会释放已经分配了内存的对象，然后创建另一个对象返回之。苹果要求：将父类的 init 方法所返回的对象赋给 self。&lt;/li&gt;
+&lt;li&gt;init 方法在执行过程中发生了错误，所以会释放对象并返回 nil。苹果建议：检查父类的 init 方法的返回值，确定不是 nil 并且有效。否则，就没有必要执行自定义的初始化代码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因为 init 没有实参，如果希望向 init 方法传入实参，可以定义其他初始化方法，并在 init  方法中调用该方法并传入默认参数。多个初始化方法也可以用这种方法。&lt;/p&gt;
+&lt;p&gt;在 init 方法中既可以通过直接赋值来设置实例变量，也可以使用存取方法来完成这项任务。&lt;/p&gt;
+&lt;p&gt;编写初始化方法应该遵循以下规则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;其他的初始化方法都应该（直接地或间接地）调用指定初始化方法。&lt;/li&gt;
+&lt;li&gt;指定初始化方法应该先调用父类的指定初始化方法，然后再编写自己的初始化代码。&lt;/li&gt;
+&lt;li&gt;如果某个类的指定初始化方法和父类不同，就必须覆盖父类的指定初始化方法，并调用新的指定初始化方法。&lt;/li&gt;
+&lt;li&gt;如果某个类有多个初始化方法，就应该在相应头文件中明确地注明哪个方法是指定初始化方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;禁用初始化方法&lt;br&gt;&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (instancetype)init &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;built_in&quot;&gt;NSException&lt;/span&gt; raise:&lt;span class=&quot;string&quot;&gt;@&quot;BNRWallSafeInitialization&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                format:&lt;span class=&quot;string&quot;&gt;@&quot;Use initWithSecretCode: not init&quot;&lt;/span&gt;]; &lt;span class=&quot;comment&quot;&gt;//抛出异常&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;OC-34章：再谈属性&quot;&gt;&lt;a href=&quot;#OC-34章：再谈属性&quot; class=&quot;headerlink&quot; title=&quot;OC-34章：再谈属性&quot;&gt;&lt;/a&gt;OC-34章：再谈属性&lt;/h2&gt;&lt;p&gt;属性的特性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;存取类型&lt;ul&gt;
+&lt;li&gt;属性声明为 &lt;strong&gt;readwrite&lt;/strong&gt; 代表程序应该自动创建存方法和取方法&lt;/li&gt;
+&lt;li&gt;属性声明为 &lt;strong&gt;readonly&lt;/strong&gt; 代表程序无须创建存方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;生命周期类型&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;assign&lt;/strong&gt;： 是默认也是最简单的，存方法会将传入的值直接赋给实例变量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;strong&lt;/strong&gt;：凡是指向对象的实例变量，通常应该使用 strong 特性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;weak&lt;/strong&gt;：要求不保留传入的对象，如果该对象被释放，相应的实例变量会被自动赋为 nil，这么做可以避免产生&lt;strong&gt;悬空指针&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;unsafe_unretained&lt;/strong&gt;：和weak特性有点类似，要求不保留传入的对象，然而，如果该对象被释放，相应的实例变量不会被自动赋为 nil。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;copy&lt;/strong&gt;：要求拷贝传入的对象，并将新的对象赋给实例变量。大多数类都有两个版本，一个可修改的，另一个不可修改的。copy 方法返回不可修改对象，mutableCopy 返回可修改对象。&lt;/p&gt;
+&lt;p&gt;OC 没有为属性提供 mutableCopy 这样的特性，如果某个对象需要复制传入的对象，并且要求新对象是可修改的，就必须自己编写代码实现（向传入的对象发送mutableCopy消息），而不能依赖属性机制。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;atomic 和 nonatomic：默认atomic，但建议使用 nonatomic&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果声明一个属性，手动实现存取方法，编译器就不会合成实例变量。但如果你需要实例变量，就必须自己创建，创建的方法是在类的实现文件中的implementation后添加 &lt;code&gt;@synthesize&lt;/code&gt; 指令。&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@synthesize&lt;/span&gt; mushroom = _mushroom; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//然后就可以实现存取方法并使用实例变量了。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;声明一个只读属性时，编译器会自动合成一个取方法和一个实例变量，此时如果手动实现取方法，编译器也不会合成实例变量，而需要手动合成。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;2016-03-28 12:00 更新&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;OC-35章：KVC&quot;&gt;&lt;a href=&quot;#OC-35章：KVC&quot; class=&quot;headerlink&quot; title=&quot;OC-35章：KVC&quot;&gt;&lt;/a&gt;OC-35章：KVC&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;KVC&lt;/strong&gt;（key-value coding）能够让程序通过名称直接存取属性。也可以用KVC读取实例变量。&lt;code&gt;setValue:forKey&lt;/code&gt;方法会查找相应的存方法，如果没有，就会直接为实例变量赋值，&lt;code&gt;valueForKey:&lt;/code&gt;方法会查找相应取方法，如果没有，就会直接返回相应的实例变量。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;KVC的方法在NSObject类中定义。&lt;/li&gt;
+&lt;li&gt;KVC是一个违背了对象封装的例外。&lt;/li&gt;
+&lt;li&gt;KVC只对对象有效。所以应该尽量用相应对象来声明属性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Key Path：大多数程序到最后都有一个相对复杂的对象表。如下图，这种通过层层指针指向的对象虽然可以使用KVC来遍历，但是使用 key path 要方便很多。有点类似与C++的&lt;code&gt;.&lt;/code&gt;号访问对象属性。和KVC的方法名稍有区别，&lt;code&gt;setValue:forKeyPath:&lt;/code&gt;和&lt;code&gt;valueForKeyPath:&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/12-39-14.jpg&quot; alt=&quot;Complex object&quot;&gt;&lt;/p&gt;
+&lt;p&gt;以下是用KVC遍历的方法：&lt;br&gt;&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;BNRDepartment *sales = [[BNRDepartment alloc] init];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;BNREmployee *sickEmployee = [sales valueForKey:&lt;span class=&quot;string&quot;&gt;@&quot;manager&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;BNRPerson *personToCall = [sickEmployee valueForKey:&lt;span class=&quot;string&quot;&gt;@&quot;emergencyContact&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *numberToDial = [personToCall valueForKey:&lt;span class=&quot;string&quot;&gt;@&quot;phoneNumber&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;以下是用 key path 的方法：&lt;br&gt;&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;BNRDepartment *sales = [[BNRDepartment alloc] init];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *numberToDial = [sales valueForKeyPath:&lt;span class=&quot;string&quot;&gt;@&quot;manager.emergencyContact.phoneNumber&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;通过 key path 设置属性的值：&lt;br&gt;&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;BNRDepartment *sales = [[BNRDepartment alloc] init];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[sales setValue:&lt;span class=&quot;string&quot;&gt;@&quot;manager.emergencyContact.phoneNumber&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;代码效果同KVC：&lt;br&gt;&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;BNRDepartment *sales = [[BNRDepartment alloc] init];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;BNREmploy *sickEmployee = [sales vlaueForKey:&lt;span class=&quot;string&quot;&gt;@&quot;manager&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;BNRPerson *personToCall = [sickEmployee valueForKey:&lt;span class=&quot;string&quot;&gt;@&quot;emergencyContact&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[personToCall setValue:&lt;span class=&quot;string&quot;&gt;@&quot;555-555-5555&quot;&lt;/span&gt; forKey:&lt;span class=&quot;string&quot;&gt;@&quot;phoneNumber&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;OC-36章：KVO&quot;&gt;&lt;a href=&quot;#OC-36章：KVO&quot; class=&quot;headerlink&quot; title=&quot;OC-36章：KVO&quot;&gt;&lt;/a&gt;OC-36章：KVO&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;KVO&lt;/strong&gt;（key-value observing）是指当指定的对象的属性被修改时，允许对象接收通知的机制。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;观察对象的属性时，要指定观察属性的名称。&lt;/li&gt;
+&lt;li&gt;在KVO中使用context指针可以确认通知的对象是否是本对象，context会随通知一起发送。&lt;/li&gt;
+&lt;li&gt;如果使用存取方法来设置属性，那么系统会自动通知观察者。如果没有使用存取方法，这时可以通过&lt;code&gt;willChangeValueForKey:&lt;/code&gt;和&lt;code&gt;didChangeValueKey:&lt;/code&gt;方法通知系统某个属性的值即将/已经发生变化。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果希望某个变量接收到另一个变量改变时的通知，就需要用 &lt;code&gt;keyPathsForValuesAffecting&lt;/code&gt;+某个变量名 来设置，示例如下：&lt;/p&gt;
+  &lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;+ (&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt; *)keyPathsForValuesAffectingLastTimeString &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; [&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt; setWithObject:&lt;span class=&quot;string&quot;&gt;@&quot;lastTime&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;OC-37章：范畴&quot;&gt;&lt;a href=&quot;#OC-37章：范畴&quot; class=&quot;headerlink&quot; title=&quot;OC-37章：范畴&quot;&gt;&lt;/a&gt;OC-37章：范畴&lt;/h2&gt;&lt;p&gt;通过使用范畴（Category），程序员可以为任何已有的类添加方法。&lt;br&gt;应该使用范畴来给已存在类增加新方法，而不要在范畴中替换已存在的方法；这种情况下应该创建该类的子类。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;OC-33章：init&quot;&gt;&lt;a href=&quot;#OC-33章：init&quot; class=&quot;headerlink&quot; title=&quot;OC-33章：init&quot;&gt;&lt;/a&gt;OC-33章：init&lt;/h2&gt;&lt;p&gt;alloc负责分配对象空间，init负责初始化对象。&lt;br&gt;&lt;fig
+    
+    </summary>
+    
+      <category term="technology" scheme="http://archmee.github.io/categories/technology/"/>
+    
+    
+      <category term="Objective-C" scheme="http://archmee.github.io/tags/Objective-C/"/>
+    
+      <category term="iOS" scheme="http://archmee.github.io/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>立场诗</title>
