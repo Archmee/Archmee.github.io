@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Code Pro"), local("SourceCodePro-Regular"), url(http://7xrcp8.com1.z0.glb.clouddn.com/Source%20Code%20Pro.woff) format("woff"); }
+
 * {
   box-sizing: border-box; }
 
@@ -39,9 +45,26 @@ a {
 .app-header {
   text-align: center; }
   .app-header .banner {
-    height: 450px;
-    background-image: url(../images/banner.png);
-    background-size: cover; }
+    position: relative;
+    overflow: hidden;
+    z-index: -1024;
+    background-color: #f6f6f6;
+    background-size: cover;
+    background-repeat: no-repeat; }
+    .app-header .banner .placeholder {
+      padding-bottom: 33.3%; }
+    .app-header .banner img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 2s linear; }
+    .app-header .banner img.loaded {
+      opacity: 1; }
+    .app-header .banner .banner-small {
+      filter: blur(50px);
+      -webkit-filter: blur(25px); }
   .app-header .description .avatar {
     width: 100px;
     height: 100px;
@@ -80,8 +103,7 @@ main.index {
   main.index .article-title {
     margin: 0;
     padding-top: 30px;
-    text-transform: capitalize;
-    font-size: 1.75rem; }
+    text-transform: capitalize; }
   main.index .article-date {
     color: #aaa; }
   main.index .page-nav {
@@ -137,7 +159,6 @@ main.post {
       color: #5badf0; }
   main.post .article-title {
     margin: 0;
-    font-size: 1.75rem;
     text-align: center;
     text-transform: capitalize;
     padding-top: 30px; }

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 2 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201607/2016-07-07.html">前端之旅第 2 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">July 08 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="MDN的Web开发入门教程"><a href="#MDN的Web开发入门教程" class="headerlink" title="MDN的Web开发入门教程"></a>MDN的Web开发入门教程</h2><p>由于早上起来比较困，所以看书肯定会打瞌睡，所以我决定找点自己在网上收集的资料看一下，然后看到了MDN的 <a href="https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web" target="_blank" rel="external">Web开发入门</a>，通过这个教程你将建立一个构建简单的网页和发布自己的简单的代码的工具。教程共如下8篇：</p>
+<ol>
+<li>安装基本的软件</li>
+<li>你的网页将呈现什么样子？</li>
+<li>文件处理</li>
+<li>HTML基础</li>
+<li>CSS基础</li>
+<li>JavaScript基础</li>
+<li>发布网站</li>
+<li>网络是怎么工作的？</li>
+</ol>
+<p>学完后我个人感觉这个教程更适合放在第一天。<a href="https://github.com/mdn/beginner-html-site-scripted" target="_blank" rel="external">这个教程在Github上的Demo</a></p>
+<p>在这个过程中，因为偷懒，我的代码都是直接在 <a href="https://codepen.io" target="_blank" rel="external">CodePen</a> 在线编辑测试的，还有另外一个同类型比较有名的是 <a href="https://jsfiddle.net/" target="_blank" rel="external">jsFiddle</a>，不过我认为CodePen比较好的地方是首页就有很多别人贡献出来的作品，点击即可查看Demo，可供我们参考学习。</p>
+<p>在这个初级教程中的javascript章节解释了一个很经典的问题：</p>
+<blockquote>
+<p>提示：我们将<code>&lt;script&gt;</code>元素放在 HTML 文件底部的原因是，浏览器解析 HTML 似乎按照代码出现的顺序来的。如果 JavaScript被首先读取，它也应该影响下面的 HTML，但有时会出现问题，因为 JavaScript 会在 HTML 之前被加载，如果 JavaScript 代码出现问题则 HTML 不会被加载。所以将 JavaScript 代码放在底部是最好的选择。</p>
+</blockquote>
+<h2 id="Head-First-HTML-amp-CSS-学习笔记"><a href="#Head-First-HTML-amp-CSS-学习笔记" class="headerlink" title="Head First HTML &amp; CSS 学习笔记"></a>Head First HTML &amp; CSS 学习笔记</h2><h3 id="第2章-深入了解超文本"><a href="#第2章-深入了解超文本" class="headerlink" title="第2章. 深入了解超文本"></a>第2章. 深入了解超文本</h3><ul>
+<li>href属性全称hypertext reference</li>
+<li>属性的值应该用双引号括起来</li>
+<li>html5支持定制数据属性，不过现在对我并没什么（luan）用</li>
+<li>指向一个图像的路径不正确时，会在页面看到一个损坏的图像，所以记得用alt属性来添加说明文字，这样同时也为不支持图像的设备提供了备选信息,增加了可访问性</li>
+<li>关于<strong>相对路径</strong>和<strong>绝对路径</strong>(URL)的建议：站内用相对路径，站外用绝对路径</li>
+<li>网站的文件或文件夹名不要使用空格</li>
+<li>最好在建站初期就规划好网站文件结构，这样会省去一些升级网站的麻烦</li>
+</ul>
+<h3 id="第3章-构建模块"><a href="#第3章-构建模块" class="headerlink" title="第3章. 构建模块"></a>第3章. 构建模块</h3><ul>
+<li>q标签用于短引用，它是内联元素；blockquote用于长引用，它是块元素。q可以嵌套在blockquote里面，但是blockquote嵌套在q则没什么意义</li>
+<li>如br这样没有任何内容的叫做void元素， <code>&lt;br&gt;</code>和<code>&lt;br/&gt;</code>分别用于HTML和更严格的XHTML，否则两者没什么区别</li>
+<li><code>&lt;ol&gt;</code>(ordered list)是<strong>有序列表</strong>，<code>&lt;ul&gt;</code>(unordered list) 是<strong>无序列表</strong>，两者可相互嵌套构成多级列表</li>
+<li><strong>定义列表</strong>格式为<code>&lt;dl&gt;&lt;dt&gt;定义术语&lt;/dt&gt;&lt;dd&gt;定义描述&lt;/dd&gt;...&lt;/dl&gt;</code></li>
+<li>字符实体用于在html文件中表示特殊符号，比如用<code>&amp;lt;</code>来表示<code>&lt;</code>，<code>&amp;gt</code>表示<code>&gt;</code>，<code>&amp;amp</code>来表示<code>&amp;</code>。字符实体都有编号，可以使用编号而不是实体名，比如<code>&amp;#100</code>，更多实体清单在 <a href="http://www.w3schools.com/tags/ref_entities.asp" target="_blank" rel="external">W3School</a> 或 <a href="http://www.unicode.org/charts" target="_blank" rel="external">Unicode</a> 网站可以找到</li>
+<li><code>&lt;pre&gt;</code> 和 <code>&lt;code&gt;</code> 元素可以用户结构化显示代码。</li>
+</ul>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="MDN的Web开发入门教程">"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
