@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-07-08T13:25:38.585Z</updated>
+  <updated>2016-07-09T17:44:16.799Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -16,11 +16,239 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>前端之旅第 4 天</title>
+    <link href="http://archmee.github.io/201607/2016-07-09.html"/>
+    <id>http://archmee.github.io/201607/2016-07-09.html</id>
+    <published>2016-07-08T16:00:00.000Z</published>
+    <updated>2016-07-09T17:44:16.799Z</updated>
+    
+    <content type="html">&lt;p&gt;在慕课网上学习&lt;a href=&quot;http://www.imooc.com/learn/9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML+CSS基础课程&lt;/a&gt;时记录了一些关键点。可能学完这个课程会给你已经学会了html和css的错觉，但其实这个课程真正的作用只在于让你初步的认识html和css，更深入的知识需要看书和实践才能获得。&lt;/p&gt;
+&lt;h2 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h2&gt;&lt;h3 id=&quot;何为语义化？&quot;&gt;&lt;a href=&quot;#何为语义化？&quot; class=&quot;headerlink&quot; title=&quot;何为语义化？&quot;&gt;&lt;/a&gt;何为语义化？&lt;/h3&gt;&lt;p&gt;语义化。说的通俗点就是：明白每个标签的用途（在什么情况下使用此标签合理）比如，网页上的文章的标题就可以用标题标签，网页上的各个栏目的栏目名称也可以使用标题标签。文章中内容的段落就得放在段落标签中，在文章中有想强调的文本，就可以使用 em 标签表示强调等等。&lt;/p&gt;
+&lt;p&gt;但是语义化可以给我们带来什么样的好处呢？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;更容易被搜索引擎收录&lt;/li&gt;
+&lt;li&gt;更容易让屏幕阅读器读出网页内容&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;lt-em-gt-、-lt-strong-gt-和-lt-span-gt&quot;&gt;&lt;a href=&quot;#lt-em-gt-、-lt-strong-gt-和-lt-span-gt&quot; class=&quot;headerlink&quot; title=&quot;&amp;lt;em&amp;gt;、&amp;lt;strong&amp;gt;和&amp;lt;span&amp;gt;&quot;&gt;&lt;/a&gt;&lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;和&lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;和&lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;标签是为了强调一段话中的关键字时使用，它们的语义是强调。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt;标签是没有语义的，它的作用就是为了设置单独的样式用的。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;lt-code-gt-和-lt-pre-gt-的区别&quot;&gt;&lt;a href=&quot;#lt-code-gt-和-lt-pre-gt-的区别&quot; class=&quot;headerlink&quot; title=&quot;&amp;lt;code&amp;gt; 和 &amp;lt;pre&amp;gt;的区别&quot;&gt;&lt;/a&gt;&lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; 和 &lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;的区别&lt;/h3&gt;&lt;p&gt;当代码为一行代码时，你可以使用&lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt;标签，如果是多行代码，可以使用&lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;标签。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：&lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;标签不只是为显示计算机的源代码时用的，在你需要在网页中预显示格式时都可以使用它，只是&lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;标签的一个常见应用就是用来展示计算机的源代码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;lt-table-gt-表格&quot;&gt;&lt;a href=&quot;#lt-table-gt-表格&quot; class=&quot;headerlink&quot; title=&quot;&amp;lt;table&amp;gt;表格&quot;&gt;&lt;/a&gt;&lt;code&gt;&amp;lt;table&amp;gt;&lt;/code&gt;表格&lt;/h3&gt;&lt;p&gt;&lt;code&gt;&amp;lt;table&amp;gt;&lt;/code&gt;：定义表格&lt;br&gt;&lt;code&gt;&amp;lt;tr&amp;gt;&lt;/code&gt;：定义行&lt;br&gt;&lt;code&gt;&amp;lt;th&amp;gt;&lt;/code&gt;：定义表头&lt;br&gt;&lt;code&gt;&amp;lt;td&amp;gt;&lt;/code&gt;：定义单元格&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;tbody&amp;gt;&lt;/code&gt;：当表格内容非常多时，表格会下载一点显示一点，但如果加上&lt;code&gt;&amp;lt;tbody&amp;gt;&lt;/code&gt;标签后，这个表格就要等表格内容全部下载完才会显示。如右侧代码编辑器中的代码。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;summary&lt;/code&gt;属性，摘要的内容是不会在浏览器中显示出来的。它的作用是增加表格的可读性(语义化)，使搜索引擎更好的读懂表格内容，还可以使屏幕阅读器更好的帮助特殊用户读取表格内容。&lt;br&gt;语法：&lt;code&gt;&amp;lt;table summary=&amp;quot;表格简介文本&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;caption&amp;gt;&lt;/code&gt;用以描述表格标题，该标签必须紧随 table 标签之后，默认显示位置：表格上方。&lt;/p&gt;
+&lt;h3 id=&quot;mailto属性&quot;&gt;&lt;a href=&quot;#mailto属性&quot; class=&quot;headerlink&quot; title=&quot;mailto属性&quot;&gt;&lt;/a&gt;mailto属性&lt;/h3&gt;&lt;p&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;元素的&lt;code&gt;mailto&lt;/code&gt;属性&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/about-a-mailto.jpg&quot; alt=&quot;mailto,图片来自慕课网&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：如果mailto后面同时有多个参数的话，第一个参数必须以&lt;code&gt;?&lt;/code&gt;号开头，后面的参数每一个都以&lt;code&gt;&amp;amp;&lt;/code&gt;号分隔。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;CSS&quot;&gt;&lt;a href=&quot;#CSS&quot; class=&quot;headerlink&quot; title=&quot;CSS&quot;&gt;&lt;/a&gt;CSS&lt;/h2&gt;&lt;h3 id=&quot;CSS样式分类&quot;&gt;&lt;a href=&quot;#CSS样式分类&quot; class=&quot;headerlink&quot; title=&quot;CSS样式分类&quot;&gt;&lt;/a&gt;CSS样式分类&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;内联式：就是把css代码直接写在现有的HTML标签中&lt;/li&gt;
+&lt;li&gt;嵌入式：把css样式代码写在&lt;code&gt;&amp;lt;style type=&amp;quot;text/css&amp;quot;&amp;gt;&amp;lt;/style&amp;gt;&lt;/code&gt;标签之间&lt;/li&gt;
+&lt;li&gt;外联式：就是把css代码写在一个单独的外部文件中，这个css样式文件以“.css”为扩展名，在&lt;head&gt;内使用&lt;link&gt;标签将css样式文件链接到HTML文件内&lt;br&gt;三种方式的优先级是：内联式 &amp;gt; 嵌入式 &amp;gt; 外联式（嵌入式&amp;gt;外联式有一个前提：嵌入式css样式的位置一定在外部式的后面）&lt;/head&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;选择器&quot;&gt;&lt;a href=&quot;#选择器&quot; class=&quot;headerlink&quot; title=&quot;选择器&quot;&gt;&lt;/a&gt;选择器&lt;/h3&gt;&lt;h4 id=&quot;分类&quot;&gt;&lt;a href=&quot;#分类&quot; class=&quot;headerlink&quot; title=&quot;分类&quot;&gt;&lt;/a&gt;分类&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;标签选择器其实就是html代码中的标签&lt;/li&gt;
+&lt;li&gt;类选器：要先在标签上添加class属性并赋值，然后用&lt;code&gt;.&lt;/code&gt;号+class属性值的方式来使用&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;id选择器：要先在标签上定义添加id属性并赋值，然后用&lt;code&gt;#&lt;/code&gt;号+id属性值的方式来使用。&lt;br&gt;类选择器和id选择器的不同点&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;id选择器只能在文档中使用一次&lt;/li&gt;
+&lt;li&gt;可以使用类选择器词列表方法为一个元素同时设置多个样式。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;子选择器：用&lt;code&gt;&amp;gt;&lt;/code&gt;符号选择指定标签元素的&lt;strong&gt;第一代子元素&lt;/strong&gt;，比如&lt;code&gt;p &amp;gt; span&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;包含（后代）选择器：使用空格选择指定标签元素下的&lt;strong&gt;所有后辈元素&lt;/strong&gt;（注意加粗字体和子选择器的区别）&lt;/li&gt;
+&lt;li&gt;通用选择器：是功能最强大的选择器，用&lt;code&gt;*&lt;/code&gt;号指定，它的作用是匹配html中所有标签元素&lt;/li&gt;
+&lt;li&gt;伪类选择符：它允许给html不存在的标签（标签的某种状态）设置样式，比如&lt;code&gt;:hover&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;分组选择符：使用&lt;code&gt;,&lt;/code&gt;号来选择多个选择器，它们共享同一种样式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;选择器权值&quot;&gt;&lt;a href=&quot;#选择器权值&quot; class=&quot;headerlink&quot; title=&quot;选择器权值&quot;&gt;&lt;/a&gt;选择器权值&lt;/h4&gt;&lt;p&gt;标签的权值为1，类选择器的权值为10，ID选择器的权值最高为100。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：还有一个权值比较特殊–继承也有权值但很低，有的文献提出它只有0.1，所以可以理解为继承的权值最低。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;样式重叠&quot;&gt;&lt;a href=&quot;#样式重叠&quot; class=&quot;headerlink&quot; title=&quot;样式重叠&quot;&gt;&lt;/a&gt;样式重叠&lt;/h3&gt;&lt;p&gt;层叠就是在html文件中对于同一个元素可以有多个css样式存在，当有相同权重的样式存在时，会根据这些css样式的前后顺序来决定，处于最后面的css样式会被应用。&lt;/p&gt;
+&lt;p&gt;有些特殊的情况需要为某些样式设置具有最高权值，这时候我们可以使用&lt;code&gt;!important&lt;/code&gt;来解决，放在某条需要设定的样式之后，分号之前。&lt;/p&gt;
+&lt;p&gt;样式优先级为：浏览器默认的样式 &amp;lt; 网页制作者样式 &amp;lt; 用户自己设置的样式，但记住&lt;code&gt;!important&lt;/code&gt;优先级样式是个例外，权值高于用户自己设置的样式。&lt;/p&gt;
+&lt;h3 id=&quot;字体和段落样式&quot;&gt;&lt;a href=&quot;#字体和段落样式&quot; class=&quot;headerlink&quot; title=&quot;字体和段落样式&quot;&gt;&lt;/a&gt;字体和段落样式&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;样式名&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;font-family&lt;/td&gt;
+&lt;td&gt;字体&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;font-size&lt;/td&gt;
+&lt;td&gt;字体大小&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;font-weight&lt;/td&gt;
+&lt;td&gt;字体粗细(bold…)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;font-style&lt;/td&gt;
+&lt;td&gt;字体样式(italic…)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;text-decoration&lt;/td&gt;
+&lt;td&gt;文本装饰(line-through…)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;text-indent&lt;/td&gt;
+&lt;td&gt;段落缩进&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;line-height&lt;/td&gt;
+&lt;td&gt;段落行高&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;letter-spacing&lt;/td&gt;
+&lt;td&gt;字符间距&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;word-spacing&lt;/td&gt;
+&lt;td&gt;单词间距，对汉字无效&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;text-align&lt;/td&gt;
+&lt;td&gt;对块元素设置对齐方式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;今天学完了慕课网的HTML+CSS基础课程前10章，明天继续。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在慕课网上学习&lt;a href=&quot;http://www.imooc.com/learn/9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML+CSS基础课程&lt;/a&gt;时记录了一些关键点。可能学完这个课程会给你已经学会了html和css的错觉，但其实这个课
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端之旅第 3 天</title>
+    <link href="http://archmee.github.io/201607/2016-07-08.html"/>
+    <id>http://archmee.github.io/201607/2016-07-08.html</id>
+    <published>2016-07-07T16:00:00.000Z</published>
+    <updated>2016-07-09T10:06:16.107Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;学习-Sublime-Text&quot;&gt;&lt;a href=&quot;#学习-Sublime-Text&quot; class=&quot;headerlink&quot; title=&quot;学习 Sublime Text&quot;&gt;&lt;/a&gt;学习 Sublime Text&lt;/h2&gt;&lt;p&gt;虽然之前一直在用Sublime Text，但却对它很多功能知之甚少，所以上午全都在 &lt;a href=&quot;www.imooc.com&quot;&gt;慕课网&lt;/a&gt; 学习它的 &lt;a href=&quot;http://www.imooc.com/video/5473&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;视频课程&lt;/a&gt;。这门课主要讲了常用的快捷键和一些插件的安装使用，对开发很有帮助，就算暂时用不到，也可以先作为了解。&lt;/p&gt;
+&lt;h3 id=&quot;快捷键&quot;&gt;&lt;a href=&quot;#快捷键&quot; class=&quot;headerlink&quot; title=&quot;快捷键&quot;&gt;&lt;/a&gt;快捷键&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;快捷键&lt;/th&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ctrl+p&lt;/td&gt;
+&lt;td&gt;goto anything&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ctrl+shift+p&lt;/td&gt;
+&lt;td&gt;命令行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ctrl+d&lt;/td&gt;
+&lt;td&gt;多行模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ctrl+k&lt;/td&gt;
+&lt;td&gt;多行模式选择时跳过当前项&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;alt+f3&lt;/td&gt;
+&lt;td&gt;多行模式全选&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alt+.&lt;/td&gt;
+&lt;td&gt;可以自动完成html闭合标记,不过有了Emmet插件几乎没什么用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ctrl+p面板中&lt;/td&gt;
+&lt;td&gt;1. 输入@可以匹配css选择器   2. 输入#可以匹配html标签&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ctrl+shift+v&lt;/td&gt;
+&lt;td&gt;带格式粘贴代码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ctrl+e&lt;/td&gt;
+&lt;td&gt;展开emmet语法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;插件&quot;&gt;&lt;a href=&quot;#插件&quot; class=&quot;headerlink&quot; title=&quot;插件&quot;&gt;&lt;/a&gt;插件&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;插件名&lt;/th&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;sublime httpRequest&lt;/td&gt;
+&lt;td&gt;用于调试http请求&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sublime nettus fetch&lt;/td&gt;
+&lt;td&gt;稍作配置就可以从网上下载jQuery等库代码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;advancedNewfile&lt;/td&gt;
+&lt;td&gt;新建文件的简便方式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;Head-First-HTML-amp-CSS-学习笔记&quot;&gt;&lt;a href=&quot;#Head-First-HTML-amp-CSS-学习笔记&quot; class=&quot;headerlink&quot; title=&quot;Head First HTML &amp;amp; CSS 学习笔记&quot;&gt;&lt;/a&gt;Head First HTML &amp;amp; CSS 学习笔记&lt;/h2&gt;&lt;h3 id=&quot;第4章-连接起来&quot;&gt;&lt;a href=&quot;#第4章-连接起来&quot; class=&quot;headerlink&quot; title=&quot;第4章. 连接起来&quot;&gt;&lt;/a&gt;第4章. 连接起来&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;浏览器中输入的Web地址称为URL，或称统一资源定位符（Uniform Resource Locators）&lt;/li&gt;
+&lt;li&gt;单击一个相对链接时，在后台浏览器会根据这个相对路径和所单击页面的路径创建一个绝对路径&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;元素的title属性用来提供链接描述信息，可以为任何元素增加title属性以提供工具提示。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;target属性用来指定打开链接的方法：&lt;br&gt;_blank在新窗口中打开被链接文档&lt;br&gt;_self是默认，在相同的框架中打开被链接文档&lt;br&gt;_parent在父框架集中打开被链接文档&lt;br&gt;_top在整个窗口中打开被链接文档&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;建立锚的方式(用来指定页面中的位置)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;方法1&lt;/em&gt;：在页面中相应位置的元素上加上id属性（id要是唯一的），比如&lt;code&gt;&amp;lt;p id=&amp;quot;bookmark&amp;quot;&amp;gt;&lt;/code&gt;，从其他位置访问此处，只需要在URL最后加上该id即可，本页面跳转时浏览器会把href的值自动加到url链接后面再访问。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;方法2&lt;/em&gt;：在想要定位的位置加上&lt;code&gt;&amp;lt;a name=&amp;quot;bookmark&amp;quot;&amp;gt;...&amp;lt;/a&amp;gt;&lt;/code&gt;, 访问方法相,同，但方法一更常见一点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;学习-Sublime-Text&quot;&gt;&lt;a href=&quot;#学习-Sublime-Text&quot; class=&quot;headerlink&quot; title=&quot;学习 Sublime Text&quot;&gt;&lt;/a&gt;学习 Sublime Text&lt;/h2&gt;&lt;p&gt;虽然之前一直在用Sublime Te
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端之旅第 2 天</title>
     <link href="http://archmee.github.io/201607/2016-07-07.html"/>
     <id>http://archmee.github.io/201607/2016-07-07.html</id>
-    <published>2016-07-08T13:28:03.313Z</published>
-    <updated>2016-07-08T13:25:38.585Z</updated>
+    <published>2016-07-06T16:00:00.000Z</published>
+    <updated>2016-07-09T10:09:18.550Z</updated>
     
     <content type="html">&lt;h2 id=&quot;MDN的Web开发入门教程&quot;&gt;&lt;a href=&quot;#MDN的Web开发入门教程&quot; class=&quot;headerlink&quot; title=&quot;MDN的Web开发入门教程&quot;&gt;&lt;/a&gt;MDN的Web开发入门教程&lt;/h2&gt;&lt;p&gt;由于早上起来比较困，所以看书肯定会打瞌睡，所以我决定找点自己在网上收集的资料看一下，然后看到了MDN的 &lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Web开发入门&lt;/a&gt;，通过这个教程你将建立一个构建简单的网页和发布自己的简单的代码的工具。教程共如下8篇：&lt;/p&gt;
 &lt;ol&gt;
@@ -54,7 +282,7 @@
 &lt;li&gt;&lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt;(ordered list)是&lt;strong&gt;有序列表&lt;/strong&gt;，&lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;(unordered list) 是&lt;strong&gt;无序列表&lt;/strong&gt;，两者可相互嵌套构成多级列表&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;定义列表&lt;/strong&gt;格式为&lt;code&gt;&amp;lt;dl&amp;gt;&amp;lt;dt&amp;gt;定义术语&amp;lt;/dt&amp;gt;&amp;lt;dd&amp;gt;定义描述&amp;lt;/dd&amp;gt;...&amp;lt;/dl&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;字符实体用于在html文件中表示特殊符号，比如用&lt;code&gt;&amp;amp;lt;&lt;/code&gt;来表示&lt;code&gt;&amp;lt;&lt;/code&gt;，&lt;code&gt;&amp;amp;gt&lt;/code&gt;表示&lt;code&gt;&amp;gt;&lt;/code&gt;，&lt;code&gt;&amp;amp;amp&lt;/code&gt;来表示&lt;code&gt;&amp;amp;&lt;/code&gt;。字符实体都有编号，可以使用编号而不是实体名，比如&lt;code&gt;&amp;amp;#100&lt;/code&gt;，更多实体清单在 &lt;a href=&quot;http://www.w3schools.com/tags/ref_entities.asp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;W3School&lt;/a&gt; 或 &lt;a href=&quot;http://www.unicode.org/charts&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Unicode&lt;/a&gt; 网站可以找到&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt; 和 &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; 元素可以用户结构化显示代码。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt; 和 &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; 元素可以用于结构化显示代码。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
@@ -75,11 +303,11 @@
     <title>前端之旅七月起航</title>
     <link href="http://archmee.github.io/201607/2016-07-06.html"/>
     <id>http://archmee.github.io/201607/2016-07-06.html</id>
-    <published>2016-07-06T17:43:00.000Z</published>
-    <updated>2016-07-08T13:13:39.338Z</updated>
+    <published>2016-07-05T16:00:00.000Z</published>
+    <updated>2016-07-09T10:09:48.346Z</updated>
     
     <content type="html">&lt;p&gt;今天是7月6号，前端之旅的第一天。&lt;/p&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;从年前被辞退以来，先是花了四个月学习iOS开发，但是这其中由于个人感情原因一直不能集中精力，所以进度很慢，在6月底做完一个很丑的APP后打算‘放弃’（项目是一个简陋的Dota2英雄百科，代码已上github），并非自己学习能力不足或者没有耐心，只是在学习的过程有了对苹果公司的一些‘偏见’：&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;从年前被辞退以来，先是花了四个月学习iOS开发，但是这其中由于个人感情原因一直不能集中精力，所以进度很慢，在6月底做完一个简陋的&lt;a href=&quot;https://github.com/Archmee/Dota2Heropedia&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dota2英雄百科&lt;/a&gt;APP后，决定暂时‘放弃’，并非自己学习能力不足或者没有耐心，只是在学习的过程有了对苹果公司的一些‘偏见’：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;他们打造了闭环的生态和闭源的开发环境，当然这也是他们盈利的模式，但是我不喜欢，这也是iOS开发工资居高不下的主要原因。&lt;/li&gt;
 &lt;li&gt;OC语言各种反人类，而且和C语言各种混搭的奇技淫巧，感觉坑略多，没尝试Swift，看了喵神博客据说Swift没看起来那么简单。&lt;/li&gt;

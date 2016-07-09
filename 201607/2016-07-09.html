@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 4 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201607/2016-07-09.html">前端之旅第 4 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">July 09 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <p>在慕课网上学习<a href="http://www.imooc.com/learn/9" target="_blank" rel="external">HTML+CSS基础课程</a>时记录了一些关键点。可能学完这个课程会给你已经学会了html和css的错觉，但其实这个课程真正的作用只在于让你初步的认识html和css，更深入的知识需要看书和实践才能获得。</p>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="何为语义化？"><a href="#何为语义化？" class="headerlink" title="何为语义化？"></a>何为语义化？</h3><p>语义化。说的通俗点就是：明白每个标签的用途（在什么情况下使用此标签合理）比如，网页上的文章的标题就可以用标题标签，网页上的各个栏目的栏目名称也可以使用标题标签。文章中内容的段落就得放在段落标签中，在文章中有想强调的文本，就可以使用 em 标签表示强调等等。</p>
+<p>但是语义化可以给我们带来什么样的好处呢？</p>
+<ol>
+<li>更容易被搜索引擎收录</li>
+<li>更容易让屏幕阅读器读出网页内容</li>
+</ol>
+<h3 id="lt-em-gt-、-lt-strong-gt-和-lt-span-gt"><a href="#lt-em-gt-、-lt-strong-gt-和-lt-span-gt" class="headerlink" title="&lt;em&gt;、&lt;strong&gt;和&lt;span&gt;"></a><code>&lt;em&gt;</code>、<code>&lt;strong&gt;</code>和<code>&lt;span&gt;</code></h3><ol>
+<li><code>&lt;em&gt;</code>和<code>&lt;strong&gt;</code>标签是为了强调一段话中的关键字时使用，它们的语义是强调。</li>
+<li><code>&lt;span&gt;</code>标签是没有语义的，它的作用就是为了设置单独的样式用的。</li>
+</ol>
+<h3 id="lt-code-gt-和-lt-pre-gt-的区别"><a href="#lt-code-gt-和-lt-pre-gt-的区别" class="headerlink" title="&lt;code&gt; 和 &lt;pre&gt;的区别"></a><code>&lt;code&gt;</code> 和 <code>&lt;pre&gt;</code>的区别</h3><p>当代码为一行代码时，你可以使用<code>&lt;code&gt;</code>标签，如果是多行代码，可以使用<code>&lt;pre&gt;</code>标签。</p>
+<blockquote>
+<p>注意：<code>&lt;pre&gt;</code>标签不只是为显示计算机的源代码时用的，在你需要在网页中预显示格式时都可以使用它，只是<code>&lt;pre&gt;</code>标签的一个常见应用就是用来展示计算机的源代码。</p>
+</blockquote>
+<h3 id="lt-table-gt-表格"><a href="#lt-table-gt-表格" class="headerlink" title="&lt;table&gt;表格"></a><code>&lt;table&gt;</code>表格</h3><p><code>&lt;table&gt;</code>：定义表格<br><code>&lt;tr&gt;</code>：定义行<br><code>&lt;th&gt;</code>：定义表头<br><code>&lt;td&gt;</code>：定义单元格</p>
+<p><code>&lt;tbody&gt;</code>：当表格内容非常多时，表格会下载一点显示一点，但如果加上<code>&lt;tbody&gt;</code>标签后，这个表格就要等表格内容全部下载完才会显示。如右侧代码编辑器中的代码。</p>
+<p><code>summary</code>属性，摘要的内容是不会在浏览器中显示出来的。它的作用是增加表格的可读性(语义化)，使搜索引擎更好的读懂表格内容，还可以使屏幕阅读器更好的帮助特殊用户读取表格内容。<br>语法：<code>&lt;table summary=&quot;表格简介文本&quot;&gt;</code></p>
+<p><code>&lt;caption&gt;</code>用以描述表格标题，该标签必须紧随 table 标签之后，默认显示位置：表格上方。</p>
+<h3 id="mailto属性"><a href="#mailto属性" class="headerlink" title="mailto属性"></a>mailto属性</h3><p><code>&lt;a&gt;</code>元素的<code>mailto</code>属性<br><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/about-a-mailto.jpg" alt="mailto,图片来自慕课网"></p>
+<blockquote>
+<p>注意：如果mailto后面同时有多个参数的话，第一个参数必须以<code>?</code>号开头，后面的参数每一个都以<code>&amp;</code>号分隔。</p>
+</blockquote>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="CSS样式分类"><a href="#CSS样式分类" class="headerlink" title="CSS样式分类"></a>CSS样式分类</h3><ul>
+<li>内联式：就是把css代码直接写在现有的HTML标签中</li>
+<li>嵌入式：把css样式代码写在<code>&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;</code>标签之间</li>
+<li>外联式：就是把css代码写在一个单独的外部文件中，这个css样式文件以“.css”为扩展名，在<head>内使用<link>标签将css样式文件链接到HTML文件内<br>三种方式的优先级是：内联式 &gt; 嵌入式 &gt; 外联式（嵌入式&gt;外联式有一个前提：嵌入式css样式的位置一定在外部式的后面）</head></li>
+</ul>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li>标签选择器其实就是html代码中的标签</li>
+<li>类选器：要先在标签上添加class属性并赋值，然后用<code>.</code>号+class属性值的方式来使用</li>
+<li><p>id选择器：要先在标签上定义添加id属性并赋值，然后用<code>#</code>号+id属性值的方式来使用。<br>类选择器和id选择器的不同点</p>
+<ol>
+<li>id选择器只能在文档中使用一次</li>
+<li>可以使用类选择器词列表方法为一个元素同时设置多个样式。</li>
+</ol>
+</li>
+<li><p>子选择器：用<code>&gt;</code>符号选择指定标签元素的<strong>第一代子元素</strong>，比如<code>p &gt; span</code></p>
+</li>
+<li>包含（后代）选择器：使用空格选择指定标签元素下的<strong>所有后辈元素</strong>（注意加粗字体和子选择器的区别）</li>
+<li>通用选择器：是功能最强大的选择器，用<code>*</code>号指定，它的作用是匹配html中所有标签元素</li>
+<li>伪类选择符：它允许给html不存在的标签（标签的某种状态）设置样式，比如<code>:hover</code></li>
+<li>分组选择符：使用<code>,</code>号来选择多个选择器，它们共享同一种样式</li>
+</ul>
+<h4 id="选择器权值"><a href="#选择器权值" class="headerlink" title="选择器权值"></a>选择器权值</h4><p>标签的权值为1，类选择器的权值为10，ID选择器的权值最高为100。</p>
+<blockquote>
+<p>注意：还有一个权值比较特殊–继承也有权值但很低，有的文献提出它只有0.1，所以可以理解为继承的权值最低。</p>
+</blockquote>
+<h3 id="样式重叠"><a href="#样式重叠" class="headerlink" title="样式重叠"></a>样式重叠</h3><p>层叠就是在html文件中对于同一个元素可以有多个css样式存在，当有相同权重的样式存在时，会根据这些css样式的前后顺序来决定，处于最后面的css样式会被应用。</p>
+<p>有些特殊的情况需要为某些样式设置具有最高权值，这时候我们可以使用<code>!important</code>来解决，放在某条需要设定的样式之后，分号之前。</p>
+<p>样式优先级为：浏览器默认的样式 &lt; 网页制作者样式 &lt; 用户自己设置的样式，但记住<code>!important</code>优先级样式是个例外，权值高于用户自己设置的样式。</p>
+<h3 id="字体和段落样式"><a href="#字体和段落样式" class="headerlink" title="字体和段落样式"></a>字体和段落样式</h3><table>
+<thead>
+<tr>
+<th>样式名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>font-family</td>
+<td>字体</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>字体大小</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>字体粗细(bold…)</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>字体样式(italic…)</td>
+</tr>
+<tr>
+<td>text-decoration</td>
+<td>文本装饰(line-through…)</td>
+</tr>
+<tr>
+<td>text-indent</td>
+<td>段落缩进</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>段落行高</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>字符间距</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>单词间距，对汉字无效</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>对块元素设置对齐方式</td>
+</tr>
+</tbody>
+</table>
+<p>今天学完了慕课网的HTML+CSS基础课程前10章，明天继续。</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=在慕课网上学习<a href="http"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
