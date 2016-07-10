@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 5 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201607/2016-07-10.html">前端之旅第 5 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">July 10 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <p>其实回头看前几天的学习内容比较杂乱，导致耗费了一些不必要的精力，其实现在最应该做的是先系统的看点书，但由于我还有点前端基础，而且早上不想看书的特点，估计后面还是会学习网上的课程，下午和晚上的时间用于看书和写博客。<br>下面只有今天学习 《Head First HTML &amp; CSS》第5、6章的笔记</p>
+<h2 id="第5章-为你的页面增加图像"><a href="#第5章-为你的页面增加图像" class="headerlink" title="第5章. 为你的页面增加图像"></a>第5章. 为你的页面增加图像</h2><h3 id="JPEG、PNG和GIF的对比"><a href="#JPEG、PNG和GIF的对比" class="headerlink" title="JPEG、PNG和GIF的对比"></a>JPEG、PNG和GIF的对比</h3><table>
+<thead>
+<tr>
+<th>JPEG</th>
+<th>PNG</th>
+<th>GIF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>适合连续色调图像，如照片</td>
+<td>适合单色图像和线条构成的图像</td>
+<td>和PNG类似，适合于单色图像和线条构成的图像</td>
+</tr>
+<tr>
+<td>可以表示包含多达千万种不同颜色的图像</td>
+<td>可以表示包含上百万种不同颜色的图像，PNG有3种：PNG-8、PNG-24、PNG-32</td>
+<td>GIF可以表示最多256种不同颜色的图像</td>
+</tr>
+<tr>
+<td>“有损”压缩</td>
+<td>“无损”压缩</td>
+<td>也是一种“无损”压缩格式</td>
+</tr>
+<tr>
+<td>不支持透明度</td>
+<td>支持透明度</td>
+<td>支持透明度，不过只允许一种颜色设置为透明</td>
+</tr>
+<tr>
+<td>文件比较小，以便Web页面更高效的显示</td>
+<td>与相应JPEG相比，PNG文件更大一些，和GIF相比则取决于使用的颜色数</td>
+<td>GIF通常比相应JPEG文件大</td>
+</tr>
+<tr>
+<td>不支持动画</td>
+<td>支持动画(只有firefox)</td>
+<td>支持动画</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lt-img-gt-的其他知识点"><a href="#lt-img-gt-的其他知识点" class="headerlink" title="&lt;img&gt; 的其他知识点"></a><code>&lt;img&gt;</code> 的其他知识点</h3><ul>
+<li>浏览器通常会同时获取多个图像</li>
+<li>如果在<code>&lt;img&gt;</code>中提供了width和height，浏览器在显示图像之前就开始建立页面布局，否则浏览器在布局后才知道图像大小，则会重新调整页面布局。</li>
+<li><code>&lt;img&gt;</code>提供的width和height并不影响下载图像的大小，图像仍然按照原始尺寸大小下载下来，并通过width和height在页面上缩放，并不是会下载更小尺寸的图片。</li>
+<li>浏览器是在下载了html文件并开始显示页面后才下载图像，所以事先它并不知道图像大小。</li>
+<li><code>&lt;img&gt;</code>是内联元素。</li>
+<li>蒙版是图形编辑工具用颜色来<strong>柔化</strong>文本边缘的功能</li>
+</ul>
+<h2 id="第6章-标准及其他"><a href="#第6章-标准及其他" class="headerlink" title="第6章. 标准及其他"></a>第6章. 标准及其他</h2><h3 id="DOCTYPE-类型"><a href="#DOCTYPE-类型" class="headerlink" title="DOCTYPE 类型"></a>DOCTYPE 类型</h3><p>文档类型定义（doctype）用来告诉浏览器使用的HTML版本</p>
+<ol>
+<li><p>html4.01 doctype:</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org//TR/html4/strict.dtd"&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>xhtml doctype:</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org//TR/xhtml11/DTD/xhtml11.dtd"&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>html5 doctype</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 当浏览器看到这个doctype时，它就认为你在使用标准的HTML，不再考虑版本号，也不考虑标准在什么位置。</p>
+</li>
+</ol>
+<h3 id="HTML5相比HTML4-01的改进"><a href="#HTML5相比HTML4-01的改进" class="headerlink" title="HTML5相比HTML4.01的改进"></a>HTML5相比HTML4.01的改进</h3><ul>
+<li>HTML5提供了更多的元素和属性</li>
+<li>它有很多新特性，允许Web开发人员用HTML5创建Web应用</li>
+<li>HTML5规范比以前的版本健壮得多</li>
+</ul>
+<h3 id="其他知识点"><a href="#其他知识点" class="headerlink" title="其他知识点"></a>其他知识点</h3><ul>
+<li>html标准将变成一个活的标准，不再有6、7、8等版本，这就意味着它会根据需要继续发展和变化，不再需要固定的版本号。</li>
+<li>html标准具有向后兼容性(backwards compatibility)，意味着我们可以向html增加新的内容，浏览器在支持新的内容的同时，也会支持原来的内容。</li>
+<li>w3c html验证工具：<a href="http://validator.w3.org" target="_blank" rel="external">http://validator.w3.org</a></li>
+<li>html5中通过meta指定字符编码<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>，相比之前<code>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot;&gt;</code>方式要简单很多</li>
+<li>html文件编码要和页面指定的编码一致。</li>
+</ul>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=其实回头看前几天的学习内容比较杂乱，导致"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>

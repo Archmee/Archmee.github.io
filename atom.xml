@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-07-09T17:44:16.799Z</updated>
+  <updated>2016-07-10T18:08:13.145Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -16,11 +16,108 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>前端之旅第 5 天</title>
+    <link href="http://archmee.github.io/201607/2016-07-10.html"/>
+    <id>http://archmee.github.io/201607/2016-07-10.html</id>
+    <published>2016-07-09T16:00:00.000Z</published>
+    <updated>2016-07-10T18:08:13.145Z</updated>
+    
+    <content type="html">&lt;p&gt;其实回头看前几天的学习内容比较杂乱，导致耗费了一些不必要的精力，其实现在最应该做的是先系统的看点书，但由于我还有点前端基础，而且早上不想看书的特点，估计后面还是会学习网上的课程，下午和晚上的时间用于看书和写博客。&lt;br&gt;下面只有今天学习 《Head First HTML &amp;amp; CSS》第5、6章的笔记&lt;/p&gt;
+&lt;h2 id=&quot;第5章-为你的页面增加图像&quot;&gt;&lt;a href=&quot;#第5章-为你的页面增加图像&quot; class=&quot;headerlink&quot; title=&quot;第5章. 为你的页面增加图像&quot;&gt;&lt;/a&gt;第5章. 为你的页面增加图像&lt;/h2&gt;&lt;h3 id=&quot;JPEG、PNG和GIF的对比&quot;&gt;&lt;a href=&quot;#JPEG、PNG和GIF的对比&quot; class=&quot;headerlink&quot; title=&quot;JPEG、PNG和GIF的对比&quot;&gt;&lt;/a&gt;JPEG、PNG和GIF的对比&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;JPEG&lt;/th&gt;
+&lt;th&gt;PNG&lt;/th&gt;
+&lt;th&gt;GIF&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;适合连续色调图像，如照片&lt;/td&gt;
+&lt;td&gt;适合单色图像和线条构成的图像&lt;/td&gt;
+&lt;td&gt;和PNG类似，适合于单色图像和线条构成的图像&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;可以表示包含多达千万种不同颜色的图像&lt;/td&gt;
+&lt;td&gt;可以表示包含上百万种不同颜色的图像，PNG有3种：PNG-8、PNG-24、PNG-32&lt;/td&gt;
+&lt;td&gt;GIF可以表示最多256种不同颜色的图像&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;“有损”压缩&lt;/td&gt;
+&lt;td&gt;“无损”压缩&lt;/td&gt;
+&lt;td&gt;也是一种“无损”压缩格式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;不支持透明度&lt;/td&gt;
+&lt;td&gt;支持透明度&lt;/td&gt;
+&lt;td&gt;支持透明度，不过只允许一种颜色设置为透明&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;文件比较小，以便Web页面更高效的显示&lt;/td&gt;
+&lt;td&gt;与相应JPEG相比，PNG文件更大一些，和GIF相比则取决于使用的颜色数&lt;/td&gt;
+&lt;td&gt;GIF通常比相应JPEG文件大&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;不支持动画&lt;/td&gt;
+&lt;td&gt;支持动画(只有firefox)&lt;/td&gt;
+&lt;td&gt;支持动画&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;lt-img-gt-的其他知识点&quot;&gt;&lt;a href=&quot;#lt-img-gt-的其他知识点&quot; class=&quot;headerlink&quot; title=&quot;&amp;lt;img&amp;gt; 的其他知识点&quot;&gt;&lt;/a&gt;&lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; 的其他知识点&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;浏览器通常会同时获取多个图像&lt;/li&gt;
+&lt;li&gt;如果在&lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;中提供了width和height，浏览器在显示图像之前就开始建立页面布局，否则浏览器在布局后才知道图像大小，则会重新调整页面布局。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;提供的width和height并不影响下载图像的大小，图像仍然按照原始尺寸大小下载下来，并通过width和height在页面上缩放，并不是会下载更小尺寸的图片。&lt;/li&gt;
+&lt;li&gt;浏览器是在下载了html文件并开始显示页面后才下载图像，所以事先它并不知道图像大小。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt;是内联元素。&lt;/li&gt;
+&lt;li&gt;蒙版是图形编辑工具用颜色来&lt;strong&gt;柔化&lt;/strong&gt;文本边缘的功能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;第6章-标准及其他&quot;&gt;&lt;a href=&quot;#第6章-标准及其他&quot; class=&quot;headerlink&quot; title=&quot;第6章. 标准及其他&quot;&gt;&lt;/a&gt;第6章. 标准及其他&lt;/h2&gt;&lt;h3 id=&quot;DOCTYPE-类型&quot;&gt;&lt;a href=&quot;#DOCTYPE-类型&quot; class=&quot;headerlink&quot; title=&quot;DOCTYPE 类型&quot;&gt;&lt;/a&gt;DOCTYPE 类型&lt;/h3&gt;&lt;p&gt;文档类型定义（doctype）用来告诉浏览器使用的HTML版本&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;html4.01 doctype:&lt;/p&gt;
+ &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;doctype&quot;&gt;&amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org//TR/html4/strict.dtd&quot;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;xhtml doctype:&lt;/p&gt;
+ &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;doctype&quot;&gt;&amp;lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org//TR/xhtml11/DTD/xhtml11.dtd&quot;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;html5 doctype&lt;/p&gt;
+ &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;doctype&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; 当浏览器看到这个doctype时，它就认为你在使用标准的HTML，不再考虑版本号，也不考虑标准在什么位置。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;HTML5相比HTML4-01的改进&quot;&gt;&lt;a href=&quot;#HTML5相比HTML4-01的改进&quot; class=&quot;headerlink&quot; title=&quot;HTML5相比HTML4.01的改进&quot;&gt;&lt;/a&gt;HTML5相比HTML4.01的改进&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;HTML5提供了更多的元素和属性&lt;/li&gt;
+&lt;li&gt;它有很多新特性，允许Web开发人员用HTML5创建Web应用&lt;/li&gt;
+&lt;li&gt;HTML5规范比以前的版本健壮得多&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;其他知识点&quot;&gt;&lt;a href=&quot;#其他知识点&quot; class=&quot;headerlink&quot; title=&quot;其他知识点&quot;&gt;&lt;/a&gt;其他知识点&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;html标准将变成一个活的标准，不再有6、7、8等版本，这就意味着它会根据需要继续发展和变化，不再需要固定的版本号。&lt;/li&gt;
+&lt;li&gt;html标准具有向后兼容性(backwards compatibility)，意味着我们可以向html增加新的内容，浏览器在支持新的内容的同时，也会支持原来的内容。&lt;/li&gt;
+&lt;li&gt;w3c html验证工具：&lt;a href=&quot;http://validator.w3.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://validator.w3.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;html5中通过meta指定字符编码&lt;code&gt;&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;&lt;/code&gt;，相比之前&lt;code&gt;&amp;lt;meta http-equiv=&amp;quot;Content-Type&amp;quot; content=&amp;quot;text/html;charset=utf-8&amp;quot;&amp;gt;&lt;/code&gt;方式要简单很多&lt;/li&gt;
+&lt;li&gt;html文件编码要和页面指定的编码一致。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;其实回头看前几天的学习内容比较杂乱，导致耗费了一些不必要的精力，其实现在最应该做的是先系统的看点书，但由于我还有点前端基础，而且早上不想看书的特点，估计后面还是会学习网上的课程，下午和晚上的时间用于看书和写博客。&lt;br&gt;下面只有今天学习 《Head First HTML &amp;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端之旅第 4 天</title>
     <link href="http://archmee.github.io/201607/2016-07-09.html"/>
     <id>http://archmee.github.io/201607/2016-07-09.html</id>
     <published>2016-07-08T16:00:00.000Z</published>
-    <updated>2016-07-09T17:44:16.799Z</updated>
+    <updated>2016-07-09T17:44:06.296Z</updated>
     
     <content type="html">&lt;p&gt;在慕课网上学习&lt;a href=&quot;http://www.imooc.com/learn/9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML+CSS基础课程&lt;/a&gt;时记录了一些关键点。可能学完这个课程会给你已经学会了html和css的错觉，但其实这个课程真正的作用只在于让你初步的认识html和css，更深入的知识需要看书和实践才能获得。&lt;/p&gt;
 &lt;h2 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h2&gt;&lt;h3 id=&quot;何为语义化？&quot;&gt;&lt;a href=&quot;#何为语义化？&quot; class=&quot;headerlink&quot; title=&quot;何为语义化？&quot;&gt;&lt;/a&gt;何为语义化？&lt;/h3&gt;&lt;p&gt;语义化。说的通俗点就是：明白每个标签的用途（在什么情况下使用此标签合理）比如，网页上的文章的标题就可以用标题标签，网页上的各个栏目的栏目名称也可以使用标题标签。文章中内容的段落就得放在段落标签中，在文章中有想强调的文本，就可以使用 em 标签表示强调等等。&lt;/p&gt;
@@ -144,7 +241,7 @@
     <link href="http://archmee.github.io/201607/2016-07-08.html"/>
     <id>http://archmee.github.io/201607/2016-07-08.html</id>
     <published>2016-07-07T16:00:00.000Z</published>
-    <updated>2016-07-09T10:06:16.107Z</updated>
+    <updated>2016-07-10T17:59:37.246Z</updated>
     
     <content type="html">&lt;h2 id=&quot;学习-Sublime-Text&quot;&gt;&lt;a href=&quot;#学习-Sublime-Text&quot; class=&quot;headerlink&quot; title=&quot;学习 Sublime Text&quot;&gt;&lt;/a&gt;学习 Sublime Text&lt;/h2&gt;&lt;p&gt;虽然之前一直在用Sublime Text，但却对它很多功能知之甚少，所以上午全都在 &lt;a href=&quot;www.imooc.com&quot;&gt;慕课网&lt;/a&gt; 学习它的 &lt;a href=&quot;http://www.imooc.com/video/5473&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;视频课程&lt;/a&gt;。这门课主要讲了常用的快捷键和一些插件的安装使用，对开发很有帮助，就算暂时用不到，也可以先作为了解。&lt;/p&gt;
 &lt;h3 id=&quot;快捷键&quot;&gt;&lt;a href=&quot;#快捷键&quot; class=&quot;headerlink&quot; title=&quot;快捷键&quot;&gt;&lt;/a&gt;快捷键&lt;/h3&gt;&lt;table&gt;
@@ -215,7 +312,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;Head-First-HTML-amp-CSS-学习笔记&quot;&gt;&lt;a href=&quot;#Head-First-HTML-amp-CSS-学习笔记&quot; class=&quot;headerlink&quot; title=&quot;Head First HTML &amp;amp; CSS 学习笔记&quot;&gt;&lt;/a&gt;Head First HTML &amp;amp; CSS 学习笔记&lt;/h2&gt;&lt;h3 id=&quot;第4章-连接起来&quot;&gt;&lt;a href=&quot;#第4章-连接起来&quot; class=&quot;headerlink&quot; title=&quot;第4章. 连接起来&quot;&gt;&lt;/a&gt;第4章. 连接起来&lt;/h3&gt;&lt;ul&gt;
+&lt;h2 id=&quot;《Head-First-HTML-amp-CSS》-学习笔记&quot;&gt;&lt;a href=&quot;#《Head-First-HTML-amp-CSS》-学习笔记&quot; class=&quot;headerlink&quot; title=&quot;《Head First HTML &amp;amp; CSS》 学习笔记&quot;&gt;&lt;/a&gt;《Head First HTML &amp;amp; CSS》 学习笔记&lt;/h2&gt;&lt;h3 id=&quot;第4章-连接起来&quot;&gt;&lt;a href=&quot;#第4章-连接起来&quot; class=&quot;headerlink&quot; title=&quot;第4章. 连接起来&quot;&gt;&lt;/a&gt;第4章. 连接起来&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;浏览器中输入的Web地址称为URL，或称统一资源定位符（Uniform Resource Locators）&lt;/li&gt;
 &lt;li&gt;单击一个相对链接时，在后台浏览器会根据这个相对路径和所单击页面的路径创建一个绝对路径&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;元素的title属性用来提供链接描述信息，可以为任何元素增加title属性以提供工具提示。&lt;/li&gt;
@@ -248,9 +345,9 @@
     <link href="http://archmee.github.io/201607/2016-07-07.html"/>
     <id>http://archmee.github.io/201607/2016-07-07.html</id>
     <published>2016-07-06T16:00:00.000Z</published>
-    <updated>2016-07-09T10:09:18.550Z</updated>
+    <updated>2016-07-10T17:59:46.379Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;MDN的Web开发入门教程&quot;&gt;&lt;a href=&quot;#MDN的Web开发入门教程&quot; class=&quot;headerlink&quot; title=&quot;MDN的Web开发入门教程&quot;&gt;&lt;/a&gt;MDN的Web开发入门教程&lt;/h2&gt;&lt;p&gt;由于早上起来比较困，所以看书肯定会打瞌睡，所以我决定找点自己在网上收集的资料看一下，然后看到了MDN的 &lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Web开发入门&lt;/a&gt;，通过这个教程你将建立一个构建简单的网页和发布自己的简单的代码的工具。教程共如下8篇：&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;MDN-的-Web开发入门教程&quot;&gt;&lt;a href=&quot;#MDN-的-Web开发入门教程&quot; class=&quot;headerlink&quot; title=&quot;MDN 的 Web开发入门教程&quot;&gt;&lt;/a&gt;MDN 的 Web开发入门教程&lt;/h2&gt;&lt;p&gt;由于早上起来比较困，所以看书肯定会打瞌睡，所以我决定找点自己在网上收集的资料看一下，然后看到了MDN的 &lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Learn/Getting_started_with_the_web&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Web开发入门&lt;/a&gt;，通过这个教程你将建立一个构建简单的网页和发布自己的简单的代码的工具。教程共如下8篇：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;安装基本的软件&lt;/li&gt;
 &lt;li&gt;你的网页将呈现什么样子？&lt;/li&gt;
@@ -267,7 +364,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;提示：我们将&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;元素放在 HTML 文件底部的原因是，浏览器解析 HTML 似乎按照代码出现的顺序来的。如果 JavaScript被首先读取，它也应该影响下面的 HTML，但有时会出现问题，因为 JavaScript 会在 HTML 之前被加载，如果 JavaScript 代码出现问题则 HTML 不会被加载。所以将 JavaScript 代码放在底部是最好的选择。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;Head-First-HTML-amp-CSS-学习笔记&quot;&gt;&lt;a href=&quot;#Head-First-HTML-amp-CSS-学习笔记&quot; class=&quot;headerlink&quot; title=&quot;Head First HTML &amp;amp; CSS 学习笔记&quot;&gt;&lt;/a&gt;Head First HTML &amp;amp; CSS 学习笔记&lt;/h2&gt;&lt;h3 id=&quot;第2章-深入了解超文本&quot;&gt;&lt;a href=&quot;#第2章-深入了解超文本&quot; class=&quot;headerlink&quot; title=&quot;第2章. 深入了解超文本&quot;&gt;&lt;/a&gt;第2章. 深入了解超文本&lt;/h3&gt;&lt;ul&gt;
+&lt;h2 id=&quot;《Head-First-HTML-amp-CSS》-学习笔记&quot;&gt;&lt;a href=&quot;#《Head-First-HTML-amp-CSS》-学习笔记&quot; class=&quot;headerlink&quot; title=&quot;《Head First HTML &amp;amp; CSS》 学习笔记&quot;&gt;&lt;/a&gt;《Head First HTML &amp;amp; CSS》 学习笔记&lt;/h2&gt;&lt;h3 id=&quot;第2章-深入了解超文本&quot;&gt;&lt;a href=&quot;#第2章-深入了解超文本&quot; class=&quot;headerlink&quot; title=&quot;第2章. 深入了解超文本&quot;&gt;&lt;/a&gt;第2章. 深入了解超文本&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;href属性全称hypertext reference&lt;/li&gt;
 &lt;li&gt;属性的值应该用双引号括起来&lt;/li&gt;
 &lt;li&gt;html5支持定制数据属性，不过现在对我并没什么（luan）用&lt;/li&gt;
@@ -288,7 +385,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;MDN的Web开发入门教程&quot;&gt;&lt;a href=&quot;#MDN的Web开发入门教程&quot; class=&quot;headerlink&quot; title=&quot;MDN的Web开发入门教程&quot;&gt;&lt;/a&gt;MDN的Web开发入门教程&lt;/h2&gt;&lt;p&gt;由于早上起来比较困，所以看书肯定会打瞌睡，所以我决定
+      &lt;h2 id=&quot;MDN-的-Web开发入门教程&quot;&gt;&lt;a href=&quot;#MDN-的-Web开发入门教程&quot; class=&quot;headerlink&quot; title=&quot;MDN 的 Web开发入门教程&quot;&gt;&lt;/a&gt;MDN 的 Web开发入门教程&lt;/h2&gt;&lt;p&gt;由于早上起来比较困，所以看书肯定会打
     
     </summary>
     
@@ -304,7 +401,7 @@
     <link href="http://archmee.github.io/201607/2016-07-06.html"/>
     <id>http://archmee.github.io/201607/2016-07-06.html</id>
     <published>2016-07-05T16:00:00.000Z</published>
-    <updated>2016-07-09T10:09:48.346Z</updated>
+    <updated>2016-07-10T17:58:50.000Z</updated>
     
     <content type="html">&lt;p&gt;今天是7月6号，前端之旅的第一天。&lt;/p&gt;
 &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;从年前被辞退以来，先是花了四个月学习iOS开发，但是这其中由于个人感情原因一直不能集中精力，所以进度很慢，在6月底做完一个简陋的&lt;a href=&quot;https://github.com/Archmee/Dota2Heropedia&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dota2英雄百科&lt;/a&gt;APP后，决定暂时‘放弃’，并非自己学习能力不足或者没有耐心，只是在学习的过程有了对苹果公司的一些‘偏见’：&lt;/p&gt;
@@ -319,7 +416,7 @@
 &lt;p&gt;这次，我决定尝试一下前端，作为一名几乎工作一年的PHP后端，说完全不懂前端是假的，前端的基础技术html、css和js在平时的开发中也都会用到的，只是没有深入学习过而已，但这次一切都会不一样了。&lt;/p&gt;
 &lt;p&gt;我希望我的每一次的放弃都不是真的放弃，那并不具有失败的意义，而是我在有了更好的选择上做了妥协。现在选择走进前端开发并不一定就是说我就给自己的未来固定了方向，我希望趁自己年轻的时候可以多尝试感兴趣的方向，尽量随性一点，而且我觉得未来自己可以尝试的方向还有用户体验交互和界面设计等上，所以现在选的方向也不是盲目选择，而是选择了一种渐进增强的方式。人生且长，随机应变。&lt;/p&gt;
 &lt;p&gt;7月7日凌晨，写下此文，加油，未来共勉！&lt;/p&gt;
-&lt;h2 id=&quot;Head-First-HTML-amp-CSS-学习笔记&quot;&gt;&lt;a href=&quot;#Head-First-HTML-amp-CSS-学习笔记&quot; class=&quot;headerlink&quot; title=&quot;Head First HTML &amp;amp; CSS 学习笔记&quot;&gt;&lt;/a&gt;Head First HTML &amp;amp; CSS 学习笔记&lt;/h2&gt;&lt;p&gt;今天整理了之前收集的前端方面的书签，准备好资源很重要。不过还是先看书要紧。&lt;/p&gt;
+&lt;h2 id=&quot;《Head-First-HTML-amp-CSS》-学习笔记&quot;&gt;&lt;a href=&quot;#《Head-First-HTML-amp-CSS》-学习笔记&quot; class=&quot;headerlink&quot; title=&quot;《Head First HTML &amp;amp; CSS》 学习笔记&quot;&gt;&lt;/a&gt;《Head First HTML &amp;amp; CSS》 学习笔记&lt;/h2&gt;&lt;p&gt;今天整理了之前收集的前端方面的书签，准备好资源很重要。不过还是先看书要紧。&lt;/p&gt;
 &lt;h3 id=&quot;第1章-认识HTML&quot;&gt;&lt;a href=&quot;#第1章-认识HTML&quot; class=&quot;headerlink&quot; title=&quot;第1章. 认识HTML&quot;&gt;&lt;/a&gt;第1章. 认识HTML&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;文件要保存为.html的后缀&lt;/li&gt;
 &lt;li&gt;head标签中必须包括title标签&lt;/li&gt;
