@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>温故PHP之Cookie和Session | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201607/2016-07-05.html">温故PHP之Cookie和Session</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">July 05 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>学习iOS以来，已经有一段时间不碰PHP了，这两天翻《Head First PHP &amp; MySQL》温习PHP的时候(第7章)，发现自己之前对Cookie和Session并没有理解透彻，所以看完后决定写点学习笔记。</p>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><ul>
+<li><p>cookie是浏览器存储在用户计算机中的一小段数据。cookie和PHP变量十分相似，只不过关闭浏览器或计算机后cookie还存在，更重要的是cookie可以删除。</p>
+</li>
+<li><p>可以从PHP或其他语言访问cookie，而且cookie不仅可以跨多个页面(脚本)持久保存，甚至可以跨多个浏览器会话持久存储。</p>
+</li>
+<li><p>cookie由键-值对组成，每个键-值可以有一个失效日期，如果没有指定失效日期，则cookie会在浏览器关闭时销毁。</p>
+</li>
+<li><p>设置cookie，获取cookie以及销毁cookie</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置cookie</span></span><br><span class="line">setcookie(<span class="string">'userid'</span>, <span class="string">'2345'</span>); <span class="comment">//没有设置失效时间，则会在浏览器关闭后立即销毁</span></span><br><span class="line">setcookie(<span class="string">'userid'</span>, <span class="string">'1234'</span>, time()+<span class="number">60</span>);<span class="comment">//设置当前时间以后60秒失效</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//通过超全局变量获取cookie</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">empty</span>(<span class="variable">$_COOKIE</span>[<span class="string">'userid'</span>]))&#123;&#125;<span class="comment">//判断是否设置了该cookie</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁cookie只需要设置它的到期日期在过去的任意时间即可</span></span><br><span class="line">setcookie(<span class="string">'userid'</span>, <span class="string">''</span>, time()-<span class="number">3600</span>);<span class="comment">//设置userid这个cookie的到期日期在一个小时以前或其他过去时间，浏览器就会销毁该cookie</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><p>如果用户设置浏览器禁用cookie，这样对cookie的存取操作就会失败，所以我们不能完全依赖cookie，此时可以考虑使用session。</p>
+<ul>
+<li>和cookie不同的是，session存储在服务器端，这样就不会受到浏览器限制。</li>
+<li>由于session数据保存在服务器上，这比存储在cookie中更安全，也更可靠。</li>
+<li>session比cookie能存储更多类型和大小的数据。</li>
+<li>session（会话）的缺点就是，无法对一个session变量在数据存储时间上做太多控制，会话一结束就会自动销毁会话变量，而会话在关闭浏览器时就结束。</li>
+<li>session变量由键-值对组成，但是和cookie不同的时，session变量没有失效日期，以为它随着浏览器关闭就销毁。</li>
+<li>所有要使用session数据的页面都要调用<code>session_start()</code>开始一个会话，如果会话不存在，就建立一个会话，并分配一个会话ID，如果已经存在一个会话，则使用已有会话。</li>
+<li><p>在会话开始后，可以直接操作$_SESSION全局变量存取会话变量</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session_start(); <span class="comment">//开始一个会话</span></span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">'username'</span>] = <span class="string">'haha'</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="string">'username'</span>]))&#123;&#125;<span class="comment">//判断该会话变量是否存在</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>session_destroy()</code>结束一个会话，但它不会自动销毁任何会话变量。所以如果希望用户关闭浏览器之前清空会话变量，就必须手动删除。</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$_SESSION</span> = <span class="keyword">array</span>();<span class="comment">//快速有效的清空会话变量</span></span><br></pre></td></tr></table></figure>
+<p>  但还没有完全结束，因为session在后台实际上会使用cookie，如果浏览器支持cookie，会话可能会设置一个cookie临时存储会话ID，所以要完全关闭一个会话，还必须删除可能在浏览器上自动创建来存储会话ID的cookie</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//会话ID存储在以会话命名的一个cookie中</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_COOKIE</span>[session_name()])) &#123;</span><br><span class="line">    setcookie(session_name, <span class="string">''</span>, time()-<span class="number">10</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完整的操作一个会话的过程如下</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//开始一个会话</span></span><br><span class="line">session_start();<span class="comment">//开始会话后，所有脚本共享会话变量</span></span><br><span class="line"><span class="comment">//存取会话变量、检查会话变量...</span></span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">'username'</span>] = <span class="string">'haha'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//结束会话的正确姿势</span></span><br><span class="line"><span class="variable">$_SESSION</span> = <span class="keyword">array</span>();<span class="comment">//清空会话变量</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_COOKIE</span>[session_name()])) &#123;</span><br><span class="line">    setcookie(session_name, <span class="string">''</span>, time()-<span class="number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line">session_destroy(); <span class="comment">//最后再结束会话</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>但是问题依然存在的是，如果用户禁用了cookie，那么session会随着浏览器的关闭而结束。而会话如何响应cookie被禁用取决于服务器上php.ini配置文件中的相关配置项。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session.use_cookies</span><br><span class="line">session.use_only_cookies</span><br><span class="line">session.use_trans_sid</span><br></pre></td></tr></table></figure></p>
+<p><strong>Watch!</strong><br>禁用cookie的情况下要让会话正常工作，还需要另外一个机制在不同页面传递会话ID，这个机制需要将会话ID追加到每个页面的URL后面，如果服务器上的php.ini中文件中<code>session.use_trans_id</code>被设置为1(true)，这就会自动发生。如果你无法直接修改php.ini文件，cookie被禁用时就必须利用类似下面的代码手动地向会话页面的URL追加会话ID。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"index.php?&lt;?php echo SID; ?&gt;"</span>&gt;view index&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
+<p>但是现在仍不能扭转关闭浏览器即结束会话的命运，而这对于需要记住用户登陆状态的应用至关重要。</p>
+<h2 id="Cookie-Session-更持久的方案"><a href="#Cookie-Session-更持久的方案" class="headerlink" title="Cookie+Session=更持久的方案"></a>Cookie+Session=更持久的方案</h2><p>我们发现不管是session还是cookie都有各自的优缺点，那么是否可以尝试一下Cookie+Session的方案。</p>
+<p>这种方案在技术上并没有增加多少复杂度，只需要同时设置Cookie和Session并且同时销毁即可。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">session_start();<span class="comment">//开始会话</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">'userid'</span>] = <span class="string">'12345'</span>;</span><br><span class="line">setcookie(<span class="string">'userid'</span>, <span class="string">'12345'</span>, time()+<span class="number">3600</span>);<span class="comment">//一个小时候失效</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后在其他脚本中共享cookie和session数据了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//手动注销数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="string">'userid'</span>])) &#123;<span class="comment">//先销毁session数据</span></span><br><span class="line">    <span class="variable">$_SESSION</span> = <span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_COOKIE</span>[session_name()])) &#123;</span><br><span class="line">        setcookie(<span class="variable">$_COOKIE</span>[session_name],<span class="string">''</span>,time()-<span class="number">100</span>);    </span><br><span class="line">    &#125;</span><br><span class="line">    session_destroy();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setcookie(<span class="string">'userid'</span>, <span class="string">''</span>, time()-<span class="number">100</span>);<span class="comment">//再销毁cookie</span></span><br></pre></td></tr></table></figure></p>
+<p>但是cookie+session仍然不能防止用户禁用cookie，所以我们还需要寻求更好的方案。</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="前言"><a href="#前"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>

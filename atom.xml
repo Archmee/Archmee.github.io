@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-07-10T18:08:13.145Z</updated>
+  <updated>2016-07-11T20:06:23.319Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -14,6 +14,126 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端之旅第 6 天</title>
+    <link href="http://archmee.github.io/201607/2016-07-11.html"/>
+    <id>http://archmee.github.io/201607/2016-07-11.html</id>
+    <published>2016-07-11T14:56:00.000Z</published>
+    <updated>2016-07-11T20:06:23.319Z</updated>
+    
+    <content type="html">&lt;p&gt;下面是今天学习《Head First HTML &amp;amp; CSS》第7、8章的学习笔记&lt;/p&gt;
+&lt;h2 id=&quot;第7章-CSS入门&quot;&gt;&lt;a href=&quot;#第7章-CSS入门&quot; class=&quot;headerlink&quot; title=&quot;第7章. CSS入门&quot;&gt;&lt;/a&gt;第7章. CSS入门&lt;/h2&gt;&lt;h3 id=&quot;添加CSS的3种方法&quot;&gt;&lt;a href=&quot;#添加CSS的3种方法&quot; class=&quot;headerlink&quot; title=&quot;添加CSS的3种方法&quot;&gt;&lt;/a&gt;添加CSS的3种方法&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;内嵌样式：可以直接在标签里面写样式 &lt;code&gt;&amp;lt;p style=&amp;quot;color:red;...&amp;quot;&amp;gt;&amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;内联样式：在head标签里 &lt;code&gt;&amp;lt;style&amp;gt; css样式 &amp;lt;/style&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;外部样式：在head标签里以文件方式包含进来 &lt;code&gt;&amp;lt;link type=&amp;quot;text/css&amp;quot; rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;css样式文件&amp;quot;&amp;gt;&lt;/code&gt;，在html5中已经不需要type属性，因为样式表目前只有css&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以上3种方法优先级依次从高到低，但是推荐顺序从低到高&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;继承和覆盖继承&quot;&gt;&lt;a href=&quot;#继承和覆盖继承&quot; class=&quot;headerlink&quot; title=&quot;继承和覆盖继承&quot;&gt;&lt;/a&gt;继承和覆盖继承&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;继承是指从父元素那里继承样式，不是所有样式都能继承，一部分如&lt;code&gt;font-family&lt;/code&gt;等可以继承，而&lt;code&gt;border&lt;/code&gt;就不可继承。一般来说会影响文本外观的样式都能继承。&lt;/li&gt;
+&lt;li&gt;覆盖继承是指在子元素中使用了和父元素重复的样式规则，那么子元素的样式就会覆盖父元素的样式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;其他知识点&quot;&gt;&lt;a href=&quot;#其他知识点&quot; class=&quot;headerlink&quot; title=&quot;其他知识点&quot;&gt;&lt;/a&gt;其他知识点&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;CSS使用&lt;code&gt;/*这是注释*/&lt;/code&gt;这样的格式来注释&lt;/li&gt;
+&lt;li&gt;多个选择器应用同样的样式用&lt;code&gt;,&lt;/code&gt;号隔开&lt;/li&gt;
+&lt;li&gt;一个元素可以加入多个类(class)，只需要把各个类名放在class属性中，并且用空格隔开即可，而且顺序并不重要，因为就算规则冲突，也是根据css文件中出现的顺序而不是这个顺序。如果你希望一个元素拥有不同类中定义的不同样式，那么就要使用多个类。&lt;/li&gt;
+&lt;li&gt;如果多个选择器选择一个元素，就会发生冲突，如果一个规则比其他规则更“特定”，就胜出。&lt;/li&gt;
+&lt;li&gt;如果由于两个选择器有相同的特定性而无法解决冲突，就要利用CSS文件中规则的先后顺序(就近原则)来解决问题，往往是越靠后越优胜。&lt;/li&gt;
+&lt;li&gt;W3C CSS验证工具：&lt;a href=&quot;http://jigsaw.w3.org/css-validator&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://jigsaw.w3.org/css-validator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;第8章-增加字体和颜色样式&quot;&gt;&lt;a href=&quot;#第8章-增加字体和颜色样式&quot; class=&quot;headerlink&quot; title=&quot;第8章. 增加字体和颜色样式&quot;&gt;&lt;/a&gt;第8章. 增加字体和颜色样式&lt;/h2&gt;&lt;h3 id=&quot;字体样式&quot;&gt;&lt;a href=&quot;#字体样式&quot; class=&quot;headerlink&quot; title=&quot;字体样式&quot;&gt;&lt;/a&gt;字体样式&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;font-family 指定页面中使用的字体，可以指定特定的字体，也可以指定某一字体系列。font-family字体系列有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Sans-serif&lt;/strong&gt; 无衬线字体系列，计算机屏幕上更易读&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Serif&lt;/strong&gt; 衬线字体系列，适用于印刷品&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Monospace&lt;/strong&gt;字体系列，每个字符等宽，主要用于显示软件代码&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cursive&lt;/strong&gt;字体系列，类似手写体&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Fantasy&lt;/strong&gt;字体系列包含有某种风格的装饰性字体&lt;/p&gt;
+&lt;p&gt;作者推荐方法：&lt;/p&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/*字体生效的顺序是从前往后*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/*推荐使用sans-serif系列字体的方法，先提供候选字体，最后提供字体系列，浏览器会选择该系列的默认字体来显示*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;font-family&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; Verdana, Geneva, Arail, sans-serif&lt;/span&gt;&lt;/span&gt;;  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果字体名中间包含空格，则需要用双引号&lt;code&gt;&amp;quot;&lt;/code&gt;将其包围起来，如&lt;code&gt;&amp;quot;Microsoft Yahei&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;font-size 控制字体大小，可以使用的方式&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;px：实际上是指字体高度（字体最高部分和最低部分之间的距离）&lt;/li&gt;
+&lt;li&gt;%：相对于父元素的字体的百分比&lt;/li&gt;
+&lt;li&gt;em：和%一样，只是用倍数表示，如1.2em=120%&lt;/li&gt;
+&lt;li&gt;关键字：xx-small、x-small、small、medium、large、x-large、xx-large，他们之间是20%的关系，但是具体值基于浏览器默认值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;作者推荐指定字体方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;选择一个关键字，指定它作为body规则的字体大小，这相当于页面默认字体大小（如果使用像素，老版本的IE不支持）&lt;/li&gt;
+&lt;li&gt;使用em或%，相对于body字体大小指定其他元素的字体大小&lt;br&gt;作者认为这样做的好处是，所有字体都会基于浏览器字体大小进行相对调整。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;color 设置字体颜色，实际上它控制着一个元素的前景色，包括边框等…&lt;/li&gt;
+&lt;li&gt;font-style 指定字体倾斜，none、italic和oblique，italic和oblique在不同浏览器可能会有不同表现&lt;/li&gt;
+&lt;li&gt;font-weight 影响字体粗细，lighter、normal、bold、bolder、100~900之间100的倍数数值（未广泛支持）&lt;/li&gt;
+&lt;li&gt;text-decoration 增加更多文本风格，none、underline、overline、line-through。除了第一个外的在同一条规则中可以叠加使用，如&lt;code&gt;text-decoration: underline overline;&lt;/code&gt;，如果写在多个样式中，则会覆盖显示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Web字体&quot;&gt;&lt;a href=&quot;#Web字体&quot; class=&quot;headerlink&quot; title=&quot;Web字体&quot;&gt;&lt;/a&gt;Web字体&lt;/h3&gt;&lt;p&gt;由于不确定用户是否安装了指定字体，所以如果希望用户使用统一字体，则可以采用Web字体。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Web开放字体格式：简称woff（Web Open Font Format），文件后缀&lt;code&gt;.woff&lt;/code&gt;，woff是作为Web字体的标准字体格式出现的。&lt;/li&gt;
+&lt;li&gt;常用web字体：&lt;ul&gt;
+&lt;li&gt;TureType字体: .ttf&lt;/li&gt;
+&lt;li&gt;OpenType字体: .otf(建立在TureType基础之上)&lt;/li&gt;
+&lt;li&gt;Embedded OpenType字体: .eot(OpenType的一种压缩形式，仅IE支持)&lt;/li&gt;
+&lt;li&gt;SVG字体: .svg(通用图像格式)&lt;/li&gt;
+&lt;li&gt;Web开放字体: .woff(建立在TureType基础之上，已经发展为标准)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;为页面添加web字体：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在服务器上保存你想使用的字体(或用托管服务)&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在css文件中添加@font-face规则，这是css一个比较新的特性。@font-face是一个内置的css规则，而不是一个选择器规则。&lt;/p&gt;
+ &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;at_rule&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;font-face&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;font-family&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;string&quot;&gt;&quot;指定字体名&quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;url&lt;/span&gt;(http://x.svg),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &lt;span class=&quot;function&quot;&gt;url&lt;/span&gt;(http://x.woff)&lt;/span&gt;&lt;/span&gt;; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;comment&quot;&gt;/*src可以指定多个字体位置的url，用逗号分隔*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在你想使用该字体的地方用font-family规则指定 &lt;code&gt;{ font-family: &amp;quot;你指定的字体名&amp;quot;; }&lt;/code&gt;，这个名字是你在font-face规则中定义的字体名。&lt;/p&gt;
+&lt;p&gt;如果要使用多个字体，则要创建多个@font-face，而且要分别指定唯一的名字。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：移动设备和小型设备并不支持web字体&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;@font-face是一个内置规则，@import和@media也是内置的规则，@import允许导入其他CSS文件，@media允许创建特定于某些“媒体”类型的CSS规则&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Web颜色&quot;&gt;&lt;a href=&quot;#Web颜色&quot; class=&quot;headerlink&quot; title=&quot;Web颜色&quot;&gt;&lt;/a&gt;Web颜色&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;rgb（red green blue）是3基色，可以按不同比例混合出任何一种其他颜色&lt;/li&gt;
+&lt;li&gt;有4种方法给css规则指定颜色&lt;ol&gt;
+&lt;li&gt;颜色名：&lt;code&gt;color: orange;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;3基色百分比：&lt;code&gt;color: rgb(80%, 40%, 0%);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;3基色数值（0-255之间）：&lt;code&gt;color: rgb(204, 102, 12);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;十六进制码：&lt;code&gt;color: #cc6600;&lt;/code&gt;（每2位代表rgb的0-255的数值的十六进制，从左至右依次是&lt;strong&gt;红、绿、蓝&lt;/strong&gt;，如果每组分量中两位数字都相同，则可以简写，#cc6600可以简写#c60，而#cc6610就不可以）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;其他知识点-1&quot;&gt;&lt;a href=&quot;#其他知识点-1&quot; class=&quot;headerlink&quot; title=&quot;其他知识点&quot;&gt;&lt;/a&gt;其他知识点&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;用来强调，&lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;用来特别强调&lt;/li&gt;
+&lt;li&gt;一般来说，h1是默认字体大小的200%，h2是150%，h3是120%，h4是100%，h5是90%，h6是60%。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;下面是今天学习《Head First HTML &amp;amp; CSS》第7、8章的学习笔记&lt;/p&gt;
+&lt;h2 id=&quot;第7章-CSS入门&quot;&gt;&lt;a href=&quot;#第7章-CSS入门&quot; class=&quot;headerlink&quot; title=&quot;第7章. CSS入门&quot;&gt;&lt;/a&gt;第7章. C
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
   
   <entry>
     <title>前端之旅第 5 天</title>
@@ -456,6 +576,68 @@
     
     
       <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>温故PHP之Cookie和Session</title>
+    <link href="http://archmee.github.io/201607/2016-07-05.html"/>
+    <id>http://archmee.github.io/201607/2016-07-05.html</id>
+    <published>2016-07-05T08:48:00.000Z</published>
+    <updated>2016-07-11T20:02:15.702Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;学习iOS以来，已经有一段时间不碰PHP了，这两天翻《Head First PHP &amp;amp; MySQL》温习PHP的时候(第7章)，发现自己之前对Cookie和Session并没有理解透彻，所以看完后决定写点学习笔记。&lt;/p&gt;
+&lt;h2 id=&quot;Cookie&quot;&gt;&lt;a href=&quot;#Cookie&quot; class=&quot;headerlink&quot; title=&quot;Cookie&quot;&gt;&lt;/a&gt;Cookie&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;cookie是浏览器存储在用户计算机中的一小段数据。cookie和PHP变量十分相似，只不过关闭浏览器或计算机后cookie还存在，更重要的是cookie可以删除。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;可以从PHP或其他语言访问cookie，而且cookie不仅可以跨多个页面(脚本)持久保存，甚至可以跨多个浏览器会话持久存储。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;cookie由键-值对组成，每个键-值可以有一个失效日期，如果没有指定失效日期，则cookie会在浏览器关闭时销毁。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;设置cookie，获取cookie以及销毁cookie&lt;/p&gt;
+  &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//设置cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setcookie(&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;2345&#39;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//没有设置失效时间，则会在浏览器关闭后立即销毁&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setcookie(&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;1234&#39;&lt;/span&gt;, time()+&lt;span class=&quot;number&quot;&gt;60&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//设置当前时间以后60秒失效&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//通过超全局变量获取cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;empty&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_COOKIE&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;]))&amp;#123;&amp;#125;&lt;span class=&quot;comment&quot;&gt;//判断是否设置了该cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//销毁cookie只需要设置它的到期日期在过去的任意时间即可&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setcookie(&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;, time()-&lt;span class=&quot;number&quot;&gt;3600&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//设置userid这个cookie的到期日期在一个小时以前或其他过去时间，浏览器就会销毁该cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Session&quot;&gt;&lt;a href=&quot;#Session&quot; class=&quot;headerlink&quot; title=&quot;Session&quot;&gt;&lt;/a&gt;Session&lt;/h2&gt;&lt;p&gt;如果用户设置浏览器禁用cookie，这样对cookie的存取操作就会失败，所以我们不能完全依赖cookie，此时可以考虑使用session。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;和cookie不同的是，session存储在服务器端，这样就不会受到浏览器限制。&lt;/li&gt;
+&lt;li&gt;由于session数据保存在服务器上，这比存储在cookie中更安全，也更可靠。&lt;/li&gt;
+&lt;li&gt;session比cookie能存储更多类型和大小的数据。&lt;/li&gt;
+&lt;li&gt;session（会话）的缺点就是，无法对一个session变量在数据存储时间上做太多控制，会话一结束就会自动销毁会话变量，而会话在关闭浏览器时就结束。&lt;/li&gt;
+&lt;li&gt;session变量由键-值对组成，但是和cookie不同的时，session变量没有失效日期，以为它随着浏览器关闭就销毁。&lt;/li&gt;
+&lt;li&gt;所有要使用session数据的页面都要调用&lt;code&gt;session_start()&lt;/code&gt;开始一个会话，如果会话不存在，就建立一个会话，并分配一个会话ID，如果已经存在一个会话，则使用已有会话。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在会话开始后，可以直接操作$_SESSION全局变量存取会话变量&lt;/p&gt;
+  &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;session_start(); &lt;span class=&quot;comment&quot;&gt;//开始一个会话&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;username&#39;&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&#39;haha&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;isset&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;username&#39;&lt;/span&gt;]))&amp;#123;&amp;#125;&lt;span class=&quot;comment&quot;&gt;//判断该会话变量是否存在&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;session_destroy()&lt;/code&gt;结束一个会话，但它不会自动销毁任何会话变量。所以如果希望用户关闭浏览器之前清空会话变量，就必须手动删除。&lt;/p&gt;
+  &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;();&lt;span class=&quot;comment&quot;&gt;//快速有效的清空会话变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  但还没有完全结束，因为session在后台实际上会使用cookie，如果浏览器支持cookie，会话可能会设置一个cookie临时存储会话ID，所以要完全关闭一个会话，还必须删除可能在浏览器上自动创建来存储会话ID的cookie&lt;/p&gt;
+  &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//会话ID存储在以会话命名的一个cookie中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;isset&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_COOKIE&lt;/span&gt;[session_name()])) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    setcookie(session_name, &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;, time()-&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;完整的操作一个会话的过程如下&lt;/p&gt;
+  &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//开始一个会话&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;session_start();&lt;span class=&quot;comment&quot;&gt;//开始会话后，所有脚本共享会话变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//存取会话变量、检查会话变量...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;username&#39;&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&#39;haha&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//结束会话的正确姿势&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;();&lt;span class=&quot;comment&quot;&gt;//清空会话变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;isset&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_COOKIE&lt;/span&gt;[session_name()])) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    setcookie(session_name, &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;, time()-&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;session_destroy(); &lt;span class=&quot;comment&quot;&gt;//最后再结束会话&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;但是问题依然存在的是，如果用户禁用了cookie，那么session会随着浏览器的关闭而结束。而会话如何响应cookie被禁用取决于服务器上php.ini配置文件中的相关配置项。&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;session.use_cookies&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;session.use_only_cookies&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;session.use_trans_sid&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Watch!&lt;/strong&gt;&lt;br&gt;禁用cookie的情况下要让会话正常工作，还需要另外一个机制在不同页面传递会话ID，这个机制需要将会话ID追加到每个页面的URL后面，如果服务器上的php.ini中文件中&lt;code&gt;session.use_trans_id&lt;/code&gt;被设置为1(true)，这就会自动发生。如果你无法直接修改php.ini文件，cookie被禁用时就必须利用类似下面的代码手动地向会话页面的URL追加会话ID。&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;a href=&lt;span class=&quot;string&quot;&gt;&quot;index.php?&amp;lt;?php echo SID; ?&amp;gt;&quot;&lt;/span&gt;&amp;gt;view index&amp;lt;/a&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;但是现在仍不能扭转关闭浏览器即结束会话的命运，而这对于需要记住用户登陆状态的应用至关重要。&lt;/p&gt;
+&lt;h2 id=&quot;Cookie-Session-更持久的方案&quot;&gt;&lt;a href=&quot;#Cookie-Session-更持久的方案&quot; class=&quot;headerlink&quot; title=&quot;Cookie+Session=更持久的方案&quot;&gt;&lt;/a&gt;Cookie+Session=更持久的方案&lt;/h2&gt;&lt;p&gt;我们发现不管是session还是cookie都有各自的优缺点，那么是否可以尝试一下Cookie+Session的方案。&lt;/p&gt;
+&lt;p&gt;这种方案在技术上并没有增加多少复杂度，只需要同时设置Cookie和Session并且同时销毁即可。&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;session_start();&lt;span class=&quot;comment&quot;&gt;//开始会话&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&#39;12345&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setcookie(&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;12345&#39;&lt;/span&gt;, time()+&lt;span class=&quot;number&quot;&gt;3600&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//一个小时候失效&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//然后在其他脚本中共享cookie和session数据了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//手动注销数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;isset&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;])) &amp;#123;&lt;span class=&quot;comment&quot;&gt;//先销毁session数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;isset&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_COOKIE&lt;/span&gt;[session_name()])) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        setcookie(&lt;span class=&quot;variable&quot;&gt;$_COOKIE&lt;/span&gt;[session_name],&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;,time()-&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;);    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    session_destroy();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setcookie(&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;, time()-&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//再销毁cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;但是cookie+session仍然不能防止用户禁用cookie，所以我们还需要寻求更好的方案。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;学习iOS以来，已经有一段时间不碰PHP了，这两天翻《Head First PHP &amp;amp; MySQL》温习PHP的时候(第7章)，发现
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Back End" scheme="http://archmee.github.io/tags/Back-End/"/>
+    
+      <category term="PHP" scheme="http://archmee.github.io/tags/PHP/"/>
     
   </entry>
   
