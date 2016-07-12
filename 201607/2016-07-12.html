@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 7 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201607/2016-07-12.html">前端之旅第 7 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">July 12 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="9-盒模型"><a href="#9-盒模型" class="headerlink" title="9. 盒模型"></a>9. 盒模型</h2><h3 id="padding、margin、border"><a href="#padding、margin、border" class="headerlink" title="padding、margin、border"></a>padding、margin、border</h3><ul>
+<li><p>盒子由内容区、内边距、边框、外边距构成<br><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/01-16-43.jpg" alt="box model from book"></p>
+<ul>
+<li>内容区被可选的透明内边距包围，内边距会将内容和边框隔开</li>
+<li>内边距周围可能放着一个可选的边框</li>
+<li>有一个可选的透明外边距包围着边框，外边距用于在页面上的不同元素之间增加空间。</li>
+</ul>
+<blockquote>
+<p>内边距和外边距之间有一个区别：元素的背景颜色或背景图像会延伸到内边距下面，但不会延伸到外边距。</p>
+</blockquote>
+</li>
+<li><p>css指定内边距用padding，边框用border，外边距用margin，每一个又可以单独指定上、右、下、左顺时针的四个方向的值，如<code>margin-right:100px</code>，但border由于要指定多个值，所以使用方式更灵活</p>
+<ul>
+<li>border 是简写，可以指定4个方向的border都使用相同值，border-width、border-color、border-style是全写形式。</li>
+<li>border-top可以指定上面的border样式，但这仍然是一种简写形式，可以采用全写border-top-width、border-top-color、border-top-style来分别指定，且4个方向都采用同样规则</li>
+<li>border-width可以使用像素，也可以使用关键字thin(细)、medium(中)和thick(粗)，但是关键字方式根据浏览器会有不同表现。</li>
+<li><ul>
+<li>border-style（包括其他简写全写形式） 可用样式：solid(实线)、double(双线)、groov(槽线)、outset(外凸)、inset(内凹)、ridge(脊线)、dotted(虚线)、dashed(破折线)，</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>border-radius是css3用来指定边框圆角的属性，全写可以指定一个盒子四个角的圆角，一般使用像素值，要具体指定某一个角的值可以用全写，如<code>border-top-left-radius:3px;</code>，另外几个角top-right、bottom-left、bottom-right使用相同的规则</p>
+</li>
+</ul>
+<h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><p>background是插入背景图像的简写形式，也可以分别指定：</p>
+<ul>
+<li>background-image 指定背景图像url</li>
+<li>background-position 指定背景图像的相对位置，可以使用像素和百分数，还可以使用关键字top、bottom、left、right和center</li>
+<li>background-repeat 指定图像是否重复，repeat表示重复，no-repeat表示不重复，repeat-x只在x方向重复，repeat-y只在y方向重复，inherit表示按照父元素的方式处理。</li>
+</ul>
+<blockquote>
+<p>关于使用background-image和用img插入图像可以这样考虑，img是用来插入照片或logo等图像，而background-image是用来增强页面表现样式用的。</p>
+</blockquote>
+<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><ul>
+<li>id只能指定页面中的一个元素</li>
+<li>class要以字母开头，而id可以以数字或字母开头</li>
+<li>id只是一个元素的唯一标识符，不过这并不妨碍这个元素属于一个或多个类，即指定了id的元素仍然可以指定class。</li>
+<li>如果想对多个元素使用某个样式，就要用class，但如果只想给一个特定的元素加入样式，或者页面上只有一个元素，就应该使用id。</li>
+</ul>
+<h3 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h3><p>媒体查询可以针对将要显示页面的设备类型来调整页面的样式。</p>
+<ol>
+<li><p>用link标记指定相应设备的样式文件，这样可以给指定设备指定单独的css文件，比如</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"lounge.css"</span> <span class="attribute">media</span>=<span class="value">"screen"</span>&gt;</span><span class="comment">&lt;!--针对屏幕设备--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"lounge-mobile.css"</span> <span class="attribute">media</span>=<span class="value">"screen and (max-device-width: 480px)"</span>&gt;</span><span class="comment">&lt;!--针对屏幕宽度不超过480px的设备--&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以在css文件中针对相应设备使用媒体查询，但是这样会导致css文件变得庞大</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">media</span> screen and (max-device-width: <span class="number">480px</span>) </span>&#123; </span><br><span class="line"><span class="comment">/*针对屏幕宽度不超过480px的设备指定css样式*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="at_rule">@<span class="keyword">media</span> print </span>&#123;</span><br><span class="line"><span class="comment">/*针对打印机指定css样式*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*这里可以写所有设备通用的规则*/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>查询中还有很多属性可以使用，如min-device-width以及设备的方向orientation</li>
+<li>max-device-width和min-device-width媒体属性依赖于设备的实际屏幕而不是你的浏览器窗口宽度，而max-width和min-width则表示浏览器窗口的最大和最小宽度而不是屏幕大小。</li>
+<li>可以在<a href="http://www.w3.org/TR/css3-mediaqueries网站了解css3媒体查询规范细节" target="_blank" rel="external">http://www.w3.org/TR/css3-mediaqueries网站了解css3媒体查询规范细节</a></li>
+</ul>
+<blockquote>
+<p>IE8以及以前版本浏览器不支持媒体查询</p>
+</blockquote>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>line-height用于指定行间距</li>
+</ul>
+<h2 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h2><p>感觉每天写博客总结都要浪费好多时间……</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="9-盒模型"><a href="
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>

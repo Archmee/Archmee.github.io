@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-07-11T20:06:23.319Z</updated>
+  <updated>2016-07-12T19:10:26.346Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -14,6 +14,89 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端之旅第 7 天</title>
+    <link href="http://archmee.github.io/201607/2016-07-12.html"/>
+    <id>http://archmee.github.io/201607/2016-07-12.html</id>
+    <published>2016-07-11T16:00:00.000Z</published>
+    <updated>2016-07-12T19:10:26.346Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;9-盒模型&quot;&gt;&lt;a href=&quot;#9-盒模型&quot; class=&quot;headerlink&quot; title=&quot;9. 盒模型&quot;&gt;&lt;/a&gt;9. 盒模型&lt;/h2&gt;&lt;h3 id=&quot;padding、margin、border&quot;&gt;&lt;a href=&quot;#padding、margin、border&quot; class=&quot;headerlink&quot; title=&quot;padding、margin、border&quot;&gt;&lt;/a&gt;padding、margin、border&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;盒子由内容区、内边距、边框、外边距构成&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/01-16-43.jpg&quot; alt=&quot;box model from book&quot;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;内容区被可选的透明内边距包围，内边距会将内容和边框隔开&lt;/li&gt;
+&lt;li&gt;内边距周围可能放着一个可选的边框&lt;/li&gt;
+&lt;li&gt;有一个可选的透明外边距包围着边框，外边距用于在页面上的不同元素之间增加空间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;内边距和外边距之间有一个区别：元素的背景颜色或背景图像会延伸到内边距下面，但不会延伸到外边距。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;css指定内边距用padding，边框用border，外边距用margin，每一个又可以单独指定上、右、下、左顺时针的四个方向的值，如&lt;code&gt;margin-right:100px&lt;/code&gt;，但border由于要指定多个值，所以使用方式更灵活&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;border 是简写，可以指定4个方向的border都使用相同值，border-width、border-color、border-style是全写形式。&lt;/li&gt;
+&lt;li&gt;border-top可以指定上面的border样式，但这仍然是一种简写形式，可以采用全写border-top-width、border-top-color、border-top-style来分别指定，且4个方向都采用同样规则&lt;/li&gt;
+&lt;li&gt;border-width可以使用像素，也可以使用关键字thin(细)、medium(中)和thick(粗)，但是关键字方式根据浏览器会有不同表现。&lt;/li&gt;
+&lt;li&gt;&lt;ul&gt;
+&lt;li&gt;border-style（包括其他简写全写形式） 可用样式：solid(实线)、double(双线)、groov(槽线)、outset(外凸)、inset(内凹)、ridge(脊线)、dotted(虚线)、dashed(破折线)，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;border-radius是css3用来指定边框圆角的属性，全写可以指定一个盒子四个角的圆角，一般使用像素值，要具体指定某一个角的值可以用全写，如&lt;code&gt;border-top-left-radius:3px;&lt;/code&gt;，另外几个角top-right、bottom-left、bottom-right使用相同的规则&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;background&quot;&gt;&lt;a href=&quot;#background&quot; class=&quot;headerlink&quot; title=&quot;background&quot;&gt;&lt;/a&gt;background&lt;/h3&gt;&lt;p&gt;background是插入背景图像的简写形式，也可以分别指定：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;background-image 指定背景图像url&lt;/li&gt;
+&lt;li&gt;background-position 指定背景图像的相对位置，可以使用像素和百分数，还可以使用关键字top、bottom、left、right和center&lt;/li&gt;
+&lt;li&gt;background-repeat 指定图像是否重复，repeat表示重复，no-repeat表示不重复，repeat-x只在x方向重复，repeat-y只在y方向重复，inherit表示按照父元素的方式处理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于使用background-image和用img插入图像可以这样考虑，img是用来插入照片或logo等图像，而background-image是用来增强页面表现样式用的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;id&quot;&gt;&lt;a href=&quot;#id&quot; class=&quot;headerlink&quot; title=&quot;id&quot;&gt;&lt;/a&gt;id&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;id只能指定页面中的一个元素&lt;/li&gt;
+&lt;li&gt;class要以字母开头，而id可以以数字或字母开头&lt;/li&gt;
+&lt;li&gt;id只是一个元素的唯一标识符，不过这并不妨碍这个元素属于一个或多个类，即指定了id的元素仍然可以指定class。&lt;/li&gt;
+&lt;li&gt;如果想对多个元素使用某个样式，就要用class，但如果只想给一个特定的元素加入样式，或者页面上只有一个元素，就应该使用id。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;媒体查询&quot;&gt;&lt;a href=&quot;#媒体查询&quot; class=&quot;headerlink&quot; title=&quot;媒体查询&quot;&gt;&lt;/a&gt;媒体查询&lt;/h3&gt;&lt;p&gt;媒体查询可以针对将要显示页面的设备类型来调整页面的样式。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;用link标记指定相应设备的样式文件，这样可以给指定设备指定单独的css文件，比如&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;lounge.css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;media&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;screen&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--针对屏幕设备--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;lounge-mobile.css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;media&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;screen and (max-device-width: 480px)&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--针对屏幕宽度不超过480px的设备--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;也可以在css文件中针对相应设备使用媒体查询，但是这样会导致css文件变得庞大&lt;/p&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;at_rule&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; screen and (max-device-width: &lt;span class=&quot;number&quot;&gt;480px&lt;/span&gt;) &lt;/span&gt;&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*针对屏幕宽度不超过480px的设备指定css样式*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;at_rule&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; print &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*针对打印机指定css样式*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*这里可以写所有设备通用的规则*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;查询中还有很多属性可以使用，如min-device-width以及设备的方向orientation&lt;/li&gt;
+&lt;li&gt;max-device-width和min-device-width媒体属性依赖于设备的实际屏幕而不是你的浏览器窗口宽度，而max-width和min-width则表示浏览器窗口的最大和最小宽度而不是屏幕大小。&lt;/li&gt;
+&lt;li&gt;可以在&lt;a href=&quot;http://www.w3.org/TR/css3-mediaqueries网站了解css3媒体查询规范细节&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3.org/TR/css3-mediaqueries网站了解css3媒体查询规范细节&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;IE8以及以前版本浏览器不支持媒体查询&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;其他&quot;&gt;&lt;a href=&quot;#其他&quot; class=&quot;headerlink&quot; title=&quot;其他&quot;&gt;&lt;/a&gt;其他&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;line-height用于指定行间距&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;感悟&quot;&gt;&lt;a href=&quot;#感悟&quot; class=&quot;headerlink&quot; title=&quot;感悟&quot;&gt;&lt;/a&gt;感悟&lt;/h2&gt;&lt;p&gt;感觉每天写博客总结都要浪费好多时间……&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;9-盒模型&quot;&gt;&lt;a href=&quot;#9-盒模型&quot; class=&quot;headerlink&quot; title=&quot;9. 盒模型&quot;&gt;&lt;/a&gt;9. 盒模型&lt;/h2&gt;&lt;h3 id=&quot;padding、margin、border&quot;&gt;&lt;a href=&quot;#padding、margin、bor
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
   
   <entry>
     <title>前端之旅第 6 天</title>
