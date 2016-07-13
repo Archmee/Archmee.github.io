@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 8 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201607/2016-07-13.html">前端之旅第 8 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">July 13 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="10-div和span"><a href="#10-div和span" class="headerlink" title="10. div和span"></a>10. div和span</h2><h3 id="div"><a href="#div" class="headerlink" title="div"></a>div</h3><ul>
+<li>div是一个<strong>块元素</strong>，可用于展现页面底层逻辑结构，也以便于为某个逻辑去应用样式</li>
+<li>在页面中使用div，但不要滥用。如果这样做有助于你将页面分解为逻辑区，从而<strong>保证结构清晰并便于指定样式</strong>，那么可以增加更多的结构，如果只是为了在页面中创建大量结构而增加div，就只会让页面更复杂，而没有任何实际好处。</li>
+<li>width属性只是指定内容区的样式，不包括margin、border和padding，所以整个盒子的宽度是内容区、margin、border和padding的总和</li>
+<li>一个块元素的宽度默认是auto，auto允许内容填满除了内外边距和边框之外的可用空间</li>
+<li>text-align会对块元素中所有内联元素对齐（并非只有文字），而text-align属性只能在块元素上设置，如果直接在内联元素上使用，则不起作用。text-align属性可以被继承（这点很重要）</li>
+<li>line-height属性有一点特殊，如果直接使用一个数字作为它的值，而不是一个度量单位，则该元素会基于文本自己所在的行字体的大小的倍数作为行高。</li>
+<li><p>div允许你为<em>块级内容</em>建立逻辑划分，span元素则采用类似方法建立<em>内联内容</em>的逻辑分组。</p>
+</li>
+<li><p>如果一个<em>内联元素</em>四周都增加外边距，只能看到左边和右边增加了空间。你也可以对内联元素上边和下边增加内边距，不过这个内边距不会影响包围它的其他内联元素的间距，所以内边距会与其他内联元素重叠。<br>图像也是内联元素，但是它的宽度、内边距和外边距属性表现都更像是块元素。</p>
+</li>
+</ul>
+<h3 id="font"><a href="#font" class="headerlink" title="font"></a>font</h3><p>font属性的简写形式：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">font: font-style font-variant font-weight font-size/line-height font-family;</span><br></pre></td></tr></table></figure></p>
+<p> 前3个属性是可选的，它们必须出现在font-size前面，font-size必须指定，line-height是可选的，多个字体要在font-family之间用逗号分隔。</p>
+<h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><ul>
+<li>它允许你根据浏览器的决定来指定这些元素的样式。</li>
+<li>它为你提供了有效的方法，可以根据访问者使用页面时发生的情况来对元素指定样式</li>
+<li>对于a元素的伪类，一般认为适当的顺序为：link、visited、hover、focus、active</li>
+</ul>
+<h3 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h3><ul>
+<li>给定样式表中的一组样式，浏览器就是以层叠方式来确定具体使用哪一个样式。</li>
+<li>浏览器应用样式的优先级是网页开发者、网页访问者（基本不会有访问者建立自己的样式表）、浏览器。</li>
+<li><p>浏览器处理层叠的过程：</p>
+<ol>
+<li>收集所有样式表（来自网页开发者、网页访问者、浏览器）</li>
+<li>找到所有匹配的声明</li>
+<li>对所有匹配的规则排序</li>
+<li>按特定性对所有声明排序（按照网页开发者、网页访问者、浏览器分组，再在各自的组中分别计算特定性并排序）</li>
+<li>最后，对于冲突的规则，按照它们在各自样式表中出现的顺序进行排序，并选择后出现的顺序（就近原则）</li>
+</ol>
+<blockquote>
+<p>如果css属性最后上加了<code>!important</code>，则它的优先级最高，会覆盖其他样式</p>
+</blockquote>
+</li>
+<li><p>关于特定性的计算，在我前面的博客中记录过一种方式，和这本书的方式稍有差别，我将其统一为</p>
+<ul>
+<li>选择器包含一个id+100</li>
+<li>选择器包含一个类或者伪类+10</li>
+<li>选择器包含一个元素+1</li>
+</ul>
+<blockquote>
+<p>按上述方法累加的总和就是该选择器的特定性值，对于有相同特定性的元素，则根据样式表中的顺序再次排序。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="疑问？"><a href="#疑问？" class="headerlink" title="疑问？"></a>疑问？</h3><p>如果经过所有步骤还是没有找到特定属性的属性值，就使用继承机制，如果该属性不能被继承，则使用浏览器的默认样式。<br>这段话是我对书上一段对话的概括，本来层叠这一点书上讲的就比较混乱，看了这段话更加疑惑了，一是不知道他所谓的所有步骤是针对某一层来说，还是针对上面讲的所有步骤，因为前面已经收集了所有来自几个层次的样式表，并且排了序，现在应该就排序过后的样式进行应用，怎么又扯到继承，又用到了浏览器默认样式？<br>我认为作者这段话是用在在计算网页开发者这一层样式的特定性的时候的结尾的。也有可能就是在网页开发者、网页访问者、浏览器这三个层面都没有找到特定属性，再利用继承和浏览器默认样式。<br>不知道这样理解对不对，希望以后回来解答。</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="10-div和span"><a"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
