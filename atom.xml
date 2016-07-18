@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-07-13T18:17:55.245Z</updated>
+  <updated>2016-07-18T11:45:28.567Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端之旅第 12 天</title>
+    <link href="http://archmee.github.io/201607/2016-07-17.html"/>
+    <id>http://archmee.github.io/201607/2016-07-17.html</id>
+    <published>2016-07-16T16:00:00.000Z</published>
+    <updated>2016-07-18T11:45:28.567Z</updated>
+    
+    <content type="html">&lt;p&gt;6月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，这里总结这几天总共学习的内容，《Head First HTML &amp;amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才能更好理解。&lt;/p&gt;
+&lt;h2 id=&quot;第11章-布局和定位&quot;&gt;&lt;a href=&quot;#第11章-布局和定位&quot; class=&quot;headerlink&quot; title=&quot;第11章. 布局和定位&quot;&gt;&lt;/a&gt;第11章. 布局和定位&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; title=&quot;布局&quot;&gt;&lt;/a&gt;布局&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;流让CSS有了强大威力，流实际上就是浏览器在页面中摆放HTML元素所用的方法。浏览器从HTML文件最上面开始，从上到下沿着元素流逐个显示所遇到的各个元素&lt;/li&gt;
+&lt;li&gt;块元素从上向下流，各元素之间有一个换行。而内联元素在水平方向会相互挨着，总体上会从左到右、从上往下流（左上方到右下方）。&lt;/li&gt;
+&lt;li&gt;盒子模型的外边距：如果浏览器并排放置内联元素，内联元素水平方上的外边距会正常显示。而浏览器上下放置块元素时，块元素在垂直方向上的外边距会折叠为最大的那个外边距高度（嵌套的话会根据外面的元素的边框，如果有边框就不会折叠，否则嵌套也会折叠）&lt;/li&gt;
+&lt;li&gt;对于所有浮动元素，都必须指定一个宽度，当然图像除外，因为图像有自己的默认宽度&lt;/li&gt;
+&lt;li&gt;浮动元素不再是正常流的一部分&lt;/li&gt;
+&lt;li&gt;float属性首先尽可能的根据float值浮动一个元素，然后它下面的块元素会忽略它的存在，而内联元素都会绕流这个元素。&lt;/li&gt;
+&lt;li&gt;css &lt;code&gt;clear&lt;/code&gt;属性要求：当元素流入页面时，这个元素的左边、右边或两边（取决于clear的值）不能有浮动元素，所以被指定了clear属性的元素流入页面时，会根据左右是否有浮动元素来下移直到左右都没有浮动元素为止。&lt;/li&gt;
+&lt;li&gt;浮动元素的外边距并不会碰到正常流中元素的外边距，所以他们不会折叠&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;可以浮动内联元素，比如图像，但是其他内联元素不常见&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;当用户调整屏幕大小时，你的设计仍能保持原样，这称为&lt;strong&gt;冻结布局&lt;/strong&gt;。冻结布局会通过指定宽度锁定元素，让他们冻结在页面上，这样这些元素根本不能移动，就能避免由于窗口扩展带来的问题。自然流入页面或使用浮动的是&lt;strong&gt;流体布局&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;流体和冻结之间的状态就是&lt;strong&gt;凝胶布局&lt;/strong&gt;：通过设置&lt;code&gt;margin: 0 auto;&lt;/code&gt;来实现，凝胶布局将冻结布局的元素在浏览器中居中显示。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;定位&quot;&gt;&lt;a href=&quot;#定位&quot; class=&quot;headerlink&quot; title=&quot;定位&quot;&gt;&lt;/a&gt;定位&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;浏览器会将绝对定位元素从流中完全删除，然后将这个元素放在指定位置上。位置可以通过&lt;code&gt;top&lt;/code&gt;、&lt;code&gt;bottom&lt;/code&gt;、&lt;code&gt;left&lt;/code&gt;、&lt;code&gt;right&lt;/code&gt;这几个属性来指定相对于最近已定位的祖宗元素的偏移。&lt;/li&gt;
+&lt;li&gt;流中的块元素和内联元素会忽略绝对定位元素正常流入页面，和float有区别&lt;/li&gt;
+&lt;li&gt;绝对定位不用指定宽度。&lt;/li&gt;
+&lt;li&gt;每个定位元素（绝对、相对和固定定位）都有一个&lt;code&gt;z-index&lt;/code&gt;属性，这会指定它在一个虚拟的z轴上的位置，&lt;code&gt;z-index&lt;/code&gt;值越大，元素越出现在屏幕的上层，&lt;code&gt;z-index&lt;/code&gt;可以为负值&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;position属性值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;static：静态定位（默认值），元素会放在正常的文档流中，由浏览器决定决定这些静态定位元素的位置而不是你&lt;/li&gt;
+&lt;li&gt;absolute：绝对定位，浏览器将其从文档流中删除，并相对于最近已定位的祖宗元素来定位&lt;/li&gt;
+&lt;li&gt;fixed：固定定位，浏览器将元素放在相对于浏览器窗口的一个位置上（而不是页面），所以固定元素永远不会移动&lt;/li&gt;
+&lt;li&gt;relative：相对定位，会让元素正常流入页面，而定位也是相对于该元素在流中的原有位置进行偏移&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;指定位置时可以使用像素，也可以使用百分比&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;css表格显示&lt;/strong&gt;工作方式与正常表格一样，都有行和列的定义：首先在html中定义表格的行列结构，然后将表结构相应的&lt;em&gt;块元素&lt;/em&gt;的display属性设置为table、table-row、table-cell，就指定了相应元素显示方式为表格、行、列。可以用指定&lt;code&gt;border-spacing&lt;/code&gt;为表格指定外边距，并且不会和紧邻的垂直外边距折叠&lt;/li&gt;
+&lt;li&gt;vertical-align用来设置垂直对齐方式，有属性值：top顶部对齐、middle居中对齐、和bottom底部对齐&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;6月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，这里总结这几天总共学习的内容，《Head First HTML &amp;amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才能更好理解。&lt;/p&gt;
+&lt;h2 id=&quot;第
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
   
   <entry>
     <title>前端之旅第 8 天</title>

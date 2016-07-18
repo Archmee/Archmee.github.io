@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 12 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201607/2016-07-17.html">前端之旅第 12 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">July 17 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <p>6月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，这里总结这几天总共学习的内容，《Head First HTML &amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才能更好理解。</p>
+<h2 id="第11章-布局和定位"><a href="#第11章-布局和定位" class="headerlink" title="第11章. 布局和定位"></a>第11章. 布局和定位</h2><h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><ul>
+<li>流让CSS有了强大威力，流实际上就是浏览器在页面中摆放HTML元素所用的方法。浏览器从HTML文件最上面开始，从上到下沿着元素流逐个显示所遇到的各个元素</li>
+<li>块元素从上向下流，各元素之间有一个换行。而内联元素在水平方向会相互挨着，总体上会从左到右、从上往下流（左上方到右下方）。</li>
+<li>盒子模型的外边距：如果浏览器并排放置内联元素，内联元素水平方上的外边距会正常显示。而浏览器上下放置块元素时，块元素在垂直方向上的外边距会折叠为最大的那个外边距高度（嵌套的话会根据外面的元素的边框，如果有边框就不会折叠，否则嵌套也会折叠）</li>
+<li>对于所有浮动元素，都必须指定一个宽度，当然图像除外，因为图像有自己的默认宽度</li>
+<li>浮动元素不再是正常流的一部分</li>
+<li>float属性首先尽可能的根据float值浮动一个元素，然后它下面的块元素会忽略它的存在，而内联元素都会绕流这个元素。</li>
+<li>css <code>clear</code>属性要求：当元素流入页面时，这个元素的左边、右边或两边（取决于clear的值）不能有浮动元素，所以被指定了clear属性的元素流入页面时，会根据左右是否有浮动元素来下移直到左右都没有浮动元素为止。</li>
+<li>浮动元素的外边距并不会碰到正常流中元素的外边距，所以他们不会折叠</li>
+<li><p>可以浮动内联元素，比如图像，但是其他内联元素不常见</p>
+</li>
+<li><p>当用户调整屏幕大小时，你的设计仍能保持原样，这称为<strong>冻结布局</strong>。冻结布局会通过指定宽度锁定元素，让他们冻结在页面上，这样这些元素根本不能移动，就能避免由于窗口扩展带来的问题。自然流入页面或使用浮动的是<strong>流体布局</strong>。</p>
+</li>
+<li>流体和冻结之间的状态就是<strong>凝胶布局</strong>：通过设置<code>margin: 0 auto;</code>来实现，凝胶布局将冻结布局的元素在浏览器中居中显示。</li>
+</ul>
+<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><ul>
+<li>浏览器会将绝对定位元素从流中完全删除，然后将这个元素放在指定位置上。位置可以通过<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这几个属性来指定相对于最近已定位的祖宗元素的偏移。</li>
+<li>流中的块元素和内联元素会忽略绝对定位元素正常流入页面，和float有区别</li>
+<li>绝对定位不用指定宽度。</li>
+<li>每个定位元素（绝对、相对和固定定位）都有一个<code>z-index</code>属性，这会指定它在一个虚拟的z轴上的位置，<code>z-index</code>值越大，元素越出现在屏幕的上层，<code>z-index</code>可以为负值</li>
+<li><p>position属性值：</p>
+<ul>
+<li>static：静态定位（默认值），元素会放在正常的文档流中，由浏览器决定决定这些静态定位元素的位置而不是你</li>
+<li>absolute：绝对定位，浏览器将其从文档流中删除，并相对于最近已定位的祖宗元素来定位</li>
+<li>fixed：固定定位，浏览器将元素放在相对于浏览器窗口的一个位置上（而不是页面），所以固定元素永远不会移动</li>
+<li>relative：相对定位，会让元素正常流入页面，而定位也是相对于该元素在流中的原有位置进行偏移</li>
+</ul>
+</li>
+<li><p>指定位置时可以使用像素，也可以使用百分比</p>
+</li>
+<li><strong>css表格显示</strong>工作方式与正常表格一样，都有行和列的定义：首先在html中定义表格的行列结构，然后将表结构相应的<em>块元素</em>的display属性设置为table、table-row、table-cell，就指定了相应元素显示方式为表格、行、列。可以用指定<code>border-spacing</code>为表格指定外边距，并且不会和紧邻的垂直外边距折叠</li>
+<li>vertical-align用来设置垂直对齐方式，有属性值：top顶部对齐、middle居中对齐、和bottom底部对齐</li>
+</ul>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=6月14、15、16、17这几天断片了("
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
