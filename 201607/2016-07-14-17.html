@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>前端之旅第 12 天 | 神无</title>
+  <title>前端之旅第 9~12 天 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/app.css" type="text/css">
@@ -31,7 +31,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201607/2016-07-17.html">前端之旅第 12 天</a>
+    <a href="/201607/2016-07-14-17.html">前端之旅第 9~12 天</a>
   </h1>
 
   <section class="article-meta">
@@ -39,13 +39,13 @@
   </section>
 
   <section class="article-entry">
-    <p>6月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，这里总结这几天总共学习的内容，《Head First HTML &amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才能更好理解。</p>
+    <p>7月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，总共的学习内容也就差不多平时一天的内容，这里是对这几天学习内容的总结，《Head First HTML &amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才能更好理解。</p>
 <h2 id="第11章-布局和定位"><a href="#第11章-布局和定位" class="headerlink" title="第11章. 布局和定位"></a>第11章. 布局和定位</h2><h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><ul>
 <li>流让CSS有了强大威力，流实际上就是浏览器在页面中摆放HTML元素所用的方法。浏览器从HTML文件最上面开始，从上到下沿着元素流逐个显示所遇到的各个元素</li>
-<li>块元素从上向下流，各元素之间有一个换行。而内联元素在水平方向会相互挨着，总体上会从左到右、从上往下流（左上方到右下方）。</li>
-<li>盒子模型的外边距：如果浏览器并排放置内联元素，内联元素水平方上的外边距会正常显示。而浏览器上下放置块元素时，块元素在垂直方向上的外边距会折叠为最大的那个外边距高度（嵌套的话会根据外面的元素的边框，如果有边框就不会折叠，否则嵌套也会折叠）</li>
+<li><strong>块元素</strong>从上向下流，各元素之间有一个换行。而<strong>内联元素</strong>在水平方向会相互挨着，总体上会从左到右、从上往下流（左上方到右下方）。</li>
+<li><strong>盒子模型的外边距</strong>：如果浏览器并排放置内联元素，内联元素水平方上的外边距会正常显示。而浏览器上下放置块元素时，块元素在垂直方向上的外边距会折叠为最大的那个外边距高度（嵌套的话会根据外面的元素的边框，如果有边框就不会折叠，否则嵌套也会折叠）</li>
 <li>对于所有浮动元素，都必须指定一个宽度，当然图像除外，因为图像有自己的默认宽度</li>
-<li>浮动元素不再是正常流的一部分</li>
+<li><strong>浮动元素</strong>不再是正常流的一部分</li>
 <li>float属性首先尽可能的根据float值浮动一个元素，然后它下面的块元素会忽略它的存在，而内联元素都会绕流这个元素。</li>
 <li>css <code>clear</code>属性要求：当元素流入页面时，这个元素的左边、右边或两边（取决于clear的值）不能有浮动元素，所以被指定了clear属性的元素流入页面时，会根据左右是否有浮动元素来下移直到左右都没有浮动元素为止。</li>
 <li>浮动元素的外边距并不会碰到正常流中元素的外边距，所以他们不会折叠</li>
@@ -58,7 +58,7 @@
 <h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><ul>
 <li>浏览器会将绝对定位元素从流中完全删除，然后将这个元素放在指定位置上。位置可以通过<code>top</code>、<code>bottom</code>、<code>left</code>、<code>right</code>这几个属性来指定相对于最近已定位的祖宗元素的偏移。</li>
 <li>流中的块元素和内联元素会忽略绝对定位元素正常流入页面，和float有区别</li>
-<li>绝对定位不用指定宽度。</li>
+<li>绝对定位不用指定元素宽度。</li>
 <li>每个定位元素（绝对、相对和固定定位）都有一个<code>z-index</code>属性，这会指定它在一个虚拟的z轴上的位置，<code>z-index</code>值越大，元素越出现在屏幕的上层，<code>z-index</code>可以为负值</li>
 <li><p>position属性值：</p>
 <ul>
@@ -92,7 +92,7 @@
   class="twitter-share-button"
   data-size="large"
   data-via="DrakeLeung"
-  href="https://twitter.com/intent/tweet?text=6月14、15、16、17这几天断片了("
+  href="https://twitter.com/intent/tweet?text=7月14、15、16、17这几天断片了("
 >
   Tweet
 </a>

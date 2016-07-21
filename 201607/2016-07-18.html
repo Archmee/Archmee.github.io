@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 13 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201607/2016-07-18.html">前端之旅第 13 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">July 18 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="第12章-html5标记"><a href="#第12章-html5标记" class="headerlink" title="第12章. html5标记"></a>第12章. html5标记</h2><h3 id="常用标签"><a href="#常用标签" class="headerlink" title="常用标签"></a>常用标签</h3><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>header</td>
+<td>定义页面头部内容或某个区块的顶部</td>
+</tr>
+<tr>
+<td>footer</td>
+<td>定义页面底部内容或某个区块的底部</td>
+</tr>
+<tr>
+<td>nav</td>
+<td>定义导航</td>
+</tr>
+<tr>
+<td>time</td>
+<td>表现日期时间, 详细可以查看<a href="http://www.w3school.com.cn/tags/tag_time.asp" target="_blank" rel="external">w3school</a></td>
+</tr>
+<tr>
+<td>section</td>
+<td>表示一个由相关内容构成的结构明确的区块</td>
+</tr>
+<tr>
+<td>article</td>
+<td>表示可以独立于页面上的其余元素进行重用和分发</td>
+</tr>
+<tr>
+<td>aside</td>
+<td>定义页面的补充内容</td>
+</tr>
+<tr>
+<td>video</td>
+<td>定义和视频媒体有关的内容</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>header 和 footer 都不仅仅用于主页眉页脚，如果你希望把一些元素组合起来放在一个首部或尾部中，都可以使用该标签。</p>
+</blockquote>
+<h3 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h3><h4 id="video-相关属性："><a href="#video-相关属性：" class="headerlink" title="video 相关属性："></a>video 相关属性：</h4><ul>
+<li><code>src</code> 指定视频位置</li>
+<li><code>type</code> 说明视频类型</li>
+<li><code>controls</code> 是布尔属性，用来显示播放控件</li>
+<li><code>autoplay</code> 是布尔属性，是否加载页面时自动播放</li>
+<li><code>loop</code> 布尔属性，是否循环播放</li>
+<li><code>width</code> 和 <code>height</code> 指定显示视频的窗口大小</li>
+<li><code>poster</code> 可以指定视频的一帧画面或其他图片作为视频封面，视频默认取第一帧画面</li>
+<li><code>preload</code> 可以细粒度地指定视频加载方式<ul>
+<li>none：在用户真正播放视频之前不下载视频</li>
+<li>metadata：下载视频元数据，但是不下载视频内容</li>
+<li>auto：让浏览器自己决定</li>
+</ul>
+</li>
+</ul>
+<h4 id="视频格式"><a href="#视频格式" class="headerlink" title="视频格式"></a>视频格式</h4><p>一个视频文件包含两部分，一个视频部分和一个音频部分，每个部分使用一种特定的编码类型来编码，包含视频和音频的文件称为容器，也有自己的格式和格式名。</p>
+<table>
+<thead>
+<tr>
+<th>视频容器类型</th>
+<th>视频容器格式</th>
+<th>视频编码格式</th>
+<th>音频编码格式</th>
+<th>支持情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MP4容器</td>
+<td>.mp4</td>
+<td>H.264视频编码</td>
+<td>ACC音频编码</td>
+<td>Safari、IE9、部分Chrome</td>
+</tr>
+<tr>
+<td>WebM容器</td>
+<td>.webm</td>
+<td>Vp8视频编码</td>
+<td>Vorbis音频编码</td>
+<td>Firfox、Chrome、Opera</td>
+</tr>
+<tr>
+<td>Ogg容器</td>
+<td>.ogv</td>
+<td>Theora视频编码</td>
+<td>Vorbis音频编码</td>
+<td>Firfox、Chrome、Opera</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><p>简单的使用video播放视频<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">video</span> <span class="attribute">controls</span> <span class="attribute">autoplay</span> <span class="attribute">width</span>=<span class="value">"320"</span> <span class="attribute">height</span>=<span class="value">"200"</span> <span class="attribute">src</span>=<span class="value">"video/tweetship.mp4"</span> <span class="attribute">poster</span>=<span class="value">"images/poster.png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>如果要为多种浏览器提供多种视频格式支持，可用 source 列出可用视频格式，浏览器会从上至下查找，对于每个source元素，浏览器会加载每个视频文件的元数据，查看能不能播放这个视频，直到找到它能播放的视频格式。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">video</span> <span class="attribute">controls</span> <span class="attribute">autoplay</span> <span class="attribute">width</span>=<span class="value">"320"</span> <span class="attribute">height</span>=<span class="value">"200"</span> <span class="attribute">poster</span>=<span class="value">"images/poster.png"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.mp4"</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.webm"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.ogv"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">p</span>&gt;</span>Sorry! your browser doesn't support the video element.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>但是这样做导致浏览器在播放视频之前做了太多检查工作，会影响效率，我们可以为每个 source 提供 type 属性帮助浏览器确定视频类型<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">video</span> <span class="attribute">controls</span> <span class="attribute">autoplay</span> <span class="attribute">width</span>=<span class="value">"320"</span> <span class="attribute">height</span>=<span class="value">"200"</span> <span class="attribute">poster</span>=<span class="value">"images/poster.png"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.mp4"</span> <span class="attribute">type</span>=<span class="value">'video/mp4; codecs="avcl.42E01E, mp4a.40.2"'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.webm"</span> <span class="attribute">type</span>=<span class="value">'video/webm; codecs="vp8, vorbis"'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.ogv"</span> <span class="attribute">type</span>=<span class="value">'video/ogg; codecs="theora, vorbis"'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Sorry! your browser doesn't support the video element.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>type</code> 属性首先说明了视频文件的MIME类型，然后codecs参数指定哪个编码器对视频和音频编码，来创建编码的视频文件。</p>
+<blockquote>
+<p>如果要支持IE9或其他老版本浏览器用flash，可以在source列表最后添加object元素</p>
+</blockquote>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>CDN（Content delivery Network）是内容分发网络的简称</li>
+</ul>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
+<li>导航条中的<code>li</code>元素之间产生了边距，不知为何，看了这篇<a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/" target="_blank" rel="external">《去除inline-block元素间间距的N种方法》</a> 后知道这是inline-block导致的，文章中使用了很多方式来解决这个问题，而我采用了在ul的样式中写入<code>display:table;</code>的方式</li>
+<li>IE9不支持本章节的视频播放，暂未找到理想的解决办法</li>
+</ol>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="第12章-html5标记"><"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>

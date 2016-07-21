@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-07-18T11:45:28.567Z</updated>
+  <updated>2016-07-21T06:08:30.814Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -16,19 +16,304 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>前端之旅第 12 天</title>
-    <link href="http://archmee.github.io/201607/2016-07-17.html"/>
-    <id>http://archmee.github.io/201607/2016-07-17.html</id>
-    <published>2016-07-16T16:00:00.000Z</published>
-    <updated>2016-07-18T11:45:28.567Z</updated>
+    <title>前端之旅第 14、15 天</title>
+    <link href="http://archmee.github.io/201607/2016-07-19-20.html"/>
+    <id>http://archmee.github.io/201607/2016-07-19-20.html</id>
+    <published>2016-07-19T16:00:00.000Z</published>
+    <updated>2016-07-21T06:08:30.814Z</updated>
     
-    <content type="html">&lt;p&gt;6月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，这里总结这几天总共学习的内容，《Head First HTML &amp;amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才能更好理解。&lt;/p&gt;
+    <content type="html">&lt;p&gt;把这两天的学习笔记总结在了一起，如下。&lt;/p&gt;
+&lt;h2 id=&quot;第13章-表格与列表&quot;&gt;&lt;a href=&quot;#第13章-表格与列表&quot; class=&quot;headerlink&quot; title=&quot;第13章. 表格与列表&quot;&gt;&lt;/a&gt;第13章. 表格与列表&lt;/h2&gt;&lt;h3 id=&quot;表格&quot;&gt;&lt;a href=&quot;#表格&quot; class=&quot;headerlink&quot; title=&quot;表格&quot;&gt;&lt;/a&gt;表格&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;table&amp;gt;&lt;/code&gt;标记表格、&lt;code&gt;&amp;lt;tr&amp;gt;&lt;/code&gt;标记表格行、&lt;code&gt;&amp;lt;th&amp;gt;&lt;/code&gt;定义表头单元格（可以是顶部，也可以在左侧）、&lt;code&gt;&amp;lt;td&amp;gt;&lt;/code&gt;定义表内容单元格，&lt;code&gt;&amp;lt;caption&amp;gt;&lt;/code&gt;定义表格标题（caption-side 规则可以指定表格标题的显示位置）&lt;/li&gt;
+&lt;li&gt;HTML表格允许你使用HTML标记指定表格的结构，而CSS表格显示则提供了一种可以用类似表格的表现方式显示块级元素&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;表格单元格没有外边距，单元格之间的空间叫做 border-spacing（边框间距），border-spacing为所有单元格设置一个共同的间距，也就是说它是针对整个表格，而不是为单独的单元格设置。&lt;br&gt;border-spacing还可以在垂直方向和水平方向设置不同的边框间距&lt;/p&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;border-spacing&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;number&quot;&gt;10px&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;5px&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;/*10px的水平边框间距，5px的垂直边框间距*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;border-collapse 规则可折叠表格边框，使单元格之间没有间距&lt;code&gt;border-collapse:collapse;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;nth-child 伪类可选择位于父元素下的第n个子元素，第0个代表没有选中，而且&lt;strong&gt;不限制于元素类型&lt;/strong&gt;&lt;/p&gt;
+  &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*可以直接指定奇偶数段落*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;pseudo&quot;&gt;:nth-child(even)&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123; &lt;span class=&quot;comment&quot;&gt;/*odd是奇数*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;background-color&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; red&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*还可以使用简单的多项式指定*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;pseudo&quot;&gt;:nth-child(2n+1)&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;background-color&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; white&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;nth-of-type 伪类可指定位于父元素下的同类型的第n个元素，&lt;strong&gt;要限制元素类型&lt;/strong&gt;（书上没有讲这个）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;表格可以嵌套&lt;/li&gt;
+&lt;li&gt;可以给&lt;code&gt;&amp;lt;td&amp;gt;&lt;/code&gt;添加&lt;code&gt;rowspan&lt;/code&gt; 和&lt;code&gt;colspan&lt;/code&gt;属性来指定跨行跨列&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;list-style-type属性值可以更改列表标记：&lt;ul&gt;
+&lt;li&gt;disc：圆点&lt;/li&gt;
+&lt;li&gt;circle：空心圆&lt;/li&gt;
+&lt;li&gt;square：方块&lt;/li&gt;
+&lt;li&gt;none：无标记&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;list-style-image 指定图像代替列表标记&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;list-style-postion&lt;/strong&gt; 可以指定列表标记的回绕方式：&lt;ul&gt;
+&lt;li&gt;inside：使列表标记包含在li元素文字内，换行的文字会在标记下面回绕&lt;/li&gt;
+&lt;li&gt;outside：默认值，使标记独立于文字，换行的文字不会在标记下面回绕&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;p&gt;当用 nth-child 为表格奇偶行指定不同颜色时，如果同时给 &lt;code&gt;&amp;lt;td&amp;gt;&lt;/code&gt;添加了&lt;code&gt;rowspan&lt;/code&gt; 属性的话，浏览器会将设置跨行的行计算在内来计算 td 位于 nth-child 的顺序，这样导致表格样式看起来很混乱，暂时没找到不使用js等技术的方法，除非不使用 nth-child，而改用类来手动指定。问题如下代码：&lt;/p&gt;
+&lt;script async src=&quot;https://jsfiddle.net/7zh7uo7s/7/embed/html,css,result/&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;第14章-表单&quot;&gt;&lt;a href=&quot;#第14章-表单&quot; class=&quot;headerlink&quot; title=&quot;第14章. 表单&quot;&gt;&lt;/a&gt;第14章. 表单&lt;/h2&gt;&lt;h3 id=&quot;常见表单元素&quot;&gt;&lt;a href=&quot;#常见表单元素&quot; class=&quot;headerlink&quot; title=&quot;常见表单元素&quot;&gt;&lt;/a&gt;常见表单元素&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;text input 用于单行文本输入&lt;/li&gt;
+&lt;li&gt;submit input 用于创建提交表单的按钮，value属性可指定提交按钮的文字&lt;/li&gt;
+&lt;li&gt;radio input 用于创建单选框，同组的只能使用一个同一name，因为同一时刻只有一个被选中，checked 是布尔属性，可以为单选框和复选框标记默认值&lt;/li&gt;
+&lt;li&gt;checkbox input 用于创建复选框，checked 是布尔属性，可以为单选框和复选框标记默认值，同组的一次也只使用一个name，但是在后面加上[]便于服务器脚本识别多个值，如&lt;code&gt;name=&amp;quot;name[]&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;textarea 创建多行文本输入区&lt;/li&gt;
+&lt;li&gt;select 结合 option 创建选择菜单，selected是布尔属性，可以为菜单选择提供默认值，布尔属性&lt;code&gt;multiple&lt;/code&gt;可将这个菜单变成多选菜单，name属性是给select而不是option&lt;/li&gt;
+&lt;li&gt;input 是&lt;strong&gt;内联元素&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;html5新增表单元素&quot;&gt;&lt;a href=&quot;#html5新增表单元素&quot; class=&quot;headerlink&quot; title=&quot;html5新增表单元素&quot;&gt;&lt;/a&gt;html5新增表单元素&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;number input 创建文本输入框用于输入数字，可用min和max属性指定数字范围，如果超出范围提交表单会发出警告&lt;/li&gt;
+&lt;li&gt;range input 创建一个滑动条来选择范围&lt;/li&gt;
+&lt;li&gt;color input 创建一个颜色选择器提供颜色输入&lt;/li&gt;
+&lt;li&gt;date input 创建日期选择器&lt;/li&gt;
+&lt;li&gt;email input 提供邮件地址输入框，类似文本框&lt;/li&gt;
+&lt;li&gt;tel input 提供电话号码输入框，类似文本框&lt;/li&gt;
+&lt;li&gt;url input 提供url输入框，类似文本框&lt;/li&gt;
+&lt;li&gt;password input 提供密码输入框，会对输入的文本加掩码，当然这仅仅只是防止了输入密码时被别人看到，并不能保证数据传输的安全性&lt;/li&gt;
+&lt;li&gt;file input 提供文件上传控件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;使用表单&quot;&gt;&lt;a href=&quot;#使用表单&quot; class=&quot;headerlink&quot; title=&quot;使用表单&quot;&gt;&lt;/a&gt;使用表单&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;action 属性指定表单提交的服务器脚本地址&lt;/li&gt;
+&lt;li&gt;method 提供提交的方法，有GET和POST两种&lt;ul&gt;
+&lt;li&gt;GET：会将你的表单变量追加到URL最后，然后请求服务器&lt;/li&gt;
+&lt;li&gt;POST：这种方式会打包你的表单变量，在后台把它们发送到服务器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;fieldset+legend 可以对表单元素进行视觉上的分组&lt;/li&gt;
+&lt;li&gt;placeholder 属性为输入框提供提示文字，它不会作为表单的值提交&lt;/li&gt;
+&lt;li&gt;required 可用于任何表单控件，指示一个域是必须要提供值的&lt;/li&gt;
+&lt;li&gt;合理使用&lt;code&gt;&amp;lt;label&amp;gt;&lt;/code&gt;标记可增强页面的可访问性，可以提供页面结构的更多信息，使你更容易对标签设置样式，另外也有助于有视力障碍的用户使用屏幕阅读器更准确的标识表单元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Demo：&lt;/p&gt;
+&lt;script async src=&quot;https://jsfiddle.net/1jdux83p/2/embed/html,css,result/&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;附录-没有谈到的十大主题&quot;&gt;&lt;a href=&quot;#附录-没有谈到的十大主题&quot; class=&quot;headerlink&quot; title=&quot;附录. 没有谈到的十大主题&quot;&gt;&lt;/a&gt;附录. 没有谈到的十大主题&lt;/h2&gt;&lt;h3 id=&quot;1-更多CSS选择器&quot;&gt;&lt;a href=&quot;#1-更多CSS选择器&quot; class=&quot;headerlink&quot; title=&quot;1. 更多CSS选择器&quot;&gt;&lt;/a&gt;1. 更多CSS选择器&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;伪元素：可以用来选择元素的某些部分，如&lt;code&gt;p:first-letter&lt;/code&gt;会选择段落中的第一个字母&lt;/li&gt;
+&lt;li&gt;属性选择器：通过元素的属性来匹配选择器，如&lt;code&gt;img[width]&lt;/code&gt;会选择提供了width属性的img元素&lt;/li&gt;
+&lt;li&gt;兄弟选择器：根据兄弟来选择一个元素，如&lt;code&gt;h1+p&lt;/code&gt;会选择所有h1后面的p元素&lt;/li&gt;
+&lt;li&gt;结合选择器：通过对各种已有选择器进行组合来选择元素&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-开发商特定的CSS属性&quot;&gt;&lt;a href=&quot;#2-开发商特定的CSS属性&quot; class=&quot;headerlink&quot; title=&quot;2. 开发商特定的CSS属性&quot;&gt;&lt;/a&gt;2. 开发商特定的CSS属性&lt;/h3&gt;&lt;p&gt;通常是浏览器制造商为他们的浏览器增加新的功能来测试新特性，常见的几个特定属性如下表：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;浏览器&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-moz-&lt;/td&gt;
+&lt;td&gt;mozilla的firefox&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-webkit-&lt;/td&gt;
+&lt;td&gt;Safari和Chrome&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-ms-&lt;/td&gt;
+&lt;td&gt;微软的IE浏览器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-o-&lt;/td&gt;
+&lt;td&gt;Opera浏览器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;使用方式是用上表的名称结合css相应属性&lt;br&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;trasform&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;rotate&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;45deg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;-moz-trasform&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;rotate&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;45deg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;/*支持firefox*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;-webkit-trasform&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;rotate&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;45deg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;/*支持Chrome等*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;-ms-trasform&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;rotate&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;45deg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;/*支持IE*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;-o-trasform&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;rotate&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;45deg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;/*支持Opera*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-CSS变换与过渡&quot;&gt;&lt;a href=&quot;#3-CSS变换与过渡&quot; class=&quot;headerlink&quot; title=&quot;3. CSS变换与过渡&quot;&gt;&lt;/a&gt;3. CSS变换与过渡&lt;/h3&gt;&lt;p&gt;可以对元素做充分的2D和3D变换，Demo&lt;/p&gt;
+&lt;p&gt;&lt;script async src=&quot;http://jsfiddle.net/1jdux83p/1/embed/html,css,result/&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;虽然我写了针对ie的效果，但是ie好像不支持&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;4-交互&quot;&gt;&lt;a href=&quot;#4-交互&quot; class=&quot;headerlink&quot; title=&quot;4. 交互&quot;&gt;&lt;/a&gt;4. 交互&lt;/h3&gt;&lt;h3 id=&quot;5-HTML5-API和Web应用&quot;&gt;&lt;a href=&quot;#5-HTML5-API和Web应用&quot; class=&quot;headerlink&quot; title=&quot;5. HTML5 API和Web应用&quot;&gt;&lt;/a&gt;5. HTML5 API和Web应用&lt;/h3&gt;&lt;h3 id=&quot;6-再谈Web字体&quot;&gt;&lt;a href=&quot;#6-再谈Web字体&quot; class=&quot;headerlink&quot; title=&quot;6. 再谈Web字体&quot;&gt;&lt;/a&gt;6. 再谈Web字体&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;有一些免费的字体服务可以使用&lt;/li&gt;
+&lt;li&gt;浏览器下载字体时会有不同表现，有些浏览器会显示一个备份字体，另外一些可能会等待字体下载完毕后才显示文本&lt;/li&gt;
+&lt;li&gt;一旦下载了字体，会由浏览器缓存，下次遇到该字体时不会再次下载&lt;/li&gt;
+&lt;li&gt;所有现代浏览器（IE9+）都支持Web字体&lt;/li&gt;
+&lt;li&gt;有很多免费字体可以使用&lt;/li&gt;
+&lt;li&gt;使用Web字体可能会对你的页面性能产生一定影响&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@font-face&lt;/code&gt;规则中的字体应当仅限于页面中真正使用的字体&lt;/li&gt;
+&lt;li&gt;如果你有某个字体的许可证，要与你的开发商核对一下，他们可能在你的web上也可以使用&lt;/li&gt;
+&lt;li&gt;与传统字体一样，一定要包含某个字体作为退路，以免你的字体不可用，或者获取、解码字体时遇到错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;7-创建Web页面的工具&quot;&gt;&lt;a href=&quot;#7-创建Web页面的工具&quot; class=&quot;headerlink&quot; title=&quot;7. 创建Web页面的工具&quot;&gt;&lt;/a&gt;7. 创建Web页面的工具&lt;/h3&gt;&lt;h3 id=&quot;8-XHTML&quot;&gt;&lt;a href=&quot;#8-XHTML&quot; class=&quot;headerlink&quot; title=&quot;8. XHTML&quot;&gt;&lt;/a&gt;8. XHTML&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;如果你需要验证文档或者把你的文档转换成xml，或者SVG，就需要使用XHTML&lt;/li&gt;
+&lt;li&gt;所有元素都必须是良构的，良构是指，要结束所有元素，用引号包围属性值，合法嵌套元素等，所有void元素都必须在结束标签以前使用&lt;code&gt;/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;页面应当指定application/xhtml+xml MIME类型&lt;/li&gt;
+&lt;li&gt;确保html元素中包含XHTML命名空间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;9-服务器端脚本&quot;&gt;&lt;a href=&quot;#9-服务器端脚本&quot; class=&quot;headerlink&quot; title=&quot;9. 服务器端脚本&quot;&gt;&lt;/a&gt;9. 服务器端脚本&lt;/h3&gt;&lt;h3 id=&quot;10-音频-Audio&quot;&gt;&lt;a href=&quot;#10-音频-Audio&quot; class=&quot;headerlink&quot; title=&quot;10. 音频 Audio&quot;&gt;&lt;/a&gt;10. 音频 Audio&lt;/h3&gt;&lt;p&gt;HTML利用&lt;code&gt;&amp;lt;audio&amp;gt;&lt;/code&gt;元素提供了一种标准方法在页面中播放音频，而无需使用插件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;与视频类似，音频也没有标准编码，目前有3种主流格式：MP3、WAV、Ogg Vorbis&lt;/li&gt;
+&lt;li&gt;audio元素及其javascript API提供了其他控制&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;把这两天的学习笔记总结在了一起，如下。&lt;/p&gt;
+&lt;h2 id=&quot;第13章-表格与列表&quot;&gt;&lt;a href=&quot;#第13章-表格与列表&quot; class=&quot;headerlink&quot; title=&quot;第13章. 表格与列表&quot;&gt;&lt;/a&gt;第13章. 表格与列表&lt;/h2&gt;&lt;h3 id=&quot;表格&quot;&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端之旅第 13 天</title>
+    <link href="http://archmee.github.io/201607/2016-07-18.html"/>
+    <id>http://archmee.github.io/201607/2016-07-18.html</id>
+    <published>2016-07-17T16:00:00.000Z</published>
+    <updated>2016-07-21T05:53:57.095Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;第12章-html5标记&quot;&gt;&lt;a href=&quot;#第12章-html5标记&quot; class=&quot;headerlink&quot; title=&quot;第12章. html5标记&quot;&gt;&lt;/a&gt;第12章. html5标记&lt;/h2&gt;&lt;h3 id=&quot;常用标签&quot;&gt;&lt;a href=&quot;#常用标签&quot; class=&quot;headerlink&quot; title=&quot;常用标签&quot;&gt;&lt;/a&gt;常用标签&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;标签&lt;/th&gt;
+&lt;th&gt;用途&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;header&lt;/td&gt;
+&lt;td&gt;定义页面头部内容或某个区块的顶部&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;footer&lt;/td&gt;
+&lt;td&gt;定义页面底部内容或某个区块的底部&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nav&lt;/td&gt;
+&lt;td&gt;定义导航&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;time&lt;/td&gt;
+&lt;td&gt;表现日期时间, 详细可以查看&lt;a href=&quot;http://www.w3school.com.cn/tags/tag_time.asp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;w3school&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;section&lt;/td&gt;
+&lt;td&gt;表示一个由相关内容构成的结构明确的区块&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;article&lt;/td&gt;
+&lt;td&gt;表示可以独立于页面上的其余元素进行重用和分发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;aside&lt;/td&gt;
+&lt;td&gt;定义页面的补充内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;video&lt;/td&gt;
+&lt;td&gt;定义和视频媒体有关的内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;header 和 footer 都不仅仅用于主页眉页脚，如果你希望把一些元素组合起来放在一个首部或尾部中，都可以使用该标签。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;Video&quot;&gt;&lt;a href=&quot;#Video&quot; class=&quot;headerlink&quot; title=&quot;Video&quot;&gt;&lt;/a&gt;Video&lt;/h3&gt;&lt;h4 id=&quot;video-相关属性：&quot;&gt;&lt;a href=&quot;#video-相关属性：&quot; class=&quot;headerlink&quot; title=&quot;video 相关属性：&quot;&gt;&lt;/a&gt;video 相关属性：&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;src&lt;/code&gt; 指定视频位置&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;type&lt;/code&gt; 说明视频类型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;controls&lt;/code&gt; 是布尔属性，用来显示播放控件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;autoplay&lt;/code&gt; 是布尔属性，是否加载页面时自动播放&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;loop&lt;/code&gt; 布尔属性，是否循环播放&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;width&lt;/code&gt; 和 &lt;code&gt;height&lt;/code&gt; 指定显示视频的窗口大小&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;poster&lt;/code&gt; 可以指定视频的一帧画面或其他图片作为视频封面，视频默认取第一帧画面&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;preload&lt;/code&gt; 可以细粒度地指定视频加载方式&lt;ul&gt;
+&lt;li&gt;none：在用户真正播放视频之前不下载视频&lt;/li&gt;
+&lt;li&gt;metadata：下载视频元数据，但是不下载视频内容&lt;/li&gt;
+&lt;li&gt;auto：让浏览器自己决定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;视频格式&quot;&gt;&lt;a href=&quot;#视频格式&quot; class=&quot;headerlink&quot; title=&quot;视频格式&quot;&gt;&lt;/a&gt;视频格式&lt;/h4&gt;&lt;p&gt;一个视频文件包含两部分，一个视频部分和一个音频部分，每个部分使用一种特定的编码类型来编码，包含视频和音频的文件称为容器，也有自己的格式和格式名。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;视频容器类型&lt;/th&gt;
+&lt;th&gt;视频容器格式&lt;/th&gt;
+&lt;th&gt;视频编码格式&lt;/th&gt;
+&lt;th&gt;音频编码格式&lt;/th&gt;
+&lt;th&gt;支持情况&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;MP4容器&lt;/td&gt;
+&lt;td&gt;.mp4&lt;/td&gt;
+&lt;td&gt;H.264视频编码&lt;/td&gt;
+&lt;td&gt;ACC音频编码&lt;/td&gt;
+&lt;td&gt;Safari、IE9、部分Chrome&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WebM容器&lt;/td&gt;
+&lt;td&gt;.webm&lt;/td&gt;
+&lt;td&gt;Vp8视频编码&lt;/td&gt;
+&lt;td&gt;Vorbis音频编码&lt;/td&gt;
+&lt;td&gt;Firfox、Chrome、Opera&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ogg容器&lt;/td&gt;
+&lt;td&gt;.ogv&lt;/td&gt;
+&lt;td&gt;Theora视频编码&lt;/td&gt;
+&lt;td&gt;Vorbis音频编码&lt;/td&gt;
+&lt;td&gt;Firfox、Chrome、Opera&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&quot;Demo&quot;&gt;&lt;a href=&quot;#Demo&quot; class=&quot;headerlink&quot; title=&quot;Demo&quot;&gt;&lt;/a&gt;Demo&lt;/h4&gt;&lt;p&gt;简单的使用video播放视频&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;controls&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;autoplay&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;320&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;200&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetship.mp4&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;poster&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;images/poster.png&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果要为多种浏览器提供多种视频格式支持，可用 source 列出可用视频格式，浏览器会从上至下查找，对于每个source元素，浏览器会加载每个视频文件的元数据，查看能不能播放这个视频，直到找到它能播放的视频格式。&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;controls&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;autoplay&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;320&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;200&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;poster&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;images/poster.png&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.mp4&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.webm&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.ogv&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;Sorry! your browser doesn&#39;t support the video element.&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;但是这样做导致浏览器在播放视频之前做了太多检查工作，会影响效率，我们可以为每个 source 提供 type 属性帮助浏览器确定视频类型&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;controls&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;autoplay&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;320&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;200&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;poster&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;images/poster.png&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.mp4&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&#39;video/mp4; codecs=&quot;avcl.42E01E, mp4a.40.2&quot;&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.webm&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&#39;video/webm; codecs=&quot;vp8, vorbis&quot;&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.ogv&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&#39;video/ogg; codecs=&quot;theora, vorbis&quot;&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;Sorry! your browser doesn&#39;t support the video element.&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;type&lt;/code&gt; 属性首先说明了视频文件的MIME类型，然后codecs参数指定哪个编码器对视频和音频编码，来创建编码的视频文件。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果要支持IE9或其他老版本浏览器用flash，可以在source列表最后添加object元素&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;其他&quot;&gt;&lt;a href=&quot;#其他&quot; class=&quot;headerlink&quot; title=&quot;其他&quot;&gt;&lt;/a&gt;其他&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;CDN（Content delivery Network）是内容分发网络的简称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;导航条中的&lt;code&gt;li&lt;/code&gt;元素之间产生了边距，不知为何，看了这篇&lt;a href=&quot;http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《去除inline-block元素间间距的N种方法》&lt;/a&gt; 后知道这是inline-block导致的，文章中使用了很多方式来解决这个问题，而我采用了在ul的样式中写入&lt;code&gt;display:table;&lt;/code&gt;的方式&lt;/li&gt;
+&lt;li&gt;IE9不支持本章节的视频播放，暂未找到理想的解决办法&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;第12章-html5标记&quot;&gt;&lt;a href=&quot;#第12章-html5标记&quot; class=&quot;headerlink&quot; title=&quot;第12章. html5标记&quot;&gt;&lt;/a&gt;第12章. html5标记&lt;/h2&gt;&lt;h3 id=&quot;常用标签&quot;&gt;&lt;a href=&quot;#常用标签&quot; c
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端之旅第 9~12 天</title>
+    <link href="http://archmee.github.io/201607/2016-07-14-17.html"/>
+    <id>http://archmee.github.io/201607/2016-07-14-17.html</id>
+    <published>2016-07-16T16:00:00.000Z</published>
+    <updated>2016-07-18T12:00:40.542Z</updated>
+    
+    <content type="html">&lt;p&gt;7月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，总共的学习内容也就差不多平时一天的内容，这里是对这几天学习内容的总结，《Head First HTML &amp;amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才能更好理解。&lt;/p&gt;
 &lt;h2 id=&quot;第11章-布局和定位&quot;&gt;&lt;a href=&quot;#第11章-布局和定位&quot; class=&quot;headerlink&quot; title=&quot;第11章. 布局和定位&quot;&gt;&lt;/a&gt;第11章. 布局和定位&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; title=&quot;布局&quot;&gt;&lt;/a&gt;布局&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;流让CSS有了强大威力，流实际上就是浏览器在页面中摆放HTML元素所用的方法。浏览器从HTML文件最上面开始，从上到下沿着元素流逐个显示所遇到的各个元素&lt;/li&gt;
-&lt;li&gt;块元素从上向下流，各元素之间有一个换行。而内联元素在水平方向会相互挨着，总体上会从左到右、从上往下流（左上方到右下方）。&lt;/li&gt;
-&lt;li&gt;盒子模型的外边距：如果浏览器并排放置内联元素，内联元素水平方上的外边距会正常显示。而浏览器上下放置块元素时，块元素在垂直方向上的外边距会折叠为最大的那个外边距高度（嵌套的话会根据外面的元素的边框，如果有边框就不会折叠，否则嵌套也会折叠）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;块元素&lt;/strong&gt;从上向下流，各元素之间有一个换行。而&lt;strong&gt;内联元素&lt;/strong&gt;在水平方向会相互挨着，总体上会从左到右、从上往下流（左上方到右下方）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;盒子模型的外边距&lt;/strong&gt;：如果浏览器并排放置内联元素，内联元素水平方上的外边距会正常显示。而浏览器上下放置块元素时，块元素在垂直方向上的外边距会折叠为最大的那个外边距高度（嵌套的话会根据外面的元素的边框，如果有边框就不会折叠，否则嵌套也会折叠）&lt;/li&gt;
 &lt;li&gt;对于所有浮动元素，都必须指定一个宽度，当然图像除外，因为图像有自己的默认宽度&lt;/li&gt;
-&lt;li&gt;浮动元素不再是正常流的一部分&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;浮动元素&lt;/strong&gt;不再是正常流的一部分&lt;/li&gt;
 &lt;li&gt;float属性首先尽可能的根据float值浮动一个元素，然后它下面的块元素会忽略它的存在，而内联元素都会绕流这个元素。&lt;/li&gt;
 &lt;li&gt;css &lt;code&gt;clear&lt;/code&gt;属性要求：当元素流入页面时，这个元素的左边、右边或两边（取决于clear的值）不能有浮动元素，所以被指定了clear属性的元素流入页面时，会根据左右是否有浮动元素来下移直到左右都没有浮动元素为止。&lt;/li&gt;
 &lt;li&gt;浮动元素的外边距并不会碰到正常流中元素的外边距，所以他们不会折叠&lt;/li&gt;
@@ -41,7 +326,7 @@
 &lt;h3 id=&quot;定位&quot;&gt;&lt;a href=&quot;#定位&quot; class=&quot;headerlink&quot; title=&quot;定位&quot;&gt;&lt;/a&gt;定位&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;浏览器会将绝对定位元素从流中完全删除，然后将这个元素放在指定位置上。位置可以通过&lt;code&gt;top&lt;/code&gt;、&lt;code&gt;bottom&lt;/code&gt;、&lt;code&gt;left&lt;/code&gt;、&lt;code&gt;right&lt;/code&gt;这几个属性来指定相对于最近已定位的祖宗元素的偏移。&lt;/li&gt;
 &lt;li&gt;流中的块元素和内联元素会忽略绝对定位元素正常流入页面，和float有区别&lt;/li&gt;
-&lt;li&gt;绝对定位不用指定宽度。&lt;/li&gt;
+&lt;li&gt;绝对定位不用指定元素宽度。&lt;/li&gt;
 &lt;li&gt;每个定位元素（绝对、相对和固定定位）都有一个&lt;code&gt;z-index&lt;/code&gt;属性，这会指定它在一个虚拟的z轴上的位置，&lt;code&gt;z-index&lt;/code&gt;值越大，元素越出现在屏幕的上层，&lt;code&gt;z-index&lt;/code&gt;可以为负值&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;position属性值：&lt;/p&gt;
 &lt;ul&gt;
@@ -60,8 +345,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;6月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，这里总结这几天总共学习的内容，《Head First HTML &amp;amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才能更好理解。&lt;/p&gt;
-&lt;h2 id=&quot;第
+      &lt;p&gt;7月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，总共的学习内容也就差不多平时一天的内容，这里是对这几天学习内容的总结，《Head First HTML &amp;amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才
     
     </summary>
     
