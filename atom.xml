@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-07-25T16:30:11.145Z</updated>
+  <updated>2016-07-29T06:26:30.367Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -14,6 +14,151 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端之旅第 21~23 天</title>
+    <link href="http://archmee.github.io/201607/2016-07-26-28.html"/>
+    <id>http://archmee.github.io/201607/2016-07-26-28.html</id>
+    <published>2016-07-27T16:00:00.000Z</published>
+    <updated>2016-07-29T06:26:30.367Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;维基大学的Challenge-5&quot;&gt;&lt;a href=&quot;#维基大学的Challenge-5&quot; class=&quot;headerlink&quot; title=&quot;维基大学的Challenge 5&quot;&gt;&lt;/a&gt;维基大学的Challenge 5&lt;/h2&gt;&lt;p&gt;完成了维基大学的Challenge 5，后面的挑战我不打算继续了，第6个是自己设计，第7个是模仿静态网页、第8个是CSS Zen Garden的学习。&lt;br&gt;在做Challenge 5的时候看了两篇分别介绍 &lt;a href=&quot;http://www.456bereastreet.com/lab/developing_with_web_standards/csslayout/2-col/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;2列布局&lt;/a&gt; 和 &lt;a href=&quot;http://www.456bereastreet.com/archive/201012/how_to_create_a_3-column_layout_with_css/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;3列布局&lt;/a&gt;的博客，不过方法都差不多，都是使用浮动来实现&lt;/p&gt;
+&lt;script async src=&quot;https://jsfiddle.net/ym24ukus/6/embed/html,css,result/&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;读《精通CSS》&quot;&gt;&lt;a href=&quot;#读《精通CSS》&quot; class=&quot;headerlink&quot; title=&quot;读《精通CSS》&quot;&gt;&lt;/a&gt;读《精通CSS》&lt;/h2&gt;&lt;p&gt;开始看《精通CSS》，已经完成1、2章，笔记整理如下&lt;/p&gt;
+&lt;h3 id=&quot;1-基础知识&quot;&gt;&lt;a href=&quot;#1-基础知识&quot; class=&quot;headerlink&quot; title=&quot;1. 基础知识&quot;&gt;&lt;/a&gt;1. 基础知识&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;有意义的标记为开发人员提供了几个重要的好处，&lt;ul&gt;
+&lt;li&gt;与表现性的页面相比，有意义的页面更容易处理&lt;/li&gt;
+&lt;li&gt;除了人之外，程序和其他设备也可以理解有意义的标记&lt;/li&gt;
+&lt;li&gt;有意义的标记可以简便地将元素调整为你所需要的样式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;为元素命名class或id时，应该根据“它们是什么”来为元素命名&lt;/li&gt;
+&lt;li&gt;class或id区分大小写&lt;/li&gt;
+&lt;li&gt;只有在绝对确定这个元素之会出现一次的情况下，才应该使用ID&lt;/li&gt;
+&lt;li&gt;为了将不必要的标记减到最少，应该只在没有现有元素能够实现区域分割的情况下使用div元素&lt;/li&gt;
+&lt;li&gt;DTD是一组机器可读的规则，它们定义XML或HTML的特定版本中允许有什么，不允许有什么。在解析网页时，浏览器将使用这些规则检查页面的&lt;strong&gt;有效性&lt;/strong&gt;并且采取相应的措施。浏览器通过分析页面的DOCTYPE声明来了解要使用哪个DTD，由此知道要使用HTML的哪个版本。&lt;/li&gt;
+&lt;li&gt;DOCTYPE有两种风格：&lt;strong&gt;严格&lt;/strong&gt;（strict）和&lt;strong&gt;过渡&lt;/strong&gt;（transitional）&lt;/li&gt;
+&lt;li&gt;当浏览器厂商开始创建于标准兼容的浏览器时，他们希望确保向后兼容性。为了实现这一点，他们创建了两种呈现模式：&lt;strong&gt;标准模式&lt;/strong&gt;和&lt;strong&gt;混杂模式&lt;/strong&gt;。在标准模式中，浏览器根据规范呈现页面；在混杂模式中页面以一种比较宽松的向后兼容的方式显示。&lt;/li&gt;
+&lt;li&gt;DOCTYPE切换是浏览器用来区分遗留文档和符合标准的文档的手段&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-为样式找到应用目标&quot;&gt;&lt;a href=&quot;#2-为样式找到应用目标&quot; class=&quot;headerlink&quot; title=&quot;2. 为样式找到应用目标&quot;&gt;&lt;/a&gt;2. 为样式找到应用目标&lt;/h3&gt;&lt;h4 id=&quot;选择器&quot;&gt;&lt;a href=&quot;#选择器&quot; class=&quot;headerlink&quot; title=&quot;选择器&quot;&gt;&lt;/a&gt;选择器&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;类型选择器有时候也称为元素选择器或简单选择器，用来寻找特定类型的元素。&lt;/li&gt;
+&lt;li&gt;后代选择器可用来寻找特定元素或元素组的后代，&lt;code&gt;ul li {}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;不要给太多元素指定不同的类，而应将一个类或ID应用于它们的祖先，然后使用后代选择器定位它们。&lt;/li&gt;
+&lt;li&gt;伪类选择器可以根据文档结构之外的其他条件对元素应用样式。&lt;code&gt;:link&lt;/code&gt;和&lt;code&gt;:visited&lt;/code&gt;称为链接伪类，只能应用于锚元素，&lt;code&gt;:hover&lt;/code&gt;和&lt;code&gt;:active&lt;/code&gt;和&lt;code&gt;:focus&lt;/code&gt;称为动态伪类，理论上可以应用于任何元素。通过把伪类连接在一起，可以创建更复杂的行为&lt;/li&gt;
+&lt;li&gt;通用选择器用一个&lt;code&gt;*&lt;/code&gt;号表示，一般用来对页面上所有元素应用样式。&lt;/li&gt;
+&lt;li&gt;高级选择器&lt;ul&gt;
+&lt;li&gt;子选择器：只选择元素的直接后代，即子元素&lt;code&gt;p &amp;gt; span{}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;相邻同胞选择器：可用于定位同一个父元素下某个元素相邻的元素。&lt;code&gt;h2 + p{}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;属性选择器：可以根据某个属性是否存在&lt;code&gt;img[title] {}&lt;/code&gt;，或属性的值来寻找元素&lt;code&gt;img[title=china] {}&lt;/code&gt;，关于更多使用属性值来寻找元素的方法可以查看W3School的教程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;层叠&quot;&gt;&lt;a href=&quot;#层叠&quot; class=&quot;headerlink&quot; title=&quot;层叠&quot;&gt;&lt;/a&gt;层叠&lt;/h4&gt;&lt;p&gt;作者的样式表是由站点的开发者编写的，被认为是最重要的样式表。用户可以通过浏览器应用自己的样式，这些样式表的重要度低一级。最后是浏览器或用户代理使用的样式表，它们的重要度是最低的，所以你总是可以覆盖它们。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;层叠采用以下重要度次序：&lt;ol&gt;
+&lt;li&gt;标有&lt;code&gt;!important&lt;/code&gt;的用户样式&lt;/li&gt;
+&lt;li&gt;标有&lt;code&gt;!important&lt;/code&gt;的作者样式&lt;/li&gt;
+&lt;li&gt;作者样式&lt;/li&gt;
+&lt;li&gt;用户样式&lt;/li&gt;
+&lt;li&gt;浏览器/用户代理应用的样式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;然后根据选择器的特殊性决定规则的次序，具有更特殊选择器的规则优于具有一般选择器的规则，如果两个规则的特殊性相同，那么后定义的规则优先&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;选择器的特殊性分成4个成分等级：a、b、c、d&lt;ul&gt;
+&lt;li&gt;如果样式是行内样式，那么a=1&lt;/li&gt;
+&lt;li&gt;b等于ID选择器的总数&lt;/li&gt;
+&lt;li&gt;c等于类、伪类和属性选择器的数量&lt;/li&gt;
+&lt;li&gt;d等于类型选择器和伪元素的数量&lt;br&gt;最后按照abcd的顺序将计算的值列出，数字越大的就越特殊&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;建议：尽量保持一般性样式非常一般，特殊性样式尽可能特殊，这样就不需要覆盖特殊样式了。如果发现不得不多次覆盖一般样式，那么从更一般的规则中删除需要覆盖的声明，并且将它显示地应用于需要它的每个元素，这样做可能更简单。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最后：&lt;em&gt;一种有意思的特殊性用法是在主体(body)标签上应用类或ID，这样做之后，就可以根据页面或在站点范围内覆盖样式。&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&quot;继承&quot;&gt;&lt;a href=&quot;#继承&quot; class=&quot;headerlink&quot; title=&quot;继承&quot;&gt;&lt;/a&gt;继承&lt;/h4&gt;&lt;p&gt;应用样式的元素的后代会继承样式的某些属性，直接应用于元素的任何样式总会覆盖继承而来的样式，这是因为继承而来的样式的特殊性为空。&lt;/p&gt;
+&lt;h4 id=&quot;规划、组织和维护样式表&quot;&gt;&lt;a href=&quot;#规划、组织和维护样式表&quot; class=&quot;headerlink&quot; title=&quot;规划、组织和维护样式表&quot;&gt;&lt;/a&gt;规划、组织和维护样式表&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;最近的浏览器基准测试已经表明，导入样式表比链接样式表要慢&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在使用多个CSS文件时，还有两个速度相关的问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;多个文件会导致从服务器发送更多数据包，这些数据包的数量（而不是内容）会影响下载时间&lt;/li&gt;
+&lt;li&gt;另外，浏览器只能从同一个域同时下载数量有限的文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由于这些原因，使用结构良好的&lt;strong&gt;单一CSS文件&lt;/strong&gt;可以显著提高下载速度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;良好的代码结构和清晰的注释有助于代码的维护，在每个注释头中添加一个标志(比如&lt;code&gt;@&lt;/code&gt;)会有助于寻找特定的样式&lt;br&gt;作者推荐的代码结构&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一般性样式&lt;pre&gt;&lt;code&gt;- 主体样式
+- reset样式
+- 链接
+- 标题
+- 其他元素
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;辅助样式&lt;pre&gt;&lt;code&gt;- 表单
+- 通知和错误
+- 一致的条目
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;页面结构&lt;pre&gt;&lt;code&gt;- 标题、页脚和导航
+- 布局
+- 其他页面结构元素
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;页面组件&lt;pre&gt;&lt;code&gt;- 各个页面
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;覆盖&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;减小CSS文件大小可以通过删除注释和空白，但最好方法可能是启用服务器端压缩GZIP&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;样式指南是帮助维护或实现站点的好方法，通过制定一些简单的原则，可以确保站点的开发以可控制的方式进行，同时防止样式随着时间的推移变得散乱。&lt;/li&gt;
+&lt;li&gt;模式组合是一个页面或一系列页面，它们使用当前的样式表显示站点上可能出现的每种每种样式排列组合，从标题级别和文本样式直到特定的内容和布局类型。这些页面可以让后端和前端开发人员方便地构建页面组合&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;深入理解-line-height&quot;&gt;&lt;a href=&quot;#深入理解-line-height&quot; class=&quot;headerlink&quot; title=&quot;深入理解 line-height&quot;&gt;&lt;/a&gt;深入理解 line-height&lt;/h2&gt;&lt;p&gt;在百度学院的任务列表上推荐了一篇详解line-height的博客，学习了一下，文章分析的非常细致，原文请戳 &lt;a href=&quot;http://www.cnblogs.com/fengzheng126/archive/2012/05/18/2507632.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《深入了解CSS的行高line-height属性》&lt;/a&gt;，我只做了些摘录性的笔记&lt;br&gt;可以有5种方式来定义line-height。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;可以被定义为：&lt;code&gt;body {line-height:normal;}&lt;/code&gt;，会根据自己的font-size和一个大概默认的系数来计算行高，但系数不能通过样式更改&lt;/li&gt;
+&lt;li&gt;可以被定义为：&lt;code&gt;body {line-height:inherit;}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;可以使用一个百分比的值：&lt;code&gt;body {line-height:120%;}&lt;/code&gt;，这种方法会导致所有继承的元素的行高都是一样通过body的font-size计算出来的固定值，而不是通过自己的font-size计算出来的&lt;/li&gt;
+&lt;li&gt;可以被定义为一个长度值(px,em等)：&lt;code&gt;body {line-height:25px;}&lt;/code&gt;，表现同百分比&lt;/li&gt;
+&lt;li&gt;也可以被定义为纯数字：&lt;code&gt;body {line-height:1.2;}&lt;/code&gt;，和normal差不多，但是可定义自己期望的行高系数基于当前行的字体大小来计算。WCAG 2.0规定1.5为最佳&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;计算后的line-height-font-size就是可用的间距了，将其/2然后分别放到当前行的顶部和底部&lt;/p&gt;
+&lt;p&gt;上面那篇博客中还讲解了line-height应用于内容时可能发生的复杂情形，我就不搬运了&lt;/p&gt;
+&lt;h2 id=&quot;圣马杯-amp-双飞翼布局&quot;&gt;&lt;a href=&quot;#圣马杯-amp-双飞翼布局&quot; class=&quot;headerlink&quot; title=&quot;圣马杯 &amp;amp; 双飞翼布局&quot;&gt;&lt;/a&gt;圣马杯 &amp;amp; 双飞翼布局&lt;/h2&gt;&lt;p&gt;另外还学习了圣马杯和淘宝的双飞翼布局，并总结了一点异同点&lt;br&gt;相同点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用同样的html结构，基于优先渲染主要内容的原则，会把主内容区放在前面&lt;/li&gt;
+&lt;li&gt;都是多列布局&lt;/li&gt;
+&lt;li&gt;同样使用浮动技术和左右负边距来布局&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;不同点表现在主内容被遮盖时&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;圣马杯布局对多列的wrapper采用了padding，但是会导致左右列位置发生变化，然后对左右列使用&lt;code&gt;position:relative&lt;/code&gt;和&lt;code&gt;left&lt;/code&gt;或&lt;code&gt;right&lt;/code&gt;的方法纠正&lt;/li&gt;
+&lt;li&gt;双飞翼布局则将在主内容区中多嵌套了一层wrapper，然后对嵌套在主内容区的wrapper使用左右margin来保证内容区想要显示的内容在正确的位置上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是几篇介绍双飞翼布局和圣马杯的博客：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.imooc.com/wenda/detail/254035&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;双飞翼布局介绍-始于淘宝UED&lt;/a&gt;，其实这篇博客是比较权威的一篇，但是描述时上下文有点对应不上，而且展示页面访问不了，所以理解起来很费劲&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.fazero.cc/2015/07/25/CSS%E5%B8%83%E5%B1%80-%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80vs%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS布局-圣杯布局vs双飞翼布局&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/imwtr/p/4441741.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS布局 – 圣杯布局 &amp;amp; 双飞翼布局&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/langzs/archive/2013/01/27/taobaoshuangfeiyi.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS布局之–淘宝双飞翼布局&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我打算自己写一篇博客专门介绍这两种布局方式&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;维基大学的Challenge-5&quot;&gt;&lt;a href=&quot;#维基大学的Challenge-5&quot; class=&quot;headerlink&quot; title=&quot;维基大学的Challenge 5&quot;&gt;&lt;/a&gt;维基大学的Challenge 5&lt;/h2&gt;&lt;p&gt;完成了维基大学的Challe
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
   
   <entry>
     <title>前端之旅第 18~20 天</title>
@@ -843,7 +988,7 @@
     <link href="http://archmee.github.io/201607/2016-07-09.html"/>
     <id>http://archmee.github.io/201607/2016-07-09.html</id>
     <published>2016-07-08T16:00:00.000Z</published>
-    <updated>2016-07-09T17:44:06.296Z</updated>
+    <updated>2016-07-29T06:31:26.184Z</updated>
     
     <content type="html">&lt;p&gt;在慕课网上学习&lt;a href=&quot;http://www.imooc.com/learn/9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML+CSS基础课程&lt;/a&gt;时记录了一些关键点。可能学完这个课程会给你已经学会了html和css的错觉，但其实这个课程真正的作用只在于让你初步的认识html和css，更深入的知识需要看书和实践才能获得。&lt;/p&gt;
 &lt;h2 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h2&gt;&lt;h3 id=&quot;何为语义化？&quot;&gt;&lt;a href=&quot;#何为语义化？&quot; class=&quot;headerlink&quot; title=&quot;何为语义化？&quot;&gt;&lt;/a&gt;何为语义化？&lt;/h3&gt;&lt;p&gt;语义化。说的通俗点就是：明白每个标签的用途（在什么情况下使用此标签合理）比如，网页上的文章的标题就可以用标题标签，网页上的各个栏目的栏目名称也可以使用标题标签。文章中内容的段落就得放在段落标签中，在文章中有想强调的文本，就可以使用 em 标签表示强调等等。&lt;/p&gt;
@@ -893,7 +1038,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;注意：还有一个权值比较特殊–继承也有权值但很低，有的文献提出它只有0.1，所以可以理解为继承的权值最低。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&quot;样式重叠&quot;&gt;&lt;a href=&quot;#样式重叠&quot; class=&quot;headerlink&quot; title=&quot;样式重叠&quot;&gt;&lt;/a&gt;样式重叠&lt;/h3&gt;&lt;p&gt;层叠就是在html文件中对于同一个元素可以有多个css样式存在，当有相同权重的样式存在时，会根据这些css样式的前后顺序来决定，处于最后面的css样式会被应用。&lt;/p&gt;
+&lt;h3 id=&quot;样式层叠&quot;&gt;&lt;a href=&quot;#样式层叠&quot; class=&quot;headerlink&quot; title=&quot;样式层叠&quot;&gt;&lt;/a&gt;样式层叠&lt;/h3&gt;&lt;p&gt;层叠就是在html文件中对于同一个元素可以有多个css样式存在，当有相同权重的样式存在时，会根据这些css样式的前后顺序来决定，处于最后面的css样式会被应用。&lt;/p&gt;
 &lt;p&gt;有些特殊的情况需要为某些样式设置具有最高权值，这时候我们可以使用&lt;code&gt;!important&lt;/code&gt;来解决，放在某条需要设定的样式之后，分号之前。&lt;/p&gt;
 &lt;p&gt;样式优先级为：浏览器默认的样式 &amp;lt; 网页制作者样式 &amp;lt; 用户自己设置的样式，但记住&lt;code&gt;!important&lt;/code&gt;优先级样式是个例外，权值高于用户自己设置的样式。&lt;/p&gt;
 &lt;h3 id=&quot;字体和段落样式&quot;&gt;&lt;a href=&quot;#字体和段落样式&quot; class=&quot;headerlink&quot; title=&quot;字体和段落样式&quot;&gt;&lt;/a&gt;字体和段落样式&lt;/h3&gt;&lt;table&gt;
@@ -1885,36 +2030,6 @@
       <category term="Objective-C" scheme="http://archmee.github.io/tags/Objective-C/"/>
     
       <category term="iOS" scheme="http://archmee.github.io/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>故乡</title>
-    <link href="http://archmee.github.io/201602/a-lais-home.html"/>
-    <id>http://archmee.github.io/201602/a-lais-home.html</id>
-    <published>2016-02-27T17:00:38.000Z</published>
-    <updated>2016-06-29T06:42:37.000Z</updated>
-    
-    <content type="html">&lt;center&gt;&lt;br&gt;—— &lt;em&gt;阿来&lt;/em&gt;&lt;br&gt;&lt;br&gt;我现在坐在群山之巅&lt;br&gt;我把头埋在双膝之间&lt;br&gt;感到风，像时光的水流&lt;br&gt;漫过我的脊梁&lt;br&gt;河流轰鸣，道路回转&lt;br&gt;现在我要独自一人&lt;br&gt;任群山的波涛把我充满&lt;br&gt;任大地重新向我涌来&lt;br&gt;&lt;br&gt;今天我又穿过了十二个村庄&lt;br&gt;接下来我还要穿过一百多个村庄&lt;br&gt;而所有这些栽培着这些&lt;br&gt;玉米  小麦  苹果  梨的村庄&lt;br&gt;放牧着牛羊的村庄——&lt;br&gt;都跟我出生的村子一模一样&lt;br&gt;&lt;br&gt;有一座水磨坊，有一所小学堂&lt;br&gt;晴天的早上&lt;br&gt;小学堂的钟声叮当作响&lt;br&gt;所有这一切&lt;br&gt;都跟我出生的那个村子一模一样&lt;br&gt;所以你们这些所有的村子&lt;br&gt;你们都是我的故乡&lt;br&gt;&lt;br&gt;&lt;/center&gt;
-
-
-&lt;blockquote&gt;
-&lt;p&gt;2016.2.24 摘自 &lt;a href=&quot;http://tv.cntv.cn/video/VSET100173543987/d250c6328bdd4cab9feeed410382c2aa&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《开讲啦》第20160205期&lt;/a&gt; 14分20秒处，作者阿来写于香烟盒子上的一首诗，无名，我暂取名为故乡。&lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;center&gt;&lt;br&gt;—— &lt;em&gt;阿来&lt;/em&gt;&lt;br&gt;&lt;br&gt;我现在坐在群山之巅&lt;br&gt;我把头埋在双膝之间&lt;br&gt;感到风，像时光的水流&lt;br&gt;漫过我的脊梁&lt;br&gt;河流轰鸣，道路回转&lt;br&gt;现在我要独自一人&lt;br&gt;任群山的波涛把我充满&lt;br&gt;任大地重新向我涌来&lt;br&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="life" scheme="http://archmee.github.io/categories/life/"/>
-    
-    
-      <category term="摘抄" scheme="http://archmee.github.io/tags/%E6%91%98%E6%8A%84/"/>
-    
-      <category term="诗" scheme="http://archmee.github.io/tags/%E8%AF%97/"/>
     
   </entry>
   
