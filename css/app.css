@@ -93,7 +93,7 @@ a {
     padding: 8px 12px; }
 
 main.index {
-  max-width: 700px;
+  max-width: 730px;
   margin: 0 auto;
   padding: 15px; }
   main.index article {
@@ -147,7 +147,7 @@ main.archive {
       color: #5badf0; }
 
 main.post {
-  max-width: 700px;
+  max-width: 730px;
   margin: 0 auto;
   padding: 15px; }
   main.post article {
@@ -185,7 +185,7 @@ main.post {
     color: #666; }
 
 .page {
-  max-width: 700px;
+  max-width: 730px;
   margin: 0 auto;
   padding: 15px;
   padding-top: 90px;
