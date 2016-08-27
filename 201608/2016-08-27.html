@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 41~54 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201608/2016-08-27.html">前端之旅第 41~54 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">August 27 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <p>距离上一次更新博客已经时隔2周，这两周我在干嘛呢，主要是做了个播放器页面，看了《精通CSS》3~9章，以及开始学习智能社的js基础视频教程，所以下面主要整理了我看书的学习笔记。<br>速度这么慢，鬼知道我这两周经历了什么？？？</p>
+<h2 id="3-可视化格式模型"><a href="#3-可视化格式模型" class="headerlink" title="3. 可视化格式模型"></a>3. 可视化格式模型</h2><ul>
+<li>背景会应用于由内容和内边距组成的区域，外边距是透明的，一般使用它控制元素之间的间隔</li>
+<li>outline和border不同的是，它绘制在元素框之上，所以它们不影响元素的大小或者布局</li>
+<li>增加padding、border、margin不会影响内容区域的尺寸，但是会增加元素框的总尺寸</li>
+<li><p>外边距叠加</p>
+<ul>
+<li>当两个或更多垂直外边距相遇时，它们将保留一个较大外边距</li>
+<li>当A元素嵌入在B元素中时，如果B元素没有边框或内边距将两个元素的外边距分隔开，它们垂直方向的外边距也会叠加，并保留一个较大外边距</li>
+<li>当一个元素为空（没有任何内容），这个元素本身的垂直外边距也会发生叠加，并保留一个较大外边距</li>
+</ul>
+<blockquote>
+<p>只有普通文档流中块框的垂直外边距才会发生叠加，行内框、浮动框、绝对定位框等内联、内联块元素之间的外边距不会发生叠加</p>
+</blockquote>
+</li>
+<li><p><strong>块级框</strong>从上到下一个接一个地垂直排列，框之间的的垂直距离由框的垂直外边距计算出来</p>
+</li>
+<li><p><strong>行内框</strong>在一行中水平排列，可以使用水平方向的内边距、边框和外边距调整它们的水平间距，但是垂直方向的内边距、行框、外边距不影响行内框的高度。同样，在行内框上设置显示高度或宽度也没有影响<br>由一行形成的水平框称为行框，行框的高度总是足以容纳它包含的所有行内框，但是，设置行高可以增加这个框的高度</p>
+</li>
+<li><p><strong>相对定位</strong>：如果对一个元素进行相对定位，它将出现在它原来所在的位置，然后可以设置垂直和水平偏移，让这个元素相对于它的起点移动，在使用相对定位时，无论是否移动，元素仍然占据原来的空间</p>
+</li>
+<li><strong>绝对定位</strong>：绝对定位使位置与文档流无关，因此不占据空间，普通文档流中其他元素的布局会忽略该元素的存在。绝对定位元素的位置是相对于距离它最近的那个已定位的祖先元素确定的，如果没有已定位祖先元素，那么它的位置是相对于初始包含块的。根据用户代理的不同，初始包含块可能是画布或HTML元素</li>
+<li>因为绝对定位元素的框与文档流无关，所以它们可能会覆盖文档流中的其他元素，可以通过z-index属性来控制这些框的叠放次序，值越高，就越层次越高</li>
+<li><strong>固定定位</strong>：固定定位是绝对定位的一种，差异在于固定元素的包含块是视口(viewport)</li>
+<li><p>浮动的框可以左右移动，直到它的外边缘碰到包含框或另一个浮动框的边缘。因为浮动框不在普通文档流中，所以普通文档流中的块框表现得就像浮动框不存在一样。但是，块框中的内联元素受到浮动元素的影响，会移动给浮动元素留出空间。<br>对元素进行清理实际上是为前面的浮动元素留出垂直空间</p>
+</li>
+<li><p>overflow属性定义包含的内容对于指定的尺寸太大的情况下元素应该怎么样。应用值为hidden或auto的overflow属性有一个很有用的副作用，它会自动地清理包含的任何浮动元素</p>
+</li>
+</ul>
+<h2 id="4-背景图像效果"><a href="#4-背景图像效果" class="headerlink" title="4. 背景图像效果"></a>4. 背景图像效果</h2><ul>
+<li>使用像素设置背景图像位置，那么图像左上角到元素左上角的距离就是指定的像素数。但使用百分比进行背景定位的工作方式不太一样，百分数定位并不对背景图像的左上角进行定位，而是使用图像左上角上对应的百分比作为对应点，再从对应点到元素左上角进行定位。</li>
+<li>混合使用关键字（如left、top等）和单位（像素、百分比）在某些浏览器中会导致错误，而且可能使css失效</li>
+</ul>
+<h3 id="4-2-圆角框"><a href="#4-2-圆角框" class="headerlink" title="4.2 圆角框"></a>4.2 圆角框</h3><ol>
+<li>固定宽度的圆角框<br> 需要顶部和底部两个圆角图片，可垂直扩展，这种只适用于宽度固定且单色的框。要想实现水平和垂直都可扩展的圆角，可用四个角的圆角图片来实现，且需要增加额外的html标记，在水平方向的扩展也很有局限性</li>
+<li>山顶角<br> 使用位图角蒙版，白色蒙版将覆盖背景色，产生简单的曲线效果，但是仍然要添加无意义标记</li>
+<li>CSS 3 允许<strong>使用多个背景图像</strong>，使用background-image指定多个图像，然后用其他几个属性指定想要的位置、是否重复等属性，而且现在不能使用简写background的形式，必须在各个属性中分别指定</li>
+<li>CSS 3 新增了<strong>border-radius</strong>属性来绘制边框效果</li>
+<li>CSS 3 新增了<strong>border-image</strong>属性，该属性允许指定一个图像作为边框</li>
+</ol>
+<h3 id="4-3-投影"><a href="#4-3-投影" class="headerlink" title="4.3 投影"></a>4.3 投影</h3><ul>
+<li>简单的CSS投影，使用专门制作的投影图像应用于元素背景，然后负偏移元素框使其达到阴影效果</li>
+<li>CSS 3 支持 box-shadow直接创建投影，还可以和border-radius相互配合</li>
+</ul>
+<h3 id="4-4-不透明度"><a href="#4-4-不透明度" class="headerlink" title="4.4 不透明度"></a>4.4 不透明度</h3><ol>
+<li>opacity，取值范围0~1，值越大越不透明，除了背景会生效外，应用它的元素的内容也会继承它，导致内容产生不透明度，这不是理想的效果</li>
+<li>RGBa，a代表alpha透明度</li>
+<li>PNG透明度，png图像格式最大的优点是它支持alpha透明度</li>
+</ol>
+<h3 id="4-5-图像替换"><a href="#4-5-图像替换" class="headerlink" title="4.5 图像替换"></a>4.5 图像替换</h3><p>由于不愿意将这些某些图像直接嵌入页面中，CSS作者发明了图像替换技术的概念。你可以像平常一样将文本添加到文档中，然后使用CSS隐藏文本并在它的位置上显示一个背景图像。这样的话，搜索引擎仍然可以搜索HTML文本，而且如果禁用CSS，文本仍然会显示。<br>后来发展了FIR（display:none OR visibility:none）、Phark（text-indent:-9999）、sFIR（flash技术和js）等图像替换方法</p>
+<p>ps：下面的章节示例比较多，我并不打算照搬代码，所以只是记录了一些关键点</p>
+<h2 id="5-对链接应用样式"><a href="#5-对链接应用样式" class="headerlink" title="5. 对链接应用样式"></a>5. 对链接应用样式</h2><ul>
+<li>对链接伪类应用样式顺序：link、visited、hover、focus、active</li>
+<li>:target伪类可以为目标元素设置样式</li>
+<li>绝不要使用链接更新服务器，或者用技术术语来说，链接应该只用于GET请求，绝不要用于POST请求</li>
+<li>Pixy样式的翻转：不切换多个图像，而是使用一个图像并切换它的背景位置。使用单个图像的好处是减少了服务器请求的数量。</li>
+<li>CSS精灵是更彻底的Pixy技术，它把所有图标都放在一张或几张图片上，通过切换位置来应用图像</li>
+</ul>
+<h2 id="6-对列表应用样式和创建导航条"><a href="#6-对列表应用样式和创建导航条" class="headerlink" title="6. 对列表应用样式和创建导航条"></a>6. 对列表应用样式和创建导航条</h2><p>主要讲了创建垂直导航条和水平导航条的技术，以及如何创建圆角按钮样式的链接，和鼠标移入的翻转效果</p>
+<ul>
+<li>制作水平导航条，一般是把列表元素显示为内联元素或者使其浮动</li>
+<li>有几种方法可以让父元素包含浮动的子元素。一个是添加一个进行清理的元素，但这会在页面中增加不必要的标记。另一种是让父元素浮动，并且使用某个元素（比如页脚）对它进行清理。第三种是用overflow:hidden技术，它产生的副作用会解决这个问题</li>
+</ul>
+<h2 id="7-对表单和数据表格应用样式"><a href="#7-对表单和数据表格应用样式" class="headerlink" title="7. 对表单和数据表格应用样式"></a>7. 对表单和数据表格应用样式</h2><h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><ul>
+<li>尽量避免使用表格来布局</li>
+<li><p>表格特有的元素</p>
+<ul>
+<li>caption：用于表格标题，样式caption-side决定了它显示在表格四周的位置</li>
+<li>sumary：应用于表格标签，用来描述表格的内容</li>
+<li>thead、tbody、tfoot：thead和tfoot只有1个，而tbody可以有多个</li>
+<li>col和colgroup：colgroup可以使用col元素对一或多列定义和分组</li>
+</ul>
+</li>
+<li><p>border-collapse决定了表格单元格边框。collapse则水平垂直都合并，separte是默认值，即分别使用自己的边框</p>
+</li>
+<li>border-spacing决定了单元格之间的距离</li>
+</ul>
+<h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><ul>
+<li>fieldset用来对相关信息块进行分组</li>
+<li>label标签可以帮助添加结构和增加表单的可用性和可访问性<br>还有很多其他表单元素的应用以及对表单元素的样式处理</li>
+</ul>
+<h2 id="8-布局"><a href="#8-布局" class="headerlink" title="8. 布局"></a>8. 布局</h2><ul>
+<li><p>在布局之前需要做的就是理清页面结构</p>
+<ul>
+<li>先把页面划分为大的结构性区域，比如页眉页脚主内容区</li>
+<li>然后，将注意力转移到内容区域本身，开始建立网格结构</li>
+<li>最后，在各个内容区域中寻找不同的布局结构，给内一个内容块一个有意义的名称，分析它们之间的关系</li>
+</ul>
+</li>
+<li><p>主内容是页面上最重要的东西，所以应该在文档中首先出现，而用样式来决定它们的显示位置</p>
+</li>
+</ul>
+<p>然后介绍了2列、3列的基于浮动的<strong>定宽、流式和弹性布局</strong></p>
+<ul>
+<li>使用流式布局时，尺寸是用百分数而不是像素设置的，这使流式布局能够相对于浏览器窗口进行伸缩。</li>
+<li><p>弹性布局相对于字号而不是浏览器宽度来设置元素的宽度。以em为单位设置宽度，可以确保在字号增加时整个布局随之扩大。<br>作者建议，用em为单位来设置容器的宽度，内部宽度仍然使用百分数，这样的话，内部宽度仍然是相对于字号的。这样就可以方便地修改布局的总尺寸，不必修改每个元素的宽度，这种解决方案更灵活、更容易维护。</p>
+</li>
+<li><p>对于需要跨大区域的图像（比如站点页眉页脚或品牌区域中的图像）。可以考虑使用背景图像而不是图像标记</p>
+</li>
+<li><strong>faux</strong>列是一种对包含容器使用背景图像来制作视觉上和被包含的内容区等高的侧边栏效果的技术</li>
+<li><strong>等高列</strong>的技术要点：对每一列设置一个很大的底内边距（大概是最短的列和最高的列之间的差值），然后再设置一个小于等于（这个取决于你是否需要间距效果）底内边距的负底外边距（注意是负，为了消除padding带来的视觉影响）</li>
+<li><p><strong>CSS3 列</strong>：有几个主要属性</p>
+<ul>
+<li>column-count：表示总共多少列</li>
+<li>column-width：表示每列宽度</li>
+<li>column-gap：每列之间的间隔</li>
+</ul>
+<p>它的优点就是在可用空间小于已指定的列的宽度时，它会减少列数</p>
+<blockquote>
+<p>ps：之前我对css 3列的概念有误解，我一直认为display:table-cell就是所谓的css 3列，不过现在看来错了太离谱了。甚至我在上一个大作业中还用了table-cell来做瀑布流布局。。。所以后面会花点时间更正</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="9-bug和修复bug"><a href="#9-bug和修复bug" class="headerlink" title="9. bug和修复bug"></a>9. bug和修复bug</h2><p>这一章主要讲了很多出现在IE6及其更低版本的bug以及修复方式，因为作者认为IE6现在还占据很大一部分用户，所以应该重视。但是考虑到这本书是09年的，且这几年技术更新比较大，所以个人认为实用性一般。这里也只是简单的摘录了一下常用的bug和常用修复方案</p>
+<h3 id="捕捉bug"><a href="#捕捉bug" class="headerlink" title="捕捉bug"></a>捕捉bug</h3><ul>
+<li>尽量在一开始就避免bug</li>
+<li>隔离问题</li>
+<li>创建基本测试案例</li>
+<li>修复问题，而不是修复症状</li>
+</ul>
+<h3 id="拥有布局"><a href="#拥有布局" class="headerlink" title="拥有布局"></a>拥有布局</h3><p>Windows上的IE使用布局概念来控制元素的尺寸和定位。那些“拥有布局”（have layout）的元素负责本身及其子元素的尺寸设置和定位，如果一个元素“没有拥有布局”，那么它的尺寸和位置由最近的拥有布局的祖先元素控制</p>
+<ul>
+<li>拥有布局概念是Windows的IE特有的，而且它不是CSS属性</li>
+<li>可以使用JavaScript函数hasLayout查看一个元素是否拥有布局</li>
+<li>hasLayout是一个只读属性，所以无法使用JavaScript进行设置</li>
+</ul>
+<p>设置以下CSS属性会自动的使元素拥有布局</p>
+<ul>
+<li>float</li>
+<li>display: inline-block</li>
+<li>width，height</li>
+<li>zoom: 任何值</li>
+<li>writing-mode（微软属性，不能通过检验）<br>在IE7中，以下属性也成了布局触发器</li>
+<li>overflow: hidden, scroll, auto</li>
+<li>min-width、max-width</li>
+</ul>
+<h3 id="部分问题解决方法"><a href="#部分问题解决方法" class="headerlink" title="部分问题解决方法"></a>部分问题解决方法</h3><ol>
+<li><p>IE条件注释<br> 条件注释是一种专有的（因此是非标准的）对常规html注释的Microsoft扩展。条件注释能够根据条件显示代码块。尽管是非标准的，条件注释在其他所有浏览器看来是常规注释，因此本质上是无害的</p>
+<ul>
+<li><p>如果要为IE指定特定样式表，可以这样做</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if IE]&gt;</span><br><span class="line">    &lt;link rel="stylesheet" type="text/css" href="/css/ie.css"&gt;</span><br><span class="line">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以指定特定版本的浏览器</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if IE 6]&gt;</span><br><span class="line">    ...样式表...</span><br><span class="line">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以指定一组浏览器</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 6]&gt;</span><br><span class="line">    ...样式表...</span><br><span class="line">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>  说明：lt是less than的意思，即小于，gt为大于</p>
+</li>
+<li>还可以指定IE以外的浏览器   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if !IE]&gt;</span><br><span class="line">    ...给除了IE外的浏览器指定样式表...</span><br><span class="line">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>关于hack和过滤器</p>
+<ul>
+<li>CSS被设计成具有很强的向前兼容性，这个特点意味着添加新的选择器，属性和值不会对老式浏览器产生严重的影响</li>
+<li>作为一般规则，应该使用依赖于不被支持的CSS的过滤器，而不是依赖某种浏览器bug的过滤器，这可能比较安全。最好完全避免使用过滤器</li>
+<li>明智的使用hack和过滤器，如果需要的hack比较多，那么最好将它们放在自己的样式表中</li>
+</ul>
+</li>
+<li><p>星号HTML hack<br> 一般认为html元素是网页上的根元素，但是IE的老版本（IE6及以下）有一个匿名的根元素，它包围着html元素。可以使用通用选择器指定包围在另一个元素中的html元素</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* <span class="tag">html</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自选择器hack<br> 因为子选择器是CSS 3才出来的，所以在老版本浏览器不支持的情况下会忽略它</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">html&gt;body &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>本章的最后的最后，可以考虑一下分级浏览器支持。</p>
+<hr>
+<p>想了一下，估计博客后面更新的频率会越来越慢了，仔细评估了一下，写读书笔记博客太费时间而且没有多少意义，书上已经写的清清楚楚明明白白了，自己无非是做了一些摘录性质的工作，so……</p>
+<p>总而言之言而总之，后期我更新的内容是大多是最近的学习内容，参考资料，技术总结，以及技术笔记demo展示等。哦，其实还是会写一些读书笔记的，可精可简，比如一本书的要点，点评或读后感什么的也不错</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=距离上一次更新博客已经时隔2周，这两周我"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
