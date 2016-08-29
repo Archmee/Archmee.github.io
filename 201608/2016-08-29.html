@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 55、56 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201608/2016-08-29.html">前端之旅第 55、56 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">August 29 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <p>最近在看智能社的JS视频教程，这两天学习了无缝滚动效果的实现，心想着感觉和轮播效果差不多，一冲动就徒手撸了一个图片轮播效果，其实两种东西差远了，如果非要说它们之间有什么关系的话，就是都要用JS</p>
+<p>哈哈哈.gif</p>
+<p>不过先声明，在实现这个轮播效果以前，只是在其他网站看过这种效果，并没有了解过技术上是怎么实现的，所以这里的轮播效果完全是按照自己的思路强撸的，bug。。。暂时没有，但不完善，也不算什么好的实践。</p>
+<p>下面是我的大概思路：</p>
+<ol>
+<li>首先html结构要一个图片列表，但用css全部隐藏。有切换上一张和下一张图片的按钮</li>
+<li>文档加载完成后，js取出图片列表，然后显示第1张图片</li>
+<li>创建图片上的那一排可以切换图片的小圆点，用ul生成，li个数取决于上一步列表长度，每个li嵌套一个a元素，并且将第一个小圆点添加到事先写好的css类，使其有激活的效果</li>
+<li>在生成li中a元素时，为每个a绑定onmouseover和onclick事件，在onmouseover时，保持原有游标和定时器，这里只是简单的将图片切换到当前图片，定时器时间到了，原来计算好的下一张图片是谁，现在还是切换谁。而onclick不一样，它首先会清除原有定时器，然后隐藏原有图片，修改游标值，淡入显示当前图片，并且启动定时器，保证切换的下一张图片是当前图片紧邻的下一张，而不是其他，其实这一个和自动切换图片代码是一样的，只是改了游标的值</li>
+<li>启动定时器（上一步中的定时器要点击事件发生时才会启动的），间隔多少秒后，开始自动切换下一张图片（目前没见过自动切换上一张）。刚开始我用的setInterval，后面发现如果切换的地方多了后，定时器之间有干扰，后面改为setTimeout，每次切换下一张，再次启动就ok了</li>
+<li>切换时，先取消小圆点的激活效果，再隐藏当前图片，然后移动游标位置，再显示下一张图片以及激活下一个小圆点</li>
+<li>在切换下一张图片时，加一点淡入效果，显得不那么突兀。淡入效果是我自己写的，设置一个初始的opacity，用setInterval定时器，渐变到1就ok了，淡出的话思路不变，opcity逐渐减小即可</li>
+<li>两个按钮分别绑定onclick事件，和切换下一张图片思路一样，只是这次变成手动切换而已，上一张就是把游标位置减1，并且判断是否小于0，小于0的话，要像求余数一样从倒数的位置开始了。下一张也要判断位置，如果超过列表长度，就要取余数并更新游标，自动切换时也要走这一步</li>
+<li>更复杂的切换效果还做不了，so……暂时到此为止……</li>
+<li>忘了提，小圆点上的onmouseover效果不是很理想，原因未知，所以先注释掉了</li>
+</ol>
+<p>下面是最终效果截图和Demo<br><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/2016-08-29_235232.jpg" alt="轮播效果截图"></p>
+<script async src="https://jsfiddle.net/ycssuxpj/embed/result,html,css,js/"></script>
+
+<blockquote>
+<p>ps：图片来自网络，侵删。</p>
+</blockquote>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=最近在看智能社的JS视频教程，这两天学习"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
