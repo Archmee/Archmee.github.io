@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-08-29T16:09:03.311Z</updated>
+  <updated>2016-09-10T16:55:20.263Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端之旅第 57~68 天</title>
+    <link href="http://archmee.github.io/201609/2016-09-10.html"/>
+    <id>http://archmee.github.io/201609/2016-09-10.html</id>
+    <published>2016-09-09T16:00:00.000Z</published>
+    <updated>2016-09-10T16:55:20.263Z</updated>
+    
+    <content type="html">&lt;p&gt;这段时间多是荒废了的，所以做的事情不多，把《精通CSS》看完了，剩余的两章都是项目的实现，我分析了示例中的代码，但没发觉什么新东西，所以笔记也省略了&lt;/p&gt;
+&lt;p&gt;再来中途参加了朋友的婚礼，耽搁了点时间&lt;/p&gt;
+&lt;p&gt;继续学习智能社的JS视频教程，发现这个老师讲得挺好，他基本很少讲直接得理论知识，都是根据循序渐进的列子来带出知识点，并且讲解了当下很实用的一些网页效果，比如缓冲运动、焦点图滚动、淡入淡出，当然这个视频可能对JS学习并不完善，但是对于学习DOM编程入门挺好的，一边学可以一边实现常见的网页效果，会更有学习上的成就感。&lt;br&gt;而且现在根据他讲的内容对之前徒手撸的轮播图有了改进的想法，可以使其更完善。&lt;br&gt;准备明天开始刷JS高级编程，争取开启暴走模式&lt;/p&gt;
+&lt;p&gt;上一篇博客后模仿了慕课网首页的导航效果，我只是实现了静态效果，轮播图没有做，不过是把以前写的代码融合进来，下面放上效果截图和DEMO：&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/2016-09-11_004601.jpg&quot; alt=&quot;模仿慕课首页导航&quot;&gt;&lt;/p&gt;
+&lt;script async src=&quot;https://jsfiddle.net/wnxh0ujj/embed/result,html,css,js/&quot;&gt;&lt;/script&gt;
+
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这段时间多是荒废了的，所以做的事情不多，把《精通CSS》看完了，剩余的两章都是项目的实现，我分析了示例中的代码，但没发觉什么新东西，所以笔记也省略了&lt;/p&gt;
+&lt;p&gt;再来中途参加了朋友的婚礼，耽搁了点时间&lt;/p&gt;
+&lt;p&gt;继续学习智能社的JS视频教程，发现这个老师讲得挺好，他基
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
   
   <entry>
     <title>前端之旅第 55、56 天</title>
@@ -1746,68 +1776,6 @@
     
     
       <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>温故PHP之Cookie和Session</title>
-    <link href="http://archmee.github.io/201607/2016-07-05.html"/>
-    <id>http://archmee.github.io/201607/2016-07-05.html</id>
-    <published>2016-07-05T08:48:00.000Z</published>
-    <updated>2016-07-11T20:02:15.702Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;学习iOS以来，已经有一段时间不碰PHP了，这两天翻《Head First PHP &amp;amp; MySQL》温习PHP的时候(第7章)，发现自己之前对Cookie和Session并没有理解透彻，所以看完后决定写点学习笔记。&lt;/p&gt;
-&lt;h2 id=&quot;Cookie&quot;&gt;&lt;a href=&quot;#Cookie&quot; class=&quot;headerlink&quot; title=&quot;Cookie&quot;&gt;&lt;/a&gt;Cookie&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;cookie是浏览器存储在用户计算机中的一小段数据。cookie和PHP变量十分相似，只不过关闭浏览器或计算机后cookie还存在，更重要的是cookie可以删除。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;可以从PHP或其他语言访问cookie，而且cookie不仅可以跨多个页面(脚本)持久保存，甚至可以跨多个浏览器会话持久存储。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;cookie由键-值对组成，每个键-值可以有一个失效日期，如果没有指定失效日期，则cookie会在浏览器关闭时销毁。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;设置cookie，获取cookie以及销毁cookie&lt;/p&gt;
-  &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//设置cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setcookie(&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;2345&#39;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//没有设置失效时间，则会在浏览器关闭后立即销毁&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setcookie(&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;1234&#39;&lt;/span&gt;, time()+&lt;span class=&quot;number&quot;&gt;60&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//设置当前时间以后60秒失效&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//通过超全局变量获取cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;empty&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_COOKIE&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;]))&amp;#123;&amp;#125;&lt;span class=&quot;comment&quot;&gt;//判断是否设置了该cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//销毁cookie只需要设置它的到期日期在过去的任意时间即可&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setcookie(&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;, time()-&lt;span class=&quot;number&quot;&gt;3600&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//设置userid这个cookie的到期日期在一个小时以前或其他过去时间，浏览器就会销毁该cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;Session&quot;&gt;&lt;a href=&quot;#Session&quot; class=&quot;headerlink&quot; title=&quot;Session&quot;&gt;&lt;/a&gt;Session&lt;/h2&gt;&lt;p&gt;如果用户设置浏览器禁用cookie，这样对cookie的存取操作就会失败，所以我们不能完全依赖cookie，此时可以考虑使用session。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;和cookie不同的是，session存储在服务器端，这样就不会受到浏览器限制。&lt;/li&gt;
-&lt;li&gt;由于session数据保存在服务器上，这比存储在cookie中更安全，也更可靠。&lt;/li&gt;
-&lt;li&gt;session比cookie能存储更多类型和大小的数据。&lt;/li&gt;
-&lt;li&gt;session（会话）的缺点就是，无法对一个session变量在数据存储时间上做太多控制，会话一结束就会自动销毁会话变量，而会话在关闭浏览器时就结束。&lt;/li&gt;
-&lt;li&gt;session变量由键-值对组成，但是和cookie不同的时，session变量没有失效日期，以为它随着浏览器关闭就销毁。&lt;/li&gt;
-&lt;li&gt;所有要使用session数据的页面都要调用&lt;code&gt;session_start()&lt;/code&gt;开始一个会话，如果会话不存在，就建立一个会话，并分配一个会话ID，如果已经存在一个会话，则使用已有会话。&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在会话开始后，可以直接操作$_SESSION全局变量存取会话变量&lt;/p&gt;
-  &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;session_start(); &lt;span class=&quot;comment&quot;&gt;//开始一个会话&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;username&#39;&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&#39;haha&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;isset&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;username&#39;&lt;/span&gt;]))&amp;#123;&amp;#125;&lt;span class=&quot;comment&quot;&gt;//判断该会话变量是否存在&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;session_destroy()&lt;/code&gt;结束一个会话，但它不会自动销毁任何会话变量。所以如果希望用户关闭浏览器之前清空会话变量，就必须手动删除。&lt;/p&gt;
-  &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;();&lt;span class=&quot;comment&quot;&gt;//快速有效的清空会话变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;  但还没有完全结束，因为session在后台实际上会使用cookie，如果浏览器支持cookie，会话可能会设置一个cookie临时存储会话ID，所以要完全关闭一个会话，还必须删除可能在浏览器上自动创建来存储会话ID的cookie&lt;/p&gt;
-  &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//会话ID存储在以会话命名的一个cookie中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;isset&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_COOKIE&lt;/span&gt;[session_name()])) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    setcookie(session_name, &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;, time()-&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;); &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;完整的操作一个会话的过程如下&lt;/p&gt;
-  &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//开始一个会话&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;session_start();&lt;span class=&quot;comment&quot;&gt;//开始会话后，所有脚本共享会话变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//存取会话变量、检查会话变量...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;username&#39;&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&#39;haha&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//结束会话的正确姿势&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;();&lt;span class=&quot;comment&quot;&gt;//清空会话变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;isset&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_COOKIE&lt;/span&gt;[session_name()])) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    setcookie(session_name, &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;, time()-&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;session_destroy(); &lt;span class=&quot;comment&quot;&gt;//最后再结束会话&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;但是问题依然存在的是，如果用户禁用了cookie，那么session会随着浏览器的关闭而结束。而会话如何响应cookie被禁用取决于服务器上php.ini配置文件中的相关配置项。&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;session.use_cookies&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;session.use_only_cookies&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;session.use_trans_sid&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Watch!&lt;/strong&gt;&lt;br&gt;禁用cookie的情况下要让会话正常工作，还需要另外一个机制在不同页面传递会话ID，这个机制需要将会话ID追加到每个页面的URL后面，如果服务器上的php.ini中文件中&lt;code&gt;session.use_trans_id&lt;/code&gt;被设置为1(true)，这就会自动发生。如果你无法直接修改php.ini文件，cookie被禁用时就必须利用类似下面的代码手动地向会话页面的URL追加会话ID。&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;a href=&lt;span class=&quot;string&quot;&gt;&quot;index.php?&amp;lt;?php echo SID; ?&amp;gt;&quot;&lt;/span&gt;&amp;gt;view index&amp;lt;/a&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;但是现在仍不能扭转关闭浏览器即结束会话的命运，而这对于需要记住用户登陆状态的应用至关重要。&lt;/p&gt;
-&lt;h2 id=&quot;Cookie-Session-更持久的方案&quot;&gt;&lt;a href=&quot;#Cookie-Session-更持久的方案&quot; class=&quot;headerlink&quot; title=&quot;Cookie+Session=更持久的方案&quot;&gt;&lt;/a&gt;Cookie+Session=更持久的方案&lt;/h2&gt;&lt;p&gt;我们发现不管是session还是cookie都有各自的优缺点，那么是否可以尝试一下Cookie+Session的方案。&lt;/p&gt;
-&lt;p&gt;这种方案在技术上并没有增加多少复杂度，只需要同时设置Cookie和Session并且同时销毁即可。&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;session_start();&lt;span class=&quot;comment&quot;&gt;//开始会话&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&#39;12345&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setcookie(&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;12345&#39;&lt;/span&gt;, time()+&lt;span class=&quot;number&quot;&gt;3600&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//一个小时候失效&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//然后在其他脚本中共享cookie和session数据了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//手动注销数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;isset&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt;[&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;])) &amp;#123;&lt;span class=&quot;comment&quot;&gt;//先销毁session数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;variable&quot;&gt;$_SESSION&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;isset&lt;/span&gt;(&lt;span class=&quot;variable&quot;&gt;$_COOKIE&lt;/span&gt;[session_name()])) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        setcookie(&lt;span class=&quot;variable&quot;&gt;$_COOKIE&lt;/span&gt;[session_name],&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;,time()-&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;);    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    session_destroy();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;setcookie(&lt;span class=&quot;string&quot;&gt;&#39;userid&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;, time()-&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//再销毁cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;但是cookie+session仍然不能防止用户禁用cookie，所以我们还需要寻求更好的方案。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;学习iOS以来，已经有一段时间不碰PHP了，这两天翻《Head First PHP &amp;amp; MySQL》温习PHP的时候(第7章)，发现
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Back End" scheme="http://archmee.github.io/tags/Back-End/"/>
-    
-      <category term="PHP" scheme="http://archmee.github.io/tags/PHP/"/>
     
   </entry>
   
