@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 77 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201609/2016-09-19.html">前端之旅第 77 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">September 19 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="1-JS简介"><a href="#1-JS简介" class="headerlink" title="1. JS简介"></a>1. JS简介</h2><p>第1章主要讲了JS的起源和发展历程，以及JS的基本组成情况</p>
+<ul>
+<li>一个完整的JS实现包含三个部分：<ul>
+<li>核心（ECMAScript）</li>
+<li>文档对象模型（DOM）</li>
+<li>浏览器对象模型（BOM）</li>
+</ul>
+</li>
+<li>Web浏览器只是ES实现可能的宿主环境之一</li>
+<li>DOM级别<ul>
+<li>DOM1级：由2个模块组成，DOM Core和DOM HTML</li>
+<li>DOM2级：引入了更多新模块，在原来DOM的基础上又扩充了鼠标和用户界面事件、范围、遍历等。而且通过对象接口增加了对CSS的支持</li>
+<li>DOM3级：进一步扩展了DOM，引入了以统一方式加载和保存文档的方法</li>
+</ul>
+</li>
+<li>BOM只处理浏览器和框架</li>
+</ul>
+<h2 id="2-在HTML中使用JS"><a href="#2-在HTML中使用JS" class="headerlink" title="2. 在HTML中使用JS"></a>2. 在HTML中使用JS</h2><ul>
+<li><code>&lt;script&gt;</code>元素定义了6个属性：<ul>
+<li>src：指定要执行的JS文件位置</li>
+<li>charset：JS文件的编码</li>
+<li>async：异步加载脚本，但不依赖引入顺序</li>
+<li>defer：在文档完全被解析和显示之后才执行脚本（立即下载，延迟执行）</li>
+<li>language：已废弃</li>
+<li>type：编写的代码的内容类型，常见<code>&lt;text/javascript&gt;</code></li>
+</ul>
+</li>
+<li><p><code>&lt;script&gt;</code>不仅可以放在<code>&lt;head&gt;</code>里面，还可以放在<code>&lt;body&gt;</code>里面（最好是结束标签之前）</p>
+</li>
+<li><p>文档模式：混杂模式和标准模式</p>
+</li>
+<li><code>&lt;noscript&gt;</code>用在不支持JS的浏览器中显示替换内容</li>
+</ul>
+<h2 id="3-基本概念"><a href="#3-基本概念" class="headerlink" title="3. 基本概念"></a>3. 基本概念</h2><ul>
+<li>标识符：首字符必须是字母、下划线(_)、美元符号($)。其他字符可以是字母、数字、下划线和美元符号</li>
+<li>严格模式：<code>&quot;use strict&quot;</code>可以放在脚本的开头对整个脚本开启严格模式，也可以放在函数内部让函数在严格模式下执行</li>
+<li>JS代码语句不强制使用<code>;</code>结束代码，但是建议不要省略</li>
+<li>标识符不能是<strong>关键字</strong>和<strong>保留字</strong>（测试时发现标识符可以是汉字，但是不建议使用）</li>
+<li>JS变量是松散类型（弱类型），即可以用来保存任何类型的数据</li>
+<li>JS声明变量使用<code>var</code>关键字就是局部变量，否则就是全局变量</li>
+<li>可以使用一条语句定义多个变量，用逗号隔开即可</li>
+</ul>
+<h3 id="3-4-数据类型"><a href="#3-4-数据类型" class="headerlink" title="3.4 数据类型"></a>3.4 数据类型</h3><ul>
+<li>ES有5种简单数据类型：<strong>Undefined、Null、Boolean、Number、String</strong>。还有1种复杂数据类型 <strong>Object</strong></li>
+<li><code>typeof</code>用来检测数据类型，它是一个操作符而不是函数，所以调用时可以用圆括号也可以不用</li>
+<li>声明变量未初始化值是”undefined”，对于没有声明的变量只能执行typeof检测数据类型，结果是”undefined”</li>
+<li>null表示一个空对象引用，所以执行<code>typeof null;</code>结果是”object”</li>
+<li>undefined值是派生自null值的，因此相等性测试结果是true</li>
+<li>Boolean类型的true和false是区分大小写的，其他形式的都只是标识符，<code>Boolean()</code>可以将其他值转换为Boolean值</li>
+<li>保存浮点数需要的内存空间是保存整数值的2倍</li>
+<li>永远不要测试某个特定的浮点数值</li>
+<li>ES能够保存的最大数值保存在Number.MAX_VALUE中，最小数值是Number.MIN_VALUE</li>
+<li>超出JS数值范围的值被自动转换成-Infinite(负无穷)或Infinite(正无穷)，<code>isFinite()</code>函数可以用来确定一个数值是不是<strong>有穷的</strong>（在最大和最小之间）</li>
+<li>NaN（Not a Number），这个数值用于表示一个本来要返回数值的操作数未返回数值的情况。NaN与任何值都不相等，包括NaN自身。<code>isNaN()</code>函数接收到参数后，会尝试将这个值转换为数值，然后确定这个参数是否“不是数值”</li>
+<li><code>Number()</code>、<code>parseInt()</code>和<code>parseFloat()</code>可以将非数值转换为数值。parseInt第2个参数可以指定转换时使用的基数</li>
+<li>数值、布尔值、对象和字符串值都有<code>toString()</code>方法，但null和undefined值没有这个方法</li>
+<li><code>String()</code>方法可以将任何类型的值转换为字符串</li>
+<li>ES中的对象其实是一组数据和功能的集合，Object的每个实例都具有下列属性和方法，由于在ES中Object是所有对象的基础，因此所有对象都具有这些基本的属性和方法<ul>
+<li>constructor</li>
+<li>hasOwnProperty(name)</li>
+<li>isPrototypeOf(object)</li>
+<li>propertyIsEnumerable(propertyName)</li>
+<li>toLocalString()</li>
+<li>toString()</li>
+<li>valueOf()</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-5-操作符"><a href="#3-5-操作符" class="headerlink" title="3.5 操作符"></a>3.5 操作符</h3><ul>
+<li>相等(==)和不相等(!=)是先转换再比较，全等(===)和不全等(！==)仅比较不转换，作者推荐使用全等和不全等</li>
+</ul>
+<h3 id="3-6-语句"><a href="#3-6-语句" class="headerlink" title="3.6 语句"></a>3.6 语句</h3><ul>
+<li>label语句可以在代码中添加标签，以便将来使用（比如跳转），通常配合循环语句使用</li>
+<li>with语句的作用是将代码的作用域设置到一个特定的对象中（严格模式不允许使用，且with语句导致性能下降，也不建议使用）</li>
+</ul>
+<h3 id="3-7-函数"><a href="#3-7-函数" class="headerlink" title="3.7 函数"></a>3.7 函数</h3><ul>
+<li>ES函数不介意传递进来多少个参数，也不在乎传递进来的参数是什么数据类型，在函数内部可以通过访问arguments对象来访问这个参数数组</li>
+<li>如果在ES中定义了2个同名函数，则该名字只属于后定义的函数</li>
+</ul>
+<h2 id="4-变量、作用域和内存问题"><a href="#4-变量、作用域和内存问题" class="headerlink" title="4. 变量、作用域和内存问题"></a>4. 变量、作用域和内存问题</h2><ul>
+<li>基本类型和引用类型的值<ul>
+<li>基本类型占据固定大小的空间，保存在栈内存中；引用类型的值是对象，保存在堆内存中。</li>
+<li>ES中所有参数都是按值传递的</li>
+<li>instanceOf操作符用于识别该变量是否是某个对象的实例</li>
+</ul>
+</li>
+<li><p>执行环境及作用域</p>
+<ul>
+<li>每个执行环境都有一个与之关联的<strong>变量对象</strong></li>
+<li>全局执行环境被认为是window对象</li>
+<li>标识符解析是沿着作用域链一级一级搜索标识符的过程。搜索的过程始终从作用域链的前端开始，然后逐级向后回溯，直到找到标识符为止，如果找到全局执行环境的变量对象还没有找到标识符，就会发生错误。</li>
+</ul>
+</li>
+<li><p>执行环境的类型只有2种——全局和局部（函数）</p>
+</li>
+<li>catch和with语句可以延长作用域链</li>
+<li>JS没有块级作用域</li>
+<li>垃圾收集通常有2个策略：标记清除和引用计数</li>
+</ul>
+<h2 id="5-引用类型"><a href="#5-引用类型" class="headerlink" title="5. 引用类型"></a>5. 引用类型</h2><ol>
+<li>Object类型<ul>
+<li>字面量语法用花括号包围<code>{}</code>，各属性之间用逗号分隔</li>
+<li>一般用点表示法访问对象属性，也可以使用方括号表示法来访问，作者建议除非必须否则用点表示法</li>
+</ul>
+</li>
+<li><p>Array类型</p>
+<ul>
+<li>字面量语法用方括号包围<code>[]</code></li>
+<li>每一项可以保存任意类型的值</li>
+<li>数组大小可动态调整</li>
+<li>使用Array构造函数是，可以省略new操作符</li>
+<li>length属性不是只读的，所以可以使用它调整数组大小</li>
+<li><code>Array.isArray()</code>方法用来检查一个参数是否是数组(ES5)</li>
+<li><code>join()</code>方法用传入的分隔符参数连接字符串</li>
+<li><code>push()</code>和<code>pop()</code>向数组末尾添加和删除元素，类似对栈的操作</li>
+<li><code>shift()</code>和<code>unshift()</code>在数组开始的位置删除和插入元素</li>
+<li><code>sort()</code>方法对数组进行排序，传入的参数是比较函数</li>
+<li><code>concat()</code>方法可以将当前数组和传入的数组参数连接起来创建一个新的数组</li>
+<li><code>slice()</code>从当前数组提取一或连续多项创建一个新数组</li>
+<li><code>splice()</code>向数组中插入项，利用参数的组合则可以完成数组的删除替换插入项</li>
+<li><code>indexOf()</code>和<code>lastIndexOf()</code>返回要查找的项在数组中的位置，没找到则返回-1。这两个方法的不同在于一个是顺序查找，一个是逆序查找</li>
+<li><code>every()</code>、<code>filter()</code>、<code>forEach()</code>、<code>map()</code>、<code>some()</code>都是用来迭代数组的方法</li>
+<li><code>reduce()</code>和<code>reduceRight()</code>是用来归并数组的方法</li>
+</ul>
+</li>
+<li><p>Date类型</p>
+<ul>
+<li><code>Date.parse()</code>返回日期字符串参数的毫秒数</li>
+<li><code>Date.UTC()</code>也返回表示日期的毫秒数，但是和parse参数不同</li>
+<li><code>Date.now()</code>返回当前时间的毫秒数</li>
+<li>Date类型还有一些专门用于将日期格式化为字符串的方法：<code>toDateString()</code>、<code>toTimeString()</code>、<code>toLocaleDateString()</code>、<code>toLocaleTimeString()</code>、<code>toUTCString</code>，更多的日期时间方法可以看书</li>
+</ul>
+</li>
+<li><p>RegExp类型</p>
+<ul>
+<li><p>正则表达式的字面量语法：<br><code>var express = /pattern/flags;</code><br>flags有3个值，可配合使用：</p>
+<ul>
+<li>g: 表示全局模式</li>
+<li>i: 表示不区分大小写</li>
+<li>m: 表示多行模式</li>
+</ul>
+</li>
+<li><p>RegExp每个实例都有下列属性：</p>
+<ul>
+<li>global：表示是否设置了g标志</li>
+<li>ignoreCase：表示是否设置了i标志</li>
+<li>lastIndex：表示开始搜索下一个匹配项的字符位置，从0算起:</li>
+<li>multiline：表示是否设置了m标志</li>
+<li>source：正则表达式的字符串</li>
+</ul>
+</li>
+<li>RegExp实例方法<ul>
+<li><code>test()</code>方法测试参数字符串是否匹配正则表达式</li>
+<li><code>exec()</code>方法接受一个字符串参数，返回第一个匹配项信息的数组，但包含两个额外的属性：index和input，index表示匹配项在字符串中的位置，input表示应用正则表达式的字符串</li>
+</ul>
+</li>
+<li>RegExp构造函数属性：input、lastMatch、lastParen、leftContext、rightContext、multiline</li>
+</ul>
+</li>
+<li><p>Function类型</p>
+<ul>
+<li>函数实际上是对象</li>
+<li>函数没有重载，因为函数名称只是一个变量，函数同名就像变量同名会被覆盖一样。</li>
+<li>函数可以作为值来使用，所以也可以用作函数参数，也可以将函数当作结果返回</li>
+<li>函数内部有两个特殊对象：arguments和this，arguments对象中还有一个名叫callee的属性，它是一个指针，指向拥有这个arguments对象的函数。ES5还有另一个函数对象的属性：caller，它保存着调用当前函数的函数的引用</li>
+<li>每个函数都包含两个属性：length和prototype，length表示函数希望接收的命名参数的个数，prototype是保存它们所在实例方法的真正所在<br>  每个函数都包含两个非继承而来的方法：<code>apply()</code>和<code>call()</code>，这两个方法都是在指定的作用域中调用函数，实际上等于设置函数体内this对象的值。<br>  ES5还定义了一个方法<code>bind()</code>，这个方法会创建一个函数实例，其this值会被绑定到传给bind()的参数</li>
+</ul>
+</li>
+<li><p>基本包装类型<br>ES还定义了3个特殊的引用类型：Boolean、Number和String，它们是基本类型值的基本包装类型对象。不建议显示创建基本包装类型的对象</p>
+<ul>
+<li>String类型<ul>
+<li>字符方法：<code>charAt()</code>和<code>charCodeAt()</code>用来访问特定字符</li>
+<li>字符串操作方法：<code>concat()</code>和<code>+</code>可以实现连接字符串。<code>slice()</code>、<code>substr()</code>、<code>substring()</code>都是提取子字符串创建新字符串的方法</li>
+<li>字符串位置方法：<code>indexOf()</code>和<code>lastIndexOf()</code>可以从字符串中查找子字符串的位置</li>
+<li>去除前后空格：<code>trim()</code>会创建一个字符串的副本，删除前后空格并返回。</li>
+<li>大小写转换：<code>toLowerCase()</code>、<code>toUpperCase()</code>、<code>toLocaleLowerCase()</code>、<code>toLocaleUpperCase()</code></li>
+<li>模式匹配：<br><code>match()</code>接收正则表达式为参数，本质上和调用RegExp的exec方法差不多。<br><code>search()</code>返回字符串中第一个匹配项的索引。<br><code>replace()</code>方法用于替换字符串匹配项。<br><code>split()</code>基于特定的分隔符将一个字符串分割成多个子字符串，并将结果放在一个数组中。<br><code>localeCompare()</code>用于比较字符串。<br><code>fromCharCode()</code>是一个静态方法，它接收一个或多个字符编码，并将它转换成一个字符串</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>单体内置对象<br>定义：由ES实现提供的，不依赖于宿主环境的对象，这些对象在ES程序执行之前就已经存在了</p>
+<ul>
+<li><p>Global对象：不属于任何其他对象的属性和方法，最终都是它的属性和方法。所有全局作用域中定义的属性和函数，都是Global对象的属性。</p>
+<ul>
+<li>URI编解码方法：<code>encodeURI()</code>和<code>encodeURIComponent()</code>可以对URI进行编码。<code>decodeURI()</code>和<code>decodeURIComponent()</code>是对应的解码方法。</li>
+<li><code>eval()</code>将传入字符串当做实际JS语句来解析</li>
+<li>。。。还有其他Global对象的属性。。。</li>
+<li>window对象，Web浏览器都是讲Global对象作为window对象的一部分加以实现的</li>
+</ul>
+</li>
+<li><p>Math对象：它提供的计算功能比我们自己编写的计算功能执行起来要快得多</p>
+<ul>
+<li>包含的属性都是数学计算中常用的特殊值</li>
+<li><code>min()</code>和<code>max()</code>方法用于确定一组数值中的最大值和最小值</li>
+<li>舍入方法：<code>ceil()</code>、<code>floor()</code>、<code>round()</code></li>
+<li><code>random()</code>方法返回0~1之间的随机数</li>
+<li>还有很多完成简单或复杂计算的方法：<code>pow()</code>、<code>sqrt()</code>等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="1-JS简介"><a href"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
