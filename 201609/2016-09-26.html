@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 78~83 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201609/2016-09-26.html">前端之旅第 78~83 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">September 26 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="6-面向对象"><a href="#6-面向对象" class="headerlink" title="6.面向对象"></a>6.面向对象</h2><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><p>ES中有两种属性：数据属性和访问器属性</p>
+<ul>
+<li>数据属性有4个描述其行为的特性：<ul>
+<li>Configurable</li>
+<li>Enumerable</li>
+<li>Writable</li>
+<li>Value</li>
+</ul>
+</li>
+<li>访问器属性也有4个特性：<ul>
+<li>Configurable</li>
+<li>Enumberable</li>
+<li>Get</li>
+<li>Set</li>
+</ul>
+</li>
+</ul>
+<p>ES5提供了<code>Object.defineProperty()</code>方法来修改属性默认的特性，<code>Object.defineProperties()</code>方法可以通过描述符一次定义多个属性，<code>Object.getOwnPropertyDescriptor()</code>方法可以获取给定属性的描述符。</p>
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><ul>
+<li><strong>工厂模式</strong>：在函数里面创建对象并初始化属性和方法，然后返回对象，创建对象直接调用函数即可。</li>
+<li><strong>构造函数模式</strong>：将利用函数是对象的本质，在函数内直接对this进行初始化。缺点是对象的方法没有达到复用的目的</li>
+<li><strong>原型模式</strong>：为了达到复用的目的，将对象属性和方法放进对象原型（object.prototype）中，这样每个对象就共享了属性和方法，而且每个实例可以定义自己专属的属性和方法，且会覆盖原型中的同名属性和方法。注意使用对象字面量语法会重写object.prototype，相当于是使用新对象覆盖了原型对象，导致某些引用关系丢失。这种模式的缺点是对原型对象中的引用类型的操作会共享给所有实例。<br>利用原型对象可以为原生对象添加新方法或重写</li>
+<li><strong>组合构造函数模式和原型模式</strong>：对不需要共享的属性或方法用构造函数来定义，需要共享的属性或方法写进原型对象（推荐）</li>
+<li><strong>动态原型模式</strong>：和组合模式类似，只是它把所有信息封装在构造函数中，也在构造函数初始化原型（经检查有必要时）</li>
+<li><strong>寄生构造函数模式</strong>：和工厂模式类似，只是在创建对象时不是直接调用函数，而是使用new关键字</li>
+<li><strong>稳妥构造函数模式</strong>：和寄生模式类似，区别在：一是没有公共属性， 新创建对象的实例方法不引用this，二是不使用new操作符调用构造函数（这一点又和工厂模式类似）</li>
+</ul>
+<p>一些有关的方法：</p>
+<ul>
+<li><code>isPrototype()</code>方法可以确定一个对象实例的原型，<code>Object.getPrototypeOf()</code>返回一个对象的原型</li>
+<li>delete 操作符可以删除实例中定义的属性和方法。</li>
+<li>in 操作符用来确认是否能够访问指定对象的指定属性</li>
+<li>ES5中的<code>Object.keys()</code>可以获取对象上所有可枚举的实例属性，而<code>Object.getOwnPropertyNames()</code>方法可以获取所有实例属性，无论它是否可枚举</li>
+</ul>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><ul>
+<li><strong>原型链</strong>：使用要继承自的父类型的实例覆盖子类型的原型。所有函数的默认原型都是Object的实例。该种继承方法的缺点：一是父类型的实例属性顺理成章的成了现在对象的原型属性；二是在创建子类型实例时，不能向父类型构造函数传递参数</li>
+<li><strong>借用构造函数</strong>：方法是在子类型的构造函数内部调用父类型构造函数（用apply或call方法），这下可以传递参数了，但没有解决函数复用的问题，而且父类型的原型对象中的方法对子类型不可见。</li>
+<li><strong>组合继承</strong>：将原型链和借用构造函数的技术组合到一块，其背后的思想是使用原型链实现对原型属性和方法的继承。其缺点是在构造函数中和用实例覆盖子类型的原型对象的过程中，调用了2次父类型的构造函数，导致父类型的实例属性有2份，1份在子类型原型对象中，1份在子类型实例中。</li>
+<li><strong>原型式继承</strong>：它的实现思路是在函数内借助给定的参数（对象）覆盖函数中一个全新的对象的原型，然后返回这个全新的对象，利用该函数实现了继承，每个实例都可以对自己的属性和方法进行自定义。这个技术和<u>原型继承</u>的思路差不多，用对象实例去重写子类型的原型，只是它把步骤放到了函数里面，并且是返回了一个被更改过原型的空白对象。<br>  ES5的<code>Object.create()</code>方法规范化了原型式继承，它用来创建并返回一个继承后的子对象。</li>
+<li><strong>寄生式继承</strong>：是和原型式继承紧密相关的一种方式，但是原型式继承返回的子类型没有任何自定义的属性和方法，所以寄生式继承是完成了二次封装，用来完善子类型的属性和方法。思路是创建一个函数，在函数中调用原型式继承中封装的步骤，然后定义子类型中应有的属性和方法。但是也没有解决方法复用的问题，相当于每个实例中都有一份自己的方法</li>
+<li><strong>寄生组合式继承</strong>：通过借用构造函数继承来继承属性，通过原型链的混成形式来继承方法。基本思路是：不必为了指定子类型的原型而调用父类型的构造函数，我们需要的只是父类型的原型对象的一个副本而已。只是利用一个中间对象的实例覆盖了子类型的原型对象，而在子类型的构造函数中又调用父类型构造函数以达到继承属性的目的。（最常用最常用）</li>
+</ul>
+<p>有关方法：</p>
+<ul>
+<li>instanceof 操作符可以测试实例与原型链中出现过的构造函数。<code>isPrototypeOf()</code>测试调用该方法的原型是否是这个实例(参数)的原型</li>
+</ul>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="6-面向对象"><a href"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>

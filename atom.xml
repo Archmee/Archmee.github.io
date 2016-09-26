@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-09-19T17:53:40.198Z</updated>
+  <updated>2016-09-26T15:41:06.928Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -14,6 +14,74 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端之旅第 78~83 天</title>
+    <link href="http://archmee.github.io/201609/2016-09-26.html"/>
+    <id>http://archmee.github.io/201609/2016-09-26.html</id>
+    <published>2016-09-25T16:00:00.000Z</published>
+    <updated>2016-09-26T15:41:06.928Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;6-面向对象&quot;&gt;&lt;a href=&quot;#6-面向对象&quot; class=&quot;headerlink&quot; title=&quot;6.面向对象&quot;&gt;&lt;/a&gt;6.面向对象&lt;/h2&gt;&lt;h3 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;/a&gt;属性&lt;/h3&gt;&lt;p&gt;ES中有两种属性：数据属性和访问器属性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据属性有4个描述其行为的特性：&lt;ul&gt;
+&lt;li&gt;Configurable&lt;/li&gt;
+&lt;li&gt;Enumerable&lt;/li&gt;
+&lt;li&gt;Writable&lt;/li&gt;
+&lt;li&gt;Value&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;访问器属性也有4个特性：&lt;ul&gt;
+&lt;li&gt;Configurable&lt;/li&gt;
+&lt;li&gt;Enumberable&lt;/li&gt;
+&lt;li&gt;Get&lt;/li&gt;
+&lt;li&gt;Set&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ES5提供了&lt;code&gt;Object.defineProperty()&lt;/code&gt;方法来修改属性默认的特性，&lt;code&gt;Object.defineProperties()&lt;/code&gt;方法可以通过描述符一次定义多个属性，&lt;code&gt;Object.getOwnPropertyDescriptor()&lt;/code&gt;方法可以获取给定属性的描述符。&lt;/p&gt;
+&lt;h3 id=&quot;创建对象&quot;&gt;&lt;a href=&quot;#创建对象&quot; class=&quot;headerlink&quot; title=&quot;创建对象&quot;&gt;&lt;/a&gt;创建对象&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;工厂模式&lt;/strong&gt;：在函数里面创建对象并初始化属性和方法，然后返回对象，创建对象直接调用函数即可。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构造函数模式&lt;/strong&gt;：将利用函数是对象的本质，在函数内直接对this进行初始化。缺点是对象的方法没有达到复用的目的&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原型模式&lt;/strong&gt;：为了达到复用的目的，将对象属性和方法放进对象原型（object.prototype）中，这样每个对象就共享了属性和方法，而且每个实例可以定义自己专属的属性和方法，且会覆盖原型中的同名属性和方法。注意使用对象字面量语法会重写object.prototype，相当于是使用新对象覆盖了原型对象，导致某些引用关系丢失。这种模式的缺点是对原型对象中的引用类型的操作会共享给所有实例。&lt;br&gt;利用原型对象可以为原生对象添加新方法或重写&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合构造函数模式和原型模式&lt;/strong&gt;：对不需要共享的属性或方法用构造函数来定义，需要共享的属性或方法写进原型对象（推荐）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态原型模式&lt;/strong&gt;：和组合模式类似，只是它把所有信息封装在构造函数中，也在构造函数初始化原型（经检查有必要时）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;寄生构造函数模式&lt;/strong&gt;：和工厂模式类似，只是在创建对象时不是直接调用函数，而是使用new关键字&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;稳妥构造函数模式&lt;/strong&gt;：和寄生模式类似，区别在：一是没有公共属性， 新创建对象的实例方法不引用this，二是不使用new操作符调用构造函数（这一点又和工厂模式类似）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一些有关的方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;isPrototype()&lt;/code&gt;方法可以确定一个对象实例的原型，&lt;code&gt;Object.getPrototypeOf()&lt;/code&gt;返回一个对象的原型&lt;/li&gt;
+&lt;li&gt;delete 操作符可以删除实例中定义的属性和方法。&lt;/li&gt;
+&lt;li&gt;in 操作符用来确认是否能够访问指定对象的指定属性&lt;/li&gt;
+&lt;li&gt;ES5中的&lt;code&gt;Object.keys()&lt;/code&gt;可以获取对象上所有可枚举的实例属性，而&lt;code&gt;Object.getOwnPropertyNames()&lt;/code&gt;方法可以获取所有实例属性，无论它是否可枚举&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;继承&quot;&gt;&lt;a href=&quot;#继承&quot; class=&quot;headerlink&quot; title=&quot;继承&quot;&gt;&lt;/a&gt;继承&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;原型链&lt;/strong&gt;：使用要继承自的父类型的实例覆盖子类型的原型。所有函数的默认原型都是Object的实例。该种继承方法的缺点：一是父类型的实例属性顺理成章的成了现在对象的原型属性；二是在创建子类型实例时，不能向父类型构造函数传递参数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;借用构造函数&lt;/strong&gt;：方法是在子类型的构造函数内部调用父类型构造函数（用apply或call方法），这下可以传递参数了，但没有解决函数复用的问题，而且父类型的原型对象中的方法对子类型不可见。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合继承&lt;/strong&gt;：将原型链和借用构造函数的技术组合到一块，其背后的思想是使用原型链实现对原型属性和方法的继承。其缺点是在构造函数中和用实例覆盖子类型的原型对象的过程中，调用了2次父类型的构造函数，导致父类型的实例属性有2份，1份在子类型原型对象中，1份在子类型实例中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原型式继承&lt;/strong&gt;：它的实现思路是在函数内借助给定的参数（对象）覆盖函数中一个全新的对象的原型，然后返回这个全新的对象，利用该函数实现了继承，每个实例都可以对自己的属性和方法进行自定义。这个技术和&lt;u&gt;原型继承&lt;/u&gt;的思路差不多，用对象实例去重写子类型的原型，只是它把步骤放到了函数里面，并且是返回了一个被更改过原型的空白对象。&lt;br&gt;  ES5的&lt;code&gt;Object.create()&lt;/code&gt;方法规范化了原型式继承，它用来创建并返回一个继承后的子对象。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;寄生式继承&lt;/strong&gt;：是和原型式继承紧密相关的一种方式，但是原型式继承返回的子类型没有任何自定义的属性和方法，所以寄生式继承是完成了二次封装，用来完善子类型的属性和方法。思路是创建一个函数，在函数中调用原型式继承中封装的步骤，然后定义子类型中应有的属性和方法。但是也没有解决方法复用的问题，相当于每个实例中都有一份自己的方法&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;寄生组合式继承&lt;/strong&gt;：通过借用构造函数继承来继承属性，通过原型链的混成形式来继承方法。基本思路是：不必为了指定子类型的原型而调用父类型的构造函数，我们需要的只是父类型的原型对象的一个副本而已。只是利用一个中间对象的实例覆盖了子类型的原型对象，而在子类型的构造函数中又调用父类型构造函数以达到继承属性的目的。（最常用最常用）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有关方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;instanceof 操作符可以测试实例与原型链中出现过的构造函数。&lt;code&gt;isPrototypeOf()&lt;/code&gt;测试调用该方法的原型是否是这个实例(参数)的原型&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;6-面向对象&quot;&gt;&lt;a href=&quot;#6-面向对象&quot; class=&quot;headerlink&quot; title=&quot;6.面向对象&quot;&gt;&lt;/a&gt;6.面向对象&lt;/h2&gt;&lt;h3 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
   
   <entry>
     <title>前端之旅第 77 天</title>
@@ -1796,110 +1864,6 @@
     <summary type="html">
     
       &lt;p&gt;在慕课网上学习&lt;a href=&quot;http://www.imooc.com/learn/9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML+CSS基础课程&lt;/a&gt;时记录了一些关键点。可能学完这个课程会给你已经学会了html和css的错觉，但其实这个课
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 3 天</title>
-    <link href="http://archmee.github.io/201607/2016-07-08.html"/>
-    <id>http://archmee.github.io/201607/2016-07-08.html</id>
-    <published>2016-07-07T16:00:00.000Z</published>
-    <updated>2016-07-10T17:59:37.246Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;学习-Sublime-Text&quot;&gt;&lt;a href=&quot;#学习-Sublime-Text&quot; class=&quot;headerlink&quot; title=&quot;学习 Sublime Text&quot;&gt;&lt;/a&gt;学习 Sublime Text&lt;/h2&gt;&lt;p&gt;虽然之前一直在用Sublime Text，但却对它很多功能知之甚少，所以上午全都在 &lt;a href=&quot;www.imooc.com&quot;&gt;慕课网&lt;/a&gt; 学习它的 &lt;a href=&quot;http://www.imooc.com/video/5473&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;视频课程&lt;/a&gt;。这门课主要讲了常用的快捷键和一些插件的安装使用，对开发很有帮助，就算暂时用不到，也可以先作为了解。&lt;/p&gt;
-&lt;h3 id=&quot;快捷键&quot;&gt;&lt;a href=&quot;#快捷键&quot; class=&quot;headerlink&quot; title=&quot;快捷键&quot;&gt;&lt;/a&gt;快捷键&lt;/h3&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;快捷键&lt;/th&gt;
-&lt;th&gt;功能&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+p&lt;/td&gt;
-&lt;td&gt;goto anything&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+shift+p&lt;/td&gt;
-&lt;td&gt;命令行&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+d&lt;/td&gt;
-&lt;td&gt;多行模式&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+k&lt;/td&gt;
-&lt;td&gt;多行模式选择时跳过当前项&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;alt+f3&lt;/td&gt;
-&lt;td&gt;多行模式全选&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Alt+.&lt;/td&gt;
-&lt;td&gt;可以自动完成html闭合标记,不过有了Emmet插件几乎没什么用&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+p面板中&lt;/td&gt;
-&lt;td&gt;1. 输入@可以匹配css选择器   2. 输入#可以匹配html标签&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+shift+v&lt;/td&gt;
-&lt;td&gt;带格式粘贴代码&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ctrl+e&lt;/td&gt;
-&lt;td&gt;展开emmet语法&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&quot;插件&quot;&gt;&lt;a href=&quot;#插件&quot; class=&quot;headerlink&quot; title=&quot;插件&quot;&gt;&lt;/a&gt;插件&lt;/h3&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;插件名&lt;/th&gt;
-&lt;th&gt;功能&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;sublime httpRequest&lt;/td&gt;
-&lt;td&gt;用于调试http请求&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;sublime nettus fetch&lt;/td&gt;
-&lt;td&gt;稍作配置就可以从网上下载jQuery等库代码&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;advancedNewfile&lt;/td&gt;
-&lt;td&gt;新建文件的简便方式&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&quot;《Head-First-HTML-amp-CSS》-学习笔记&quot;&gt;&lt;a href=&quot;#《Head-First-HTML-amp-CSS》-学习笔记&quot; class=&quot;headerlink&quot; title=&quot;《Head First HTML &amp;amp; CSS》 学习笔记&quot;&gt;&lt;/a&gt;《Head First HTML &amp;amp; CSS》 学习笔记&lt;/h2&gt;&lt;h3 id=&quot;第4章-连接起来&quot;&gt;&lt;a href=&quot;#第4章-连接起来&quot; class=&quot;headerlink&quot; title=&quot;第4章. 连接起来&quot;&gt;&lt;/a&gt;第4章. 连接起来&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;浏览器中输入的Web地址称为URL，或称统一资源定位符（Uniform Resource Locators）&lt;/li&gt;
-&lt;li&gt;单击一个相对链接时，在后台浏览器会根据这个相对路径和所单击页面的路径创建一个绝对路径&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;元素的title属性用来提供链接描述信息，可以为任何元素增加title属性以提供工具提示。&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;target属性用来指定打开链接的方法：&lt;br&gt;_blank在新窗口中打开被链接文档&lt;br&gt;_self是默认，在相同的框架中打开被链接文档&lt;br&gt;_parent在父框架集中打开被链接文档&lt;br&gt;_top在整个窗口中打开被链接文档&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;建立锚的方式(用来指定页面中的位置)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;方法1&lt;/em&gt;：在页面中相应位置的元素上加上id属性（id要是唯一的），比如&lt;code&gt;&amp;lt;p id=&amp;quot;bookmark&amp;quot;&amp;gt;&lt;/code&gt;，从其他位置访问此处，只需要在URL最后加上该id即可，本页面跳转时浏览器会把href的值自动加到url链接后面再访问。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;方法2&lt;/em&gt;：在想要定位的位置加上&lt;code&gt;&amp;lt;a name=&amp;quot;bookmark&amp;quot;&amp;gt;...&amp;lt;/a&amp;gt;&lt;/code&gt;, 访问方法相,同，但方法一更常见一点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;学习-Sublime-Text&quot;&gt;&lt;a href=&quot;#学习-Sublime-Text&quot; class=&quot;headerlink&quot; title=&quot;学习 Sublime Text&quot;&gt;&lt;/a&gt;学习 Sublime Text&lt;/h2&gt;&lt;p&gt;虽然之前一直在用Sublime Te
     
     </summary>
     
