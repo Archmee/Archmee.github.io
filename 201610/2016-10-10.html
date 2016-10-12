@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 96 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201610/2016-10-10.html">前端之旅第 96 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">October 10 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <p>今天完成了JS高程的第14章，并且开始做2015的百度前端春季学院任务JS部分。<br>看了一篇学习资料 <a href="http://www.ibm.com/developerworks/cn/web/1308_caiys_jsload/index.html" target="_blank" rel="external">JavaScript 的性能优化：加载和执行</a></p>
+<p>概要如下：</p>
+<ul>
+<li><p>每个文件必须等到前一个文件下载并执行完成才会开始下载。在这些文件逐个下载过程中，用户看到的是一片空白的页面。</p>
+</li>
+<li><p>从 IE 8、Firefox 3.5、Safari 4 和 Chrome 2 开始都允许并行下载 JavaScript 文件。这是个好消息，因为<code>&lt;script&gt;</code>标签在下载外部资源时不会阻塞其他<code>&lt;script&gt;</code>标签。遗憾的是，JavaScript 下载过程仍然会阻塞其他资源的下载,比如样式文件和图片。尽管脚本的下载过程不会互相影响，但页面仍然必须等待所有 JavaScript 代码下载并执行完成才能继续。</p>
+</li>
+<li><p>由于脚本会阻塞页面其他资源的下载，因此推荐将所有<code>&lt;script&gt;</code>标签尽可能放到<code>&lt;body&gt;</code>标签的底部，以尽量减少对整个页面下载的影响。这是优化 JavaScript 的首要规则：将脚本放在底部。</p>
+</li>
+<li><p>浏览器在解析 HTML 页面的过程中每遇到一个<code>&lt;script&gt;</code>标签，都会因执行脚本而导致一定的延时，因此最小化延迟时间将会明显改善页面的总体性能。所以减少页面包含的<code>&lt;script&gt;</code>标签数量有助于改善这一情况，不管是内嵌的还是外链的。可以把多个文件合并成一个，这样只需要引用一个<code>&lt;script&gt;</code>标签，就可以减少性能消耗。</p>
+</li>
+<li><p>为了确保内嵌脚本在执行时能获得最精确的样式信息，建议不要把内嵌脚本紧跟在<code>&lt;link&gt;</code>标签后面。</p>
+</li>
+<li><p>尽管下载单个较大的 JavaScript 文件只产生一次 HTTP 请求，却会锁死浏览器的一大段时间。为避免这种情况，需要通过一些特定的技术向页面中逐步加载 JavaScript 文件，这样做在某种程度上来说不会阻塞浏览器。</p>
+</li>
+<li><p>当一个带有 defer 属性的 JavaScript 文件下载时，它不会阻塞浏览器的其他进程，因此这类文件可以与其他资源文件一起并行下载。<br>任何带有 defer 属性的<code>&lt;script&gt;</code>元素在 DOM 完成加载之前都不会被执行，无论内嵌或者是外链脚本都是如此。<br>说明：defer只有 IE 和 Firefox 3.5支持</p>
+</li>
+<li><p>HTML 5 为<code>&lt;script&gt;</code>标签定义了一个新的扩展属性：async。它的作用和 defer 一样，能够异步地加载和执行脚本，不因为加载脚本而阻塞页面的加载。<br>在有 async 的情况下，JS 脚本一旦下载好了就会执行，所以很有可能不是按照原本的顺序来执行的。如果 JavaScript 脚本前后有依赖性，使用 async 就很有可能出现错误。</p>
+</li>
+<li><p>通过标准 DOM 函数创建<code>&lt;script&gt;</code>元素<br>Firefox、Opera, Chorme 和 Safari 3+会在<code>&lt;script&gt;</code>节点接收完成之后发出一个 onload 事件。您可以监听这一事件，以得到脚本准备好的通知。<br>大部分浏览器将按照服务器返回它们的次序下载并运行不同的JS代码文件。您可以将下载操作串联在一起以保证他们的次序。</p>
+</li>
+<li><p>通过 XHR 对象加载 JavaScript 脚本最主要的限制是：JavaScript 文件必须与页面放置在同一个域内，不能从 CDN 下载，所以大型网页通常不采用 XHR 脚本注入技术。</p>
+</li>
+</ul>
+<p>原文总结：<br>采用阻塞方法加载JS：</p>
+<ul>
+<li>将所有的<code>&lt;script&gt;</code>标签放到页面底部，也就是闭合标签之前，这能确保在脚本执行前页面已经完成了渲染。</li>
+<li>尽可能地合并脚本。页面中的<code>&lt;script&gt;</code>标签越少，加载也就越快，响应也越迅速。无论是外链脚本还是内嵌脚本都是如此。</li>
+</ul>
+<p>采用无阻塞下载 JavaScript 脚本的方法：</p>
+<ul>
+<li>使用<code>&lt;script&gt;</code>标签的 defer 属性（仅适用于 IE 和 Firefox 3.5 以上版本）或者HTML5添加的async属性；</li>
+<li>使用动态创建的<code>&lt;script&gt;</code>元素来下载并执行代码；</li>
+<li>使用 XHR 对象下载 JavaScript 代码并注入页面中。</li>
+</ul>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=今天完成了JS高程的第14章，并且开始做"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
