@@ -39,7 +39,8 @@
   </section>
 
   <section class="article-entry">
-    <h2 id="维基大学的Challenge-5"><a href="#维基大学的Challenge-5" class="headerlink" title="维基大学的Challenge 5"></a>维基大学的Challenge 5</h2><p>完成了维基大学的Challenge 5，后面的挑战我不打算继续了，第6个是自己设计，第7个是模仿静态网页、第8个是CSS Zen Garden的学习。<br>在做Challenge 5的时候看了两篇分别介绍 <a href="http://www.456bereastreet.com/lab/developing_with_web_standards/csslayout/2-col/" target="_blank" rel="external">2列布局</a> 和 <a href="http://www.456bereastreet.com/archive/201012/how_to_create_a_3-column_layout_with_css/" target="_blank" rel="external">3列布局</a>的博客，不过方法都差不多，都是使用浮动来实现</p>
+    <h2 id="维基大学的Challenge-5"><a href="#维基大学的Challenge-5" class="headerlink" title="维基大学的Challenge 5"></a>维基大学的Challenge 5</h2><p>完成了维基大学的Challenge 5，后面的挑战我不打算继续了，第6个是自己设计，第7个是模仿静态网页、第8个是CSS Zen Garden的学习。<a href="https://github.com/Archmee/Front-End-Demo/tree/master/css_challenge" target="_blank" rel="external">这是我放在github上的维基大学Challenge代码</a>，以及<a href="https://github.com/Archmee/Front-End-Demo/tree/master/xtra_art_redo" target="_blank" rel="external">模仿的一个模板网站找的静态页面</a>，因为原页面结构比较混乱，所以我按照自己的方式在布局。</p>
+<p>在做Challenge 5的时候看了两篇分别介绍 <a href="http://www.456bereastreet.com/lab/developing_with_web_standards/csslayout/2-col/" target="_blank" rel="external">2列布局</a> 和 <a href="http://www.456bereastreet.com/archive/201012/how_to_create_a_3-column_layout_with_css/" target="_blank" rel="external">3列布局</a>的博客，不过方法都差不多，都是使用浮动来实现</p>
 <script async src="https://jsfiddle.net/ym24ukus/6/embed/html,css,result/"></script>
 
 <h2 id="读《精通CSS》"><a href="#读《精通CSS》" class="headerlink" title="读《精通CSS》"></a>读《精通CSS》</h2><p>开始看《精通CSS》，已经完成1、2章，笔记整理如下</p>
@@ -143,7 +144,7 @@
 </ol>
 <p>计算后的line-height-font-size就是可用的间距了，将其/2然后分别放到当前行的顶部和底部</p>
 <p>上面那篇博客中还讲解了line-height应用于内容时可能发生的复杂情形，我就不搬运了</p>
-<h2 id="圣马杯-amp-双飞翼布局"><a href="#圣马杯-amp-双飞翼布局" class="headerlink" title="圣马杯 &amp; 双飞翼布局"></a>圣马杯 &amp; 双飞翼布局</h2><p>另外还学习了圣马杯和淘宝的双飞翼布局，并总结了一点异同点<br>相同点：</p>
+<h2 id="圣杯布局-amp-双飞翼布局"><a href="#圣杯布局-amp-双飞翼布局" class="headerlink" title="圣杯布局 &amp; 双飞翼布局"></a>圣杯布局 &amp; 双飞翼布局</h2><p>另外还学习了圣杯和淘宝的双飞翼布局，并总结了一点异同点<br>相同点：</p>
 <ul>
 <li>使用同样的html结构，基于优先渲染主要内容的原则，会把主内容区放在前面</li>
 <li>都是多列布局</li>
@@ -151,17 +152,17 @@
 </ul>
 <p>不同点表现在主内容被遮盖时</p>
 <ul>
-<li>圣马杯布局对多列的wrapper采用了padding，但是会导致左右列位置发生变化，然后对左右列使用<code>position:relative</code>和<code>left</code>或<code>right</code>的方法纠正</li>
+<li>圣杯布局对多列的wrapper采用了padding，但是会导致左右列位置发生变化，然后对左右列使用<code>position:relative</code>和<code>left</code>或<code>right</code>的方法纠正</li>
 <li>双飞翼布局则将在主内容区中多嵌套了一层wrapper，然后对嵌套在主内容区的wrapper使用左右margin来保证内容区想要显示的内容在正确的位置上</li>
 </ul>
-<p>这是几篇介绍双飞翼布局和圣马杯的博客：</p>
+<p>这是几篇介绍双飞翼布局和圣杯布局的博客：</p>
 <ul>
 <li><a href="http://www.imooc.com/wenda/detail/254035" target="_blank" rel="external">双飞翼布局介绍-始于淘宝UED</a>，其实这篇博客是比较权威的一篇，但是描述时上下文有点对应不上，而且展示页面访问不了，所以理解起来很费劲</li>
 <li><a href="http://blog.fazero.cc/2015/07/25/CSS%E5%B8%83%E5%B1%80-%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80vs%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/" target="_blank" rel="external">CSS布局-圣杯布局vs双飞翼布局</a></li>
 <li><a href="http://www.cnblogs.com/imwtr/p/4441741.html" target="_blank" rel="external">CSS布局 – 圣杯布局 &amp; 双飞翼布局</a></li>
 <li><a href="http://www.cnblogs.com/langzs/archive/2013/01/27/taobaoshuangfeiyi.html" target="_blank" rel="external">CSS布局之–淘宝双飞翼布局</a></li>
 </ul>
-<p>我打算自己写一篇博客专门介绍这两种布局方式</p>
+<p>我打算自己写一篇博客专门介绍这两种布局方式：见下一篇博客</p>
 
   </section>
 </article>

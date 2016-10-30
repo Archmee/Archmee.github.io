@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-10-20T18:20:42.933Z</updated>
+  <updated>2016-10-30T13:09:13.151Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -16,11 +16,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>前端之旅第 107~116 天</title>
+    <link href="http://archmee.github.io/201610/2016-10-30.html"/>
+    <id>http://archmee.github.io/201610/2016-10-30.html</id>
+    <published>2016-10-29T16:00:00.000Z</published>
+    <updated>2016-10-30T13:09:13.151Z</updated>
+    
+    <content type="html">&lt;p&gt;在25号左右看完了JS《JS高级编程》一书，在26号开始刷&lt;a href=&quot;http://www.imooc.com/course/programdetail/pid/32&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;慕课网的前端计划&lt;/a&gt;，但直接跳过了HTML、CSS、JS的初级部分，本想看完DOM事件后完成IFE2015任务二的部分，但是27号下午开始感冒了，28号高烧腰痛难忍不能坐立，甚至下午出去逛超市差不多是挪着步子回来的，本打算第二天去医院挂个急诊，结果29号好多了，本以为痊愈了，但晚上开始口苦鼻塞、头痛欲裂，侧夜难眠，30早上起来整个嘴唇都脱皮了，感觉上火比较严重，但是整个人感觉好多了，下午去药房随便拿了点药了事。我都觉得自己奇怪，病痛都差不多痊愈了才去买药来吃，想来也是因为自己忍受不了去医院挂号的麻烦。&lt;br&gt;接下来希望尽快完成IFE2015任务二&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在25号左右看完了JS《JS高级编程》一书，在26号开始刷&lt;a href=&quot;http://www.imooc.com/course/programdetail/pid/32&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;慕课网的前端计划&lt;/a&gt;，但直接跳过
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端之旅第 97~106 天</title>
     <link href="http://archmee.github.io/201610/2016-10-20.html"/>
     <id>http://archmee.github.io/201610/2016-10-20.html</id>
     <published>2016-10-19T16:00:00.000Z</published>
-    <updated>2016-10-20T18:20:42.933Z</updated>
+    <updated>2016-10-26T14:21:25.034Z</updated>
     
     <content type="html">&lt;p&gt;这10天左右时间从js高程第14章看到了第22章，其中15、16、18、19章只是翻了一下，没有详读，因为html5的api部分，我想等到真正使用的时候再细读，现在只需要了解大概就行了，而XML也不是当务之急，何况现在已经是JSON的天下了。百度IFE2015春季的题目正在做任务2，虽然都是入门开始的，但是感觉题目还是偏难的，如果没有看过js高程这种大部头或者到网上找答案，初学者应该很难完成的，至少只看百度IFE给的资料是没办法完成任务的。&lt;br&gt;章节列表如下：&lt;/p&gt;
 &lt;ul&gt;
@@ -77,9 +100,9 @@
     <link href="http://archmee.github.io/201610/2016-10-10.html"/>
     <id>http://archmee.github.io/201610/2016-10-10.html</id>
     <published>2016-10-09T16:00:00.000Z</published>
-    <updated>2016-10-10T18:21:50.330Z</updated>
+    <updated>2016-10-26T14:20:54.863Z</updated>
     
-    <content type="html">&lt;p&gt;今天完成了JS高程的第14章，并且开始做2015的百度前端春季学院任务JS部分。&lt;br&gt;看了一篇学习资料 &lt;a href=&quot;http://www.ibm.com/developerworks/cn/web/1308_caiys_jsload/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JavaScript 的性能优化：加载和执行&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;今天完成了JS高程的第14章，并且开始做百度前端学院2015任务二：JS部分。&lt;br&gt;看了一篇学习资料 &lt;a href=&quot;http://www.ibm.com/developerworks/cn/web/1308_caiys_jsload/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JavaScript 的性能优化：加载和执行&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;概要如下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;每个文件必须等到前一个文件下载并执行完成才会开始下载。在这些文件逐个下载过程中，用户看到的是一片空白的页面。&lt;/p&gt;
@@ -118,7 +141,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;今天完成了JS高程的第14章，并且开始做2015的百度前端春季学院任务JS部分。&lt;br&gt;看了一篇学习资料 &lt;a href=&quot;http://www.ibm.com/developerworks/cn/web/1308_caiys_jsload/index.html&quot; targ
+      &lt;p&gt;今天完成了JS高程的第14章，并且开始做百度前端学院2015任务二：JS部分。&lt;br&gt;看了一篇学习资料 &lt;a href=&quot;http://www.ibm.com/developerworks/cn/web/1308_caiys_jsload/index.html&quot; targe
     
     </summary>
     
@@ -134,7 +157,7 @@
     <link href="http://archmee.github.io/201610/2016-10-09.html"/>
     <id>http://archmee.github.io/201610/2016-10-09.html</id>
     <published>2016-10-08T16:00:00.000Z</published>
-    <updated>2016-10-09T18:19:12.432Z</updated>
+    <updated>2016-10-26T14:19:24.952Z</updated>
     
     <content type="html">&lt;p&gt;在国庆节前后接近两周的时间学习了JS高程7~13章，第7章还属于比较重要的语法知识，而从第8章开始后面就是BOM和DOM等部分，讲解了大量api的用法，遂不打算一一做笔记了，这里仅仅列一下第7章的纲要&lt;/p&gt;
 &lt;h2 id=&quot;7-函数表达式&quot;&gt;&lt;a href=&quot;#7-函数表达式&quot; class=&quot;headerlink&quot; title=&quot;7.函数表达式&quot;&gt;&lt;/a&gt;7.函数表达式&lt;/h2&gt;&lt;ul&gt;
@@ -167,9 +190,10 @@
     <link href="http://archmee.github.io/201609/2016-09-26.html"/>
     <id>http://archmee.github.io/201609/2016-09-26.html</id>
     <published>2016-09-25T16:00:00.000Z</published>
-    <updated>2016-09-26T15:41:06.928Z</updated>
+    <updated>2016-10-26T14:19:11.952Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;6-面向对象&quot;&gt;&lt;a href=&quot;#6-面向对象&quot; class=&quot;headerlink&quot; title=&quot;6.面向对象&quot;&gt;&lt;/a&gt;6.面向对象&lt;/h2&gt;&lt;h3 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;/a&gt;属性&lt;/h3&gt;&lt;p&gt;ES中有两种属性：数据属性和访问器属性&lt;/p&gt;
+    <content type="html">&lt;p&gt;差不多用了一周时间才完成了第6章，感觉大脑开启了暴力模式&lt;/p&gt;
+&lt;h2 id=&quot;6-面向对象&quot;&gt;&lt;a href=&quot;#6-面向对象&quot; class=&quot;headerlink&quot; title=&quot;6.面向对象&quot;&gt;&lt;/a&gt;6.面向对象&lt;/h2&gt;&lt;h3 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;/a&gt;属性&lt;/h3&gt;&lt;p&gt;ES中有两种属性：数据属性和访问器属性&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;数据属性有4个描述其行为的特性：&lt;ul&gt;
 &lt;li&gt;Configurable&lt;/li&gt;
@@ -219,7 +243,8 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;6-面向对象&quot;&gt;&lt;a href=&quot;#6-面向对象&quot; class=&quot;headerlink&quot; title=&quot;6.面向对象&quot;&gt;&lt;/a&gt;6.面向对象&lt;/h2&gt;&lt;h3 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;
+      &lt;p&gt;差不多用了一周时间才完成了第6章，感觉大脑开启了暴力模式&lt;/p&gt;
+&lt;h2 id=&quot;6-面向对象&quot;&gt;&lt;a href=&quot;#6-面向对象&quot; class=&quot;headerlink&quot; title=&quot;6.面向对象&quot;&gt;&lt;/a&gt;6.面向对象&lt;/h2&gt;&lt;h3 id=&quot;属性&quot;&gt;&lt;a href=&quot;
     
     </summary>
     
@@ -235,9 +260,10 @@
     <link href="http://archmee.github.io/201609/2016-09-19.html"/>
     <id>http://archmee.github.io/201609/2016-09-19.html</id>
     <published>2016-09-18T16:00:00.000Z</published>
-    <updated>2016-09-19T17:53:40.198Z</updated>
+    <updated>2016-10-26T14:17:49.553Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;1-JS简介&quot;&gt;&lt;a href=&quot;#1-JS简介&quot; class=&quot;headerlink&quot; title=&quot;1. JS简介&quot;&gt;&lt;/a&gt;1. JS简介&lt;/h2&gt;&lt;p&gt;第1章主要讲了JS的起源和发展历程，以及JS的基本组成情况&lt;/p&gt;
+    <content type="html">&lt;p&gt;后来想了一下，还是总结一下较好&lt;/p&gt;
+&lt;h2 id=&quot;1-JS简介&quot;&gt;&lt;a href=&quot;#1-JS简介&quot; class=&quot;headerlink&quot; title=&quot;1. JS简介&quot;&gt;&lt;/a&gt;1. JS简介&lt;/h2&gt;&lt;p&gt;第1章主要讲了JS的起源和发展历程，以及JS的基本组成情况&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;一个完整的JS实现包含三个部分：&lt;ul&gt;
 &lt;li&gt;核心（ECMAScript）&lt;/li&gt;
@@ -440,13 +466,58 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&quot;6-面向对象&quot;&gt;&lt;a href=&quot;#6-面向对象&quot; class=&quot;headerlink&quot; title=&quot;6.面向对象&quot;&gt;&lt;/a&gt;6.面向对象&lt;/h2&gt;&lt;h3 id=&quot;属性&quot;&gt;&lt;a href=&quot;#属性&quot; class=&quot;headerlink&quot; title=&quot;属性&quot;&gt;&lt;/a&gt;属性&lt;/h3&gt;&lt;p&gt;ES中有两种属性：数据属性和访问器属性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据属性有4个描述其行为的特性：&lt;ul&gt;
+&lt;li&gt;Configurable&lt;/li&gt;
+&lt;li&gt;Enumerable&lt;/li&gt;
+&lt;li&gt;Writable&lt;/li&gt;
+&lt;li&gt;Value&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;访问器属性也有4个特性：&lt;ul&gt;
+&lt;li&gt;Configurable&lt;/li&gt;
+&lt;li&gt;Enumberable&lt;/li&gt;
+&lt;li&gt;Get&lt;/li&gt;
+&lt;li&gt;Set&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ES5提供了&lt;code&gt;Object.defineProperty()&lt;/code&gt;方法来修改属性默认的特性，&lt;code&gt;Object.defineProperties()&lt;/code&gt;方法可以通过描述符一次定义多个属性，&lt;code&gt;Object.getOwnPropertyDescriptor()&lt;/code&gt;方法可以获取给定属性的描述符。&lt;/p&gt;
+&lt;h3 id=&quot;创建对象&quot;&gt;&lt;a href=&quot;#创建对象&quot; class=&quot;headerlink&quot; title=&quot;创建对象&quot;&gt;&lt;/a&gt;创建对象&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;工厂模式&lt;/strong&gt;：在函数里面创建对象并初始化属性和方法，然后返回对象，创建对象直接调用函数即可。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构造函数模式&lt;/strong&gt;：将利用函数是对象的本质，在函数内直接对this进行初始化。缺点是对象的方法没有达到复用的目的&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原型模式&lt;/strong&gt;：为了达到复用的目的，将对象属性和方法放进对象原型（object.prototype）中，这样每个对象就共享了属性和方法，而且每个实例可以定义自己专属的属性和方法，且会覆盖原型中的同名属性和方法。注意使用对象字面量语法会重写object.prototype，相当于是使用新对象覆盖了原型对象，导致某些引用关系丢失。这种模式的缺点是对原型对象中的引用类型的操作会共享给所有实例。&lt;br&gt;利用原型对象可以为原生对象添加新方法或重写&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合构造函数模式和原型模式&lt;/strong&gt;：对不需要共享的属性或方法用构造函数来定义，需要共享的属性或方法写进原型对象（推荐）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态原型模式&lt;/strong&gt;：和组合模式类似，只是它把所有信息封装在构造函数中，也在构造函数初始化原型（经检查有必要时）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;寄生构造函数模式&lt;/strong&gt;：和工厂模式类似，只是在创建对象时不是直接调用函数，而是使用new关键字&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;稳妥构造函数模式&lt;/strong&gt;：和寄生模式类似，区别在：一是没有公共属性， 新创建对象的实例方法不引用this，二是不使用new操作符调用构造函数（这一点又和工厂模式类似）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一些有关的方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;isPrototype()&lt;/code&gt;方法可以确定一个对象实例的原型，&lt;code&gt;Object.getPrototypeOf()&lt;/code&gt;返回一个对象的原型&lt;/li&gt;
+&lt;li&gt;delete 操作符可以删除实例中定义的属性和方法。&lt;/li&gt;
+&lt;li&gt;in 操作符用来确认是否能够访问指定对象的指定属性&lt;/li&gt;
+&lt;li&gt;ES5中的&lt;code&gt;Object.keys()&lt;/code&gt;可以获取对象上所有可枚举的实例属性，而&lt;code&gt;Object.getOwnPropertyNames()&lt;/code&gt;方法可以获取所有实例属性，无论它是否可枚举&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;继承&quot;&gt;&lt;a href=&quot;#继承&quot; class=&quot;headerlink&quot; title=&quot;继承&quot;&gt;&lt;/a&gt;继承&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;原型链&lt;/strong&gt;：使用要继承自的父类型的实例覆盖子类型的原型。所有函数的默认原型都是Object的实例。该种继承方法的缺点：一是父类型的实例属性顺理成章的成了现在对象的原型属性；二是在创建子类型实例时，不能向父类型构造函数传递参数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;借用构造函数&lt;/strong&gt;：方法是在子类型的构造函数内部调用父类型构造函数（用apply或call方法），这下可以传递参数了，但没有解决函数复用的问题，而且父类型的原型对象中的方法对子类型不可见。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合继承&lt;/strong&gt;：将原型链和借用构造函数的技术组合到一块，其背后的思想是使用原型链实现对原型属性和方法的继承。其缺点是在构造函数中和用实例覆盖子类型的原型对象的过程中，调用了2次父类型的构造函数，导致父类型的实例属性有2份，1份在子类型原型对象中，1份在子类型实例中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原型式继承&lt;/strong&gt;：它的实现思路是在函数内借助给定的参数（对象）覆盖函数中一个全新的对象的原型，然后返回这个全新的对象，利用该函数实现了继承，每个实例都可以对自己的属性和方法进行自定义。这个技术和&lt;u&gt;原型继承&lt;/u&gt;的思路差不多，用对象实例去重写子类型的原型，只是它把步骤放到了函数里面，并且是返回了一个被更改过原型的空白对象。&lt;br&gt;  ES5的&lt;code&gt;Object.create()&lt;/code&gt;方法规范化了原型式继承，它用来创建并返回一个继承后的子对象。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;寄生式继承&lt;/strong&gt;：是和原型式继承紧密相关的一种方式，但是原型式继承返回的子类型没有任何自定义的属性和方法，所以寄生式继承是完成了二次封装，用来完善子类型的属性和方法。思路是创建一个函数，在函数中调用原型式继承中封装的步骤，然后定义子类型中应有的属性和方法。但是也没有解决方法复用的问题，相当于每个实例中都有一份自己的方法&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;寄生组合式继承&lt;/strong&gt;：通过借用构造函数继承来继承属性，通过原型链的混成形式来继承方法。基本思路是：不必为了指定子类型的原型而调用父类型的构造函数，我们需要的只是父类型的原型对象的一个副本而已。只是利用一个中间对象的实例覆盖了子类型的原型对象，而在子类型的构造函数中又调用父类型构造函数以达到继承属性的目的。（最常用最常用）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有关方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;instanceof 操作符可以测试实例与原型链中出现过的构造函数。&lt;code&gt;isPrototypeOf()&lt;/code&gt;测试调用该方法的原型是否是这个实例(参数)的原型&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;1-JS简介&quot;&gt;&lt;a href=&quot;#1-JS简介&quot; class=&quot;headerlink&quot; title=&quot;1. JS简介&quot;&gt;&lt;/a&gt;1. JS简介&lt;/h2&gt;&lt;p&gt;第1章主要讲了JS的起源和发展历程，以及JS的基本组成情况&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一个完整的JS实现
+      &lt;p&gt;后来想了一下，还是总结一下较好&lt;/p&gt;
+&lt;h2 id=&quot;1-JS简介&quot;&gt;&lt;a href=&quot;#1-JS简介&quot; class=&quot;headerlink&quot; title=&quot;1. JS简介&quot;&gt;&lt;/a&gt;1. JS简介&lt;/h2&gt;&lt;p&gt;第1章主要讲了JS的起源和发展历程，以及JS的基本组成情况
     
     </summary>
     
@@ -462,7 +533,7 @@
     <link href="http://archmee.github.io/201609/2016-09-18.html"/>
     <id>http://archmee.github.io/201609/2016-09-18.html</id>
     <published>2016-09-17T16:00:00.000Z</published>
-    <updated>2016-09-18T16:03:33.195Z</updated>
+    <updated>2016-10-26T14:16:24.775Z</updated>
     
     <content type="html">&lt;p&gt;时逢中秋佳节，又废了3天&lt;br&gt;这几天学习了JS高级编程前5章，想法是尽快刷一遍全书，再开始做小东西&lt;br&gt;但是这本书没有做笔记，原因是书上讲得足够详细了，在抄一遍浪费时间用处不大，不过可以一段时间回顾一下，做点摘要性质的知识点大纲&lt;br&gt;。。。&lt;br&gt;居然没什么写的了，剩下的当作留白吧！&lt;/p&gt;
 </content>
@@ -485,7 +556,7 @@
     <link href="http://archmee.github.io/201609/2016-09-10.html"/>
     <id>http://archmee.github.io/201609/2016-09-10.html</id>
     <published>2016-09-09T16:00:00.000Z</published>
-    <updated>2016-09-10T16:55:20.263Z</updated>
+    <updated>2016-10-26T14:15:53.075Z</updated>
     
     <content type="html">&lt;p&gt;这段时间多是荒废了的，所以做的事情不多，把《精通CSS》看完了，剩余的两章都是项目的实现，我分析了示例中的代码，但没发觉什么新东西，所以笔记也省略了&lt;/p&gt;
 &lt;p&gt;再来中途参加了朋友的婚礼，耽搁了点时间&lt;/p&gt;
@@ -515,7 +586,7 @@
     <link href="http://archmee.github.io/201608/2016-08-29.html"/>
     <id>http://archmee.github.io/201608/2016-08-29.html</id>
     <published>2016-08-28T16:00:00.000Z</published>
-    <updated>2016-08-29T16:09:03.311Z</updated>
+    <updated>2016-08-29T16:07:37.668Z</updated>
     
     <content type="html">&lt;p&gt;最近在看智能社的JS视频教程，这两天学习了无缝滚动效果的实现，心想着感觉和轮播效果差不多，一冲动就徒手撸了一个图片轮播效果，其实两种东西差远了，如果非要说它们之间有什么关系的话，就是都要用JS&lt;/p&gt;
 &lt;p&gt;哈哈哈.gif&lt;/p&gt;
@@ -561,7 +632,7 @@
     <link href="http://archmee.github.io/201608/2016-08-27.html"/>
     <id>http://archmee.github.io/201608/2016-08-27.html</id>
     <published>2016-08-26T16:00:00.000Z</published>
-    <updated>2016-08-27T12:38:01.864Z</updated>
+    <updated>2016-10-26T14:15:24.705Z</updated>
     
     <content type="html">&lt;p&gt;距离上一次更新博客已经时隔2周，这两周我在干嘛呢，主要是做了个播放器页面，看了《精通CSS》3~9章，以及开始学习智能社的js基础视频教程，所以下面主要整理了我看书的学习笔记。&lt;br&gt;速度这么慢，鬼知道我这两周经历了什么？？？&lt;/p&gt;
 &lt;h2 id=&quot;3-可视化格式模型&quot;&gt;&lt;a href=&quot;#3-可视化格式模型&quot; class=&quot;headerlink&quot; title=&quot;3. 可视化格式模型&quot;&gt;&lt;/a&gt;3. 可视化格式模型&lt;/h2&gt;&lt;ul&gt;
@@ -755,9 +826,9 @@
     <link href="http://archmee.github.io/201608/2016-08-13.html"/>
     <id>http://archmee.github.io/201608/2016-08-13.html</id>
     <published>2016-08-12T16:00:00.000Z</published>
-    <updated>2016-08-13T13:10:25.172Z</updated>
+    <updated>2016-10-26T14:26:05.101Z</updated>
     
-    <content type="html">&lt;p&gt;在8.12完成了百度前端学院&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0001&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;春季的第一个任务的第7个整站的大作业&lt;/a&gt;，今天来写点日志，现在已经感觉对盒子模型和布局理解更深入一点了。&lt;/p&gt;
+    <content type="html">&lt;p&gt;在8.12完成了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0001&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE2015的第一个任务的第7个作业&lt;/a&gt;，今天来写点日志，现在已经感觉对盒子模型和布局理解更深入一点了。&lt;/p&gt;
 &lt;p&gt;-&amp;gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/tree/master/ife_task_007&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这是项目的github地址&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&quot;已解决问题&quot;&gt;&lt;a href=&quot;#已解决问题&quot; class=&quot;headerlink&quot; title=&quot;已解决问题&quot;&gt;&lt;/a&gt;已解决问题&lt;/h2&gt;&lt;p&gt;这些已解决问题或记录，只是自己在遇到时随手记下来的，并且贴出了解决办法，并没有把每个问题的表现形式截图下来，问题和解决方式的描述也还有待调整，我争取看看有时间的时候完善补充一下。&lt;/p&gt;
 &lt;ol&gt;
@@ -831,7 +902,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;在8.12完成了百度前端学院&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0001&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;春季的第一个任务的第7
+      &lt;p&gt;在8.12完成了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0001&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE2015的第一个任务的第7个
     
     </summary>
     
@@ -844,12 +915,12 @@
   
   <entry>
     <title>前端之旅第 24~34 天</title>
-    <link href="http://archmee.github.io/201608/2016-0729-0808.html"/>
-    <id>http://archmee.github.io/201608/2016-0729-0808.html</id>
+    <link href="http://archmee.github.io/201608/2016-07-29-08-08.html"/>
+    <id>http://archmee.github.io/201608/2016-07-29-08-08.html</id>
     <published>2016-08-08T14:00:00.000Z</published>
-    <updated>2016-08-09T06:14:49.758Z</updated>
+    <updated>2016-10-26T14:23:13.458Z</updated>
     
-    <content type="html">&lt;p&gt;最近不更新博客是因为“忙于”完成百度前端春季学院的大作业，可以从标题看出来，已经花了10天了，才完成前2个页面——摔！当然，投入和产出是成正比的，在完成后面的任务时我也在不断的对前面的代码进行“微调”以保证项目的统一性，所以修修改改了好多。不能每天都能全身心投入原因还有，有时候还要为生计烦劳，诸如一个人吃饭，该吃什么呢，自己做呢，还是点外卖呢，外卖又贵，自己做又要浪费几个小时，心塞！&lt;/p&gt;
+    <content type="html">&lt;p&gt;百度前端学院：简称IFE&lt;br&gt;最近不更新博客是因为“忙于”完成百度前端学院2015的任务一，可以从标题看出来，已经花了10天了，才完成前2个页面，当然，投入和产出是成正比的，在完成后面的任务时我也在不断的对前面的代码进行“微调”以保证项目的统一性，所以修修改改了好多。不能每天都能全身心投入原因还有，有时候还要为生计烦劳，诸如一个人吃饭，该吃什么呢，自己做呢，还是点外卖呢？外卖又贵，自己做又要浪费几个小时，心塞！&lt;/p&gt;
 &lt;p&gt;前面虽然有博客列了个人计划，但是现在看来计划已经被打破了，所以真是计划赶不上变化！&lt;/p&gt;
 &lt;p&gt;下面是自己完成的2个页面截图，个人认为还原度还是很高的，完成后会放出github地址&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/2016-08-08-index-html.jpg&quot; alt=&quot;首页&quot;&gt;&lt;/p&gt;
@@ -858,7 +929,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;最近不更新博客是因为“忙于”完成百度前端春季学院的大作业，可以从标题看出来，已经花了10天了，才完成前2个页面——摔！当然，投入和产出是成正比的，在完成后面的任务时我也在不断的对前面的代码进行“微调”以保证项目的统一性，所以修修改改了好多。不能每天都能全身心投入原因还有，有
+      &lt;p&gt;百度前端学院：简称IFE&lt;br&gt;最近不更新博客是因为“忙于”完成百度前端学院2015的任务一，可以从标题看出来，已经花了10天了，才完成前2个页面，当然，投入和产出是成正比的，在完成后面的任务时我也在不断的对前面的代码进行“微调”以保证项目的统一性，所以修修改改了好多。不能
     
     </summary>
     
@@ -874,7 +945,7 @@
     <link href="http://archmee.github.io/201608/2016-08-08.html"/>
     <id>http://archmee.github.io/201608/2016-08-08.html</id>
     <published>2016-08-08T12:00:00.000Z</published>
-    <updated>2016-08-09T06:32:14.360Z</updated>
+    <updated>2016-10-26T13:36:23.654Z</updated>
     
     <content type="html">&lt;p&gt;圣杯布局和双飞翼布局在前面的步骤都是一样的，只是最后的步骤有点区别，且看&lt;/p&gt;
 &lt;ol&gt;
@@ -889,7 +960,7 @@
 &lt;li&gt;&lt;p&gt;添加浮动&lt;br&gt; 给三列布局的样式分别添加浮动&lt;code&gt;float: left;&lt;/code&gt;，并且在footer样式上清除浮动&lt;code&gt;clear: both;&lt;/code&gt;，效果如下：&lt;br&gt; &lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/13-01-38.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt; 可以看出，由于main区域的宽度是100%，所以还是把另外两列撑下来了&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;使用负边距&lt;br&gt; 使用负边距可以让另外两列和main区域处于同一水平位置，我们给left和right分别添加负边距&lt;/p&gt;
- &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;.left&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;marin-left&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; -&lt;span class=&quot;number&quot;&gt;100%&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;.right&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;margin-right&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; -&lt;span class=&quot;number&quot;&gt;190px&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+ &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;.left&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;marin-left&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; -&lt;span class=&quot;number&quot;&gt;100%&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;.right&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;margin-left&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; -&lt;span class=&quot;number&quot;&gt;190px&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt; 给 left -100%的边距是为了让它缩进一行，回到上一行并且完全靠在左边位置，而right的负边距是自身的宽度，也就是等left离开后，它会完全靠在左边，在缩进自身宽度的负边距，就回到上一行，并且完全靠右。效果如下：&lt;br&gt; &lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/13-09-41.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt; perfect！！！但是，遗憾的是，虽然这两个回去了，main非常霸道，他居然没给人家让位置，所以另外两个小兄弟就以牙还牙的坐到main的身上，所以，现在看起来，main的左右都被遮住了。&lt;br&gt; 其实按照我们正常布局逻辑的话，左中右三列布局很容易就实现了，但是现在main优先的结构导致了更复杂的实现。&lt;/p&gt;
 &lt;p&gt; 接下来也就是圣杯布局和双飞翼布局的分水岭了&lt;/p&gt;
 &lt;/li&gt;
@@ -934,9 +1005,10 @@
     <link href="http://archmee.github.io/201607/2016-07-26-28.html"/>
     <id>http://archmee.github.io/201607/2016-07-26-28.html</id>
     <published>2016-07-27T16:00:00.000Z</published>
-    <updated>2016-07-29T06:26:30.367Z</updated>
+    <updated>2016-10-26T14:06:24.439Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;维基大学的Challenge-5&quot;&gt;&lt;a href=&quot;#维基大学的Challenge-5&quot; class=&quot;headerlink&quot; title=&quot;维基大学的Challenge 5&quot;&gt;&lt;/a&gt;维基大学的Challenge 5&lt;/h2&gt;&lt;p&gt;完成了维基大学的Challenge 5，后面的挑战我不打算继续了，第6个是自己设计，第7个是模仿静态网页、第8个是CSS Zen Garden的学习。&lt;br&gt;在做Challenge 5的时候看了两篇分别介绍 &lt;a href=&quot;http://www.456bereastreet.com/lab/developing_with_web_standards/csslayout/2-col/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;2列布局&lt;/a&gt; 和 &lt;a href=&quot;http://www.456bereastreet.com/archive/201012/how_to_create_a_3-column_layout_with_css/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;3列布局&lt;/a&gt;的博客，不过方法都差不多，都是使用浮动来实现&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;维基大学的Challenge-5&quot;&gt;&lt;a href=&quot;#维基大学的Challenge-5&quot; class=&quot;headerlink&quot; title=&quot;维基大学的Challenge 5&quot;&gt;&lt;/a&gt;维基大学的Challenge 5&lt;/h2&gt;&lt;p&gt;完成了维基大学的Challenge 5，后面的挑战我不打算继续了，第6个是自己设计，第7个是模仿静态网页、第8个是CSS Zen Garden的学习。&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/tree/master/css_challenge&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这是我放在github上的维基大学Challenge代码&lt;/a&gt;，以及&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/tree/master/xtra_art_redo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;模仿的一个模板网站找的静态页面&lt;/a&gt;，因为原页面结构比较混乱，所以我按照自己的方式在布局。&lt;/p&gt;
+&lt;p&gt;在做Challenge 5的时候看了两篇分别介绍 &lt;a href=&quot;http://www.456bereastreet.com/lab/developing_with_web_standards/csslayout/2-col/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;2列布局&lt;/a&gt; 和 &lt;a href=&quot;http://www.456bereastreet.com/archive/201012/how_to_create_a_3-column_layout_with_css/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;3列布局&lt;/a&gt;的博客，不过方法都差不多，都是使用浮动来实现&lt;/p&gt;
 &lt;script async src=&quot;https://jsfiddle.net/ym24ukus/6/embed/html,css,result/&quot;&gt;&lt;/script&gt;
 
 &lt;h2 id=&quot;读《精通CSS》&quot;&gt;&lt;a href=&quot;#读《精通CSS》&quot; class=&quot;headerlink&quot; title=&quot;读《精通CSS》&quot;&gt;&lt;/a&gt;读《精通CSS》&lt;/h2&gt;&lt;p&gt;开始看《精通CSS》，已经完成1、2章，笔记整理如下&lt;/p&gt;
@@ -1040,7 +1112,7 @@
 &lt;/ol&gt;
 &lt;p&gt;计算后的line-height-font-size就是可用的间距了，将其/2然后分别放到当前行的顶部和底部&lt;/p&gt;
 &lt;p&gt;上面那篇博客中还讲解了line-height应用于内容时可能发生的复杂情形，我就不搬运了&lt;/p&gt;
-&lt;h2 id=&quot;圣马杯-amp-双飞翼布局&quot;&gt;&lt;a href=&quot;#圣马杯-amp-双飞翼布局&quot; class=&quot;headerlink&quot; title=&quot;圣马杯 &amp;amp; 双飞翼布局&quot;&gt;&lt;/a&gt;圣马杯 &amp;amp; 双飞翼布局&lt;/h2&gt;&lt;p&gt;另外还学习了圣马杯和淘宝的双飞翼布局，并总结了一点异同点&lt;br&gt;相同点：&lt;/p&gt;
+&lt;h2 id=&quot;圣杯布局-amp-双飞翼布局&quot;&gt;&lt;a href=&quot;#圣杯布局-amp-双飞翼布局&quot; class=&quot;headerlink&quot; title=&quot;圣杯布局 &amp;amp; 双飞翼布局&quot;&gt;&lt;/a&gt;圣杯布局 &amp;amp; 双飞翼布局&lt;/h2&gt;&lt;p&gt;另外还学习了圣杯和淘宝的双飞翼布局，并总结了一点异同点&lt;br&gt;相同点：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;使用同样的html结构，基于优先渲染主要内容的原则，会把主内容区放在前面&lt;/li&gt;
 &lt;li&gt;都是多列布局&lt;/li&gt;
@@ -1048,17 +1120,17 @@
 &lt;/ul&gt;
 &lt;p&gt;不同点表现在主内容被遮盖时&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;圣马杯布局对多列的wrapper采用了padding，但是会导致左右列位置发生变化，然后对左右列使用&lt;code&gt;position:relative&lt;/code&gt;和&lt;code&gt;left&lt;/code&gt;或&lt;code&gt;right&lt;/code&gt;的方法纠正&lt;/li&gt;
+&lt;li&gt;圣杯布局对多列的wrapper采用了padding，但是会导致左右列位置发生变化，然后对左右列使用&lt;code&gt;position:relative&lt;/code&gt;和&lt;code&gt;left&lt;/code&gt;或&lt;code&gt;right&lt;/code&gt;的方法纠正&lt;/li&gt;
 &lt;li&gt;双飞翼布局则将在主内容区中多嵌套了一层wrapper，然后对嵌套在主内容区的wrapper使用左右margin来保证内容区想要显示的内容在正确的位置上&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;这是几篇介绍双飞翼布局和圣马杯的博客：&lt;/p&gt;
+&lt;p&gt;这是几篇介绍双飞翼布局和圣杯布局的博客：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.imooc.com/wenda/detail/254035&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;双飞翼布局介绍-始于淘宝UED&lt;/a&gt;，其实这篇博客是比较权威的一篇，但是描述时上下文有点对应不上，而且展示页面访问不了，所以理解起来很费劲&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://blog.fazero.cc/2015/07/25/CSS%E5%B8%83%E5%B1%80-%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80vs%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS布局-圣杯布局vs双飞翼布局&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/imwtr/p/4441741.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS布局 – 圣杯布局 &amp;amp; 双飞翼布局&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/langzs/archive/2013/01/27/taobaoshuangfeiyi.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS布局之–淘宝双飞翼布局&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;我打算自己写一篇博客专门介绍这两种布局方式&lt;/p&gt;
+&lt;p&gt;我打算自己写一篇博客专门介绍这两种布局方式：见下一篇博客&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -1079,7 +1151,7 @@
     <link href="http://archmee.github.io/201607/2016-07-23-25.html"/>
     <id>http://archmee.github.io/201607/2016-07-23-25.html</id>
     <published>2016-07-24T16:00:00.000Z</published>
-    <updated>2016-07-25T16:30:11.145Z</updated>
+    <updated>2016-10-26T14:05:34.728Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Challenge-3&quot;&gt;&lt;a href=&quot;#Challenge-3&quot; class=&quot;headerlink&quot; title=&quot;Challenge 3&quot;&gt;&lt;/a&gt;Challenge 3&lt;/h2&gt;&lt;p&gt;23号做维基Challenge 3的时候看了推荐的&lt;a href=&quot;http://maxdesign.com.au/articles/two-columns/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一篇两列布局教程&lt;/a&gt;，它使用了一种很新颖的方式实现了两列布局，它的新颖之处就在于，虽然仍然使用浮动，但它使用背景图像来造成视觉上的分栏，而不是给各列设置背景颜色或图像，这样做保证了两列在视觉上的等高，这样不管是哪一列增高了，随着列的增高导致整个布局增高，而背景在Y轴平铺之后，另一列在视觉上也增高了&lt;/p&gt;
 &lt;script async src=&quot;https://jsfiddle.net/ym24ukus/embed/html,css,result/&quot;&gt;&lt;/script&gt;
@@ -1112,7 +1184,7 @@
     <link href="http://archmee.github.io/201607/2016-07-21-22.html"/>
     <id>http://archmee.github.io/201607/2016-07-21-22.html</id>
     <published>2016-07-21T16:00:00.000Z</published>
-    <updated>2016-07-23T15:11:33.987Z</updated>
+    <updated>2016-10-26T14:05:23.130Z</updated>
     
     <content type="html">&lt;p&gt;到上一篇博客为止，已经完成了《Head First HTML&amp;amp;CSS》这本书的学习，所以接下来会注重实践任务，先做一些静态页面，熟悉HTML以及CSS。&lt;br&gt;这两天的学习内容如下&lt;/p&gt;
 &lt;h2 id=&quot;终结慕课网HTML-CSS基础课程&quot;&gt;&lt;a href=&quot;#终结慕课网HTML-CSS基础课程&quot; class=&quot;headerlink&quot; title=&quot;终结慕课网HTML+CSS基础课程&quot;&gt;&lt;/a&gt;终结慕课网HTML+CSS基础课程&lt;/h2&gt;&lt;p&gt;在写我最开始的几篇博客中，已经完成了慕课网 &lt;a href=&quot;http://www.imooc.com/learn/9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML+CSS基础课程&lt;/a&gt; 的HTML部分，这两天花了点时间完成了CSS部分，记录了一些笔记&lt;/p&gt;
@@ -1156,17 +1228,17 @@
 &lt;p&gt;简单来说，只要html代码中出现以上其中之一，元素的display显示类型就会自动变为以 display:inline-block（内联块元素）的方式显示，当然就可以设置元素的 width 和 height 了，且默认宽度不占满父元素。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;维基大学-CSS-Challenge&quot;&gt;&lt;a href=&quot;#维基大学-CSS-Challenge&quot; class=&quot;headerlink&quot; title=&quot;维基大学 CSS Challenge&quot;&gt;&lt;/a&gt;维基大学 CSS Challenge&lt;/h2&gt;&lt;p&gt;不知道是从哪里找到了这个页面&lt;a href=&quot;https://en.wikiversity.org/wiki/Web_Design/CSS_challenges&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wikiversity CSS challenges&lt;/a&gt;，上面列出了7个循序渐进的挑战项目，无外乎CSS的基础知识的运用，盒子模型，字体排版、以及布局。&lt;br&gt;目前为止我完成了前2个（其实是3个，还有一个可选Challenge 2 A），代码已经放到了github上&lt;br&gt;Challenge 2 A Demo：&lt;/p&gt;
+&lt;h2 id=&quot;维基大学-CSS-Challenge&quot;&gt;&lt;a href=&quot;#维基大学-CSS-Challenge&quot; class=&quot;headerlink&quot; title=&quot;维基大学 CSS Challenge&quot;&gt;&lt;/a&gt;维基大学 CSS Challenge&lt;/h2&gt;&lt;p&gt;不知道是从哪里找到了这个页面 &lt;a href=&quot;https://en.wikiversity.org/wiki/Web_Design/CSS_challenges&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wikiversity CSS challenges&lt;/a&gt;，上面列出了7个循序渐进的挑战项目，无外乎CSS的基础知识的运用，盒子模型，字体排版、以及布局等。而且对于每个挑战它甚至提供了学习资料。&lt;br&gt;目前为止我完成了前2个（其实是3个，还有一个可选Challenge 2 A），代码已经放到了github上&lt;br&gt;Challenge 2 A Demo：&lt;/p&gt;
 &lt;script async src=&quot;https://jsfiddle.net/ym24ukus/1/embed/html,css,result/&quot;&gt;&lt;/script&gt;
 
 &lt;h2 id=&quot;first-letter-和-first-letter-的区别：&quot;&gt;&lt;a href=&quot;#first-letter-和-first-letter-的区别：&quot; class=&quot;headerlink&quot; title=&quot;:first-letter 和 ::first-letter 的区别：&quot;&gt;&lt;/a&gt;:first-letter 和 ::first-letter 的区别：&lt;/h2&gt;&lt;p&gt;对于 CSS 2， &lt;strong&gt;伪元素&lt;/strong&gt;采用单冒号前缀语法. 因为&lt;strong&gt;伪类&lt;/strong&gt;也是同样的语法，所以使得两者难以区分。CSS2.1 改变了伪元素的前缀语法可以解决这个问题，现在伪元素采用双冒号前缀，并且伪类仍然采用单冒号前缀。&lt;br&gt;CSS2伪类单冒号语法已得到广泛支持时，所有支持双冒号的浏览器同样也支持旧的单冒号语法。&lt;br&gt;考虑浏览器兼容性的话，:first-letter 是一个更有效的选择; 否则， ::first-letter 更受欢迎。&lt;/p&gt;
 &lt;h2 id=&quot;未来一段时间的计划&quot;&gt;&lt;a href=&quot;#未来一段时间的计划&quot; class=&quot;headerlink&quot; title=&quot;未来一段时间的计划&quot;&gt;&lt;/a&gt;未来一段时间的计划&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;完成CSS Challenge上面的内容&lt;/li&gt;
 &lt;li&gt;核对下百度学院上的学习路径&lt;/li&gt;
-&lt;li&gt;模仿生日管家官网（&lt;a href=&quot;http://shengri.cn/）&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://shengri.cn/）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;模仿&lt;a href=&quot;http://shengri.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;生日管家官网&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;除了验证html、css外，还要看一些编码规范，对项目进行整理&lt;/li&gt;
-&lt;li&gt;了解less或sass并对模仿的项目进行重构&lt;/li&gt;
-&lt;li&gt;模仿CSS-Tricks（&lt;a href=&quot;https://css-tricks.com/），再用less或sass进行重构&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://css-tricks.com/），再用less或sass进行重构&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;了解Less或Sass并对模仿的项目进行重构&lt;/li&gt;
+&lt;li&gt;模仿&lt;a href=&quot;https://css-tricks.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS-Tricks&lt;/a&gt;，再用Less或Sass进行重构&lt;/li&gt;
 &lt;li&gt;学习js、jsDOM、jQ，做相关技术的项目&lt;/li&gt;
 &lt;li&gt;了解webpack等工具&lt;/li&gt;
 &lt;li&gt;学习js更高级的内容&lt;/li&gt;
@@ -1193,7 +1265,7 @@
     <link href="http://archmee.github.io/201607/2016-07-19-20.html"/>
     <id>http://archmee.github.io/201607/2016-07-19-20.html</id>
     <published>2016-07-19T16:00:00.000Z</published>
-    <updated>2016-07-21T06:08:30.814Z</updated>
+    <updated>2016-10-26T14:04:00.308Z</updated>
     
     <content type="html">&lt;p&gt;把这两天的学习笔记总结在了一起，如下。&lt;/p&gt;
 &lt;h2 id=&quot;第13章-表格与列表&quot;&gt;&lt;a href=&quot;#第13章-表格与列表&quot; class=&quot;headerlink&quot; title=&quot;第13章. 表格与列表&quot;&gt;&lt;/a&gt;第13章. 表格与列表&lt;/h2&gt;&lt;h3 id=&quot;表格&quot;&gt;&lt;a href=&quot;#表格&quot; class=&quot;headerlink&quot; title=&quot;表格&quot;&gt;&lt;/a&gt;表格&lt;/h3&gt;&lt;ul&gt;
@@ -1347,7 +1419,7 @@
     <link href="http://archmee.github.io/201607/2016-07-18.html"/>
     <id>http://archmee.github.io/201607/2016-07-18.html</id>
     <published>2016-07-17T16:00:00.000Z</published>
-    <updated>2016-07-21T05:53:57.095Z</updated>
+    <updated>2016-10-26T14:02:02.569Z</updated>
     
     <content type="html">&lt;h2 id=&quot;第12章-html5标记&quot;&gt;&lt;a href=&quot;#第12章-html5标记&quot; class=&quot;headerlink&quot; title=&quot;第12章. html5标记&quot;&gt;&lt;/a&gt;第12章. html5标记&lt;/h2&gt;&lt;h3 id=&quot;常用标签&quot;&gt;&lt;a href=&quot;#常用标签&quot; class=&quot;headerlink&quot; title=&quot;常用标签&quot;&gt;&lt;/a&gt;常用标签&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -1478,7 +1550,7 @@
     <link href="http://archmee.github.io/201607/2016-07-14-17.html"/>
     <id>http://archmee.github.io/201607/2016-07-14-17.html</id>
     <published>2016-07-16T16:00:00.000Z</published>
-    <updated>2016-07-18T12:00:40.542Z</updated>
+    <updated>2016-10-26T13:58:34.713Z</updated>
     
     <content type="html">&lt;p&gt;7月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，总共的学习内容也就差不多平时一天的内容，这里是对这几天学习内容的总结，《Head First HTML &amp;amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才能更好理解。&lt;/p&gt;
 &lt;h2 id=&quot;第11章-布局和定位&quot;&gt;&lt;a href=&quot;#第11章-布局和定位&quot; class=&quot;headerlink&quot; title=&quot;第11章. 布局和定位&quot;&gt;&lt;/a&gt;第11章. 布局和定位&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; title=&quot;布局&quot;&gt;&lt;/a&gt;布局&lt;/h3&gt;&lt;ul&gt;
@@ -1534,7 +1606,7 @@
     <link href="http://archmee.github.io/201607/2016-07-13.html"/>
     <id>http://archmee.github.io/201607/2016-07-13.html</id>
     <published>2016-07-12T16:00:00.000Z</published>
-    <updated>2016-07-13T18:17:55.245Z</updated>
+    <updated>2016-10-26T13:57:54.285Z</updated>
     
     <content type="html">&lt;h2 id=&quot;10-div和span&quot;&gt;&lt;a href=&quot;#10-div和span&quot; class=&quot;headerlink&quot; title=&quot;10. div和span&quot;&gt;&lt;/a&gt;10. div和span&lt;/h2&gt;&lt;h3 id=&quot;div&quot;&gt;&lt;a href=&quot;#div&quot; class=&quot;headerlink&quot; title=&quot;div&quot;&gt;&lt;/a&gt;div&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;div是一个&lt;strong&gt;块元素&lt;/strong&gt;，可用于展现页面底层逻辑结构，也以便于为某个逻辑去应用样式&lt;/li&gt;
@@ -1587,89 +1659,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;10-div和span&quot;&gt;&lt;a href=&quot;#10-div和span&quot; class=&quot;headerlink&quot; title=&quot;10. div和span&quot;&gt;&lt;/a&gt;10. div和span&lt;/h2&gt;&lt;h3 id=&quot;div&quot;&gt;&lt;a href=&quot;#div&quot; class=&quot;
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 7 天</title>
-    <link href="http://archmee.github.io/201607/2016-07-12.html"/>
-    <id>http://archmee.github.io/201607/2016-07-12.html</id>
-    <published>2016-07-11T16:00:00.000Z</published>
-    <updated>2016-07-12T19:19:52.560Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;9-盒模型&quot;&gt;&lt;a href=&quot;#9-盒模型&quot; class=&quot;headerlink&quot; title=&quot;9. 盒模型&quot;&gt;&lt;/a&gt;9. 盒模型&lt;/h2&gt;&lt;h3 id=&quot;padding、margin、border&quot;&gt;&lt;a href=&quot;#padding、margin、border&quot; class=&quot;headerlink&quot; title=&quot;padding、margin、border&quot;&gt;&lt;/a&gt;padding、margin、border&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;盒子由内容区、内边距、边框、外边距构成&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/01-16-43.jpg&quot; alt=&quot;box model from book&quot;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;内容区被可选的透明内边距包围，内边距会将内容和边框隔开&lt;/li&gt;
-&lt;li&gt;内边距周围可能放着一个可选的边框&lt;/li&gt;
-&lt;li&gt;有一个可选的透明外边距包围着边框，外边距用于在页面上的不同元素之间增加空间。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;内边距和外边距之间有一个区别：元素的背景颜色或背景图像会延伸到内边距下面，但不会延伸到外边距。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;css指定内边距用padding，边框用border，外边距用margin，每一个又可以单独指定上、右、下、左顺时针的四个方向的值，如&lt;code&gt;margin-right:100px&lt;/code&gt;，但border由于要指定多个值，所以使用方式更灵活&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;border 是简写，可以指定4个方向的border都使用相同值，border-width、border-color、border-style是全写形式。&lt;/li&gt;
-&lt;li&gt;border-top可以指定上面的border样式，但这仍然是一种简写形式，可以采用全写border-top-width、border-top-color、border-top-style来分别指定，且4个方向都采用同样规则&lt;/li&gt;
-&lt;li&gt;border-width可以使用像素，也可以使用关键字thin(细)、medium(中)和thick(粗)，但是关键字方式根据浏览器会有不同表现。&lt;/li&gt;
-&lt;li&gt;&lt;ul&gt;
-&lt;li&gt;border-style（包括其他简写全写形式） 可用样式：solid(实线)、double(双线)、groov(槽线)、outset(外凸)、inset(内凹)、ridge(脊线)、dotted(虚线)、dashed(破折线)，&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;border-radius是css3用来指定边框圆角的属性，全写可以指定一个盒子四个角的圆角，一般使用像素值，要具体指定某一个角的值可以用全写，如&lt;code&gt;border-top-left-radius:3px;&lt;/code&gt;，另外几个角top-right、bottom-left、bottom-right使用相同的规则&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;background&quot;&gt;&lt;a href=&quot;#background&quot; class=&quot;headerlink&quot; title=&quot;background&quot;&gt;&lt;/a&gt;background&lt;/h3&gt;&lt;p&gt;background是插入背景图像的简写形式，也可以分别指定：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;background-image 指定背景图像url&lt;/li&gt;
-&lt;li&gt;background-position 指定背景图像的相对位置，可以使用像素和百分数，还可以使用关键字top、bottom、left、right和center&lt;/li&gt;
-&lt;li&gt;background-repeat 指定图像是否重复，repeat表示重复，no-repeat表示不重复，repeat-x只在x方向重复，repeat-y只在y方向重复，inherit表示按照父元素的方式处理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;关于使用background-image和用img插入图像可以这样考虑，img是用来插入照片或logo等图像，而background-image是用来增强页面表现样式用的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;id&quot;&gt;&lt;a href=&quot;#id&quot; class=&quot;headerlink&quot; title=&quot;id&quot;&gt;&lt;/a&gt;id&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;id只能指定页面中的一个元素&lt;/li&gt;
-&lt;li&gt;class要以字母开头，而id可以以数字或字母开头&lt;/li&gt;
-&lt;li&gt;id只是一个元素的唯一标识符，不过这并不妨碍这个元素属于一个或多个类，即指定了id的元素仍然可以指定class。&lt;/li&gt;
-&lt;li&gt;如果想对多个元素使用某个样式，就要用class，但如果只想给一个特定的元素加入样式，或者页面上只有一个元素，就应该使用id。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;媒体查询&quot;&gt;&lt;a href=&quot;#媒体查询&quot; class=&quot;headerlink&quot; title=&quot;媒体查询&quot;&gt;&lt;/a&gt;媒体查询&lt;/h3&gt;&lt;p&gt;媒体查询可以针对将要显示页面的设备类型来调整页面的样式。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;用link标记指定相应设备的样式文件，这样可以给指定设备指定单独的css文件，比如&lt;/p&gt;
-&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;lounge.css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;media&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;screen&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--针对屏幕设备--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;lounge-mobile.css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;media&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;screen and (max-device-width: 480px)&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--针对屏幕宽度不超过480px的设备--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;也可以在css文件中针对相应设备使用媒体查询，但是这样会导致css文件变得庞大&lt;/p&gt;
-&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;at_rule&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; screen and (max-device-width: &lt;span class=&quot;number&quot;&gt;480px&lt;/span&gt;) &lt;/span&gt;&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*针对屏幕宽度不超过480px的设备指定css样式*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;at_rule&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; print &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*针对打印机指定css样式*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*这里可以写所有设备通用的规则*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;查询中还有很多属性可以使用，如min-device-width以及设备的方向orientation&lt;/li&gt;
-&lt;li&gt;max-device-width和min-device-width媒体属性依赖于设备的实际屏幕而不是你的浏览器窗口宽度，而max-width和min-width则表示浏览器窗口的最大和最小宽度而不是屏幕大小。&lt;/li&gt;
-&lt;li&gt;可以在&lt;a href=&quot;http://www.w3.org/TR/css3-mediaqueries&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3.org/TR/css3-mediaqueries&lt;/a&gt; 网站了解css3媒体查询规范细节&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;IE8以及以前版本浏览器不支持媒体查询&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;其他&quot;&gt;&lt;a href=&quot;#其他&quot; class=&quot;headerlink&quot; title=&quot;其他&quot;&gt;&lt;/a&gt;其他&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;line-height用于指定行间距&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;感悟&quot;&gt;&lt;a href=&quot;#感悟&quot; class=&quot;headerlink&quot; title=&quot;感悟&quot;&gt;&lt;/a&gt;感悟&lt;/h2&gt;&lt;p&gt;感觉每天写博客总结都要浪费好多时间……&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;9-盒模型&quot;&gt;&lt;a href=&quot;#9-盒模型&quot; class=&quot;headerlink&quot; title=&quot;9. 盒模型&quot;&gt;&lt;/a&gt;9. 盒模型&lt;/h2&gt;&lt;h3 id=&quot;padding、margin、border&quot;&gt;&lt;a href=&quot;#padding、margin、bor
     
     </summary>
     
