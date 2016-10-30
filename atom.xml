@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-10-30T13:09:13.151Z</updated>
+  <updated>2016-10-30T13:24:13.665Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -20,14 +20,29 @@
     <link href="http://archmee.github.io/201610/2016-10-30.html"/>
     <id>http://archmee.github.io/201610/2016-10-30.html</id>
     <published>2016-10-29T16:00:00.000Z</published>
-    <updated>2016-10-30T13:09:13.151Z</updated>
+    <updated>2016-10-30T13:24:13.665Z</updated>
     
-    <content type="html">&lt;p&gt;在25号左右看完了JS《JS高级编程》一书，在26号开始刷&lt;a href=&quot;http://www.imooc.com/course/programdetail/pid/32&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;慕课网的前端计划&lt;/a&gt;，但直接跳过了HTML、CSS、JS的初级部分，本想看完DOM事件后完成IFE2015任务二的部分，但是27号下午开始感冒了，28号高烧腰痛难忍不能坐立，甚至下午出去逛超市差不多是挪着步子回来的，本打算第二天去医院挂个急诊，结果29号好多了，本以为痊愈了，但晚上开始口苦鼻塞、头痛欲裂，侧夜难眠，30早上起来整个嘴唇都脱皮了，感觉上火比较严重，但是整个人感觉好多了，下午去药房随便拿了点药了事。我都觉得自己奇怪，病痛都差不多痊愈了才去买药来吃，想来也是因为自己忍受不了去医院挂号的麻烦。&lt;br&gt;接下来希望尽快完成IFE2015任务二&lt;/p&gt;
+    <content type="html">&lt;p&gt;在25号左右看完了JS《JS高级编程》一书。内容简要如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;23 离线应用与客户端缓存&lt;ul&gt;
+&lt;li&gt;数据存储：Cookie、sessionStorage、localStorage、IndexedDB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;24 最佳实践&lt;/li&gt;
+&lt;li&gt;25 新兴的API&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在26号开始刷&lt;a href=&quot;http://www.imooc.com/course/programdetail/pid/32&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;慕课网的前端计划&lt;/a&gt;，但直接跳过了HTML、CSS、JS的初级部分，本想看完DOM事件后完成IFE2015任务二的部分，但是27号下午开始感冒了，28号高烧腰痛难忍不能坐立，甚至下午出去逛超市差不多是挪着步子回来的，本打算第二天去医院挂个急诊，结果29号好多了，本以为痊愈了，但晚上开始口苦鼻塞、头痛欲裂，侧夜难眠，30早上起来整个嘴唇都脱皮了，感觉上火比较严重，但是整个人感觉好多了，下午去药房随便拿了点药了事。我都觉得自己奇怪，病痛都差不多痊愈了才去买药来吃，想来也是因为自己忍受不了去医院挂号的麻烦。&lt;br&gt;接下来希望尽快完成IFE2015任务二&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;在25号左右看完了JS《JS高级编程》一书，在26号开始刷&lt;a href=&quot;http://www.imooc.com/course/programdetail/pid/32&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;慕课网的前端计划&lt;/a&gt;，但直接跳过
+      &lt;p&gt;在25号左右看完了JS《JS高级编程》一书。内容简要如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;23 离线应用与客户端缓存&lt;ul&gt;
+&lt;li&gt;数据存储：Cookie、sessionStorage、localStorage、IndexedDB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;2
     
     </summary>
     
