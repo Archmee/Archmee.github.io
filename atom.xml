@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-10-30T13:24:13.665Z</updated>
+  <updated>2016-11-06T15:51:54.907Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端之旅第 117~123 天</title>
+    <link href="http://archmee.github.io/201611/2016-11-06.html"/>
+    <id>http://archmee.github.io/201611/2016-11-06.html</id>
+    <published>2016-11-05T16:00:00.000Z</published>
+    <updated>2016-11-06T15:51:54.907Z</updated>
+    
+    <content type="html">&lt;p&gt;这几天将之前未完成的IFE 2015 任务2完成了，但是代码结构和编程思想都不是很理想，尤其是看了当时IFE团队review了IFE 2015的同学们的代码，指出的一些问题以及改进建议&lt;br&gt;我也对自己的代码中有的问题进行了小结：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代码：完成任务的时候图一时方便，所以css和js都直接写到了相应的标签中而没有单独写到各自的文件中，因为我认为这不是当下最要紧的问题&lt;/li&gt;
+&lt;li&gt;编程思想：虽然代码中做到了结构行为样式分离，但是JS代码混成了一团，耦合度高，而且还是完全在使用以前的面向过程的编程思路，连最基本的使用函数分解任务降低耦合度都没有做到&lt;br&gt;针对以上出现的问题，接下来几天想将部分代码进行重构和调整。&lt;br&gt;一下是完成的任务二的小练习1、2、4、5的Demo，之所以没有做小练习3-轮播，是因为我之前做过同样的东西&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;1:文本框&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;2:倒计时&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_4.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;4:Auto suggestion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_5.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;5:界面拖拽&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这几天将之前未完成的IFE 2015 任务2完成了，但是代码结构和编程思想都不是很理想，尤其是看了当时IFE团队review了IFE 2015的同学们的代码，指出的一些问题以及改进建议&lt;br&gt;我也对自己的代码中有的问题进行了小结：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代码：完成任务的
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
   
   <entry>
     <title>前端之旅第 107~116 天</title>
@@ -1606,74 +1641,6 @@
     <summary type="html">
     
       &lt;p&gt;7月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，总共的学习内容也就差不多平时一天的内容，这里是对这几天学习内容的总结，《Head First HTML &amp;amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 8 天</title>
-    <link href="http://archmee.github.io/201607/2016-07-13.html"/>
-    <id>http://archmee.github.io/201607/2016-07-13.html</id>
-    <published>2016-07-12T16:00:00.000Z</published>
-    <updated>2016-10-26T13:57:54.285Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;10-div和span&quot;&gt;&lt;a href=&quot;#10-div和span&quot; class=&quot;headerlink&quot; title=&quot;10. div和span&quot;&gt;&lt;/a&gt;10. div和span&lt;/h2&gt;&lt;h3 id=&quot;div&quot;&gt;&lt;a href=&quot;#div&quot; class=&quot;headerlink&quot; title=&quot;div&quot;&gt;&lt;/a&gt;div&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;div是一个&lt;strong&gt;块元素&lt;/strong&gt;，可用于展现页面底层逻辑结构，也以便于为某个逻辑去应用样式&lt;/li&gt;
-&lt;li&gt;在页面中使用div，但不要滥用。如果这样做有助于你将页面分解为逻辑区，从而&lt;strong&gt;保证结构清晰并便于指定样式&lt;/strong&gt;，那么可以增加更多的结构，如果只是为了在页面中创建大量结构而增加div，就只会让页面更复杂，而没有任何实际好处。&lt;/li&gt;
-&lt;li&gt;width属性只是指定内容区的样式，不包括margin、border和padding，所以整个盒子的宽度是内容区、margin、border和padding的总和&lt;/li&gt;
-&lt;li&gt;一个块元素的宽度默认是auto，auto允许内容填满除了内外边距和边框之外的可用空间&lt;/li&gt;
-&lt;li&gt;text-align会对块元素中所有内联元素对齐（并非只有文字），而text-align属性只能在块元素上设置，如果直接在内联元素上使用，则不起作用。text-align属性可以被继承（这点很重要）&lt;/li&gt;
-&lt;li&gt;line-height属性有一点特殊，如果直接使用一个数字作为它的值，而不是一个度量单位，则该元素会基于文本自己所在的行字体的大小的倍数作为行高。&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;div允许你为&lt;em&gt;块级内容&lt;/em&gt;建立逻辑划分，span元素则采用类似方法建立&lt;em&gt;内联内容&lt;/em&gt;的逻辑分组。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;如果一个&lt;em&gt;内联元素&lt;/em&gt;四周都增加外边距，只能看到左边和右边增加了空间。你也可以对内联元素上边和下边增加内边距，不过这个内边距不会影响包围它的其他内联元素的间距，所以内边距会与其他内联元素重叠。&lt;br&gt;图像也是内联元素，但是它的宽度、内边距和外边距属性表现都更像是块元素。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;font&quot;&gt;&lt;a href=&quot;#font&quot; class=&quot;headerlink&quot; title=&quot;font&quot;&gt;&lt;/a&gt;font&lt;/h3&gt;&lt;p&gt;font属性的简写形式：&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;font: font-style font-variant font-weight font-size/line-height font-family;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt; 前3个属性是可选的，它们必须出现在font-size前面，font-size必须指定，line-height是可选的，多个字体要在font-family之间用逗号分隔。&lt;/p&gt;
-&lt;h3 id=&quot;伪类&quot;&gt;&lt;a href=&quot;#伪类&quot; class=&quot;headerlink&quot; title=&quot;伪类&quot;&gt;&lt;/a&gt;伪类&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;它允许你根据浏览器的决定来指定这些元素的样式。&lt;/li&gt;
-&lt;li&gt;它为你提供了有效的方法，可以根据访问者使用页面时发生的情况来对元素指定样式&lt;/li&gt;
-&lt;li&gt;对于a元素的伪类，一般认为适当的顺序为：link、visited、hover、focus、active&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;层叠&quot;&gt;&lt;a href=&quot;#层叠&quot; class=&quot;headerlink&quot; title=&quot;层叠&quot;&gt;&lt;/a&gt;层叠&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;给定样式表中的一组样式，浏览器就是以层叠方式来确定具体使用哪一个样式。&lt;/li&gt;
-&lt;li&gt;浏览器应用样式的优先级是网页开发者、网页访问者（基本不会有访问者建立自己的样式表）、浏览器。&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;浏览器处理层叠的过程：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;收集所有样式表（来自网页开发者、网页访问者、浏览器）&lt;/li&gt;
-&lt;li&gt;找到所有匹配的声明&lt;/li&gt;
-&lt;li&gt;对所有匹配的规则排序&lt;/li&gt;
-&lt;li&gt;按特定性对所有声明排序（按照网页开发者、网页访问者、浏览器分组，再在各自的组中分别计算特定性并排序）&lt;/li&gt;
-&lt;li&gt;最后，对于冲突的规则，按照它们在各自样式表中出现的顺序进行排序，并选择后出现的顺序（就近原则）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;如果css属性最后上加了&lt;code&gt;!important&lt;/code&gt;，则它的优先级最高，会覆盖其他样式&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;关于特定性的计算，在我前面的博客中记录过一种方式，和这本书的方式稍有差别，我将其统一为&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;选择器包含一个id+100&lt;/li&gt;
-&lt;li&gt;选择器包含一个类或者伪类+10&lt;/li&gt;
-&lt;li&gt;选择器包含一个元素+1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;按上述方法累加的总和就是该选择器的特定性值，对于有相同特定性的元素，则根据样式表中的顺序再次排序。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;疑问？&quot;&gt;&lt;a href=&quot;#疑问？&quot; class=&quot;headerlink&quot; title=&quot;疑问？&quot;&gt;&lt;/a&gt;疑问？&lt;/h3&gt;&lt;p&gt;如果经过所有步骤还是没有找到特定属性的属性值，就使用继承机制，如果该属性不能被继承，则使用浏览器的默认样式。&lt;br&gt;这段话是我对书上一段对话的概括，本来层叠这一点书上讲的就比较混乱，看了这段话更加疑惑了，一是不知道他所谓的所有步骤是针对某一层来说，还是针对上面讲的所有步骤，因为前面已经收集了所有来自几个层次的样式表，并且排了序，现在应该就排序过后的样式进行应用，怎么又扯到继承，又用到了浏览器默认样式？&lt;br&gt;我认为作者这段话是用在在计算网页开发者这一层样式的特定性的时候的结尾的。也有可能就是在网页开发者、网页访问者、浏览器这三个层面都没有找到特定属性，再利用继承和浏览器默认样式。&lt;br&gt;不知道这样理解对不对，希望以后回来解答。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;10-div和span&quot;&gt;&lt;a href=&quot;#10-div和span&quot; class=&quot;headerlink&quot; title=&quot;10. div和span&quot;&gt;&lt;/a&gt;10. div和span&lt;/h2&gt;&lt;h3 id=&quot;div&quot;&gt;&lt;a href=&quot;#div&quot; class=&quot;
     
     </summary>
     
