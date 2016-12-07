@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-11-06T15:51:54.907Z</updated>
+  <updated>2016-12-07T18:42:16.598Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -16,30 +16,77 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>前端之旅第 124~154 天</title>
+    <link href="http://archmee.github.io/201612/2016-12-08.html"/>
+    <id>http://archmee.github.io/201612/2016-12-08.html</id>
+    <published>2016-12-07T16:00:00.000Z</published>
+    <updated>2016-12-07T18:42:16.598Z</updated>
+    
+    <content type="html">&lt;p&gt;从上次更新博客以来，时间已经过去了一个月，在这一个月当中完成的事情则是相当少，如果非要找个借口的话，那就是今年成都的冬季来地措不及防的早，整个这一个月除了几天少见有太阳，其他时候则全都在阴霾的笼罩之下。而我的行动也因此变得迟缓，哈哈哈哈哈哈哈哈哈哈哈~，不过也并不是完全荒废的。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;开始看《CSS权威指南》，已经看到了第5章，本来看之前以为这书会像传说中的像字典一样无聊，可是当我真正开始看的时候，才发现并没有，相反让我沉浸在书中对技术的细节描写当中，但是确实这本书不是我的当务之急，所以我还是会放一放&lt;/li&gt;
+&lt;li&gt;然后拿起了《JS语言精粹》这本书，目前正在看第5章。&lt;/li&gt;
+&lt;li&gt;将上篇博客中提到的IFE2015任务二进行了重(chong)构(xie)，我翻了一下github的提交记录：&lt;ul&gt;
+&lt;li&gt;11.20 完成util.js，所以差不多从7号到20这13天都是在修改util.js，在IFE2015任务仓库的提交页面下，我把初级班和中级班的一半人的实现都看了一遍，大部分代码都差不多，但我还是从中搜集了一些好的实现放在了我的代码中。在看别人的代码过程中，我也在思考对比实现孰优孰劣，甚至对于自己有些复杂的实现，都要重新拟清原来的实现思路，因此也发现了以前未发现的一些隐藏Bug&lt;/li&gt;
+&lt;li&gt;11.21 调整task0002_1，将原来的内部脚本改为外部脚本文件，并对代码进行了调整，比如原来一个功能全部写在一个函数中完成，现在按照功能单独提出来调用。如果和util.js做的事情有重复的地方改为调用，所以现在task0002的5个小练习都依赖util.js&lt;/li&gt;
+&lt;li&gt;11.22 调整task0002_2&lt;/li&gt;
+&lt;li&gt;11.24 重构task0002_4&lt;/li&gt;
+&lt;li&gt;11.26 更改task0002_5的实现方式使其更简洁优雅 :)&lt;/li&gt;
+&lt;li&gt;12.07 完成task0002_3轮播的重构，&lt;a href=&quot;https://archmee.github.io/201608/2016-08-29.html&quot;&gt;以前实现过这个功能并写了篇博客分析实现思路&lt;/a&gt;，而现在花了点时间改用面向对象的思想实现，感觉和组件有点像了：)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下面是5个小练习的完成效果截图，&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/tree/master/ife_task/ife_task_2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;代码见github&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;提取兴趣爱好&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_1.jpg&quot; alt=&quot;提取兴趣爱好&quot;&gt;&lt;/li&gt;
+&lt;li&gt;倒计时&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_2.jpg&quot; alt=&quot;倒计时&quot;&gt;&lt;/li&gt;
+&lt;li&gt;轮播图&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_3.jpg&quot; alt=&quot;轮播图&quot;&gt;&lt;/li&gt;
+&lt;li&gt;输入提示框&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_4.jpg&quot; alt=&quot;输入提示框&quot;&gt;&lt;/li&gt;
+&lt;li&gt;拖拽界面交互&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_5.jpg&quot; alt=&quot;拖拽界面交互&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从上次更新博客以来，时间已经过去了一个月，在这一个月当中完成的事情则是相当少，如果非要找个借口的话，那就是今年成都的冬季来地措不及防的早，整个这一个月除了几天少见有太阳，其他时候则全都在阴霾的笼罩之下。而我的行动也因此变得迟缓，哈哈哈哈哈哈哈哈哈哈哈~，不过也并不是完全荒废
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端之旅第 117~123 天</title>
     <link href="http://archmee.github.io/201611/2016-11-06.html"/>
     <id>http://archmee.github.io/201611/2016-11-06.html</id>
     <published>2016-11-05T16:00:00.000Z</published>
-    <updated>2016-11-06T15:51:54.907Z</updated>
+    <updated>2016-12-07T16:41:54.034Z</updated>
     
-    <content type="html">&lt;p&gt;这几天将之前未完成的IFE 2015 任务2完成了，但是代码结构和编程思想都不是很理想，尤其是看了当时IFE团队review了IFE 2015的同学们的代码，指出的一些问题以及改进建议&lt;br&gt;我也对自己的代码中有的问题进行了小结：&lt;/p&gt;
+    <content type="html">&lt;p&gt;这几天将之前未完成的IFE 2015 任务二完成了，但是代码结构和编程思想都不是很理想，尤其是看了当时IFE团队review了IFE 2015的同学们的代码，指出的一些问题以及改进建议，&lt;a href=&quot;https://github.com/baidu-ife/ife/blob/master/2015_spring/task/task0002/review/IFE-review.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE Team review地址&lt;/a&gt;。甚至还给出了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0002/review/demo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考代码&lt;/a&gt;，目前为止我没有只看了util js部分，其他都还没看。&lt;br&gt;我也对自己的代码中有的问题进行了小结：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;代码：完成任务的时候图一时方便，所以css和js都直接写到了相应的标签中而没有单独写到各自的文件中，因为我认为这不是当下最要紧的问题&lt;/li&gt;
-&lt;li&gt;编程思想：虽然代码中做到了结构行为样式分离，但是JS代码混成了一团，耦合度高，而且还是完全在使用以前的面向过程的编程思路，连最基本的使用函数分解任务降低耦合度都没有做到&lt;br&gt;针对以上出现的问题，接下来几天想将部分代码进行重构和调整。&lt;br&gt;一下是完成的任务二的小练习1、2、4、5的Demo，之所以没有做小练习3-轮播，是因为我之前做过同样的东西&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;1:文本框&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;2:倒计时&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_4.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;4:Auto suggestion&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_5.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;5:界面拖拽&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;编程思想：虽然代码中做到了结构行为样式分离，但是JS代码混成了一团，耦合度高，而且还是完全在使用以前的面向过程的编程思路，连最基本的使用函数分解任务降低耦合度都没有做到&lt;br&gt;针对以上出现的问题，接下来几天想将部分代码进行重构和调整。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
+&lt;p&gt;以下是完成的任务二的小练习1、2、4、5的Demo，之所以没有做小练习3-轮播，是因为我之前做过同样的东西：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;1. 文本框&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;2. 倒计时&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_4.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;4. Auto suggestion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_5.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;5. 界面拖拽&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;——2016.12.08更新——-&lt;br&gt;更新：重构了任务2的第3个小练习，地址如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_3.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;3. 轮播&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;这几天将之前未完成的IFE 2015 任务2完成了，但是代码结构和编程思想都不是很理想，尤其是看了当时IFE团队review了IFE 2015的同学们的代码，指出的一些问题以及改进建议&lt;br&gt;我也对自己的代码中有的问题进行了小结：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;代码：完成任务的
+      &lt;p&gt;这几天将之前未完成的IFE 2015 任务二完成了，但是代码结构和编程思想都不是很理想，尤其是看了当时IFE团队review了IFE 2015的同学们的代码，指出的一些问题以及改进建议，&lt;a href=&quot;https://github.com/baidu-ife/ife/bl
     
     </summary>
     
@@ -1585,62 +1632,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;第12章-html5标记&quot;&gt;&lt;a href=&quot;#第12章-html5标记&quot; class=&quot;headerlink&quot; title=&quot;第12章. html5标记&quot;&gt;&lt;/a&gt;第12章. html5标记&lt;/h2&gt;&lt;h3 id=&quot;常用标签&quot;&gt;&lt;a href=&quot;#常用标签&quot; c
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 9~12 天</title>
-    <link href="http://archmee.github.io/201607/2016-07-14-17.html"/>
-    <id>http://archmee.github.io/201607/2016-07-14-17.html</id>
-    <published>2016-07-16T16:00:00.000Z</published>
-    <updated>2016-10-26T13:58:34.713Z</updated>
-    
-    <content type="html">&lt;p&gt;7月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，总共的学习内容也就差不多平时一天的内容，这里是对这几天学习内容的总结，《Head First HTML &amp;amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才能更好理解。&lt;/p&gt;
-&lt;h2 id=&quot;第11章-布局和定位&quot;&gt;&lt;a href=&quot;#第11章-布局和定位&quot; class=&quot;headerlink&quot; title=&quot;第11章. 布局和定位&quot;&gt;&lt;/a&gt;第11章. 布局和定位&lt;/h2&gt;&lt;h3 id=&quot;布局&quot;&gt;&lt;a href=&quot;#布局&quot; class=&quot;headerlink&quot; title=&quot;布局&quot;&gt;&lt;/a&gt;布局&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;流让CSS有了强大威力，流实际上就是浏览器在页面中摆放HTML元素所用的方法。浏览器从HTML文件最上面开始，从上到下沿着元素流逐个显示所遇到的各个元素&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;块元素&lt;/strong&gt;从上向下流，各元素之间有一个换行。而&lt;strong&gt;内联元素&lt;/strong&gt;在水平方向会相互挨着，总体上会从左到右、从上往下流（左上方到右下方）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;盒子模型的外边距&lt;/strong&gt;：如果浏览器并排放置内联元素，内联元素水平方上的外边距会正常显示。而浏览器上下放置块元素时，块元素在垂直方向上的外边距会折叠为最大的那个外边距高度（嵌套的话会根据外面的元素的边框，如果有边框就不会折叠，否则嵌套也会折叠）&lt;/li&gt;
-&lt;li&gt;对于所有浮动元素，都必须指定一个宽度，当然图像除外，因为图像有自己的默认宽度&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;浮动元素&lt;/strong&gt;不再是正常流的一部分&lt;/li&gt;
-&lt;li&gt;float属性首先尽可能的根据float值浮动一个元素，然后它下面的块元素会忽略它的存在，而内联元素都会绕流这个元素。&lt;/li&gt;
-&lt;li&gt;css &lt;code&gt;clear&lt;/code&gt;属性要求：当元素流入页面时，这个元素的左边、右边或两边（取决于clear的值）不能有浮动元素，所以被指定了clear属性的元素流入页面时，会根据左右是否有浮动元素来下移直到左右都没有浮动元素为止。&lt;/li&gt;
-&lt;li&gt;浮动元素的外边距并不会碰到正常流中元素的外边距，所以他们不会折叠&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;可以浮动内联元素，比如图像，但是其他内联元素不常见&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;当用户调整屏幕大小时，你的设计仍能保持原样，这称为&lt;strong&gt;冻结布局&lt;/strong&gt;。冻结布局会通过指定宽度锁定元素，让他们冻结在页面上，这样这些元素根本不能移动，就能避免由于窗口扩展带来的问题。自然流入页面或使用浮动的是&lt;strong&gt;流体布局&lt;/strong&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;流体和冻结之间的状态就是&lt;strong&gt;凝胶布局&lt;/strong&gt;：通过设置&lt;code&gt;margin: 0 auto;&lt;/code&gt;来实现，凝胶布局将冻结布局的元素在浏览器中居中显示。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;定位&quot;&gt;&lt;a href=&quot;#定位&quot; class=&quot;headerlink&quot; title=&quot;定位&quot;&gt;&lt;/a&gt;定位&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;浏览器会将绝对定位元素从流中完全删除，然后将这个元素放在指定位置上。位置可以通过&lt;code&gt;top&lt;/code&gt;、&lt;code&gt;bottom&lt;/code&gt;、&lt;code&gt;left&lt;/code&gt;、&lt;code&gt;right&lt;/code&gt;这几个属性来指定相对于最近已定位的祖宗元素的偏移。&lt;/li&gt;
-&lt;li&gt;流中的块元素和内联元素会忽略绝对定位元素正常流入页面，和float有区别&lt;/li&gt;
-&lt;li&gt;绝对定位不用指定元素宽度。&lt;/li&gt;
-&lt;li&gt;每个定位元素（绝对、相对和固定定位）都有一个&lt;code&gt;z-index&lt;/code&gt;属性，这会指定它在一个虚拟的z轴上的位置，&lt;code&gt;z-index&lt;/code&gt;值越大，元素越出现在屏幕的上层，&lt;code&gt;z-index&lt;/code&gt;可以为负值&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;position属性值：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;static：静态定位（默认值），元素会放在正常的文档流中，由浏览器决定决定这些静态定位元素的位置而不是你&lt;/li&gt;
-&lt;li&gt;absolute：绝对定位，浏览器将其从文档流中删除，并相对于最近已定位的祖宗元素来定位&lt;/li&gt;
-&lt;li&gt;fixed：固定定位，浏览器将元素放在相对于浏览器窗口的一个位置上（而不是页面），所以固定元素永远不会移动&lt;/li&gt;
-&lt;li&gt;relative：相对定位，会让元素正常流入页面，而定位也是相对于该元素在流中的原有位置进行偏移&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;指定位置时可以使用像素，也可以使用百分比&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;css表格显示&lt;/strong&gt;工作方式与正常表格一样，都有行和列的定义：首先在html中定义表格的行列结构，然后将表结构相应的&lt;em&gt;块元素&lt;/em&gt;的display属性设置为table、table-row、table-cell，就指定了相应元素显示方式为表格、行、列。可以用指定&lt;code&gt;border-spacing&lt;/code&gt;为表格指定外边距，并且不会和紧邻的垂直外边距折叠&lt;/li&gt;
-&lt;li&gt;vertical-align用来设置垂直对齐方式，有属性值：top顶部对齐、middle居中对齐、和bottom底部对齐&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;7月14、15、16、17这几天断片了(懒癌发作)，学习也变得闲散起来，总共的学习内容也就差不多平时一天的内容，这里是对这几天学习内容的总结，《Head First HTML &amp;amp; CSS》第11章关于布局和定位讲得非常细致，所以总结的文字也很抽象，需要看书配合图文才
     
     </summary>
     
