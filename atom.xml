@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-12-07T19:28:58.756Z</updated>
+  <updated>2016-12-11T09:05:04.333Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -16,11 +16,77 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>前端之旅第 124~154 天</title>
-    <link href="http://archmee.github.io/201612/2016-12-08.html"/>
-    <id>http://archmee.github.io/201612/2016-12-08.html</id>
-    <published>2016-12-07T16:00:00.000Z</published>
-    <updated>2016-12-07T19:28:58.756Z</updated>
+    <title>前端之旅第 154~157 天</title>
+    <link href="http://archmee.github.io/201612/2016-12-11.html"/>
+    <id>http://archmee.github.io/201612/2016-12-11.html</id>
+    <published>2016-12-10T16:00:00.000Z</published>
+    <updated>2016-12-11T09:05:04.333Z</updated>
+    
+    <content type="html">&lt;p&gt;在完成任务ife2015任务二中遇到的问题和解决方案：&lt;br&gt;&lt;strong&gt;ps&lt;/strong&gt;：很多和 &lt;a href=&quot;https://github.com/baidu-ife/ife/blob/master/2015_spring/task/task0002/review/IFE-review.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ife review&lt;/a&gt; 重复的地方不再列出&lt;/p&gt;
+&lt;h2 id=&quot;util-js&quot;&gt;&lt;a href=&quot;#util-js&quot; class=&quot;headerlink&quot; title=&quot;util.js&quot;&gt;&lt;/a&gt;util.js&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;低版本浏览器没有Array.indexOf方法，使用了&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MDN的indexOf Polyfill&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;低版本浏览器没有Object.keys方法，也使用了&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MDN的keys Polyfill&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;遍历对象的时候要使用hasDontEnumerBug和propertyIsEnumerable（已解决：用了MDN提供的object.keys的pollyfill）&lt;br&gt;疑：不是用hasOwnProperty方法可以解决吗???&lt;/li&gt;
+&lt;li&gt;获取元素在窗口中的位置除了用offsetParent遍历的方法外还有getBoundingClientRect的方法（已解决，直接调用）&lt;/li&gt;
+&lt;li&gt;setCookie调用差8个小时，好像UTC的问题(已解决，不用toUTCString()而用toString，在没找到好的解决方案前暂时这样)&lt;/li&gt;
+&lt;li&gt;$方法的改进，比如按照属性值匹配那个没有加tag（已解决），比如是否可以采用更优的从右向左扫描(放弃)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;task0003&quot;&gt;&lt;a href=&quot;#task0003&quot; class=&quot;headerlink&quot; title=&quot;task0003&quot;&gt;&lt;/a&gt;task0003&lt;/h2&gt;&lt;h3 id=&quot;轮播图小点li在在父元素ul中水平居中方法&quot;&gt;&lt;a href=&quot;#轮播图小点li在在父元素ul中水平居中方法&quot; class=&quot;headerlink&quot; title=&quot;轮播图小点li在在父元素ul中水平居中方法&quot;&gt;&lt;/a&gt;轮播图小点li在在父元素ul中水平居中方法&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;父元素text-align:center,子元素要为inline或inline-block&lt;/li&gt;
+&lt;li&gt;父元素不用设置，子元素要为block类型，子元素设置margin:0 auto; display:table;&lt;/li&gt;
+&lt;li&gt;通过定位，父元素设置相对定位:&lt;ul&gt;
+&lt;li&gt;子元素定宽，然后绝对定位，left和right都为0，margin:0 auto;&lt;/li&gt;
+&lt;li&gt;子元素定宽，然后绝对定位，{left:50%; margin-left:-50%;} 问题是通常不确定子元素的宽度&lt;/li&gt;
+&lt;li&gt;子元素绝对定位，{left:50%; transform:translateX(-50%);}（ie9不兼容）&lt;/li&gt;
+&lt;li&gt;父和子之间需要一层包裹wrap，wrap要设置为绝对定位并left:50%; 然后子元素相对定位, 然后left:-50%（注意是负值）（未验证！！！）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;父元素用flex显示，个人还没学过，暂不详解，但兼容性不好&lt;ul&gt;
+&lt;li&gt;父元素display:flex，然后justify-content: center;&lt;/li&gt;
+&lt;li&gt;父元素display:flex，子元素margin:0 auto;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;使用以上方法需要定宽的，可以在js运行时获取子元素宽度，然后就好办了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;轮播图上下一张按钮的垂直居中&quot;&gt;&lt;a href=&quot;#轮播图上下一张按钮的垂直居中&quot; class=&quot;headerlink&quot; title=&quot;轮播图上下一张按钮的垂直居中&quot;&gt;&lt;/a&gt;轮播图上下一张按钮的垂直居中&lt;/h3&gt;&lt;p&gt;绝对定位且是inline-block的a元素要实现在父元素中垂直居中，父元素中vertical-align不起作用，因为vertical-align是对inline元素，line-height设在a上是a的行高，结果是a中的元素垂直居中，而line-height设置在父元素上的话，a由于是绝对定位，所以会出现了a中的文字垂直居中了，而a还在绝对定位的初始位置，这并不是想要的效果。&lt;br&gt;针对绝对定位且定宽高的元素垂直居中，网上找到的解决方案是：&lt;br&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123; &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;top&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;bottom&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;margin&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; auto &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;小结：&lt;/strong&gt;&lt;br&gt;通过上两个居中案例得出，如果一个固定宽高绝对定位的block元素要在父元素中水平居中对齐或者垂直居中对齐，可用top和bottom为0(垂直)，left和bottom为0(水平)，或4个方向都为0(水平垂直居中)，并同时使用&lt;code&gt;margin:auto&lt;/code&gt;可实现，当然，如果如果该元素不是绝对定位且定宽高的block元素的话，可使用其他方案（上述中block也包括inline-block）&lt;/p&gt;
+&lt;h3 id=&quot;背景透明，文字不透明的解决方案&quot;&gt;&lt;a href=&quot;#背景透明，文字不透明的解决方案&quot; class=&quot;headerlink&quot; title=&quot;背景透明，文字不透明的解决方案&quot;&gt;&lt;/a&gt;背景透明，文字不透明的解决方案&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/PeunZhang/p/4089894.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;来自该文章链接#10楼评论&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;兼容IE，栗如：&lt;br&gt;非IE：&lt;code&gt;background:rgba(0,0,0,0.5);&lt;/code&gt;&lt;br&gt;IE：&lt;code&gt;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f000000,endColorstr=#7f000000);&lt;/code&gt;&lt;br&gt;rgba和IE下filter数值的转换：&lt;br&gt;rgba透明值 =&amp;gt; IE filter值&lt;br&gt;0.1 =&amp;gt; 19&lt;br&gt;0.2 =&amp;gt; 33&lt;br&gt;0.3 =&amp;gt; 4C&lt;br&gt;0.4 =&amp;gt; 66&lt;br&gt;0.5 =&amp;gt; 7F&lt;br&gt;0.6 =&amp;gt; 99&lt;br&gt;0.7 =&amp;gt; B2&lt;br&gt;0.8 =&amp;gt; C8&lt;br&gt;0.9 =&amp;gt; E5&lt;br&gt;转换公式：alpha*255再转换成16进制即可&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意1&lt;/strong&gt;：使用filter的时候background要使用IE不支持的方式，比如rgba，否则话会导致background生效而filter无效&lt;br&gt;&lt;strong&gt;注意2&lt;/strong&gt;：最好和下面提到的兼容样式方法结合起来使用&lt;/p&gt;
+&lt;h3 id=&quot;IE6-7的链接虚线外框&quot;&gt;&lt;a href=&quot;#IE6-7的链接虚线外框&quot; class=&quot;headerlink&quot; title=&quot;IE6/7的链接虚线外框&quot;&gt;&lt;/a&gt;IE6/7的链接虚线外框&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/something/archive/2013/05/21/3090428.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;css去掉a标签点击后的虚线框&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123; &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;blr&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;function&quot;&gt;expression&lt;/span&gt;(this.onFocus=this.&lt;span class=&quot;function&quot;&gt;blur&lt;/span&gt;())&lt;/span&gt;&lt;/span&gt;;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;当然css表达式不是一种好的方案，但如果和下面提到的兼容样式结合起来就会好很多，至少可以将通用css和兼容特定浏览器的css分开来&lt;/p&gt;
+&lt;h3 id=&quot;兼容样式&quot;&gt;&lt;a href=&quot;#兼容样式&quot; class=&quot;headerlink&quot; title=&quot;兼容样式&quot;&gt;&lt;/a&gt;兼容样式&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/PeunZhang/archive/2012/04/09/2437563.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS hack方案整理&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/* 支持IE6、7 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;at_rule&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; screen\&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt; &lt;/span&gt;&amp;#123; &lt;span class=&quot;comment&quot;&gt;/*兼容ie67的css*/&lt;/span&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/* 支持IE8 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;at_rule&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; \&lt;span class=&quot;number&quot;&gt;0s&lt;/span&gt;creen\ &lt;/span&gt;&amp;#123;&lt;span class=&quot;comment&quot;&gt;/*兼容ie8的css*/&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/* 支持IE6、7、8 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;at_rule&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt;  \&lt;span class=&quot;number&quot;&gt;0s&lt;/span&gt;creen\,screen\&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;span class=&quot;comment&quot;&gt;/*兼容ie678的css*/&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;task0004&quot;&gt;&lt;a href=&quot;#task0004&quot; class=&quot;headerlink&quot; title=&quot;task0004&quot;&gt;&lt;/a&gt;task0004&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;监听text/search等文本框的输入时除了要监听input事件还要在ie8及低版本浏览器中监听propertychange事件&lt;/li&gt;
+&lt;li&gt;唯独ie9在按删除键时不会触发input或propertychange事件，所以我们直接针对ie9检测keydown事件的keyCode是否是删除键做处理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;task0005&quot;&gt;&lt;a href=&quot;#task0005&quot; class=&quot;headerlink&quot; title=&quot;task0005&quot;&gt;&lt;/a&gt;task0005&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;拖动时的文字选中问题，其他浏览器在拖动过程中阻止默认事件即可，而IE拖动时的文字选中，要用setCapture/releaseCapture&lt;/li&gt;
+&lt;li&gt;ie7的offset值和其他浏览器不一样，所以用getBoundingClientRect函数获取&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在完成任务ife2015任务二中遇到的问题和解决方案：&lt;br&gt;&lt;strong&gt;ps&lt;/strong&gt;：很多和 &lt;a href=&quot;https://github.com/baidu-ife/ife/blob/master/2015_spring/task/task0002/re
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端之旅第 124~153 天</title>
+    <link href="http://archmee.github.io/201612/2016-12-07.html"/>
+    <id>http://archmee.github.io/201612/2016-12-07.html</id>
+    <published>2016-12-06T16:00:00.000Z</published>
+    <updated>2016-12-11T07:35:03.920Z</updated>
     
     <content type="html">&lt;p&gt;从上次更新博客以来，时间已经过去了一个月，在这一个月当中完成的事情则是相当少，如果非要找个借口的话，那就是今年成都的冬季来地措不及防的早，整个这一个月除了几天少见有太阳，其他时候则全都在阴霾的笼罩之下。而我的行动也因此变得迟缓，哈哈哈哈哈哈哈哈哈哈哈~，不过也并不是完全荒废的。&lt;/p&gt;
 &lt;ol&gt;
@@ -38,11 +104,11 @@
 &lt;/ol&gt;
 &lt;p&gt;下面是5个小练习的完成效果截图，&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/tree/master/ife_task/ife_task_2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;代码见github&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;提取兴趣爱好&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_1.jpg&quot; alt=&quot;提取兴趣爱好&quot;&gt;&lt;/li&gt;
-&lt;li&gt;倒计时&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_2.jpg&quot; alt=&quot;倒计时&quot;&gt;&lt;/li&gt;
-&lt;li&gt;轮播图(图片来自jd.com，侵删)&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_3.jpg&quot; alt=&quot;轮播图&quot;&gt;&lt;/li&gt;
-&lt;li&gt;输入提示框&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_4.jpg&quot; alt=&quot;输入提示框&quot;&gt;&lt;/li&gt;
-&lt;li&gt;拖拽界面交互&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_5.jpg&quot; alt=&quot;拖拽界面交互&quot;&gt;&lt;/li&gt;
+&lt;li&gt;提取兴趣爱好（根据输入中的分隔符分割兴趣爱好条目，并创建成可勾选复选框）&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_1.jpg&quot; alt=&quot;提取兴趣爱好&quot;&gt;&lt;/li&gt;
+&lt;li&gt;倒计时（计算了每次定时器的产生的误差做误差补偿）&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_2.jpg&quot; alt=&quot;倒计时&quot;&gt;&lt;/li&gt;
+&lt;li&gt;轮播图（利用构造器可创建多个轮播，不过每个轮播器需要自定义大小）&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_3.jpg&quot; alt=&quot;轮播图&quot;&gt;&lt;br&gt;（ps：轮播图来自jd.com，侵删)&lt;/li&gt;
+&lt;li&gt;输入提示框（类似百度搜索框，不过是本地数据，输入匹配的部分会高亮，方向键上下移动，单击或回车选中）&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_4.jpg&quot; alt=&quot;输入提示框&quot;&gt;&lt;/li&gt;
+&lt;li&gt;拖拽界面交互（在有拖动类的容器内任意拖放）&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/task2_5.jpg&quot; alt=&quot;拖拽界面交互&quot;&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </content>
     
@@ -64,14 +130,14 @@
     <link href="http://archmee.github.io/201611/2016-11-06.html"/>
     <id>http://archmee.github.io/201611/2016-11-06.html</id>
     <published>2016-11-05T16:00:00.000Z</published>
-    <updated>2016-12-07T16:41:54.034Z</updated>
+    <updated>2016-12-11T06:04:42.728Z</updated>
     
-    <content type="html">&lt;p&gt;这几天将之前未完成的IFE 2015 任务二完成了，但是代码结构和编程思想都不是很理想，尤其是看了当时IFE团队review了IFE 2015的同学们的代码，指出的一些问题以及改进建议，&lt;a href=&quot;https://github.com/baidu-ife/ife/blob/master/2015_spring/task/task0002/review/IFE-review.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE Team review地址&lt;/a&gt;。甚至还给出了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0002/review/demo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考代码&lt;/a&gt;，目前为止我没有只看了util js部分，其他都还没看。&lt;br&gt;我也对自己的代码中有的问题进行了小结：&lt;/p&gt;
+    <content type="html">&lt;p&gt;这几天将之前未完成的IFE 2015 任务二完成了，但是代码结构和编程思想都不是很理想，尤其是看了当时IFE团队review了IFE 2015的同学们的代码，指出的一些问题以及改进建议，&lt;a href=&quot;https://github.com/baidu-ife/ife/blob/master/2015_spring/task/task0002/review/IFE-review.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE Team review地址&lt;/a&gt;。甚至还给出了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0002/review/demo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考代码&lt;/a&gt;，目前为止我只看了util js部分，其他都还没看。&lt;br&gt;我也对自己的代码中有的问题进行了小结：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;代码：完成任务的时候图一时方便，所以css和js都直接写到了相应的标签中而没有单独写到各自的文件中，因为我认为这不是当下最要紧的问题&lt;/li&gt;
-&lt;li&gt;编程思想：虽然代码中做到了结构行为样式分离，但是JS代码混成了一团，耦合度高，而且还是完全在使用以前的面向过程的编程思路，连最基本的使用函数分解任务降低耦合度都没有做到&lt;br&gt;针对以上出现的问题，接下来几天想将部分代码进行重构和调整。&lt;/li&gt;
+&lt;li&gt;编程思想：虽然代码中做到了结构行为样式分离，但是JS代码混成了一团，耦合度高，而且还是完全在使用以前的面向过程的编程思路，连最基本的使用函数分解任务降低耦合度都没有做到&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;以下是完成的任务二的小练习1、2、4、5的Demo，之所以没有做小练习3-轮播，是因为我之前做过同样的东西：&lt;/p&gt;
+&lt;p&gt;针对以上出现的问题，接下来几天想将部分代码进行重构和调整。&lt;br&gt;以下是完成的任务二的小练习1、2、4、5的Demo，之所以没有做小练习3-轮播，是因为我之前做过同样的东西：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_1.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;1. 文本框&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/ife_task/ife_task_2/task0002_2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;2. 倒计时&lt;/a&gt;&lt;/li&gt;
@@ -1501,137 +1567,6 @@
     
       &lt;p&gt;把这两天的学习笔记总结在了一起，如下。&lt;/p&gt;
 &lt;h2 id=&quot;第13章-表格与列表&quot;&gt;&lt;a href=&quot;#第13章-表格与列表&quot; class=&quot;headerlink&quot; title=&quot;第13章. 表格与列表&quot;&gt;&lt;/a&gt;第13章. 表格与列表&lt;/h2&gt;&lt;h3 id=&quot;表格&quot;&gt;
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 13 天</title>
-    <link href="http://archmee.github.io/201607/2016-07-18.html"/>
-    <id>http://archmee.github.io/201607/2016-07-18.html</id>
-    <published>2016-07-17T16:00:00.000Z</published>
-    <updated>2016-10-26T14:02:02.569Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;第12章-html5标记&quot;&gt;&lt;a href=&quot;#第12章-html5标记&quot; class=&quot;headerlink&quot; title=&quot;第12章. html5标记&quot;&gt;&lt;/a&gt;第12章. html5标记&lt;/h2&gt;&lt;h3 id=&quot;常用标签&quot;&gt;&lt;a href=&quot;#常用标签&quot; class=&quot;headerlink&quot; title=&quot;常用标签&quot;&gt;&lt;/a&gt;常用标签&lt;/h3&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;标签&lt;/th&gt;
-&lt;th&gt;用途&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;header&lt;/td&gt;
-&lt;td&gt;定义页面头部内容或某个区块的顶部&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;footer&lt;/td&gt;
-&lt;td&gt;定义页面底部内容或某个区块的底部&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;nav&lt;/td&gt;
-&lt;td&gt;定义导航&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;time&lt;/td&gt;
-&lt;td&gt;表现日期时间, 详细可以查看&lt;a href=&quot;http://www.w3school.com.cn/tags/tag_time.asp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;w3school&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;section&lt;/td&gt;
-&lt;td&gt;表示一个由相关内容构成的结构明确的区块&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;article&lt;/td&gt;
-&lt;td&gt;表示可以独立于页面上的其余元素进行重用和分发&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;aside&lt;/td&gt;
-&lt;td&gt;定义页面的补充内容&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;video&lt;/td&gt;
-&lt;td&gt;定义和视频媒体有关的内容&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;blockquote&gt;
-&lt;p&gt;header 和 footer 都不仅仅用于主页眉页脚，如果你希望把一些元素组合起来放在一个首部或尾部中，都可以使用该标签。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;Video&quot;&gt;&lt;a href=&quot;#Video&quot; class=&quot;headerlink&quot; title=&quot;Video&quot;&gt;&lt;/a&gt;Video&lt;/h3&gt;&lt;h4 id=&quot;video-相关属性：&quot;&gt;&lt;a href=&quot;#video-相关属性：&quot; class=&quot;headerlink&quot; title=&quot;video 相关属性：&quot;&gt;&lt;/a&gt;video 相关属性：&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;src&lt;/code&gt; 指定视频位置&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;type&lt;/code&gt; 说明视频类型&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;controls&lt;/code&gt; 是布尔属性，用来显示播放控件&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;autoplay&lt;/code&gt; 是布尔属性，是否加载页面时自动播放&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;loop&lt;/code&gt; 布尔属性，是否循环播放&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;width&lt;/code&gt; 和 &lt;code&gt;height&lt;/code&gt; 指定显示视频的窗口大小&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;poster&lt;/code&gt; 可以指定视频的一帧画面或其他图片作为视频封面，视频默认取第一帧画面&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;preload&lt;/code&gt; 可以细粒度地指定视频加载方式&lt;ul&gt;
-&lt;li&gt;none：在用户真正播放视频之前不下载视频&lt;/li&gt;
-&lt;li&gt;metadata：下载视频元数据，但是不下载视频内容&lt;/li&gt;
-&lt;li&gt;auto：让浏览器自己决定&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;视频格式&quot;&gt;&lt;a href=&quot;#视频格式&quot; class=&quot;headerlink&quot; title=&quot;视频格式&quot;&gt;&lt;/a&gt;视频格式&lt;/h4&gt;&lt;p&gt;一个视频文件包含两部分，一个视频部分和一个音频部分，每个部分使用一种特定的编码类型来编码，包含视频和音频的文件称为容器，也有自己的格式和格式名。&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;视频容器类型&lt;/th&gt;
-&lt;th&gt;视频容器格式&lt;/th&gt;
-&lt;th&gt;视频编码格式&lt;/th&gt;
-&lt;th&gt;音频编码格式&lt;/th&gt;
-&lt;th&gt;支持情况&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;MP4容器&lt;/td&gt;
-&lt;td&gt;.mp4&lt;/td&gt;
-&lt;td&gt;H.264视频编码&lt;/td&gt;
-&lt;td&gt;ACC音频编码&lt;/td&gt;
-&lt;td&gt;Safari、IE9、部分Chrome&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WebM容器&lt;/td&gt;
-&lt;td&gt;.webm&lt;/td&gt;
-&lt;td&gt;Vp8视频编码&lt;/td&gt;
-&lt;td&gt;Vorbis音频编码&lt;/td&gt;
-&lt;td&gt;Firfox、Chrome、Opera&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Ogg容器&lt;/td&gt;
-&lt;td&gt;.ogv&lt;/td&gt;
-&lt;td&gt;Theora视频编码&lt;/td&gt;
-&lt;td&gt;Vorbis音频编码&lt;/td&gt;
-&lt;td&gt;Firfox、Chrome、Opera&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h4 id=&quot;Demo&quot;&gt;&lt;a href=&quot;#Demo&quot; class=&quot;headerlink&quot; title=&quot;Demo&quot;&gt;&lt;/a&gt;Demo&lt;/h4&gt;&lt;p&gt;简单的使用video播放视频&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;controls&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;autoplay&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;320&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;200&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetship.mp4&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;poster&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;images/poster.png&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;如果要为多种浏览器提供多种视频格式支持，可用 source 列出可用视频格式，浏览器会从上至下查找，对于每个source元素，浏览器会加载每个视频文件的元数据，查看能不能播放这个视频，直到找到它能播放的视频格式。&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;controls&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;autoplay&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;320&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;200&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;poster&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;images/poster.png&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.mp4&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.webm&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.ogv&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;Sorry! your browser doesn&#39;t support the video element.&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;但是这样做导致浏览器在播放视频之前做了太多检查工作，会影响效率，我们可以为每个 source 提供 type 属性帮助浏览器确定视频类型&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;controls&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;autoplay&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;320&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;200&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;poster&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;images/poster.png&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.mp4&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&#39;video/mp4; codecs=&quot;avcl.42E01E, mp4a.40.2&quot;&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.webm&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&#39;video/webm; codecs=&quot;vp8, vorbis&quot;&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;video/tweetsip.ogv&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&#39;video/ogg; codecs=&quot;theora, vorbis&quot;&#39;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;Sorry! your browser doesn&#39;t support the video element.&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;video&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;type&lt;/code&gt; 属性首先说明了视频文件的MIME类型，然后codecs参数指定哪个编码器对视频和音频编码，来创建编码的视频文件。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;如果要支持IE9或其他老版本浏览器用flash，可以在source列表最后添加object元素&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;其他&quot;&gt;&lt;a href=&quot;#其他&quot; class=&quot;headerlink&quot; title=&quot;其他&quot;&gt;&lt;/a&gt;其他&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;CDN（Content delivery Network）是内容分发网络的简称&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;导航条中的&lt;code&gt;li&lt;/code&gt;元素之间产生了边距，不知为何，看了这篇&lt;a href=&quot;http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《去除inline-block元素间间距的N种方法》&lt;/a&gt; 后知道这是inline-block导致的，文章中使用了很多方式来解决这个问题，而我采用了在ul的样式中写入&lt;code&gt;display:table;&lt;/code&gt;的方式&lt;/li&gt;
-&lt;li&gt;IE9不支持本章节的视频播放，暂未找到理想的解决办法&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第12章-html5标记&quot;&gt;&lt;a href=&quot;#第12章-html5标记&quot; class=&quot;headerlink&quot; title=&quot;第12章. html5标记&quot;&gt;&lt;/a&gt;第12章. html5标记&lt;/h2&gt;&lt;h3 id=&quot;常用标签&quot;&gt;&lt;a href=&quot;#常用标签&quot; c
     
     </summary>
     
