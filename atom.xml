@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-12-11T09:05:04.333Z</updated>
+  <updated>2016-12-12T20:26:02.761Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -16,11 +16,173 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>前端之旅第 154~157 天</title>
+    <title>前端之旅第 158 天</title>
+    <link href="http://archmee.github.io/201612/2016-12-12.html"/>
+    <id>http://archmee.github.io/201612/2016-12-12.html</id>
+    <published>2016-12-11T16:00:00.000Z</published>
+    <updated>2016-12-12T20:26:02.761Z</updated>
+    
+    <content type="html">&lt;p&gt;#javascript语言精粹简要笔记&lt;/p&gt;
+&lt;p&gt;由于个人很喜欢DC这本书的这种开篇方式，所以将其对莎士比亚著作的引用也写进来了，以下如未做特殊说明，引用内容均来自该书。&lt;/p&gt;
+&lt;p&gt;##1. 精华&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;……我不过略有些讨人喜欢的地方而已，怎么会有什么迷人的魔力？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;##2. 语法&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我很熟悉它，早就在文法书上念过了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作者用铁路图（语法图）来表示了js语法中的&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;空白，多行注释&lt;code&gt;/**/&lt;/code&gt;会和&lt;code&gt;/a*/&lt;/code&gt;这样的正则表达式冲突&lt;/li&gt;
+&lt;li&gt;标识符，可以以字母、下划线、美元符号开头&lt;/li&gt;
+&lt;li&gt;数字，js只有一个数字类型，内部表示为64位浮点数，isNaN可以检测NaN类型&lt;/li&gt;
+&lt;li&gt;字符串，字符串一旦创建，就不可变&lt;/li&gt;
+&lt;li&gt;语句，js的代码块不会创建新的作用域&lt;/li&gt;
+&lt;li&gt;表达式&lt;/li&gt;
+&lt;li&gt;字面量&lt;/li&gt;
+&lt;li&gt;函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;##3. 对象&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对于丑陋的事物，爱会闭目无视&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;js对象是可变的键值对集合，属性名可以是包括空字符串在内的任意字符串，属性值可以是除了&lt;code&gt;undefined&lt;/code&gt;外的任何值&lt;/li&gt;
+&lt;li&gt;每个对象都连接到一个原型对象，所有通过对象字面量创建的对象都连接到&lt;code&gt;Object.prototype&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;从原型链中检索属性值的过程称为委托&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;##4. 函数&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;所有的过失都在未犯以前，都已定下应处的惩罚&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;js中函数就是对象&lt;/li&gt;
+&lt;li&gt;调用一个函数会暂停当前函数的执行，传递控制权和参数给新函数，除了声明时定义的形参，每个函数还接收两个附加参数&lt;code&gt;this&lt;/code&gt;和&lt;code&gt;arguments&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;this&lt;/code&gt;的值取决于调用的模式，js中一共有4中调用模式：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;方法调用模式&lt;/strong&gt;，一个函数作为对象的属性就是方法，当一个方法被调用时，&lt;code&gt;this&lt;/code&gt;被绑定到该对象&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;函数调用模式&lt;/strong&gt;，一个普通函数(非方法)被调用时，&lt;code&gt;this&lt;/code&gt;绑定到全局对象&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构造器调用模式&lt;/strong&gt;，在一个函数前带上&lt;code&gt;new&lt;/code&gt;关键字来调用，内部会创建一个连接到该函数原型的新对象，同时&lt;code&gt;this&lt;/code&gt;被绑定到那个新对象上&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;apply调用模式&lt;/strong&gt;，js提供了&lt;code&gt;apply&lt;/code&gt;和&lt;code&gt;call&lt;/code&gt;两个方法来更改&lt;code&gt;this&lt;/code&gt;的绑定对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arguments&lt;/code&gt;保存了调用时的参数列表，它只是一个‘类数组对象’，除了有一个length属性外，没有任何数组方法&lt;/li&gt;
+&lt;li&gt;js允许给语言的基本类型扩充功能&lt;/li&gt;
+&lt;li&gt;js只有函数作用域和全局作用域&lt;/li&gt;
+&lt;li&gt;可以使用函数和闭包来构建模块，模块模式的一般形式是：一个定义了私有变量和函数的的函数；利用闭包可以创建可以访问私有变量和函数的特权函数；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;##5. 继承&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;……往往会把一件完整的东西化成无数的形象，就像凹凸镜一般，从正面望去，只见一片模糊&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本章作者介绍了几种实现继承的方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;伪类：用繁琐的模仿其他面向对象语言的方式来实现继承&lt;/li&gt;
+&lt;li&gt;原型：也叫差异化继承，通过创建一个父类对象，然后在其基础上添加自定义属性&lt;/li&gt;
+&lt;li&gt;函数化：也叫应用模块模式，通过4个步骤来实现&lt;ol&gt;
+&lt;li&gt;创建一个新对象&lt;/li&gt;
+&lt;li&gt;有选择的定义私有变量和方法&lt;/li&gt;
+&lt;li&gt;给这个新对象扩充方法&lt;/li&gt;
+&lt;li&gt;返回那个对象&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;##6. 数组&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你这披着羊皮的狼，我要把你赶走&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;js数组的length没有上界&lt;/li&gt;
+&lt;li&gt;js数组也是对象，js中一切皆对象&lt;/li&gt;
+&lt;li&gt;使用数组还是对象？一个简单的规则是：当属性名是小而连续的整数时，使用数组，否则使用对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;##7. 正则表达式&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;相反地，选到一个称心如意的配偶，就能百年谐和，幸福无穷&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;js中会用到正则表达式的方法有：&lt;code&gt;regexp.exec&lt;/code&gt;、 &lt;code&gt;regexp.test&lt;/code&gt;、&lt;code&gt;string.match&lt;/code&gt;、&lt;code&gt;string.replace&lt;/code&gt;、 &lt;code&gt;string.split&lt;/code&gt;、&lt;code&gt;string.search&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;正则表达式分组&lt;ul&gt;
+&lt;li&gt;捕获型&lt;code&gt;()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;非捕获型&lt;code&gt;(?:)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;向前正匹配&lt;code&gt;(?=)&lt;/code&gt;（！bad）&lt;/li&gt;
+&lt;li&gt;向前负匹配&lt;code&gt;(?!)&lt;/code&gt; （！bad）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;##8. 方法&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;他虽疯，但却有他的一套理论&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;##9. 代码风格&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;好一串嘟嘟囔囔的头衔！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;讲了作者推崇的一些风格，比如缩进4个空格、不允许case语句穿越、唯一全局变量等等&lt;/p&gt;
+&lt;p&gt;##10. 优美的特性&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我让你的脚玷污我的嘴唇，让你的肖像玷污我的眼睛，让你的每一部分玷污我的心，等候着你的答复&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;##附录A. 毒瘤&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;那会在一言一行中证明其可怕&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;js对全局变量的依赖降低了程序的可靠性&lt;/li&gt;
+&lt;li&gt;由于js有函数作用域但是没有块级作用域，所以更好的方式是在每个函数开头部分声明所有变量&lt;/li&gt;
+&lt;li&gt;由于js的自动插入分号机制，建议将&lt;code&gt;{&lt;/code&gt;放在上一行的结束而不是新行&lt;/li&gt;
+&lt;li&gt;Unicode把一对字符视为一个单一字符，js认为一对字符是两个不同的字符&lt;/li&gt;
+&lt;li&gt;第二个可选参数是基数，建议总是带上10作为基数&lt;/li&gt;
+&lt;li&gt;js没有真正的数组&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;js中的众多假值&lt;/p&gt;
+&lt;p&gt;  | 值 | 类型 |&lt;br&gt;  |:——–|:——–|&lt;br&gt;  | 0 | Number |&lt;br&gt;  | NaN | Number |&lt;br&gt;  | ‘’ | String |&lt;br&gt;  | false | Boolean |&lt;br&gt;  | null | Object |&lt;br&gt;  | undefined | Undefined |&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;hasOwnProperty可以被重写覆盖&lt;/li&gt;
+&lt;li&gt;js中的对象永远不会是真的空对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;##附录B. 糟粕&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;现在要请你告诉我，你究竟为了我哪一点坏处而开始爱我起来呢？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;使用&lt;code&gt;===&lt;/code&gt;和&lt;code&gt;!==&lt;/code&gt;来判断是否相等，而不是&lt;code&gt;==&lt;/code&gt;和&lt;code&gt;!=&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;避免使用with，除了不可预料外，它还会阻断变量名的词法作用域绑定&lt;/li&gt;
+&lt;li&gt;避免使用eval，由于它需要运行编译器，所以降低了语言的性能，还削弱了程序的安全性，除此之外，也尽量避免Function构造器、setTimeout和setInterval的字符串形式的参数&lt;/li&gt;
+&lt;li&gt;移除continue会使性能得到改善&lt;/li&gt;
+&lt;li&gt;避免使用switch语句的case条件穿越&lt;/li&gt;
+&lt;li&gt;对&lt;code&gt;if&lt;/code&gt;,&lt;code&gt;while&lt;/code&gt;,&lt;code&gt;do&lt;/code&gt;,&lt;code&gt;for&lt;/code&gt;总是使用代码块&lt;/li&gt;
+&lt;li&gt;将&lt;code&gt;++&lt;/code&gt;和&lt;code&gt;--&lt;/code&gt;替换为&lt;code&gt;+=&lt;/code&gt;和&lt;code&gt;-=&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;js位运算的多次转换反而会降低位运算带来的性能提高&lt;/li&gt;
+&lt;li&gt;使用function表达式而不是语句&lt;/li&gt;
+&lt;li&gt;js有一套类型的包装对象，应该尽量避免使用基本类型值的包装对象来创建基本类型&lt;/li&gt;
+&lt;li&gt;对于js中的对象，一个更好的策略是不使用new（个人感觉没必要）&lt;/li&gt;
+&lt;li&gt;避免使用void&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#javascript语言精粹简要笔记&lt;/p&gt;
+&lt;p&gt;由于个人很喜欢DC这本书的这种开篇方式，所以将其对莎士比亚著作的引用也写进来了，以下如未做特殊说明，引用内容均来自该书。&lt;/p&gt;
+&lt;p&gt;##1. 精华&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;……我不过略有些讨人喜欢的地
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端之旅第 155~157 天</title>
     <link href="http://archmee.github.io/201612/2016-12-11.html"/>
     <id>http://archmee.github.io/201612/2016-12-11.html</id>
-    <published>2016-12-10T16:00:00.000Z</published>
-    <updated>2016-12-11T09:05:04.333Z</updated>
+    <published>2016-12-11T05:11:00.000Z</published>
+    <updated>2016-12-11T09:18:21.886Z</updated>
     
     <content type="html">&lt;p&gt;在完成任务ife2015任务二中遇到的问题和解决方案：&lt;br&gt;&lt;strong&gt;ps&lt;/strong&gt;：很多和 &lt;a href=&quot;https://github.com/baidu-ife/ife/blob/master/2015_spring/task/task0002/review/IFE-review.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ife review&lt;/a&gt; 重复的地方不再列出&lt;/p&gt;
 &lt;h2 id=&quot;util-js&quot;&gt;&lt;a href=&quot;#util-js&quot; class=&quot;headerlink&quot; title=&quot;util.js&quot;&gt;&lt;/a&gt;util.js&lt;/h2&gt;&lt;ul&gt;
@@ -82,11 +244,11 @@
   </entry>
   
   <entry>
-    <title>前端之旅第 124~153 天</title>
-    <link href="http://archmee.github.io/201612/2016-12-07.html"/>
-    <id>http://archmee.github.io/201612/2016-12-07.html</id>
-    <published>2016-12-06T16:00:00.000Z</published>
-    <updated>2016-12-11T07:35:03.920Z</updated>
+    <title>前端之旅第 124~154 天</title>
+    <link href="http://archmee.github.io/201612/2016-12-08.html"/>
+    <id>http://archmee.github.io/201612/2016-12-08.html</id>
+    <published>2016-12-07T16:00:00.000Z</published>
+    <updated>2016-12-11T09:17:06.898Z</updated>
     
     <content type="html">&lt;p&gt;从上次更新博客以来，时间已经过去了一个月，在这一个月当中完成的事情则是相当少，如果非要找个借口的话，那就是今年成都的冬季来地措不及防的早，整个这一个月除了几天少见有太阳，其他时候则全都在阴霾的笼罩之下。而我的行动也因此变得迟缓，哈哈哈哈哈哈哈哈哈哈哈~，不过也并不是完全荒废的。&lt;/p&gt;
 &lt;ol&gt;
@@ -1413,160 +1575,6 @@
     
       &lt;p&gt;到上一篇博客为止，已经完成了《Head First HTML&amp;amp;CSS》这本书的学习，所以接下来会注重实践任务，先做一些静态页面，熟悉HTML以及CSS。&lt;br&gt;这两天的学习内容如下&lt;/p&gt;
 &lt;h2 id=&quot;终结慕课网HTML-CSS基础课程&quot;&gt;&lt;a href=&quot;#终
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 14、15 天</title>
-    <link href="http://archmee.github.io/201607/2016-07-19-20.html"/>
-    <id>http://archmee.github.io/201607/2016-07-19-20.html</id>
-    <published>2016-07-19T16:00:00.000Z</published>
-    <updated>2016-10-26T14:04:00.308Z</updated>
-    
-    <content type="html">&lt;p&gt;把这两天的学习笔记总结在了一起，如下。&lt;/p&gt;
-&lt;h2 id=&quot;第13章-表格与列表&quot;&gt;&lt;a href=&quot;#第13章-表格与列表&quot; class=&quot;headerlink&quot; title=&quot;第13章. 表格与列表&quot;&gt;&lt;/a&gt;第13章. 表格与列表&lt;/h2&gt;&lt;h3 id=&quot;表格&quot;&gt;&lt;a href=&quot;#表格&quot; class=&quot;headerlink&quot; title=&quot;表格&quot;&gt;&lt;/a&gt;表格&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;table&amp;gt;&lt;/code&gt;标记表格、&lt;code&gt;&amp;lt;tr&amp;gt;&lt;/code&gt;标记表格行、&lt;code&gt;&amp;lt;th&amp;gt;&lt;/code&gt;定义表头单元格（可以是顶部，也可以在左侧）、&lt;code&gt;&amp;lt;td&amp;gt;&lt;/code&gt;定义表内容单元格，&lt;code&gt;&amp;lt;caption&amp;gt;&lt;/code&gt;定义表格标题（caption-side 规则可以指定表格标题的显示位置）&lt;/li&gt;
-&lt;li&gt;HTML表格允许你使用HTML标记指定表格的结构，而CSS表格显示则提供了一种可以用类似表格的表现方式显示块级元素&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;表格单元格没有外边距，单元格之间的空间叫做 border-spacing（边框间距），border-spacing为所有单元格设置一个共同的间距，也就是说它是针对整个表格，而不是为单独的单元格设置。&lt;br&gt;border-spacing还可以在垂直方向和水平方向设置不同的边框间距&lt;/p&gt;
-&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;border-spacing&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;number&quot;&gt;10px&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;5px&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;/*10px的水平边框间距，5px的垂直边框间距*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;border-collapse 规则可折叠表格边框，使单元格之间没有间距&lt;code&gt;border-collapse:collapse;&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;nth-child 伪类可选择位于父元素下的第n个子元素，第0个代表没有选中，而且&lt;strong&gt;不限制于元素类型&lt;/strong&gt;&lt;/p&gt;
-  &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*可以直接指定奇偶数段落*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;pseudo&quot;&gt;:nth-child(even)&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123; &lt;span class=&quot;comment&quot;&gt;/*odd是奇数*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;background-color&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; red&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*还可以使用简单的多项式指定*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;pseudo&quot;&gt;:nth-child(2n+1)&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;background-color&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; white&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;nth-of-type 伪类可指定位于父元素下的同类型的第n个元素，&lt;strong&gt;要限制元素类型&lt;/strong&gt;（书上没有讲这个）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;表格可以嵌套&lt;/li&gt;
-&lt;li&gt;可以给&lt;code&gt;&amp;lt;td&amp;gt;&lt;/code&gt;添加&lt;code&gt;rowspan&lt;/code&gt; 和&lt;code&gt;colspan&lt;/code&gt;属性来指定跨行跨列&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;list-style-type属性值可以更改列表标记：&lt;ul&gt;
-&lt;li&gt;disc：圆点&lt;/li&gt;
-&lt;li&gt;circle：空心圆&lt;/li&gt;
-&lt;li&gt;square：方块&lt;/li&gt;
-&lt;li&gt;none：无标记&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;list-style-image 指定图像代替列表标记&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;list-style-postion&lt;/strong&gt; 可以指定列表标记的回绕方式：&lt;ul&gt;
-&lt;li&gt;inside：使列表标记包含在li元素文字内，换行的文字会在标记下面回绕&lt;/li&gt;
-&lt;li&gt;outside：默认值，使标记独立于文字，换行的文字不会在标记下面回绕&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;p&gt;当用 nth-child 为表格奇偶行指定不同颜色时，如果同时给 &lt;code&gt;&amp;lt;td&amp;gt;&lt;/code&gt;添加了&lt;code&gt;rowspan&lt;/code&gt; 属性的话，浏览器会将设置跨行的行计算在内来计算 td 位于 nth-child 的顺序，这样导致表格样式看起来很混乱，暂时没找到不使用js等技术的方法，除非不使用 nth-child，而改用类来手动指定。问题如下代码：&lt;/p&gt;
-&lt;script async src=&quot;https://jsfiddle.net/7zh7uo7s/7/embed/html,css,result/&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;第14章-表单&quot;&gt;&lt;a href=&quot;#第14章-表单&quot; class=&quot;headerlink&quot; title=&quot;第14章. 表单&quot;&gt;&lt;/a&gt;第14章. 表单&lt;/h2&gt;&lt;h3 id=&quot;常见表单元素&quot;&gt;&lt;a href=&quot;#常见表单元素&quot; class=&quot;headerlink&quot; title=&quot;常见表单元素&quot;&gt;&lt;/a&gt;常见表单元素&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;text input 用于单行文本输入&lt;/li&gt;
-&lt;li&gt;submit input 用于创建提交表单的按钮，value属性可指定提交按钮的文字&lt;/li&gt;
-&lt;li&gt;radio input 用于创建单选框，同组的只能使用一个同一name，因为同一时刻只有一个被选中，checked 是布尔属性，可以为单选框和复选框标记默认值&lt;/li&gt;
-&lt;li&gt;checkbox input 用于创建复选框，checked 是布尔属性，可以为单选框和复选框标记默认值，同组的一次也只使用一个name，但是在后面加上[]便于服务器脚本识别多个值，如&lt;code&gt;name=&amp;quot;name[]&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;textarea 创建多行文本输入区&lt;/li&gt;
-&lt;li&gt;select 结合 option 创建选择菜单，selected是布尔属性，可以为菜单选择提供默认值，布尔属性&lt;code&gt;multiple&lt;/code&gt;可将这个菜单变成多选菜单，name属性是给select而不是option&lt;/li&gt;
-&lt;li&gt;input 是&lt;strong&gt;内联元素&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;html5新增表单元素&quot;&gt;&lt;a href=&quot;#html5新增表单元素&quot; class=&quot;headerlink&quot; title=&quot;html5新增表单元素&quot;&gt;&lt;/a&gt;html5新增表单元素&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;number input 创建文本输入框用于输入数字，可用min和max属性指定数字范围，如果超出范围提交表单会发出警告&lt;/li&gt;
-&lt;li&gt;range input 创建一个滑动条来选择范围&lt;/li&gt;
-&lt;li&gt;color input 创建一个颜色选择器提供颜色输入&lt;/li&gt;
-&lt;li&gt;date input 创建日期选择器&lt;/li&gt;
-&lt;li&gt;email input 提供邮件地址输入框，类似文本框&lt;/li&gt;
-&lt;li&gt;tel input 提供电话号码输入框，类似文本框&lt;/li&gt;
-&lt;li&gt;url input 提供url输入框，类似文本框&lt;/li&gt;
-&lt;li&gt;password input 提供密码输入框，会对输入的文本加掩码，当然这仅仅只是防止了输入密码时被别人看到，并不能保证数据传输的安全性&lt;/li&gt;
-&lt;li&gt;file input 提供文件上传控件&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;使用表单&quot;&gt;&lt;a href=&quot;#使用表单&quot; class=&quot;headerlink&quot; title=&quot;使用表单&quot;&gt;&lt;/a&gt;使用表单&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;action 属性指定表单提交的服务器脚本地址&lt;/li&gt;
-&lt;li&gt;method 提供提交的方法，有GET和POST两种&lt;ul&gt;
-&lt;li&gt;GET：会将你的表单变量追加到URL最后，然后请求服务器&lt;/li&gt;
-&lt;li&gt;POST：这种方式会打包你的表单变量，在后台把它们发送到服务器&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;fieldset+legend 可以对表单元素进行视觉上的分组&lt;/li&gt;
-&lt;li&gt;placeholder 属性为输入框提供提示文字，它不会作为表单的值提交&lt;/li&gt;
-&lt;li&gt;required 可用于任何表单控件，指示一个域是必须要提供值的&lt;/li&gt;
-&lt;li&gt;合理使用&lt;code&gt;&amp;lt;label&amp;gt;&lt;/code&gt;标记可增强页面的可访问性，可以提供页面结构的更多信息，使你更容易对标签设置样式，另外也有助于有视力障碍的用户使用屏幕阅读器更准确的标识表单元素&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Demo：&lt;/p&gt;
-&lt;script async src=&quot;https://jsfiddle.net/1jdux83p/2/embed/html,css,result/&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;附录-没有谈到的十大主题&quot;&gt;&lt;a href=&quot;#附录-没有谈到的十大主题&quot; class=&quot;headerlink&quot; title=&quot;附录. 没有谈到的十大主题&quot;&gt;&lt;/a&gt;附录. 没有谈到的十大主题&lt;/h2&gt;&lt;h3 id=&quot;1-更多CSS选择器&quot;&gt;&lt;a href=&quot;#1-更多CSS选择器&quot; class=&quot;headerlink&quot; title=&quot;1. 更多CSS选择器&quot;&gt;&lt;/a&gt;1. 更多CSS选择器&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;伪元素：可以用来选择元素的某些部分，如&lt;code&gt;p:first-letter&lt;/code&gt;会选择段落中的第一个字母&lt;/li&gt;
-&lt;li&gt;属性选择器：通过元素的属性来匹配选择器，如&lt;code&gt;img[width]&lt;/code&gt;会选择提供了width属性的img元素&lt;/li&gt;
-&lt;li&gt;兄弟选择器：根据兄弟来选择一个元素，如&lt;code&gt;h1+p&lt;/code&gt;会选择所有h1后面的p元素&lt;/li&gt;
-&lt;li&gt;结合选择器：通过对各种已有选择器进行组合来选择元素&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;2-开发商特定的CSS属性&quot;&gt;&lt;a href=&quot;#2-开发商特定的CSS属性&quot; class=&quot;headerlink&quot; title=&quot;2. 开发商特定的CSS属性&quot;&gt;&lt;/a&gt;2. 开发商特定的CSS属性&lt;/h3&gt;&lt;p&gt;通常是浏览器制造商为他们的浏览器增加新的功能来测试新特性，常见的几个特定属性如下表：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名称&lt;/th&gt;
-&lt;th&gt;浏览器&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;-moz-&lt;/td&gt;
-&lt;td&gt;mozilla的firefox&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;-webkit-&lt;/td&gt;
-&lt;td&gt;Safari和Chrome&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;-ms-&lt;/td&gt;
-&lt;td&gt;微软的IE浏览器&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;-o-&lt;/td&gt;
-&lt;td&gt;Opera浏览器&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;使用方式是用上表的名称结合css相应属性&lt;br&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;trasform&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;rotate&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;45deg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;-moz-trasform&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;rotate&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;45deg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;/*支持firefox*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;-webkit-trasform&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;rotate&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;45deg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;/*支持Chrome等*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;-ms-trasform&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;rotate&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;45deg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;/*支持IE*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;-o-trasform&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;function&quot;&gt;rotate&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;45deg&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;/*支持Opera*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3-CSS变换与过渡&quot;&gt;&lt;a href=&quot;#3-CSS变换与过渡&quot; class=&quot;headerlink&quot; title=&quot;3. CSS变换与过渡&quot;&gt;&lt;/a&gt;3. CSS变换与过渡&lt;/h3&gt;&lt;p&gt;可以对元素做充分的2D和3D变换，Demo&lt;/p&gt;
-&lt;p&gt;&lt;script async src=&quot;http://jsfiddle.net/1jdux83p/1/embed/html,css,result/&quot;&gt;&lt;/script&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;虽然我写了针对ie的效果，但是ie好像不支持&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;4-交互&quot;&gt;&lt;a href=&quot;#4-交互&quot; class=&quot;headerlink&quot; title=&quot;4. 交互&quot;&gt;&lt;/a&gt;4. 交互&lt;/h3&gt;&lt;h3 id=&quot;5-HTML5-API和Web应用&quot;&gt;&lt;a href=&quot;#5-HTML5-API和Web应用&quot; class=&quot;headerlink&quot; title=&quot;5. HTML5 API和Web应用&quot;&gt;&lt;/a&gt;5. HTML5 API和Web应用&lt;/h3&gt;&lt;h3 id=&quot;6-再谈Web字体&quot;&gt;&lt;a href=&quot;#6-再谈Web字体&quot; class=&quot;headerlink&quot; title=&quot;6. 再谈Web字体&quot;&gt;&lt;/a&gt;6. 再谈Web字体&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;有一些免费的字体服务可以使用&lt;/li&gt;
-&lt;li&gt;浏览器下载字体时会有不同表现，有些浏览器会显示一个备份字体，另外一些可能会等待字体下载完毕后才显示文本&lt;/li&gt;
-&lt;li&gt;一旦下载了字体，会由浏览器缓存，下次遇到该字体时不会再次下载&lt;/li&gt;
-&lt;li&gt;所有现代浏览器（IE9+）都支持Web字体&lt;/li&gt;
-&lt;li&gt;有很多免费字体可以使用&lt;/li&gt;
-&lt;li&gt;使用Web字体可能会对你的页面性能产生一定影响&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;@font-face&lt;/code&gt;规则中的字体应当仅限于页面中真正使用的字体&lt;/li&gt;
-&lt;li&gt;如果你有某个字体的许可证，要与你的开发商核对一下，他们可能在你的web上也可以使用&lt;/li&gt;
-&lt;li&gt;与传统字体一样，一定要包含某个字体作为退路，以免你的字体不可用，或者获取、解码字体时遇到错误&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;7-创建Web页面的工具&quot;&gt;&lt;a href=&quot;#7-创建Web页面的工具&quot; class=&quot;headerlink&quot; title=&quot;7. 创建Web页面的工具&quot;&gt;&lt;/a&gt;7. 创建Web页面的工具&lt;/h3&gt;&lt;h3 id=&quot;8-XHTML&quot;&gt;&lt;a href=&quot;#8-XHTML&quot; class=&quot;headerlink&quot; title=&quot;8. XHTML&quot;&gt;&lt;/a&gt;8. XHTML&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;如果你需要验证文档或者把你的文档转换成xml，或者SVG，就需要使用XHTML&lt;/li&gt;
-&lt;li&gt;所有元素都必须是良构的，良构是指，要结束所有元素，用引号包围属性值，合法嵌套元素等，所有void元素都必须在结束标签以前使用&lt;code&gt;/&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;页面应当指定application/xhtml+xml MIME类型&lt;/li&gt;
-&lt;li&gt;确保html元素中包含XHTML命名空间&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;9-服务器端脚本&quot;&gt;&lt;a href=&quot;#9-服务器端脚本&quot; class=&quot;headerlink&quot; title=&quot;9. 服务器端脚本&quot;&gt;&lt;/a&gt;9. 服务器端脚本&lt;/h3&gt;&lt;h3 id=&quot;10-音频-Audio&quot;&gt;&lt;a href=&quot;#10-音频-Audio&quot; class=&quot;headerlink&quot; title=&quot;10. 音频 Audio&quot;&gt;&lt;/a&gt;10. 音频 Audio&lt;/h3&gt;&lt;p&gt;HTML利用&lt;code&gt;&amp;lt;audio&amp;gt;&lt;/code&gt;元素提供了一种标准方法在页面中播放音频，而无需使用插件&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;与视频类似，音频也没有标准编码，目前有3种主流格式：MP3、WAV、Ogg Vorbis&lt;/li&gt;
-&lt;li&gt;audio元素及其javascript API提供了其他控制&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;把这两天的学习笔记总结在了一起，如下。&lt;/p&gt;
-&lt;h2 id=&quot;第13章-表格与列表&quot;&gt;&lt;a href=&quot;#第13章-表格与列表&quot; class=&quot;headerlink&quot; title=&quot;第13章. 表格与列表&quot;&gt;&lt;/a&gt;第13章. 表格与列表&lt;/h2&gt;&lt;h3 id=&quot;表格&quot;&gt;
     
     </summary>
     

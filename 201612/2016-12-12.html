@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 158 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201612/2016-12-12.html">前端之旅第 158 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">December 12 2016</p>
+  </section>
+
+  <section class="article-entry">
+    <p>#javascript语言精粹简要笔记</p>
+<p>由于个人很喜欢DC这本书的这种开篇方式，所以将其对莎士比亚著作的引用也写进来了，以下如未做特殊说明，引用内容均来自该书。</p>
+<p>##1. 精华</p>
+<blockquote>
+<p>……我不过略有些讨人喜欢的地方而已，怎么会有什么迷人的魔力？</p>
+</blockquote>
+<p>##2. 语法</p>
+<blockquote>
+<p>我很熟悉它，早就在文法书上念过了</p>
+</blockquote>
+<p>作者用铁路图（语法图）来表示了js语法中的</p>
+<ul>
+<li>空白，多行注释<code>/**/</code>会和<code>/a*/</code>这样的正则表达式冲突</li>
+<li>标识符，可以以字母、下划线、美元符号开头</li>
+<li>数字，js只有一个数字类型，内部表示为64位浮点数，isNaN可以检测NaN类型</li>
+<li>字符串，字符串一旦创建，就不可变</li>
+<li>语句，js的代码块不会创建新的作用域</li>
+<li>表达式</li>
+<li>字面量</li>
+<li>函数</li>
+</ul>
+<p>##3. 对象</p>
+<blockquote>
+<p>对于丑陋的事物，爱会闭目无视</p>
+</blockquote>
+<ul>
+<li>js对象是可变的键值对集合，属性名可以是包括空字符串在内的任意字符串，属性值可以是除了<code>undefined</code>外的任何值</li>
+<li>每个对象都连接到一个原型对象，所有通过对象字面量创建的对象都连接到<code>Object.prototype</code></li>
+<li>从原型链中检索属性值的过程称为委托</li>
+</ul>
+<p>##4. 函数</p>
+<blockquote>
+<p>所有的过失都在未犯以前，都已定下应处的惩罚</p>
+</blockquote>
+<ul>
+<li>js中函数就是对象</li>
+<li>调用一个函数会暂停当前函数的执行，传递控制权和参数给新函数，除了声明时定义的形参，每个函数还接收两个附加参数<code>this</code>和<code>arguments</code></li>
+<li><code>this</code>的值取决于调用的模式，js中一共有4中调用模式：<ul>
+<li><strong>方法调用模式</strong>，一个函数作为对象的属性就是方法，当一个方法被调用时，<code>this</code>被绑定到该对象</li>
+<li><strong>函数调用模式</strong>，一个普通函数(非方法)被调用时，<code>this</code>绑定到全局对象</li>
+<li><strong>构造器调用模式</strong>，在一个函数前带上<code>new</code>关键字来调用，内部会创建一个连接到该函数原型的新对象，同时<code>this</code>被绑定到那个新对象上</li>
+<li><strong>apply调用模式</strong>，js提供了<code>apply</code>和<code>call</code>两个方法来更改<code>this</code>的绑定对象</li>
+</ul>
+</li>
+<li><code>arguments</code>保存了调用时的参数列表，它只是一个‘类数组对象’，除了有一个length属性外，没有任何数组方法</li>
+<li>js允许给语言的基本类型扩充功能</li>
+<li>js只有函数作用域和全局作用域</li>
+<li>可以使用函数和闭包来构建模块，模块模式的一般形式是：一个定义了私有变量和函数的的函数；利用闭包可以创建可以访问私有变量和函数的特权函数；</li>
+</ul>
+<p>##5. 继承</p>
+<blockquote>
+<p>……往往会把一件完整的东西化成无数的形象，就像凹凸镜一般，从正面望去，只见一片模糊</p>
+</blockquote>
+<p>本章作者介绍了几种实现继承的方式：</p>
+<ul>
+<li>伪类：用繁琐的模仿其他面向对象语言的方式来实现继承</li>
+<li>原型：也叫差异化继承，通过创建一个父类对象，然后在其基础上添加自定义属性</li>
+<li>函数化：也叫应用模块模式，通过4个步骤来实现<ol>
+<li>创建一个新对象</li>
+<li>有选择的定义私有变量和方法</li>
+<li>给这个新对象扩充方法</li>
+<li>返回那个对象</li>
+</ol>
+</li>
+</ul>
+<p>##6. 数组</p>
+<blockquote>
+<p>你这披着羊皮的狼，我要把你赶走</p>
+</blockquote>
+<ul>
+<li>js数组的length没有上界</li>
+<li>js数组也是对象，js中一切皆对象</li>
+<li>使用数组还是对象？一个简单的规则是：当属性名是小而连续的整数时，使用数组，否则使用对象</li>
+</ul>
+<p>##7. 正则表达式</p>
+<blockquote>
+<p>相反地，选到一个称心如意的配偶，就能百年谐和，幸福无穷</p>
+</blockquote>
+<ul>
+<li>js中会用到正则表达式的方法有：<code>regexp.exec</code>、 <code>regexp.test</code>、<code>string.match</code>、<code>string.replace</code>、 <code>string.split</code>、<code>string.search</code></li>
+<li>正则表达式分组<ul>
+<li>捕获型<code>()</code></li>
+<li>非捕获型<code>(?:)</code></li>
+<li>向前正匹配<code>(?=)</code>（！bad）</li>
+<li>向前负匹配<code>(?!)</code> （！bad）</li>
+</ul>
+</li>
+</ul>
+<p>##8. 方法</p>
+<blockquote>
+<p>他虽疯，但却有他的一套理论</p>
+</blockquote>
+<p>##9. 代码风格</p>
+<blockquote>
+<p>好一串嘟嘟囔囔的头衔！</p>
+</blockquote>
+<p>讲了作者推崇的一些风格，比如缩进4个空格、不允许case语句穿越、唯一全局变量等等</p>
+<p>##10. 优美的特性</p>
+<blockquote>
+<p>我让你的脚玷污我的嘴唇，让你的肖像玷污我的眼睛，让你的每一部分玷污我的心，等候着你的答复</p>
+</blockquote>
+<p>##附录A. 毒瘤</p>
+<blockquote>
+<p>那会在一言一行中证明其可怕</p>
+</blockquote>
+<ul>
+<li>js对全局变量的依赖降低了程序的可靠性</li>
+<li>由于js有函数作用域但是没有块级作用域，所以更好的方式是在每个函数开头部分声明所有变量</li>
+<li>由于js的自动插入分号机制，建议将<code>{</code>放在上一行的结束而不是新行</li>
+<li>Unicode把一对字符视为一个单一字符，js认为一对字符是两个不同的字符</li>
+<li>第二个可选参数是基数，建议总是带上10作为基数</li>
+<li>js没有真正的数组</li>
+<li><p>js中的众多假值</p>
+<p>  | 值 | 类型 |<br>  |:——–|:——–|<br>  | 0 | Number |<br>  | NaN | Number |<br>  | ‘’ | String |<br>  | false | Boolean |<br>  | null | Object |<br>  | undefined | Undefined |</p>
+</li>
+<li>hasOwnProperty可以被重写覆盖</li>
+<li>js中的对象永远不会是真的空对象</li>
+</ul>
+<p>##附录B. 糟粕</p>
+<blockquote>
+<p>现在要请你告诉我，你究竟为了我哪一点坏处而开始爱我起来呢？</p>
+</blockquote>
+<ul>
+<li>使用<code>===</code>和<code>!==</code>来判断是否相等，而不是<code>==</code>和<code>!=</code></li>
+<li>避免使用with，除了不可预料外，它还会阻断变量名的词法作用域绑定</li>
+<li>避免使用eval，由于它需要运行编译器，所以降低了语言的性能，还削弱了程序的安全性，除此之外，也尽量避免Function构造器、setTimeout和setInterval的字符串形式的参数</li>
+<li>移除continue会使性能得到改善</li>
+<li>避免使用switch语句的case条件穿越</li>
+<li>对<code>if</code>,<code>while</code>,<code>do</code>,<code>for</code>总是使用代码块</li>
+<li>将<code>++</code>和<code>--</code>替换为<code>+=</code>和<code>-=</code></li>
+<li>js位运算的多次转换反而会降低位运算带来的性能提高</li>
+<li>使用function表达式而不是语句</li>
+<li>js有一套类型的包装对象，应该尽量避免使用基本类型值的包装对象来创建基本类型</li>
+<li>对于js中的对象，一个更好的策略是不使用new（个人感觉没必要）</li>
+<li>避免使用void</li>
+</ul>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=#javascript语言精粹简要笔记<"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
