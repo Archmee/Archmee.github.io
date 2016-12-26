@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-12-12T20:26:02.761Z</updated>
+  <updated>2016-12-26T19:57:04.466Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -16,20 +16,48 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>前端之旅第 159~173 天</title>
+    <link href="http://archmee.github.io/201612/2016-12-27.html"/>
+    <id>http://archmee.github.io/201612/2016-12-27.html</id>
+    <published>2016-12-25T16:00:00.000Z</published>
+    <updated>2016-12-26T19:57:04.466Z</updated>
+    
+    <content type="html">&lt;p&gt;这十几天做的事情很少，很少看书，都在写代码，但是代码也写得很少，最开始只是单纯想写一个手风琴图片效果，但是找到一个手风琴的菜单，也想尝试一下，就同时设计写了几个菜单效果，但在实现的时候，可能是在大半夜思路不清晰的原因，导致写的代码混乱，对事件的处理也很混乱，在终于完成了几个效果后，几天前开始了重构，一下子就思路清晰了很多，代码实现思路也更简单，省去了些代码行数，今天在终于实现了手风琴图盘效果后，才想起最近的总结还没完成。&lt;br&gt;中间还看了IFE2015 task3的几篇关于作用域链和原型链的文章，除了理解作用域链和原型链外，还对其他几方面诸如闭包/this理解都更加清晰了。&lt;br&gt;今晚上对move.js（个人在完善的一个动画函数）进行了更新，加入了对 &lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;requestAnimationFrame&lt;/a&gt; 的支持，这个方法是用来在页面重绘之前，通知浏览器调用一个指定的函数，以满足开发者操作动画的需求。这样就可以将原来使用setTimeout的动画作为一种降级方案，当然只有比较新的浏览器才支持这个API，所以我是用了&lt;a href=&quot;https://www.paulirish.com/2011/requestanimationframe-for-smart-animating/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章: requestAnimationFrame for Smart Animating&lt;/a&gt;中提到的Erik Möller提供的Polyfill&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; lastTime = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; vendors = [&lt;span class=&quot;string&quot;&gt;&#39;webkit&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;moz&#39;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; x = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; x &amp;lt; vendors.length &amp;amp;&amp;amp; !&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.requestAnimationFrame; ++x) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.requestAnimationFrame = &lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;[vendors[x]+&lt;span class=&quot;string&quot;&gt;&#39;RequestAnimationFrame&#39;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.cancelAnimationFrame =&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          &lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;[vendors[x]+&lt;span class=&quot;string&quot;&gt;&#39;CancelAnimationFrame&#39;&lt;/span&gt;] || &lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;[vendors[x]+&lt;span class=&quot;string&quot;&gt;&#39;CancelRequestAnimationFrame&#39;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.requestAnimationFrame)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.requestAnimationFrame = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;callback, element&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; currTime = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Date&lt;/span&gt;().getTime();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; timeToCall = &lt;span class=&quot;built_in&quot;&gt;Math&lt;/span&gt;.max(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;16&lt;/span&gt; - (currTime - lastTime));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; id = &lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.setTimeout(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123; callback(currTime + timeToCall); &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              timeToCall);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            lastTime = currTime + timeToCall;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; id;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.cancelAnimationFrame)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.cancelAnimationFrame = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;id&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            clearTimeout(id);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;());&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;上文提到的几个效果：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/tree/master/fancy/dropdown-menu&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;几个菜单&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/dropmenu.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/blob/master/fancy/shoufengqin.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;手风琴图片&lt;/a&gt;（图片来自C&amp;amp;A官网，侵删）&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/shoufengqin.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这十几天做的事情很少，很少看书，都在写代码，但是代码也写得很少，最开始只是单纯想写一个手风琴图片效果，但是找到一个手风琴的菜单，也想尝试一下，就同时设计写了几个菜单效果，但在实现的时候，可能是在大半夜思路不清晰的原因，导致写的代码混乱，对事件的处理也很混乱，在终于完成了几个
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端之旅第 158 天</title>
     <link href="http://archmee.github.io/201612/2016-12-12.html"/>
     <id>http://archmee.github.io/201612/2016-12-12.html</id>
     <published>2016-12-11T16:00:00.000Z</published>
-    <updated>2016-12-12T20:26:02.761Z</updated>
+    <updated>2016-12-12T20:32:12.243Z</updated>
     
-    <content type="html">&lt;p&gt;#javascript语言精粹简要笔记&lt;/p&gt;
-&lt;p&gt;由于个人很喜欢DC这本书的这种开篇方式，所以将其对莎士比亚著作的引用也写进来了，以下如未做特殊说明，引用内容均来自该书。&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;javascript语言精粹简要笔记&quot;&gt;&lt;a href=&quot;#javascript语言精粹简要笔记&quot; class=&quot;headerlink&quot; title=&quot;javascript语言精粹简要笔记&quot;&gt;&lt;/a&gt;javascript语言精粹简要笔记&lt;/h1&gt;&lt;p&gt;由于个人很喜欢DC这本书的这种开篇方式，所以将其对莎士比亚著作的引用也写进来了，以下如未做特殊说明，引用内容均来自该书。&lt;/p&gt;
 &lt;p&gt;##1. 精华&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;……我不过略有些讨人喜欢的地方而已，怎么会有什么迷人的魔力？&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;##2. 语法&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;2-语法&quot;&gt;&lt;a href=&quot;#2-语法&quot; class=&quot;headerlink&quot; title=&quot;2. 语法&quot;&gt;&lt;/a&gt;2. 语法&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;我很熟悉它，早就在文法书上念过了&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;作者用铁路图（语法图）来表示了js语法中的&lt;/p&gt;
@@ -43,8 +71,7 @@
 &lt;li&gt;字面量&lt;/li&gt;
 &lt;li&gt;函数&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;##3. 对象&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;3-对象&quot;&gt;&lt;a href=&quot;#3-对象&quot; class=&quot;headerlink&quot; title=&quot;3. 对象&quot;&gt;&lt;/a&gt;3. 对象&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;对于丑陋的事物，爱会闭目无视&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
@@ -52,8 +79,7 @@
 &lt;li&gt;每个对象都连接到一个原型对象，所有通过对象字面量创建的对象都连接到&lt;code&gt;Object.prototype&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;从原型链中检索属性值的过程称为委托&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;##4. 函数&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;4-函数&quot;&gt;&lt;a href=&quot;#4-函数&quot; class=&quot;headerlink&quot; title=&quot;4. 函数&quot;&gt;&lt;/a&gt;4. 函数&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;所有的过失都在未犯以前，都已定下应处的惩罚&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
@@ -71,8 +97,7 @@
 &lt;li&gt;js只有函数作用域和全局作用域&lt;/li&gt;
 &lt;li&gt;可以使用函数和闭包来构建模块，模块模式的一般形式是：一个定义了私有变量和函数的的函数；利用闭包可以创建可以访问私有变量和函数的特权函数；&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;##5. 继承&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;5-继承&quot;&gt;&lt;a href=&quot;#5-继承&quot; class=&quot;headerlink&quot; title=&quot;5. 继承&quot;&gt;&lt;/a&gt;5. 继承&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;……往往会把一件完整的东西化成无数的形象，就像凹凸镜一般，从正面望去，只见一片模糊&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;本章作者介绍了几种实现继承的方式：&lt;/p&gt;
@@ -87,8 +112,7 @@
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;##6. 数组&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;6-数组&quot;&gt;&lt;a href=&quot;#6-数组&quot; class=&quot;headerlink&quot; title=&quot;6. 数组&quot;&gt;&lt;/a&gt;6. 数组&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;你这披着羊皮的狼，我要把你赶走&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
@@ -96,8 +120,7 @@
 &lt;li&gt;js数组也是对象，js中一切皆对象&lt;/li&gt;
 &lt;li&gt;使用数组还是对象？一个简单的规则是：当属性名是小而连续的整数时，使用数组，否则使用对象&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;##7. 正则表达式&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;7-正则表达式&quot;&gt;&lt;a href=&quot;#7-正则表达式&quot; class=&quot;headerlink&quot; title=&quot;7. 正则表达式&quot;&gt;&lt;/a&gt;7. 正则表达式&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;相反地，选到一个称心如意的配偶，就能百年谐和，幸福无穷&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
@@ -110,21 +133,17 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;##8. 方法&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;8-方法&quot;&gt;&lt;a href=&quot;#8-方法&quot; class=&quot;headerlink&quot; title=&quot;8. 方法&quot;&gt;&lt;/a&gt;8. 方法&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;他虽疯，但却有他的一套理论&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;##9. 代码风格&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;9-代码风格&quot;&gt;&lt;a href=&quot;#9-代码风格&quot; class=&quot;headerlink&quot; title=&quot;9. 代码风格&quot;&gt;&lt;/a&gt;9. 代码风格&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;好一串嘟嘟囔囔的头衔！&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;讲了作者推崇的一些风格，比如缩进4个空格、不允许case语句穿越、唯一全局变量等等&lt;/p&gt;
-&lt;p&gt;##10. 优美的特性&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;10-优美的特性&quot;&gt;&lt;a href=&quot;#10-优美的特性&quot; class=&quot;headerlink&quot; title=&quot;10. 优美的特性&quot;&gt;&lt;/a&gt;10. 优美的特性&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;我让你的脚玷污我的嘴唇，让你的肖像玷污我的眼睛，让你的每一部分玷污我的心，等候着你的答复&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;##附录A. 毒瘤&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;附录A-毒瘤&quot;&gt;&lt;a href=&quot;#附录A-毒瘤&quot; class=&quot;headerlink&quot; title=&quot;附录A. 毒瘤&quot;&gt;&lt;/a&gt;附录A. 毒瘤&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;那会在一言一行中证明其可怕&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
@@ -140,8 +159,7 @@
 &lt;li&gt;hasOwnProperty可以被重写覆盖&lt;/li&gt;
 &lt;li&gt;js中的对象永远不会是真的空对象&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;##附录B. 糟粕&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;附录B-糟粕&quot;&gt;&lt;a href=&quot;#附录B-糟粕&quot; class=&quot;headerlink&quot; title=&quot;附录B. 糟粕&quot;&gt;&lt;/a&gt;附录B. 糟粕&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;现在要请你告诉我，你究竟为了我哪一点坏处而开始爱我起来呢？&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
@@ -162,11 +180,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;#javascript语言精粹简要笔记&lt;/p&gt;
-&lt;p&gt;由于个人很喜欢DC这本书的这种开篇方式，所以将其对莎士比亚著作的引用也写进来了，以下如未做特殊说明，引用内容均来自该书。&lt;/p&gt;
-&lt;p&gt;##1. 精华&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;……我不过略有些讨人喜欢的地
+      &lt;h1 id=&quot;javascript语言精粹简要笔记&quot;&gt;&lt;a href=&quot;#javascript语言精粹简要笔记&quot; class=&quot;headerlink&quot; title=&quot;javascript语言精粹简要笔记&quot;&gt;&lt;/a&gt;javascript语言精粹简要笔记&lt;/h1&gt;&lt;p&gt;由于个人很喜
     
     </summary>
     
@@ -881,7 +895,7 @@
     <link href="http://archmee.github.io/201609/2016-09-10.html"/>
     <id>http://archmee.github.io/201609/2016-09-10.html</id>
     <published>2016-09-09T16:00:00.000Z</published>
-    <updated>2016-10-26T14:15:53.075Z</updated>
+    <updated>2016-12-13T15:02:01.313Z</updated>
     
     <content type="html">&lt;p&gt;这段时间多是荒废了的，所以做的事情不多，把《精通CSS》看完了，剩余的两章都是项目的实现，我分析了示例中的代码，但没发觉什么新东西，所以笔记也省略了&lt;/p&gt;
 &lt;p&gt;再来中途参加了朋友的婚礼，耽搁了点时间&lt;/p&gt;
@@ -1494,87 +1508,6 @@
     <summary type="html">
     
       &lt;h2 id=&quot;Challenge-3&quot;&gt;&lt;a href=&quot;#Challenge-3&quot; class=&quot;headerlink&quot; title=&quot;Challenge 3&quot;&gt;&lt;/a&gt;Challenge 3&lt;/h2&gt;&lt;p&gt;23号做维基Challenge 3的时候看了推荐的&lt;a href=&quot;
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 16、17 天</title>
-    <link href="http://archmee.github.io/201607/2016-07-21-22.html"/>
-    <id>http://archmee.github.io/201607/2016-07-21-22.html</id>
-    <published>2016-07-21T16:00:00.000Z</published>
-    <updated>2016-10-26T14:05:23.130Z</updated>
-    
-    <content type="html">&lt;p&gt;到上一篇博客为止，已经完成了《Head First HTML&amp;amp;CSS》这本书的学习，所以接下来会注重实践任务，先做一些静态页面，熟悉HTML以及CSS。&lt;br&gt;这两天的学习内容如下&lt;/p&gt;
-&lt;h2 id=&quot;终结慕课网HTML-CSS基础课程&quot;&gt;&lt;a href=&quot;#终结慕课网HTML-CSS基础课程&quot; class=&quot;headerlink&quot; title=&quot;终结慕课网HTML+CSS基础课程&quot;&gt;&lt;/a&gt;终结慕课网HTML+CSS基础课程&lt;/h2&gt;&lt;p&gt;在写我最开始的几篇博客中，已经完成了慕课网 &lt;a href=&quot;http://www.imooc.com/learn/9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML+CSS基础课程&lt;/a&gt; 的HTML部分，这两天花了点时间完成了CSS部分，记录了一些笔记&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;在网页中，元素有三种布局模型：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;流动模型（Flow）：默认html元素流入页面的方式&lt;/li&gt;
-&lt;li&gt;浮动模型 (Float)：使用float技术&lt;/li&gt;
-&lt;li&gt;层模型（Layer）：层模型有三种形式：&lt;ul&gt;
-&lt;li&gt;绝对定位(position: absolute)&lt;/li&gt;
-&lt;li&gt;相对定位(position: relative)&lt;/li&gt;
-&lt;li&gt;固定定位(position: fixed)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;当元素被设置为块状元素时用 text-align：center 就不起作用了，这时也分两种情况：定宽块状元素和不定宽块状元素。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;满足定宽和块状两个条件的元素是可以通过设置“左右margin”值为“auto”来实现居中的。&lt;/li&gt;
-&lt;li&gt;不定宽度的块状元素有三种方法居中（这三种方法目前使用的都很多）：&lt;ol&gt;
-&lt;li&gt;使用 table 等表格标签&lt;/li&gt;
-&lt;li&gt;设置 display: inline 方法：与第一种类似，显示类型设为行内元素，进行不定宽元素的属性设置&lt;/li&gt;
-&lt;li&gt;通过给父元素设置 float，然后给父元素设置 position:relative 和 left:50%，子元素设置 position:relative 和 left: -50% 来实现水平居中。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父元素高度确定的单行文本的竖直居中的方法是通过设置父元素的 height 和 line-height 高度一致来实现的。(height: 该元素的高度，line-height: 顾名思义，行高（行间距），指在文本中，行与行之间的 基线间的距离 )。&lt;br&gt;line-height 与 font-size 的计算值之差，在 CSS 中成为“行间距”。分为两半，分别加到一个文本行内容的顶部和底部。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;父元素高度确定的多行文本、图片等的竖直居中的方法有两种： &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;使用插入 table (包括tbody、tr、td)标签，同时设置 vertical-align：middle。 css 中有一个用于竖直居中的属性 vertical-align，在父元素设置此样式时，会对inline-block类型的子元素都有用。&lt;/li&gt;
-&lt;li&gt;在 chrome、firefox 及 IE8 以上的浏览器下可以设置块级元素的 display 为 table-cell（设置为表格单元显示），激活 vertical-align 属性，但注意 IE6、7 并不支持这个样式, 兼容性比较差。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;有一个有趣的现象就是当为元素（不论之前是什么类型元素，display:none 除外）设置以下2个之一：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;position : absolute &lt;/li&gt;
-&lt;li&gt;float : left 或 float:right &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;简单来说，只要html代码中出现以上其中之一，元素的display显示类型就会自动变为以 display:inline-block（内联块元素）的方式显示，当然就可以设置元素的 width 和 height 了，且默认宽度不占满父元素。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;维基大学-CSS-Challenge&quot;&gt;&lt;a href=&quot;#维基大学-CSS-Challenge&quot; class=&quot;headerlink&quot; title=&quot;维基大学 CSS Challenge&quot;&gt;&lt;/a&gt;维基大学 CSS Challenge&lt;/h2&gt;&lt;p&gt;不知道是从哪里找到了这个页面 &lt;a href=&quot;https://en.wikiversity.org/wiki/Web_Design/CSS_challenges&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wikiversity CSS challenges&lt;/a&gt;，上面列出了7个循序渐进的挑战项目，无外乎CSS的基础知识的运用，盒子模型，字体排版、以及布局等。而且对于每个挑战它甚至提供了学习资料。&lt;br&gt;目前为止我完成了前2个（其实是3个，还有一个可选Challenge 2 A），代码已经放到了github上&lt;br&gt;Challenge 2 A Demo：&lt;/p&gt;
-&lt;script async src=&quot;https://jsfiddle.net/ym24ukus/1/embed/html,css,result/&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;first-letter-和-first-letter-的区别：&quot;&gt;&lt;a href=&quot;#first-letter-和-first-letter-的区别：&quot; class=&quot;headerlink&quot; title=&quot;:first-letter 和 ::first-letter 的区别：&quot;&gt;&lt;/a&gt;:first-letter 和 ::first-letter 的区别：&lt;/h2&gt;&lt;p&gt;对于 CSS 2， &lt;strong&gt;伪元素&lt;/strong&gt;采用单冒号前缀语法. 因为&lt;strong&gt;伪类&lt;/strong&gt;也是同样的语法，所以使得两者难以区分。CSS2.1 改变了伪元素的前缀语法可以解决这个问题，现在伪元素采用双冒号前缀，并且伪类仍然采用单冒号前缀。&lt;br&gt;CSS2伪类单冒号语法已得到广泛支持时，所有支持双冒号的浏览器同样也支持旧的单冒号语法。&lt;br&gt;考虑浏览器兼容性的话，:first-letter 是一个更有效的选择; 否则， ::first-letter 更受欢迎。&lt;/p&gt;
-&lt;h2 id=&quot;未来一段时间的计划&quot;&gt;&lt;a href=&quot;#未来一段时间的计划&quot; class=&quot;headerlink&quot; title=&quot;未来一段时间的计划&quot;&gt;&lt;/a&gt;未来一段时间的计划&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;完成CSS Challenge上面的内容&lt;/li&gt;
-&lt;li&gt;核对下百度学院上的学习路径&lt;/li&gt;
-&lt;li&gt;模仿&lt;a href=&quot;http://shengri.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;生日管家官网&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;除了验证html、css外，还要看一些编码规范，对项目进行整理&lt;/li&gt;
-&lt;li&gt;了解Less或Sass并对模仿的项目进行重构&lt;/li&gt;
-&lt;li&gt;模仿&lt;a href=&quot;https://css-tricks.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS-Tricks&lt;/a&gt;，再用Less或Sass进行重构&lt;/li&gt;
-&lt;li&gt;学习js、jsDOM、jQ，做相关技术的项目&lt;/li&gt;
-&lt;li&gt;了解webpack等工具&lt;/li&gt;
-&lt;li&gt;学习js更高级的内容&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;当然计划只是计划，永远赶不上变化，学习过程中也会不断调整计划&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;到上一篇博客为止，已经完成了《Head First HTML&amp;amp;CSS》这本书的学习，所以接下来会注重实践任务，先做一些静态页面，熟悉HTML以及CSS。&lt;br&gt;这两天的学习内容如下&lt;/p&gt;
-&lt;h2 id=&quot;终结慕课网HTML-CSS基础课程&quot;&gt;&lt;a href=&quot;#终
     
     </summary>
     
