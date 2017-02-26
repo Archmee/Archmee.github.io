@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2016-12-26T19:57:04.466Z</updated>
+  <updated>2017-02-26T20:01:57.445Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端之旅第 209~233 天</title>
+    <link href="http://archmee.github.io/201702/2017-02-27.html"/>
+    <id>http://archmee.github.io/201702/2017-02-27.html</id>
+    <published>2017-02-24T16:00:00.000Z</published>
+    <updated>2017-02-26T20:01:57.445Z</updated>
+    
+    <content type="html">&lt;p&gt;25号终于完成了该任务，翻看了一下IFE2015 task3的初级班和中级班的提交列表，发现自己实现得算是非常好的了，不过也花了好长时间。下面上图：&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/2017-02-25_090953.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;不过这里不够好的地方就是设置的内容溢出显示滚动条，但是不管内容有没有超出滚动条都始终显示在那里很碍眼。&lt;br&gt;接下来的计划就是看完《设计模式》剩下的几章，以及刷一遍CSS3，ES6，然后开始学习React或者Vue就找工作了。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;25号终于完成了该任务，翻看了一下IFE2015 task3的初级班和中级班的提交列表，发现自己实现得算是非常好的了，不过也花了好长时间。下面上图：&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端之旅第 186~208 天</title>
+    <link href="http://archmee.github.io/201702/2017-02-01.html"/>
+    <id>http://archmee.github.io/201702/2017-02-01.html</id>
+    <published>2017-01-31T16:00:00.000Z</published>
+    <updated>2017-02-26T19:49:52.125Z</updated>
+    
+    <content type="html">&lt;p&gt;其实差不多7、8天以前完成了IFE2015 task3的SPA应用界面布局工作，但一直没找到好的数据结构表达方式和编程实现方式，所以其他时间（除了春节）都会思考哪种存储和查询数据的方式才是最理想的。所以迟迟下不了手，这是一大忌讳。在多次修改调整后，整个todo应用数据存储的方式有了一个比较理想的方案，当然，数据都是存储在localStorage中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;所有分类数据汇总存储为一个对象，每个分类条目就是该对象中一个用id作为键值的对象，这样做是为了方便按id索引单条分类数据，而每条分类数据都是独立的，没有嵌套关系，子分类是通过维护每个分类的子分类列表属性完成的，而且每个分类还持有父分类id，熟悉DOM的同学一下就能get到这是借鉴了DOM的思想。整个对象中始终会有一个分类对象作为顶级分类用于保存一级二级以及更多子分类，类似于DOM中的html节点，而且保存了该分类下的todo列表，添加删除todo时要维护此表。&lt;/li&gt;
+&lt;li&gt;todo数据是按照id单独存放的，也就是说，要获取todo，知道它的id后直接从localStorage中取出来，这样做也是因为方便对单条tudo进行操作。&lt;/li&gt;
+&lt;li&gt;整个程序采用的是Module模式，可能还要使用观察者模式或者发布订阅模式，但是不知道是否合适，因为Js事件从本质来说就是观察者模式。毕竟是第一次实践设计模式的知识，只有慢慢试探了。&lt;/li&gt;
+&lt;li&gt;整个app分为4个部分，分类列表主要负责分类的列表数据和模板，todo列表负责分类的数据和模板，todo详情部分负责单条todo的详情和展示模板等，一个主要部分负责协调上述几个部分的工作。&lt;/li&gt;
+&lt;li&gt;以下是具体数据结构&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//单条分类&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;cid_1487710962417&quot;&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;addTime&quot;&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;1487710962417&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//添加时间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;cid&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;cid_1487710962417&quot;&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//分类id&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;pid&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;cid_0000000000001&quot;&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//父分类id&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;title&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;未命名分类1&quot;&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//分类名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;childCatList&quot;&lt;/span&gt;:[ &lt;span class=&quot;comment&quot;&gt;//直接子分类&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;cid_1487883840564&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;cid_1487980933649&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ],&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;childTodoList&quot;&lt;/span&gt;:[ &lt;span class=&quot;comment&quot;&gt;//直接子todo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;tid_1487776376694&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;string&quot;&gt;&quot;tid_1487776391312&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//单条todo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;addTime&quot;&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;1487776376694&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//添加时间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;tid&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;tid_1487776376694&quot;&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//todo id&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;cid&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;cid_1487710962417&quot;&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//分类id&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;emergency&quot;&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//紧急程度，暂时没用上&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;title&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;未命名任务&quot;&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//todo标题&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;content&quot;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;出门交电费&quot;&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//todo内容&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;status&quot;&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//状态1和-1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;expireTime&quot;&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;1487721600000&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;//失效时间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;其实差不多7、8天以前完成了IFE2015 task3的SPA应用界面布局工作，但一直没找到好的数据结构表达方式和编程实现方式，所以其他时间（除了春节）都会思考哪种存储和查询数据的方式才是最理想的。所以迟迟下不了手，这是一大忌讳。在多次修改调整后，整个todo应用数据存储的
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
   
   <entry>
     <title>前端之旅第 159~173 天</title>
@@ -1329,185 +1383,6 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;html结构&lt;/p&gt;
  &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span 
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 21~23 天</title>
-    <link href="http://archmee.github.io/201607/2016-07-26-28.html"/>
-    <id>http://archmee.github.io/201607/2016-07-26-28.html</id>
-    <published>2016-07-27T16:00:00.000Z</published>
-    <updated>2016-10-26T14:06:24.439Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;维基大学的Challenge-5&quot;&gt;&lt;a href=&quot;#维基大学的Challenge-5&quot; class=&quot;headerlink&quot; title=&quot;维基大学的Challenge 5&quot;&gt;&lt;/a&gt;维基大学的Challenge 5&lt;/h2&gt;&lt;p&gt;完成了维基大学的Challenge 5，后面的挑战我不打算继续了，第6个是自己设计，第7个是模仿静态网页、第8个是CSS Zen Garden的学习。&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/tree/master/css_challenge&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这是我放在github上的维基大学Challenge代码&lt;/a&gt;，以及&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/tree/master/xtra_art_redo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;模仿的一个模板网站找的静态页面&lt;/a&gt;，因为原页面结构比较混乱，所以我按照自己的方式在布局。&lt;/p&gt;
-&lt;p&gt;在做Challenge 5的时候看了两篇分别介绍 &lt;a href=&quot;http://www.456bereastreet.com/lab/developing_with_web_standards/csslayout/2-col/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;2列布局&lt;/a&gt; 和 &lt;a href=&quot;http://www.456bereastreet.com/archive/201012/how_to_create_a_3-column_layout_with_css/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;3列布局&lt;/a&gt;的博客，不过方法都差不多，都是使用浮动来实现&lt;/p&gt;
-&lt;script async src=&quot;https://jsfiddle.net/ym24ukus/6/embed/html,css,result/&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;读《精通CSS》&quot;&gt;&lt;a href=&quot;#读《精通CSS》&quot; class=&quot;headerlink&quot; title=&quot;读《精通CSS》&quot;&gt;&lt;/a&gt;读《精通CSS》&lt;/h2&gt;&lt;p&gt;开始看《精通CSS》，已经完成1、2章，笔记整理如下&lt;/p&gt;
-&lt;h3 id=&quot;1-基础知识&quot;&gt;&lt;a href=&quot;#1-基础知识&quot; class=&quot;headerlink&quot; title=&quot;1. 基础知识&quot;&gt;&lt;/a&gt;1. 基础知识&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;有意义的标记为开发人员提供了几个重要的好处，&lt;ul&gt;
-&lt;li&gt;与表现性的页面相比，有意义的页面更容易处理&lt;/li&gt;
-&lt;li&gt;除了人之外，程序和其他设备也可以理解有意义的标记&lt;/li&gt;
-&lt;li&gt;有意义的标记可以简便地将元素调整为你所需要的样式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;为元素命名class或id时，应该根据“它们是什么”来为元素命名&lt;/li&gt;
-&lt;li&gt;class或id区分大小写&lt;/li&gt;
-&lt;li&gt;只有在绝对确定这个元素之会出现一次的情况下，才应该使用ID&lt;/li&gt;
-&lt;li&gt;为了将不必要的标记减到最少，应该只在没有现有元素能够实现区域分割的情况下使用div元素&lt;/li&gt;
-&lt;li&gt;DTD是一组机器可读的规则，它们定义XML或HTML的特定版本中允许有什么，不允许有什么。在解析网页时，浏览器将使用这些规则检查页面的&lt;strong&gt;有效性&lt;/strong&gt;并且采取相应的措施。浏览器通过分析页面的DOCTYPE声明来了解要使用哪个DTD，由此知道要使用HTML的哪个版本。&lt;/li&gt;
-&lt;li&gt;DOCTYPE有两种风格：&lt;strong&gt;严格&lt;/strong&gt;（strict）和&lt;strong&gt;过渡&lt;/strong&gt;（transitional）&lt;/li&gt;
-&lt;li&gt;当浏览器厂商开始创建于标准兼容的浏览器时，他们希望确保向后兼容性。为了实现这一点，他们创建了两种呈现模式：&lt;strong&gt;标准模式&lt;/strong&gt;和&lt;strong&gt;混杂模式&lt;/strong&gt;。在标准模式中，浏览器根据规范呈现页面；在混杂模式中页面以一种比较宽松的向后兼容的方式显示。&lt;/li&gt;
-&lt;li&gt;DOCTYPE切换是浏览器用来区分遗留文档和符合标准的文档的手段&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;2-为样式找到应用目标&quot;&gt;&lt;a href=&quot;#2-为样式找到应用目标&quot; class=&quot;headerlink&quot; title=&quot;2. 为样式找到应用目标&quot;&gt;&lt;/a&gt;2. 为样式找到应用目标&lt;/h3&gt;&lt;h4 id=&quot;选择器&quot;&gt;&lt;a href=&quot;#选择器&quot; class=&quot;headerlink&quot; title=&quot;选择器&quot;&gt;&lt;/a&gt;选择器&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;类型选择器有时候也称为元素选择器或简单选择器，用来寻找特定类型的元素。&lt;/li&gt;
-&lt;li&gt;后代选择器可用来寻找特定元素或元素组的后代，&lt;code&gt;ul li {}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;不要给太多元素指定不同的类，而应将一个类或ID应用于它们的祖先，然后使用后代选择器定位它们。&lt;/li&gt;
-&lt;li&gt;伪类选择器可以根据文档结构之外的其他条件对元素应用样式。&lt;code&gt;:link&lt;/code&gt;和&lt;code&gt;:visited&lt;/code&gt;称为链接伪类，只能应用于锚元素，&lt;code&gt;:hover&lt;/code&gt;和&lt;code&gt;:active&lt;/code&gt;和&lt;code&gt;:focus&lt;/code&gt;称为动态伪类，理论上可以应用于任何元素。通过把伪类连接在一起，可以创建更复杂的行为&lt;/li&gt;
-&lt;li&gt;通用选择器用一个&lt;code&gt;*&lt;/code&gt;号表示，一般用来对页面上所有元素应用样式。&lt;/li&gt;
-&lt;li&gt;高级选择器&lt;ul&gt;
-&lt;li&gt;子选择器：只选择元素的直接后代，即子元素&lt;code&gt;p &amp;gt; span{}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;相邻同胞选择器：可用于定位同一个父元素下某个元素相邻的元素。&lt;code&gt;h2 + p{}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;属性选择器：可以根据某个属性是否存在&lt;code&gt;img[title] {}&lt;/code&gt;，或属性的值来寻找元素&lt;code&gt;img[title=china] {}&lt;/code&gt;，关于更多使用属性值来寻找元素的方法可以查看W3School的教程&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;层叠&quot;&gt;&lt;a href=&quot;#层叠&quot; class=&quot;headerlink&quot; title=&quot;层叠&quot;&gt;&lt;/a&gt;层叠&lt;/h4&gt;&lt;p&gt;作者的样式表是由站点的开发者编写的，被认为是最重要的样式表。用户可以通过浏览器应用自己的样式，这些样式表的重要度低一级。最后是浏览器或用户代理使用的样式表，它们的重要度是最低的，所以你总是可以覆盖它们。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;层叠采用以下重要度次序：&lt;ol&gt;
-&lt;li&gt;标有&lt;code&gt;!important&lt;/code&gt;的用户样式&lt;/li&gt;
-&lt;li&gt;标有&lt;code&gt;!important&lt;/code&gt;的作者样式&lt;/li&gt;
-&lt;li&gt;作者样式&lt;/li&gt;
-&lt;li&gt;用户样式&lt;/li&gt;
-&lt;li&gt;浏览器/用户代理应用的样式&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;然后根据选择器的特殊性决定规则的次序，具有更特殊选择器的规则优于具有一般选择器的规则，如果两个规则的特殊性相同，那么后定义的规则优先&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;选择器的特殊性分成4个成分等级：a、b、c、d&lt;ul&gt;
-&lt;li&gt;如果样式是行内样式，那么a=1&lt;/li&gt;
-&lt;li&gt;b等于ID选择器的总数&lt;/li&gt;
-&lt;li&gt;c等于类、伪类和属性选择器的数量&lt;/li&gt;
-&lt;li&gt;d等于类型选择器和伪元素的数量&lt;br&gt;最后按照abcd的顺序将计算的值列出，数字越大的就越特殊&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;建议：尽量保持一般性样式非常一般，特殊性样式尽可能特殊，这样就不需要覆盖特殊样式了。如果发现不得不多次覆盖一般样式，那么从更一般的规则中删除需要覆盖的声明，并且将它显示地应用于需要它的每个元素，这样做可能更简单。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;最后：&lt;em&gt;一种有意思的特殊性用法是在主体(body)标签上应用类或ID，这样做之后，就可以根据页面或在站点范围内覆盖样式。&lt;/em&gt;&lt;/p&gt;
-&lt;h4 id=&quot;继承&quot;&gt;&lt;a href=&quot;#继承&quot; class=&quot;headerlink&quot; title=&quot;继承&quot;&gt;&lt;/a&gt;继承&lt;/h4&gt;&lt;p&gt;应用样式的元素的后代会继承样式的某些属性，直接应用于元素的任何样式总会覆盖继承而来的样式，这是因为继承而来的样式的特殊性为空。&lt;/p&gt;
-&lt;h4 id=&quot;规划、组织和维护样式表&quot;&gt;&lt;a href=&quot;#规划、组织和维护样式表&quot; class=&quot;headerlink&quot; title=&quot;规划、组织和维护样式表&quot;&gt;&lt;/a&gt;规划、组织和维护样式表&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;最近的浏览器基准测试已经表明，导入样式表比链接样式表要慢&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在使用多个CSS文件时，还有两个速度相关的问题&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;多个文件会导致从服务器发送更多数据包，这些数据包的数量（而不是内容）会影响下载时间&lt;/li&gt;
-&lt;li&gt;另外，浏览器只能从同一个域同时下载数量有限的文件&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;由于这些原因，使用结构良好的&lt;strong&gt;单一CSS文件&lt;/strong&gt;可以显著提高下载速度&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;良好的代码结构和清晰的注释有助于代码的维护，在每个注释头中添加一个标志(比如&lt;code&gt;@&lt;/code&gt;)会有助于寻找特定的样式&lt;br&gt;作者推荐的代码结构&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一般性样式&lt;pre&gt;&lt;code&gt;- 主体样式
-- reset样式
-- 链接
-- 标题
-- 其他元素
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;辅助样式&lt;pre&gt;&lt;code&gt;- 表单
-- 通知和错误
-- 一致的条目
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;页面结构&lt;pre&gt;&lt;code&gt;- 标题、页脚和导航
-- 布局
-- 其他页面结构元素
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;页面组件&lt;pre&gt;&lt;code&gt;- 各个页面
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;覆盖&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;减小CSS文件大小可以通过删除注释和空白，但最好方法可能是启用服务器端压缩GZIP&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;样式指南是帮助维护或实现站点的好方法，通过制定一些简单的原则，可以确保站点的开发以可控制的方式进行，同时防止样式随着时间的推移变得散乱。&lt;/li&gt;
-&lt;li&gt;模式组合是一个页面或一系列页面，它们使用当前的样式表显示站点上可能出现的每种每种样式排列组合，从标题级别和文本样式直到特定的内容和布局类型。这些页面可以让后端和前端开发人员方便地构建页面组合&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;深入理解-line-height&quot;&gt;&lt;a href=&quot;#深入理解-line-height&quot; class=&quot;headerlink&quot; title=&quot;深入理解 line-height&quot;&gt;&lt;/a&gt;深入理解 line-height&lt;/h2&gt;&lt;p&gt;在百度学院的任务列表上推荐了一篇详解line-height的博客，学习了一下，文章分析的非常细致，原文请戳 &lt;a href=&quot;http://www.cnblogs.com/fengzheng126/archive/2012/05/18/2507632.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《深入了解CSS的行高line-height属性》&lt;/a&gt;，我只做了些摘录性的笔记&lt;br&gt;可以有5种方式来定义line-height。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;可以被定义为：&lt;code&gt;body {line-height:normal;}&lt;/code&gt;，会根据自己的font-size和一个大概默认的系数来计算行高，但系数不能通过样式更改&lt;/li&gt;
-&lt;li&gt;可以被定义为：&lt;code&gt;body {line-height:inherit;}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;可以使用一个百分比的值：&lt;code&gt;body {line-height:120%;}&lt;/code&gt;，这种方法会导致所有继承的元素的行高都是一样通过body的font-size计算出来的固定值，而不是通过自己的font-size计算出来的&lt;/li&gt;
-&lt;li&gt;可以被定义为一个长度值(px,em等)：&lt;code&gt;body {line-height:25px;}&lt;/code&gt;，表现同百分比&lt;/li&gt;
-&lt;li&gt;也可以被定义为纯数字：&lt;code&gt;body {line-height:1.2;}&lt;/code&gt;，和normal差不多，但是可定义自己期望的行高系数基于当前行的字体大小来计算。WCAG 2.0规定1.5为最佳&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;计算后的line-height-font-size就是可用的间距了，将其/2然后分别放到当前行的顶部和底部&lt;/p&gt;
-&lt;p&gt;上面那篇博客中还讲解了line-height应用于内容时可能发生的复杂情形，我就不搬运了&lt;/p&gt;
-&lt;h2 id=&quot;圣杯布局-amp-双飞翼布局&quot;&gt;&lt;a href=&quot;#圣杯布局-amp-双飞翼布局&quot; class=&quot;headerlink&quot; title=&quot;圣杯布局 &amp;amp; 双飞翼布局&quot;&gt;&lt;/a&gt;圣杯布局 &amp;amp; 双飞翼布局&lt;/h2&gt;&lt;p&gt;另外还学习了圣杯和淘宝的双飞翼布局，并总结了一点异同点&lt;br&gt;相同点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用同样的html结构，基于优先渲染主要内容的原则，会把主内容区放在前面&lt;/li&gt;
-&lt;li&gt;都是多列布局&lt;/li&gt;
-&lt;li&gt;同样使用浮动技术和左右负边距来布局&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;不同点表现在主内容被遮盖时&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;圣杯布局对多列的wrapper采用了padding，但是会导致左右列位置发生变化，然后对左右列使用&lt;code&gt;position:relative&lt;/code&gt;和&lt;code&gt;left&lt;/code&gt;或&lt;code&gt;right&lt;/code&gt;的方法纠正&lt;/li&gt;
-&lt;li&gt;双飞翼布局则将在主内容区中多嵌套了一层wrapper，然后对嵌套在主内容区的wrapper使用左右margin来保证内容区想要显示的内容在正确的位置上&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这是几篇介绍双飞翼布局和圣杯布局的博客：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.imooc.com/wenda/detail/254035&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;双飞翼布局介绍-始于淘宝UED&lt;/a&gt;，其实这篇博客是比较权威的一篇，但是描述时上下文有点对应不上，而且展示页面访问不了，所以理解起来很费劲&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.fazero.cc/2015/07/25/CSS%E5%B8%83%E5%B1%80-%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80vs%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS布局-圣杯布局vs双飞翼布局&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/imwtr/p/4441741.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS布局 – 圣杯布局 &amp;amp; 双飞翼布局&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/langzs/archive/2013/01/27/taobaoshuangfeiyi.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS布局之–淘宝双飞翼布局&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;我打算自己写一篇博客专门介绍这两种布局方式：见下一篇博客&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;维基大学的Challenge-5&quot;&gt;&lt;a href=&quot;#维基大学的Challenge-5&quot; class=&quot;headerlink&quot; title=&quot;维基大学的Challenge 5&quot;&gt;&lt;/a&gt;维基大学的Challenge 5&lt;/h2&gt;&lt;p&gt;完成了维基大学的Challe
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 18~20 天</title>
-    <link href="http://archmee.github.io/201607/2016-07-23-25.html"/>
-    <id>http://archmee.github.io/201607/2016-07-23-25.html</id>
-    <published>2016-07-24T16:00:00.000Z</published>
-    <updated>2016-10-26T14:05:34.728Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Challenge-3&quot;&gt;&lt;a href=&quot;#Challenge-3&quot; class=&quot;headerlink&quot; title=&quot;Challenge 3&quot;&gt;&lt;/a&gt;Challenge 3&lt;/h2&gt;&lt;p&gt;23号做维基Challenge 3的时候看了推荐的&lt;a href=&quot;http://maxdesign.com.au/articles/two-columns/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一篇两列布局教程&lt;/a&gt;，它使用了一种很新颖的方式实现了两列布局，它的新颖之处就在于，虽然仍然使用浮动，但它使用背景图像来造成视觉上的分栏，而不是给各列设置背景颜色或图像，这样做保证了两列在视觉上的等高，这样不管是哪一列增高了，随着列的增高导致整个布局增高，而背景在Y轴平铺之后，另一列在视觉上也增高了&lt;/p&gt;
-&lt;script async src=&quot;https://jsfiddle.net/ym24ukus/embed/html,css,result/&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;自己仿造教程做了Challenge 3（因为这个需要专门制作背景图像，所以我使用了现成的图像）&lt;/p&gt;
-&lt;script async src=&quot;https://jsfiddle.net/ym24ukus/2/embed/html,css,result/&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;然后按照自己理解用另一种方式实现了同样效果&lt;/p&gt;
-&lt;script async src=&quot;https://jsfiddle.net/ym24ukus/3/embed/html,css,result/&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;Challenge-4&quot;&gt;&lt;a href=&quot;#Challenge-4&quot; class=&quot;headerlink&quot; title=&quot;Challenge 4&quot;&gt;&lt;/a&gt;Challenge 4&lt;/h2&gt;&lt;p&gt;25号做了Challenge 4，Demo如下，css中也注释了不同的实现方式：&lt;/p&gt;
-&lt;script async src=&quot;https://jsfiddle.net/ym24ukus/4/embed/html,css,result/&quot;&gt;&lt;/script&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Challenge-3&quot;&gt;&lt;a href=&quot;#Challenge-3&quot; class=&quot;headerlink&quot; title=&quot;Challenge 3&quot;&gt;&lt;/a&gt;Challenge 3&lt;/h2&gt;&lt;p&gt;23号做维基Challenge 3的时候看了推荐的&lt;a href=&quot;
     
     </summary>
     
