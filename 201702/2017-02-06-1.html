@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>IFE 2015 task3资料学习摘录 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201702/2017-02-06-1.html">IFE 2015 task3资料学习摘录</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">February 01 2017</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><ul>
+<li>理解一个函数的原型属性(function’s prototype property )其实和实际的原型(prototype)没有关系对我们来说至关重要。</li>
+<li>A prototype chain is a finite chain of objects which is used to implemented inheritance and shared properties.（原型链是一个用于实现继承和共享属性的有限对象链）</li>
+<li>还有一点我们需要注意的是，我们可以赋值任何类型的对象到原型上，但是不能赋值原子类型的值，比如如下代码是无效的：<code>Cat.Prototype = 5;</code></li>
+<li>原型原型链是用于对象标识符查找（属性和方法），而作用域作用域链是用于普通标识符的查找（变量和函数）</li>
+</ul>
+<h2 id="作用域、作用域链、闭包"><a href="#作用域、作用域链、闭包" class="headerlink" title="作用域、作用域链、闭包"></a>作用域、作用域链、闭包</h2><ul>
+<li>当在函数中访问一个变量的时候，搜索顺序是先搜索自身的活动对象，如果存在则返回，如果不存在将继续搜索父函数的活动对象，依次查找，直到找到为止。如果整个作用域链上都无法找到，则返回undefined。</li>
+<li><p>如果函数存在Prototype原型对象，则在查找完自身的活动对象后再查找自身的原型对象，这就是Javascript中的变量查找机制。（<strong>经如下代码证明这一点是错误的</strong>）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(i); <span class="comment">//0</span></span><br><span class="line">        alert(y); <span class="comment">//error</span></span><br><span class="line">        alert(x); <span class="comment">//error</span></span><br><span class="line">    &#125;;</span><br><span class="line">    b.prototype.y=<span class="string">'y=5'</span>;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line">a.prototype.x=<span class="string">'x=10'</span>;</span><br><span class="line"><span class="keyword">var</span> c=a();</span><br><span class="line">c();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在代码执行过程中，作用域链可以通过使用with语句和catch从句对象来增强（将它们的对象参数作为活动对象加入到作用域链顶端）。并且由于这些对象是简单的对象，它们可以拥有原型（和原型链）。这个事实导致作用域链查找变为<em>两个维度</em>：</p>
+<ol>
+<li>首先是查找作用域链上的活动对象</li>
+<li>然后在每个作用域链上的活动对象上查找该对象的原型链（如果有原型）</li>
+</ol>
+</li>
+<li><p>注意，由于<em>每个</em>（标准的）函数都在创建的时候保存了[[Scope]]，所以理论上来讲，ECMAScript中的<em>所有函数</em>都是<em>闭包</em>。<br>闭包是一个代码块（在ECMAScript是一个函数）和以静态方式/词法方式进行存储的所有父作用域的一个集合体。所以，通过这些存储的作用域，函数可以很容易的找到自由变量。</p>
+</li>
+</ul>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><ul>
+<li>this始终指向此时函数/方法调用者，而不是在定义函数/方法时指向的对象。</li>
+<li><p>任何对象都可以作为上下文的this值。我想再次澄清对与ECMAScript中，与执行上下文相关的一些描述——特别是this的误解。通常，this 被错误地描述为变量对象（活动对象）的属性。 请牢记：</p>
+<blockquote>
+<p>this是执行上下文环境的一个属性，而不是某个变量对象/活动对象的属性<br>  这个特点很重要，因为和变量不同，this是没有一个类似搜寻变量的过程。当你在代码中使用了this，这个 this的值就直接从执行的上下文中获取了，而不会从作用域链中搜寻。this的值只取决于进入上下文时的情况。</p>
+</blockquote>
+</li>
+<li><p>注意this这个值在一个继承机制中，是指向它的当前对象，而不是从原型链上找到它时所属于的对象。</p>
+</li>
+</ul>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
+<li><p>有一种叫作冒充继承的方式代码如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cat.prototype = Animal.prototype;</span><br></pre></td></tr></table></figure>
+<p>这样做的优点是效率比较高（不用执行和建立Animal的实例了），比较省内存。缺点是 Cat.prototype和Animal.prototype现在指向了同一个对象，那么任何对Cat.prototype的修改，都会反映到Animal.prototype。<br>为了解决这个问题，后来增加了一个在中间桥接的空白对象。<br>比如下面这个extend函数，就是YUI库如何实现继承的方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">Child, Parent</span>) </span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">　　　　F.prototype = Parent.prototype;</span><br><span class="line">　　　　Child.prototype = <span class="keyword">new</span> F();</span><br><span class="line">　　　　Child.prototype.constructor = Child;</span><br><span class="line">　　　　Child.uber = Parent.prototype;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li><p>JavaScript 不会保护 hasOwnProperty 被非法占用，因此如果一个对象碰巧存在这个属性，就需要使用外部的 hasOwnProperty 函数来获取正确的结果<br>// 使用{}对象的 hasOwnProperty<br><code>{}.hasOwnProperty.call()</code> </p>
+</li>
+<li><p>在使用第三方JS类库的时候，往往有时候他们定义的原型方法是不能满足我们的需要，但是又离不开这个类库，所以这时候我们就需要重写他们的原型中的一个或者多个属性或function，我们可以通过声明的同样的名称（标识符）的形式来达到覆盖重写的功能</p>
+</li>
+<li><p>在浏览器中setTimeout、setInterval和匿名函数执行时的this是全局对象window</p>
+</li>
+<li><p>apply用于改变函数执行时的当前对象，当无参数时，当前对象为window，有参数时当前对象为该参数。</p>
+</li>
+<li><p>激活其它上下文的某个上下文被称为 调用者(caller) 。被激活的上下文被称为被调用者(callee) 。被调用者同时也可能是调用者(比如一个在全局上下文中被调用的函数调用某些自身的内部方法)。</p>
+</li>
+</ul>
+<h2 id="深入理解作用域"><a href="#深入理解作用域" class="headerlink" title="深入理解作用域"></a>深入理解作用域</h2><p>来自 <a href="http://www.laruence.com/2009/05/28/863.html" target="_blank" rel="external">Javascript作用域原理：</a></p>
+<ul>
+<li>在JS中“一切皆是对象, 函数也是”</li>
+<li>在对应作用域内，函数定义会提升，但函数表达式没有提升</li>
+<li>JS权威指南中有一句很精辟的描述：“JavaScript中的函数运行在它们被定义的作用域里，而不是它们被执行的作用域里”</li>
+<li>ECMA262中所述作用域的实现：<ol>
+<li>任何执行上下文时刻的作用域, 都是由作用域链(scope chain)来实现</li>
+<li>在一个函数被定义的时候, 会将该函数的<code>[[scope]]</code>属性指向它此时的作用域链(scope chain)</li>
+<li>在一个函数被调用的时候，会创建一个活动对象，然后在活动对象中加入<code>this</code>和<code>arguments</code>属性，对于每一个函数的形参和变量，都命名为该活动对象的命名属性, 然后将这个活动对象加入到此时的作用域链的最前端</li>
+</ol>
+</li>
+<li>在调用函数执行之前, 会首先创建一个活动对象, 然后搜寻这个函数中的形参、局部变量定义和函数定义, 将它们作为这个活动对象的同名属性, 对于形参则直接赋值，对于局部变量定义，变量的值会在真正执行的时候才计算，此时只是简单的赋为<code>undefined</code>。</li>
+<li>JS作为一门解释执行的语言其实是有预编译的过程的, JS在执行每一段代码之前, 都会首先处理<code>var</code>关键字和<code>function</code>定义式(函数定义式和函数表达式)。</li>
+<li>JS的预编译是以段为处理单元的… 而段是按<code>script</code>标记来分的，所以一个script就是一个处理单元。　</li>
+</ul>
+<p>来自 <a href="http://www.cnblogs.com/lhb25/archive/2011/09/06/javascript-scope-chain.html" target="_blank" rel="external">理解 JavaScript 作用域和作用域链</a></p>
+<ul>
+<li>函数对象和其它对象一样，拥有可以通过代码访问的属性和一系列仅供JS引擎访问的内部属性。其中一个内部属性是<code>[[Scope]]</code>，由ECMA-262标准第三版定义，该内部属性包含了函数被创建的作用域中对象的集合，这个集合被称为函数的作用域链，它决定了哪些数据能被函数访问。</li>
+<li><p>在定义函数时，它的作用域链中会填入一个全局对象，该全局对象包含了所有全局变量，如下图所示（注意：图片只例举了全部变量中的一部分）：<br><img src="http://pic002.cnblogs.com/images/2011/36987/2011090414435366.jpg" alt=""></p>
+</li>
+<li><p>执行此函数时会创建一个称为“运行时上下文(execution context)”的内部对象，运行时上下文定义了函数执行时的环境。每个运行时上下文都有自己的作用域链，用于标识符解析，当运行时上下文被创建时，它的作用域链初始化为当前运行函数的[[Scope]]所包含的对象。<br>而形参和变量按照它们出现在函数中的顺序被复制到运行时上下文的作用域链中。它们共同组成了一个新的对象，叫“活动对象(activation object)”，该对象包含了函数的所有局部变量、命名参数、<code>arguments</code>以及<code>this</code>，然后此对象会被加入到作用域链的前端，当运行期上下文被销毁，活动对象也随之销毁。新的作用域链如下图所示：<br><img src="http://pic002.cnblogs.com/images/2011/36987/2011090414444843.jpg" alt=""></p>
+</li>
+<li><p>从作用域链的结构可以看出，在运行期上下文的作用域链中，标识符所在的位置越深，读写速度就会越慢。如上图所示，因为全局变量总是存在于运行期上下文作用域链的最末端，因此在标识符解析的时候，查找全局变量是最慢的。所以，在编写代码的时候应尽量少使用全局变量，尽可能使用局部变量。</p>
+</li>
+<li>函数每次执行时对应的运行期上下文都是独一无二的，所以多次调用同一个函数就会导致创建多个运行期上下文，当函数执行完毕，执行上下文会被销毁。每一个运行期上下文都和一个作用域链关联。一般情况下，在运行期上下文运行的过程中，其作用域链只会被<code>with</code>语句和<code>catch</code>语句影响。<br>当代码运行到with语句时，运行期上下文的作用域链临时被改变了。一个新的可变对象被创建，它包含了参数指定的对象的所有属性。这个对象将被推入作用域链的头部，这意味着该函数的所有局部变量现在处于第二个作用域链对象中，因此访问代价更高了。如下图所示：<br><img src="http://pic002.cnblogs.com/images/2011/36987/2011090414454524.jpg" alt=""><br>当try代码块中发生错误时，执行过程会跳转到catch语句，然后把异常对象推入一个可变对象并置于作用域链的头部。在catch代码块内部，函数的所有局部变量将会被放在第二个作用域链对象中，此时的作用域链图和上图类似。<br>因此在程序中应避免使用with语句，由于try-catch语句在代码调试和异常处理中非常有用，因此不建议完全避免，可通过优化代码来减少catch语句对性能的影响。一个很好的模式是将错误委托给一个函数处理。</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>学习时，发现部分链接已经无效，并且自己补充了一些。</p>
+<p>js基础：<br><a href="http://weizhifeng.net/javascript-the-core.html" target="_blank" rel="external">http://weizhifeng.net/javascript-the-core.html</a><br><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/" target="_blank" rel="external">http://dmitrysoshnikov.com/ecmascript/javascript-the-core/</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1643" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1643</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1644" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1644</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1645" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1645</a></p>
+<p>面向对象：<br><a href="http://www.ruanyifeng.com/blog/2010/05/object-ooriented_javascript_encapsulation.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2010/05/object-ooriented_javascript_encapsulation.html</a><br><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html</a><br><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1642" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1642</a><br><a href="http://www.cnblogs.com/fool/archive/2010/10/16/1853126.html" target="_blank" rel="external">http://www.cnblogs.com/fool/archive/2010/10/16/1853126.html</a><br><a href="http://www.cnblogs.com/sanshi/archive/2009/07/08/1519036.html" target="_blank" rel="external">http://www.cnblogs.com/sanshi/archive/2009/07/08/1519036.html</a></p>
+<p>this：<br><a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html</a><br><a href="http://www.ibm.com/developerworks/cn/web/1207_wangqf_jsthis/index.html" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/web/1207_wangqf_jsthis/index.html</a><br><a href="http://www.cnblogs.com/justany/archive/2012/11/01/the_keyword_this_in_javascript.html" target="_blank" rel="external">http://www.cnblogs.com/justany/archive/2012/11/01/the_keyword_this_in_javascript.html</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1647" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1647</a></p>
+<p>原型：<br><a href="http://blog.jobbole.com/9648/" target="_blank" rel="external">http://blog.jobbole.com/9648/</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1641" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1641</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1648" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1648</a><br><a href="http://www.cnblogs.com/wangfupeng1988/p/3977924.html" target="_blank" rel="external">http://www.cnblogs.com/wangfupeng1988/p/3977924.html</a></p>
+<p>闭包：<br><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html</a><br><a href="http://www.cnblogs.com/rubylouvre/archive/2009/07/24/1530074.html" target="_blank" rel="external">http://www.cnblogs.com/rubylouvre/archive/2009/07/24/1530074.html</a><br><a href="http://coolshell.cn/articles/6731.html" target="_blank" rel="external">http://coolshell.cn/articles/6731.html</a><br><a href="http://kb.cnblogs.com/page/105708/" target="_blank" rel="external">http://kb.cnblogs.com/page/105708/</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1646" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1646</a></p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="原型"><a href="#原"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
