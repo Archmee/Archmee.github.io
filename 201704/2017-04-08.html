@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 234~273 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201704/2017-04-08.html">前端之旅第 234~273 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">April 08 2017</p>
+  </section>
+
+  <section class="article-entry">
+    <p>这可能是一篇流水账，但是用来梳理这40天都干了什么事情是一件很有意义的事情，尤其是对我自己而言。<br>首先，上一篇博客最后留下的计划都没有实现，因为我似乎忘了一件很重要的事情，那就是 <a href="https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0004" target="_blank" rel="external">IFE2015 task4</a> 还没有完成，我决定尝试一下。当然，计划往往就不是用来实现的。</p>
+<h2 id="事件大纲"><a href="#事件大纲" class="headerlink" title="事件大纲"></a>事件大纲</h2><ol>
+<li>3月初 开始学习IFE2015 task4提供的移动端开发入门资料</li>
+<li>3.13 完成了第一条，并准备开始实践——重构任务3之适配移动端</li>
+<li>3.21 看了一本叫《SPA设计与架构》的书，在上一条开始后我并没有马上动手，而是买了这本书，书是好书，并且对比了几种框架来学习，并且围绕前端工程化讲解了SPA路由、模块化（requirejs）、自动构建（gulp）、单元测试（Qunit）、服务端通信和Promise的用法。但是目前对我的移动端适配一点用处都没有，而且还不打算对任务3进行完全重构，采用工具是后面的事情，但是这本书从思想上算是帮我拨开了重重迷雾。（有空上学习笔记）</li>
+<li>3.31 完成移动端布局适配并在模拟器上成功测试，但是在真机测试时发现了诸多问题，并开始改进，有些什么样的问题以及如何解决的方案都在后面</li>
+<li>4.5 已经解决了移动端真机上大部分问题，并且对界面做了很多美化调整和css的合并工作，</li>
+<li>4.6至7 重构分类模块，改写了用户提示部分的功能，重构带到的目的写在后面。</li>
+</ol>
+<h2 id="适配移动端遇到的问题"><a href="#适配移动端遇到的问题" class="headerlink" title="适配移动端遇到的问题"></a>适配移动端遇到的问题</h2><ol>
+<li>在没有处理手势的情况下，几个定宽100%的页面之间可以直接通过手指滚动，而且从页面底部的横向导航条可以看出宽度不是不是100%而是200%或者更多<br> 原因: 几个内部page虽然都是100%，但同时也是absolute定位，所以影响了外层main<br> 解决：对外层main绝对定位并定宽100%以及指定overflow为hidden</li>
+<li>打开app隐藏工具栏<br> 解决：好吧，这条我用别人推荐的setTimeout+scrollTop方法没实现，只能手动上滑隐藏</li>
+<li>添加编辑任务的页面有几个问题<ul>
+<li>input text内的文字位置不对<br>  解决：input text继承了父元素的line-height高度导致的，重新指定为text框一样的高度即可</li>
+<li>input date不能弹出日期选择器<br>  解决，因为之前在js中处理了指定的事件后就阻止了其他地方单击事件的行为，结果误杀了</li>
+<li>字体太小需要调整<br>  解决：使用rem</li>
+</ul>
+</li>
+<li>页面的滚动动画在qq浏览器中可以，但是在默认的红米2自带浏览器中却直接跳转，省略了中间的过渡动画，搜索得知该浏览器是opera的。<br> 原因：手机浏览器内核比较旧，不支持CSS3标准<br> 解决：在page类的规则中transition要写成带浏览器前缀的兼容方式，后面不指定对哪种行为的过渡，如果要指定transform，那就要写成带浏览器前缀的transform，比如-webkit-transition: -webkit-transform;）</li>
+<li>页内区域滚动不方便甚至滚不动<br> 解决，要在加了overflow=auto希望滚动的绝对定位元素的外层绝对定位元素加上overflow=hidden，其他条件我没试过，只是我的情况刚好是这样</li>
+<li>-webkit-内核的浏览器点击元素闪烁问题<br> 解决：-webkit-tap-highlight-color: transparent;</li>
+<li>ipad上对transform实现的翻页效果不感冒，中间会白屏闪烁，而且对hover类不起作用，长按也不行<br> 解决：绑定ontuchend事件，事件处理函数为空即可，同时解决了这两个问题。</li>
+<li>如何让一组按钮在容器中水平垂直居中 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">btns</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> table</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.btns</span> <span class="class">.btns-inner</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> table-cell</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">vertical-align</span>:<span class="value"> middle</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="重构带来的变化"><a href="#重构带来的变化" class="headerlink" title="重构带来的变化"></a>重构带来的变化</h2><p>我不是全部重构，只是单单对分类模块的数据存储的方式一直耿耿于怀。虽然还做了其他代码清理工作，但都不是重点。<br>之前有一篇博客我记录了实现task3的思路，以及数据存储方式。所有分类用key值存储在一个对象中，然后将这个汇总的对象用了一个名为category_list的key存进了localStorage，每次打开app都要加载分类数据，而且仅仅只有这一次读取，这个分类被读出后就一直保存在内存中使用直到关闭app或网页，每次分类数据发生变更则直接更改内存中的对象，然后再次更新到localStorage。<br>app当然还是可以运行，但是这种实现有什么问题？</p>
+<ul>
+<li>优点：这个方法的优点就是一次读取，终身使用（app打开期间），由于分类保存在内存中，所以每当分类有新的更新或读取操作都会很快，但是我的理解是，分类这个东西一般只在某一段时间高频率的添加删除更新数据，一般分类创建后后期更新非常少，更多的时候大家都是对任务操作频率更高一点。<br>还有一个优点是由于我的分类设计为多级的（不限），所以整个category不管数据还是DOM都是以树状结构呈现的，所以要遍历category树是肯定的，所以直接从内存读取速度也会很快，但是仅限于app打开时的首次加载。</li>
+<li>缺点：一次读取所有分类数据在app运行期间一直滞留在内存中很少使用，严重浪费内存，这一条已经足够了。</li>
+</ul>
+<p>我用表格来模拟一下在重构前后localStorage的变化<br>重构前：<br>| key      |    Value |<br>| ——– | ——– |<br>| category_list  | [分类对象1, 分类对象2, 分类对象3] |<br>| todoid1     |   todo对象 |<br>| … | … |</p>
+<p>重构后：<br>| key      |    Value |<br>| ——– | ——– |<br>| topCatId  | catid1 |<br>| catid1  | 分类对象 |<br>| todoid1     |   todo对象 |<br>| … | … |</p>
+<p>可能有人发现多出了一个topCatId，好吧，其实前面忘了交代，考虑到让整个category更像只有一个根节点的树状，所以我要维护一个“顶级分类”，顶级分类下的子分类就是一级分类，下面的依次类推，而顶级分类仍然是一个分类对象，所以他要和其他分类放在一起组成一张“表”，所以我要拿到它的id确保它就是根节点。</p>
+<p>重构之前也是有这个topCatId存在的，只是他没有被放置在localStorage中，而是写死在了程序中，那也就意味着不够灵活，如果发生变更，尤其是在程序员在更新程序时将其改变，那么也就意味着老用户在打开同一个网站或app时看不到原来的数据或者发生错误，因为程序在localStorage中得不到正确的数据，虽然用户原来的数据都还在。</p>
+<p>而重构之后的方法则更为灵活，在程序初始化时，会读取topCatId，如果有，则开始遍历分类树了，如果没有，则新建一个“顶级分类”，将顶级分类的id存储为topCatId即可。perfect！</p>
+<h2 id="PC和客户端展示"><a href="#PC和客户端展示" class="headerlink" title="PC和客户端展示"></a>PC和客户端展示</h2><p><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/201704080055.png" alt="GTD tool pc端"></p>
+<p><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/201704080055.gif" alt="GTD tool 移动端"></p>
+<h2 id="The-Next"><a href="#The-Next" class="headerlink" title="The Next"></a>The Next</h2><p>下一步就是学习nodejs、es6、vue2、less、sass、gulp、webpack、requirejs、seajs<br>等balabalabalabala，计划总是会变的，who knows！<br><img src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_org.png" alt=""></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://junmer.github.io/mobile-dev-get-started/#/" target="_blank" rel="external">https://junmer.github.io/mobile-dev-get-started/#/</a><br><a href="https://github.com/jtyjty99999/mobileTech" target="_blank" rel="external">https://github.com/jtyjty99999/mobileTech</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/21" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/21</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/22" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/22</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/23" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/23</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/32" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/32</a><br><a href="http://www.css88.com/archives/6410" target="_blank" rel="external">http://www.css88.com/archives/6410</a><br><a href="http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/" target="_blank" rel="external">http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/</a><br><a href="https://isux.tencent.com/web-app-rem.html" target="_blank" rel="external">https://isux.tencent.com/web-app-rem.html</a><br><a href="http://www.cnblogs.com/yexiaochai/p/4219523.html" target="_blank" rel="external">http://www.cnblogs.com/yexiaochai/p/4219523.html</a><br><a href="http://www.cnblogs.com/rubyisaPM/p/4380056.html" target="_blank" rel="external">http://www.cnblogs.com/rubyisaPM/p/4380056.html</a><br><a href="http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/" target="_blank" rel="external">http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/</a><br><a href="http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/" target="_blank" rel="external">http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/</a><br><a href="http://www.html-js.com/article/2402" target="_blank" rel="external">http://www.html-js.com/article/2402</a><br><a href="http://www.html-js.com/article/2400" target="_blank" rel="external">http://www.html-js.com/article/2400</a><br><a href="http://www.w3cplus.com/css3/css3-3d-transform.html" target="_blank" rel="external">http://www.w3cplus.com/css3/css3-3d-transform.html</a><br><a href="http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html" target="_blank" rel="external">http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html</a><br><a href="http://www.w3cplus.com/blog/tags/429.html" target="_blank" rel="external">http://www.w3cplus.com/blog/tags/429.html</a><br><a href="http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/" target="_blank" rel="external">http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/</a></p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=这可能是一篇流水账，但是用来梳理这40天"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>

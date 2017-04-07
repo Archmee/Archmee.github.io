@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>移动WEB开发入门学习笔记 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201703/2017-03-13.html">移动WEB开发入门学习笔记</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">March 13 2017</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="移动WEB开发入门"><a href="#移动WEB开发入门" class="headerlink" title="移动WEB开发入门"></a>移动WEB开发入门</h2><p><a href="https://junmer.github.io/mobile-dev-get-started/#/" target="_blank" rel="external">移动WEB开发入门</a></p>
+<h3 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h3><p>px - 固定大小<br>em: 是相对父元素的字体大小单位<br>rem: 是相对根元素的字体大小单位，可用于多屏适配，统一修改</p>
+<h3 id="横竖屏"><a href="#横竖屏" class="headerlink" title="横竖屏"></a>横竖屏</h3><p>监听横竖屏切换<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'orientationchange'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="comment">// rerender something</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>针对横竖屏的样式<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">media</span>=<span class="value">"all and (orientation:portrait)"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="comment">/* 竖屏 */</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">media</span>=<span class="value">"all and (orientation:landscape)"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="comment">/* 横屏 */</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="兼容Flex："><a href="#兼容Flex：" class="headerlink" title="兼容Flex："></a>兼容Flex：</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.page-wrap</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> -webkit-box</span></span>;      <span class="comment">/* OLD - iOS 6-, Safari 3.1-6 */</span></span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> -moz-box</span></span>;         <span class="comment">/* OLD - Firefox 19- (buggy but mostly works) */</span></span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> -ms-flexbox</span></span>;      <span class="comment">/* TWEENER - IE 10 */</span></span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> -webkit-flex</span></span>;     <span class="comment">/* NEW - Chrome */</span></span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> flex</span></span>;             <span class="comment">/* NEW, Spec - Opera 12.1, Firefox 20+ */</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="打开数字键盘："><a href="#打开数字键盘：" class="headerlink" title="打开数字键盘："></a>打开数字键盘：</h3><p> <code>&lt;input type=&quot;tel&quot;&gt;</code></p>
+<h3 id="隐藏地址栏：-setTimeout-function-window-scrollTo-0-1-0"><a href="#隐藏地址栏：-setTimeout-function-window-scrollTo-0-1-0" class="headerlink" title="隐藏地址栏： setTimeout(function(){ window.scrollTo(0, 1); }, 0);"></a>隐藏地址栏： <code>setTimeout(function(){ window.scrollTo(0, 1); }, 0);</code></h3><h3 id="添加到主屏幕"><a href="#添加到主屏幕" class="headerlink" title="添加到主屏幕"></a>添加到主屏幕</h3><p>在iPhone,iPad,iTouch的safari上可以使用添加到主屏按钮将网站添加到主屏幕上：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"apple-touch-icon"</span> <span class="attribute">href</span>=<span class="value">"apple-touch-icon-iphone.png"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"apple-touch-icon"</span> <span class="attribute">sizes</span>=<span class="value">"72x72"</span> <span class="attribute">href</span>=<span class="value">"apple-touch-icon-ipad.png"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"apple-touch-icon"</span> <span class="attribute">sizes</span>=<span class="value">"114x114"</span> <span class="attribute">href</span>=<span class="value">"apple-touch-icon-iphone4.png"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="工具或库："><a href="#工具或库：" class="headerlink" title="工具或库："></a>工具或库：</h3><ul>
+<li>click 有 300± ms 延迟 服用 <a href="https://github.com/ftlabs/fastclick" target="_blank" rel="external">fastclick</a> 后, 可以解决 click 的延迟, 还可以防止 穿透(跨页面穿透除外), 嘿嘿嘿</li>
+<li>区域滚动 overflow:auto 不靠谱<ul>
+<li>iscroll</li>
+<li>saber-scroll</li>
+</ul>
+</li>
+<li>hammerjs. 一个触摸手势库</li>
+<li>食指点击目标尺寸是44 x 44像素，拇指是72 x72像素 finger friendly design</li>
+<li><code>-WEBKIT-TAP-HIGHLIGHT-COLOR: RGBA(255,255,255,0)</code>，可以屏蔽点击元素时出现的阴影, 常用于有事件代理的父元素</li>
+<li>font icon：矢量图标, 自由变化大小, 颜色; 妈妈再也不用担心我的切图</li>
+<li>base64：减少一个请求, 首屏图片无延迟; 图片没法gzip，而css可以</li>
+<li>lazyload：有流量就会放肆，没流量就会克制</li>
+</ul>
+<h3 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h3><ul>
+<li>合理使用渐变/圆角/阴影</li>
+<li>别太多, 低端机 hold 不住</li>
+<li>代替js动画</li>
+<li><p>性能好, 兼容好, why not?</p>
+</li>
+<li><p>translate3d：开启GPU硬件加速, 提升动画渲染性能</p>
+</li>
+</ul>
+<h3 id="避免事项"><a href="#避免事项" class="headerlink" title="避免事项"></a>避免事项</h3><ul>
+<li>localStorage：每个域的最大长度为5MB</li>
+<li><p>iframe：卡 cry, viewport 失效, iOS 宽高失效, fixed定位错误</p>
+</li>
+<li><p>fixed + input什么仇什么怨</p>
+</li>
+<li>移动商桥 ios/android 分版本 hack</li>
+</ul>
+<h3 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h3><ul>
+<li><p>安卓chrome远程调试<br>chrome://inspect/#devices</p>
+</li>
+<li><p>weinre<br>npm安装：npm install -g weinre<br>启动weinre：weinre –boundHost -all- –httpPort 8081</p>
+</li>
+<li><p>browserSync 神器推荐</p>
+</li>
+</ul>
+<h2 id="移动前端不得不了解的HTML5-head-头标签"><a href="#移动前端不得不了解的HTML5-head-头标签" class="headerlink" title="移动前端不得不了解的HTML5 head 头标签"></a>移动前端不得不了解的HTML5 head 头标签</h2><p><a href="http://www.css88.com/archives/6410" target="_blank" rel="external">移动前端不得不了解的HTML5 head 头标签（2016最新版）</a></p>
+<h3 id="基本标签"><a href="#基本标签" class="headerlink" title="基本标签"></a>基本标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"x-ua-compatible"</span> <span class="attribute">content</span>=<span class="value">"ie=edge"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--移动端的页面这个可以忽略，具体可以查看本文Internet Explorer浏览器部分--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--具体可以查看本文 为移动设备添加 viewport 部分--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 以上 3 个 meta 标签 *必须* 放在 head 的最前面；其他任何的 head 内容必须在这些标签的 *后面* --&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span> <span class="comment">&lt;!-- 使用 HTML5 doctype，不区分大小写 --&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Charset"><a href="#Charset" class="headerlink" title="Charset"></a>Charset</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>html5 之前网页中会这样写：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=utf-8"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="lang属性："><a href="#lang属性：" class="headerlink" title="lang属性："></a>lang属性：</h3><p>简体中文：<code>&lt;html lang=&quot;zh-cmn-Hans&quot;&gt;</code><br>繁体中文：<code>&lt;html lang=&quot;zh-cmn-Hant&quot;&gt;</code></p>
+<h3 id="meta标签分类："><a href="#meta标签分类：" class="headerlink" title="meta标签分类："></a>meta标签分类：</h3><p>meta标签根据属性的不同，可分为两大部分：http-equiv 和 name 属性。</p>
+<ul>
+<li>http-equiv：相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助浏览器正确地显示网页内容。</li>
+<li>name属性：主要用于描述网页，与之对应的属性值为content，content中的内容主要是便于浏览器，搜索引擎等机器人识别，等等。</li>
+</ul>
+<h3 id="推荐使用的meta标签"><a href="#推荐使用的meta标签" class="headerlink" title="推荐使用的meta标签:"></a>推荐使用的meta标签:</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 设置文档的字符编码 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"x-ua-compatible"</span> <span class="attribute">content</span>=<span class="value">"ie=edge"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1, shrink-to-fit=no"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 以上 3 个 meta 标签 *必须* 放在 head 的最前面；其他任何的 head 内容必须在这些标签的 *后面* --&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 允许控制资源的过度加载 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Security-Policy"</span> <span class="attribute">content</span>=<span class="value">"default-src 'self'"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 尽早地放置在文档中 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 仅应用于该标签下的内容 --&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- Web 应用的名称（仅当网站被用作为一个应用时才使用）--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"application-name"</span> <span class="attribute">content</span>=<span class="value">"应用名称"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 针对页面的简短描述（限制 150 字符）--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 在*某些*情况下，该描述是被用作搜索结果展示片段的一部分 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"description"</span> <span class="attribute">content</span>=<span class="value">"一个页面描述"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 控制搜索引擎的抓取和索引行为 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"robots"</span> <span class="attribute">content</span>=<span class="value">"index,follow,noodp"</span>&gt;</span><span class="comment">&lt;!-- 所有的搜索引擎 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"googlebot"</span> <span class="attribute">content</span>=<span class="value">"index,follow"</span>&gt;</span><span class="comment">&lt;!-- 仅对 Google 有效 --&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 告诉 Google 不显示网站链接的搜索框 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"google"</span> <span class="attribute">content</span>=<span class="value">"nositelinkssearchbox"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 告诉 Google 不提供此页面的翻译 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"google"</span> <span class="attribute">content</span>=<span class="value">"notranslate"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 验证 Google 搜索控制台的所有权 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"google-site-verification"</span> <span class="attribute">content</span>=<span class="value">"verification_token"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 用来命名软件或用于构建网页（如 - WordPress、Dreamweaver）--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"generator"</span> <span class="attribute">content</span>=<span class="value">"program"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 关于你的网站主题的简短描述 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"subject"</span> <span class="attribute">content</span>=<span class="value">"你的网站主题"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 非常简短（少于 10 个字）的描述。主要用于学术论文。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"abstract"</span> <span class="attribute">content</span>=<span class="value">""</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 完整的域名或网址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"url"</span> <span class="attribute">content</span>=<span class="value">"https://example.com/"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"directory"</span> <span class="attribute">content</span>=<span class="value">"submission"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 基于网站内容给出一般的年龄分级 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"rating"</span> <span class="attribute">content</span>=<span class="value">"General"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 允许控制 referrer 信息如何传递 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"referrer"</span> <span class="attribute">content</span>=<span class="value">"never"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 禁用自动检测和格式化可能的电话号码 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"format-detection"</span> <span class="attribute">content</span>=<span class="value">"telephone=no"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 通过设置为 “off” 完全退出 DNS 预取 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"x-dns-prefetch-control"</span> <span class="attribute">content</span>=<span class="value">"off"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 在客户端存储 cookie，web 浏览器的客户端识别 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"set-cookie"</span> <span class="attribute">content</span>=<span class="value">"name=value; expires=date; path=url"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 指定要显示在一个特定框架中的页面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Window-Target"</span> <span class="attribute">content</span>=<span class="value">"_value"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">&lt;!-- 地理标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"ICBM"</span> <span class="attribute">content</span>=<span class="value">"latitude, longitude"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"geo.position"</span> <span class="attribute">content</span>=<span class="value">"latitude;longitude"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 国家代码 (ISO 3166-1): 强制性, 州代码 (ISO 3166-2): 可选; 如 content="US" / content="US-NY" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"geo.region"</span> <span class="attribute">content</span>=<span class="value">"country[-state]"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 如 content="New York City" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"geo.placename"</span> <span class="attribute">content</span>=<span class="value">"city/town"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="SEO-优化部分："><a href="#SEO-优化部分：" class="headerlink" title="SEO 优化部分："></a>SEO 优化部分：</h3><ul>
+<li><p>页面标题标签(head 头部必须)：<br><code>&lt;title&gt;your title&lt;/title&gt;</code></p>
+</li>
+<li><p>页面关键词 keywords：<br><code>&lt;meta name=&quot;keywords&quot; content=&quot;your keywords&quot;&gt;</code></p>
+</li>
+<li><p>页面描述内容 description：<br><code>&lt;meta name=&quot;description&quot; content=&quot;your description&quot;&gt;</code></p>
+</li>
+<li><p>定义网页作者 author：<br><code>&lt;meta name=&quot;author&quot; content=&quot;author,email address&quot;&gt;</code></p>
+</li>
+<li><p>定义网页搜索引擎索引方式，robotterms 是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。<br><code>&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;&gt;</code></p>
+</li>
+</ul>
+<h3 id="favicon-图标"><a href="#favicon-图标" class="headerlink" title="favicon 图标"></a>favicon 图标</h3><p>IE 11, Chrome, Firefox, Safari, Opera支持设置：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"icon"</span> <span class="attribute">href</span>=<span class="value">"path/to/favicon-16.png"</span> <span class="attribute">sizes</span>=<span class="value">"16x16"</span> <span class="attribute">type</span>=<span class="value">"image/png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"icon"</span> <span class="attribute">href</span>=<span class="value">"path/to/favicon-32.png"</span> <span class="attribute">sizes</span>=<span class="value">"32x32"</span> <span class="attribute">type</span>=<span class="value">"image/png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"icon"</span> <span class="attribute">href</span>=<span class="value">"path/to/favicon-48.png"</span> <span class="attribute">sizes</span>=<span class="value">"48x48"</span> <span class="attribute">type</span>=<span class="value">"image/png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"icon"</span> <span class="attribute">href</span>=<span class="value">"path/to/favicon-62.png"</span> <span class="attribute">sizes</span>=<span class="value">"62x62"</span> <span class="attribute">type</span>=<span class="value">"image/png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"icon"</span> <span class="attribute">href</span>=<span class="value">"path/to/favicon-192.png"</span> <span class="attribute">sizes</span>=<span class="value">"192x192"</span> <span class="attribute">type</span>=<span class="value">"image/png"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="viewport"><a href="#viewport" class="headerlink" title="viewport"></a>viewport</h3><ul>
+<li><p>viewport 可以让布局在移动浏览器上显示的更好。 通常会写：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>width=device-width 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边(<a href="http://bigc.at/ios-webapp-viewport-meta.orz" target="_blank" rel="external">http://bigc.at/ios-webapp-viewport-meta.orz</a>)</p>
+</li>
+<li><p>content 参数：<br>  width viewport 宽度(数值/device-width)<br>  height viewport 高度(数值/device-height)<br>  initial-scale 初始缩放比例<br>  maximum-scale 最大缩放比例<br>  minimum-scale 最小缩放比例<br>  user-scalable 是否允许用户缩放(yes/no)</p>
+</li>
+<li><p>示例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span></span><br><span class="line">  <span class="attribute">content</span>=<span class="value">"width=device-width,</span><br><span class="line">           height=device-height,</span><br><span class="line">           inital-scale=1.0,</span><br><span class="line">           maximum-scale=1.0,</span><br><span class="line">           user-scalable=no;"</span></span><br><span class="line">           /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="MobileWeb-适配总结"><a href="#MobileWeb-适配总结" class="headerlink" title="MobileWeb 适配总结"></a>MobileWeb 适配总结</h2><p><a href="www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/">MobileWeb 适配总结</a></p>
+<ol>
+<li>固定高度，宽度自适应</li>
+<li>flex</li>
+<li>使用rem来</li>
+</ol>
+<h2 id="浅谈移动前端的最佳实践"><a href="#浅谈移动前端的最佳实践" class="headerlink" title="浅谈移动前端的最佳实践"></a>浅谈移动前端的最佳实践</h2><p><a href="http://www.cnblogs.com/yexiaochai/p/4219523.html" target="_blank" rel="external">浅谈移动前端的最佳实践</a></p>
+<h3 id="单页or多页："><a href="#单页or多页：" class="headerlink" title="单页or多页："></a>单页or多页：</h3><p>spa也就是我们常常说的web应用程序webapp，被认为是业内的发展趋势，主要有两个优点：</p>
+<ul>
+<li>用户体验好</li>
+<li>可以更好的降低服务器压力<br>但是单页有几个致命的缺点：</li>
+<li>SEO支持不好，往往需要单独写程序处理SEO问题</li>
+<li>webapp本身的内存管理难，Javascript、Css非常容易互相影响</li>
+</ul>
+<h3 id="Jquery-VS-Zepto"><a href="#Jquery-VS-Zepto" class="headerlink" title="Jquery VS Zepto"></a>Jquery VS Zepto</h3><p>主要对比在使用场景：jQuery体积大，兼容性好，Zepto体积小，兼容性不够，适用于移动端</p>
+<h3 id="MVC框架选择"><a href="#MVC框架选择" class="headerlink" title="MVC框架选择"></a>MVC框架选择</h3><p>总结一句：不建议直接将业务库框架直接取来使用，更不建议使用过重的业务框架，最好是能明白框架想要解决的问题，与自己项目的实际需求，自己造轮子知根知底。</p>
+<h3 id="框架建议"><a href="#框架建议" class="headerlink" title="框架建议"></a>框架建议</h3><ul>
+<li>第三方库（基础库）：<br>requireJS+Zepto+阉割版underscore（将其中不太用到的方法去掉，主要使用模板引擎一块）+ Fastclick</li>
+<li>MVC库/UI库：<br>建议自己写，不要太臃肿，可以抄袭，可以借鉴，不要完全拿来就用<br>这样出来的一套框架比较轻量级，知根知底，不会出现改不动的情况，最后提一句：不经过调研，没有实际场景在框架中玩模式，玩高级理念死得快，不要为技术而技术。</li>
+</ul>
+<h3 id="性能，网站是如何变慢的？"><a href="#性能，网站是如何变慢的？" class="headerlink" title="性能，网站是如何变慢的？"></a>性能，网站是如何变慢的？</h3><ul>
+<li>尺寸——慢的根源<br>  所以，尺寸变大的主要原因是因为冗余代码的产生，如何消除冗余代码是一个重点，也是一个难点。</li>
+<li>版本轮替——哪些能删的痛点<br>  业务团队不要依赖于框架的任何dom结构与css样式，特别不要将UI组件中的dom结构与样式单独抠出来使用，否则就准备肥皂吧</li>
+</ul>
+<p>网络请求，请求是前端优化的生命，优化到最后，优化到极致，都会在请求数、请求量上做文章，常用并且实用的手段有：</p>
+<h4 id="CSS冗余的解决方案"><a href="#CSS冗余的解决方案" class="headerlink" title="CSS冗余的解决方案"></a>CSS冗余的解决方案</h4><ul>
+<li>CSS Sprites：CSS Sprites可以有效的减低请求数，偶尔还可以降低请求量，但是随着发展，可能会有以下问题：<ul>
+<li>新增难</li>
+<li>删除难</li>
+<li>调整难</li>
+<li>响应式</li>
+</ul>
+</li>
+</ul>
+<h4 id="快的假象"><a href="#快的假象" class="headerlink" title="快的假象"></a>快的假象</h4><ol>
+<li>lazyload：<br> 我们常说的延迟加载是图片延迟加载，其实非图片也可延迟加载，看实际需求即可。<ul>
+<li>为img标签src设置统一的图片链接，而将真实链接地址装在自定义属性中。</li>
+<li>所以开始时候图片是不会加载的，我们将满足条件的图片的src重置为自定义属性便可实现延迟加载功能</li>
+</ul>
+</li>
+<li>fake页面：<br> 一个静态HTML页面，装载首屏的基本内容，让首页快速显示，然后js加载结束后会马上重新渲染整个页面，这个样子，用户就可以很快的看到页面响应，给用户一个快的错觉</li>
+<li>预加载：<br> 这里的预加载是在浏览器空闲的时候加载后续页面所需资源，是一种浪费用户流量的行为，属于以空间换时间的做法，实施难度也比较高。预加载的前提是不影响主程序的情况下偷偷的加载，也就是在浏览器空闲的时候加载，但是浏览器空闲似乎变得不可控制</li>
+</ol>
+<h4 id="合并脚本js文件"><a href="#合并脚本js文件" class="headerlink" title="合并脚本js文件"></a>合并脚本js文件</h4><ol>
+<li>为什么要降低请求数？<br> 每次http请求都会带上一些额外信息，会导致其它开销，比如域名解析、开启连接、发送请求等操作，上述spirit也因此产生。</li>
+<li>浏览器并发数<br> chrome在请求资源下会有所限制，移动端的限制普遍在6个左右，这个时候在并发数被占满时，你的ajax便会被搁置，这在webapp中情况更加常见，所以网络限制的情况下请求数控制是必要的，而且可以降低服务器端的压力。</li>
+</ol>
+<h4 id="离线存储"><a href="#离线存储" class="headerlink" title="离线存储"></a>离线存储</h4><p>工作中实际使用的离线缓存有localstorage与Application cache，这两个皆是好东西，一个常用于ajax请求缓存，一个常用于静态资源缓存。</p>
+<h3 id="移动革命——Hybrid"><a href="#移动革命——Hybrid" class="headerlink" title="移动革命——Hybrid"></a>移动革命——Hybrid</h3><ul>
+<li>拒绝native UI</li>
+<li>交互模型 <a href="http://images.cnitblog.com/blog/294743/201501/201903092504221.png" target="_blank" rel="external">http://images.cnitblog.com/blog/294743/201501/201903092504221.png</a></li>
+<li>Hybrid的调试</li>
+<li>多webview</li>
+</ul>
+<h3 id="不恰当的需求"><a href="#不恰当的需求" class="headerlink" title="不恰当的需求"></a>不恰当的需求</h3><ul>
+<li>唤醒app</li>
+<li>回退关闭弹出层</li>
+<li>全站IScroll化</li>
+</ul>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 幻世当空，恩怨休怀，舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="移动WEB开发入门"><a h"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>

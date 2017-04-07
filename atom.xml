@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2017-03-12T18:47:04.703Z</updated>
+  <updated>2017-04-07T22:10:48.646Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -14,6 +14,235 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端之旅第 234~273 天</title>
+    <link href="http://archmee.github.io/201704/2017-04-08.html"/>
+    <id>http://archmee.github.io/201704/2017-04-08.html</id>
+    <published>2017-04-07T16:00:00.000Z</published>
+    <updated>2017-04-07T22:10:48.646Z</updated>
+    
+    <content type="html">&lt;p&gt;这可能是一篇流水账，但是用来梳理这40天都干了什么事情是一件很有意义的事情，尤其是对我自己而言。&lt;br&gt;首先，上一篇博客最后留下的计划都没有实现，因为我似乎忘了一件很重要的事情，那就是 &lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0004&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE2015 task4&lt;/a&gt; 还没有完成，我决定尝试一下。当然，计划往往就不是用来实现的。&lt;/p&gt;
+&lt;h2 id=&quot;事件大纲&quot;&gt;&lt;a href=&quot;#事件大纲&quot; class=&quot;headerlink&quot; title=&quot;事件大纲&quot;&gt;&lt;/a&gt;事件大纲&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;3月初 开始学习IFE2015 task4提供的移动端开发入门资料&lt;/li&gt;
+&lt;li&gt;3.13 完成了第一条，并准备开始实践——重构任务3之适配移动端&lt;/li&gt;
+&lt;li&gt;3.21 看了一本叫《SPA设计与架构》的书，在上一条开始后我并没有马上动手，而是买了这本书，书是好书，并且对比了几种框架来学习，并且围绕前端工程化讲解了SPA路由、模块化（requirejs）、自动构建（gulp）、单元测试（Qunit）、服务端通信和Promise的用法。但是目前对我的移动端适配一点用处都没有，而且还不打算对任务3进行完全重构，采用工具是后面的事情，但是这本书从思想上算是帮我拨开了重重迷雾。（有空上学习笔记）&lt;/li&gt;
+&lt;li&gt;3.31 完成移动端布局适配并在模拟器上成功测试，但是在真机测试时发现了诸多问题，并开始改进，有些什么样的问题以及如何解决的方案都在后面&lt;/li&gt;
+&lt;li&gt;4.5 已经解决了移动端真机上大部分问题，并且对界面做了很多美化调整和css的合并工作，&lt;/li&gt;
+&lt;li&gt;4.6至7 重构分类模块，改写了用户提示部分的功能，重构带到的目的写在后面。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;适配移动端遇到的问题&quot;&gt;&lt;a href=&quot;#适配移动端遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;适配移动端遇到的问题&quot;&gt;&lt;/a&gt;适配移动端遇到的问题&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;在没有处理手势的情况下，几个定宽100%的页面之间可以直接通过手指滚动，而且从页面底部的横向导航条可以看出宽度不是不是100%而是200%或者更多&lt;br&gt; 原因: 几个内部page虽然都是100%，但同时也是absolute定位，所以影响了外层main&lt;br&gt; 解决：对外层main绝对定位并定宽100%以及指定overflow为hidden&lt;/li&gt;
+&lt;li&gt;打开app隐藏工具栏&lt;br&gt; 解决：好吧，这条我用别人推荐的setTimeout+scrollTop方法没实现，只能手动上滑隐藏&lt;/li&gt;
+&lt;li&gt;添加编辑任务的页面有几个问题&lt;ul&gt;
+&lt;li&gt;input text内的文字位置不对&lt;br&gt;  解决：input text继承了父元素的line-height高度导致的，重新指定为text框一样的高度即可&lt;/li&gt;
+&lt;li&gt;input date不能弹出日期选择器&lt;br&gt;  解决，因为之前在js中处理了指定的事件后就阻止了其他地方单击事件的行为，结果误杀了&lt;/li&gt;
+&lt;li&gt;字体太小需要调整&lt;br&gt;  解决：使用rem&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;页面的滚动动画在qq浏览器中可以，但是在默认的红米2自带浏览器中却直接跳转，省略了中间的过渡动画，搜索得知该浏览器是opera的。&lt;br&gt; 原因：手机浏览器内核比较旧，不支持CSS3标准&lt;br&gt; 解决：在page类的规则中transition要写成带浏览器前缀的兼容方式，后面不指定对哪种行为的过渡，如果要指定transform，那就要写成带浏览器前缀的transform，比如-webkit-transition: -webkit-transform;）&lt;/li&gt;
+&lt;li&gt;页内区域滚动不方便甚至滚不动&lt;br&gt; 解决，要在加了overflow=auto希望滚动的绝对定位元素的外层绝对定位元素加上overflow=hidden，其他条件我没试过，只是我的情况刚好是这样&lt;/li&gt;
+&lt;li&gt;-webkit-内核的浏览器点击元素闪烁问题&lt;br&gt; 解决：-webkit-tap-highlight-color: transparent;&lt;/li&gt;
+&lt;li&gt;ipad上对transform实现的翻页效果不感冒，中间会白屏闪烁，而且对hover类不起作用，长按也不行&lt;br&gt; 解决：绑定ontuchend事件，事件处理函数为空即可，同时解决了这两个问题。&lt;/li&gt;
+&lt;li&gt;如何让一组按钮在容器中水平垂直居中 &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;btns&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;display&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; table&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;number&quot;&gt;100%&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;number&quot;&gt;100%&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;.btns&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;.btns-inner&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;display&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; table-cell&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;text-align&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; center&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;vertical-align&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; middle&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;重构带来的变化&quot;&gt;&lt;a href=&quot;#重构带来的变化&quot; class=&quot;headerlink&quot; title=&quot;重构带来的变化&quot;&gt;&lt;/a&gt;重构带来的变化&lt;/h2&gt;&lt;p&gt;我不是全部重构，只是单单对分类模块的数据存储的方式一直耿耿于怀。虽然还做了其他代码清理工作，但都不是重点。&lt;br&gt;之前有一篇博客我记录了实现task3的思路，以及数据存储方式。所有分类用key值存储在一个对象中，然后将这个汇总的对象用了一个名为category_list的key存进了localStorage，每次打开app都要加载分类数据，而且仅仅只有这一次读取，这个分类被读出后就一直保存在内存中使用直到关闭app或网页，每次分类数据发生变更则直接更改内存中的对象，然后再次更新到localStorage。&lt;br&gt;app当然还是可以运行，但是这种实现有什么问题？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优点：这个方法的优点就是一次读取，终身使用（app打开期间），由于分类保存在内存中，所以每当分类有新的更新或读取操作都会很快，但是我的理解是，分类这个东西一般只在某一段时间高频率的添加删除更新数据，一般分类创建后后期更新非常少，更多的时候大家都是对任务操作频率更高一点。&lt;br&gt;还有一个优点是由于我的分类设计为多级的（不限），所以整个category不管数据还是DOM都是以树状结构呈现的，所以要遍历category树是肯定的，所以直接从内存读取速度也会很快，但是仅限于app打开时的首次加载。&lt;/li&gt;
+&lt;li&gt;缺点：一次读取所有分类数据在app运行期间一直滞留在内存中很少使用，严重浪费内存，这一条已经足够了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我用表格来模拟一下在重构前后localStorage的变化&lt;br&gt;重构前：&lt;br&gt;| key      |    Value |&lt;br&gt;| ——– | ——– |&lt;br&gt;| category_list  | [分类对象1, 分类对象2, 分类对象3] |&lt;br&gt;| todoid1     |   todo对象 |&lt;br&gt;| … | … |&lt;/p&gt;
+&lt;p&gt;重构后：&lt;br&gt;| key      |    Value |&lt;br&gt;| ——– | ——– |&lt;br&gt;| topCatId  | catid1 |&lt;br&gt;| catid1  | 分类对象 |&lt;br&gt;| todoid1     |   todo对象 |&lt;br&gt;| … | … |&lt;/p&gt;
+&lt;p&gt;可能有人发现多出了一个topCatId，好吧，其实前面忘了交代，考虑到让整个category更像只有一个根节点的树状，所以我要维护一个“顶级分类”，顶级分类下的子分类就是一级分类，下面的依次类推，而顶级分类仍然是一个分类对象，所以他要和其他分类放在一起组成一张“表”，所以我要拿到它的id确保它就是根节点。&lt;/p&gt;
+&lt;p&gt;重构之前也是有这个topCatId存在的，只是他没有被放置在localStorage中，而是写死在了程序中，那也就意味着不够灵活，如果发生变更，尤其是在程序员在更新程序时将其改变，那么也就意味着老用户在打开同一个网站或app时看不到原来的数据或者发生错误，因为程序在localStorage中得不到正确的数据，虽然用户原来的数据都还在。&lt;/p&gt;
+&lt;p&gt;而重构之后的方法则更为灵活，在程序初始化时，会读取topCatId，如果有，则开始遍历分类树了，如果没有，则新建一个“顶级分类”，将顶级分类的id存储为topCatId即可。perfect！&lt;/p&gt;
+&lt;h2 id=&quot;PC和客户端展示&quot;&gt;&lt;a href=&quot;#PC和客户端展示&quot; class=&quot;headerlink&quot; title=&quot;PC和客户端展示&quot;&gt;&lt;/a&gt;PC和客户端展示&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/201704080055.png&quot; alt=&quot;GTD tool pc端&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/201704080055.gif&quot; alt=&quot;GTD tool 移动端&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;The-Next&quot;&gt;&lt;a href=&quot;#The-Next&quot; class=&quot;headerlink&quot; title=&quot;The Next&quot;&gt;&lt;/a&gt;The Next&lt;/h2&gt;&lt;p&gt;下一步就是学习nodejs、es6、vue2、less、sass、gulp、webpack、requirejs、seajs&lt;br&gt;等balabalabalabala，计划总是会变的，who knows！&lt;br&gt;&lt;img src=&quot;http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_org.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://junmer.github.io/mobile-dev-get-started/#/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://junmer.github.io/mobile-dev-get-started/#/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/jtyjty99999/mobileTech&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/jtyjty99999/mobileTech&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/21&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/21&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/22&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/22&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/23&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/23&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/32&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/32&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.css88.com/archives/6410&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.css88.com/archives/6410&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://isux.tencent.com/web-app-rem.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://isux.tencent.com/web-app-rem.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/yexiaochai/p/4219523.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/yexiaochai/p/4219523.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/rubyisaPM/p/4380056.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/rubyisaPM/p/4380056.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.html-js.com/article/2402&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.html-js.com/article/2402&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.html-js.com/article/2400&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.html-js.com/article/2400&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cplus.com/css3/css3-3d-transform.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3cplus.com/css3/css3-3d-transform.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cplus.com/blog/tags/429.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3cplus.com/blog/tags/429.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这可能是一篇流水账，但是用来梳理这40天都干了什么事情是一件很有意义的事情，尤其是对我自己而言。&lt;br&gt;首先，上一篇博客最后留下的计划都没有实现，因为我似乎忘了一件很重要的事情，那就是 &lt;a href=&quot;https://github.com/baidu-ife/ife/tr
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+      <category term="web app" scheme="http://archmee.github.io/tags/web-app/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>移动WEB开发入门学习笔记</title>
+    <link href="http://archmee.github.io/201703/2017-03-13.html"/>
+    <id>http://archmee.github.io/201703/2017-03-13.html</id>
+    <published>2017-03-12T16:00:00.000Z</published>
+    <updated>2017-04-07T22:02:48.290Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;移动WEB开发入门&quot;&gt;&lt;a href=&quot;#移动WEB开发入门&quot; class=&quot;headerlink&quot; title=&quot;移动WEB开发入门&quot;&gt;&lt;/a&gt;移动WEB开发入门&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://junmer.github.io/mobile-dev-get-started/#/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;移动WEB开发入门&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;单位&quot;&gt;&lt;a href=&quot;#单位&quot; class=&quot;headerlink&quot; title=&quot;单位&quot;&gt;&lt;/a&gt;单位&lt;/h3&gt;&lt;p&gt;px - 固定大小&lt;br&gt;em: 是相对父元素的字体大小单位&lt;br&gt;rem: 是相对根元素的字体大小单位，可用于多屏适配，统一修改&lt;/p&gt;
+&lt;h3 id=&quot;横竖屏&quot;&gt;&lt;a href=&quot;#横竖屏&quot; class=&quot;headerlink&quot; title=&quot;横竖屏&quot;&gt;&lt;/a&gt;横竖屏&lt;/h3&gt;&lt;p&gt;监听横竖屏切换&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.addEventListener(&lt;span class=&quot;string&quot;&gt;&#39;orientationchange&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;comment&quot;&gt;// rerender something&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;针对横竖屏的样式&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;style&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;media&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;all and (orientation:portrait)&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;css&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/* 竖屏 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;style&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;style&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;media&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;all and (orientation:landscape)&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;css&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;/* 横屏 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;style&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;兼容Flex：&quot;&gt;&lt;a href=&quot;#兼容Flex：&quot; class=&quot;headerlink&quot; title=&quot;兼容Flex：&quot;&gt;&lt;/a&gt;兼容Flex：&lt;/h3&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;.page-wrap&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;display&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; -webkit-box&lt;/span&gt;&lt;/span&gt;;      &lt;span class=&quot;comment&quot;&gt;/* OLD - iOS 6-, Safari 3.1-6 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;display&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; -moz-box&lt;/span&gt;&lt;/span&gt;;         &lt;span class=&quot;comment&quot;&gt;/* OLD - Firefox 19- (buggy but mostly works) */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;display&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; -ms-flexbox&lt;/span&gt;&lt;/span&gt;;      &lt;span class=&quot;comment&quot;&gt;/* TWEENER - IE 10 */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;display&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; -webkit-flex&lt;/span&gt;&lt;/span&gt;;     &lt;span class=&quot;comment&quot;&gt;/* NEW - Chrome */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;display&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; flex&lt;/span&gt;&lt;/span&gt;;             &lt;span class=&quot;comment&quot;&gt;/* NEW, Spec - Opera 12.1, Firefox 20+ */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;打开数字键盘：&quot;&gt;&lt;a href=&quot;#打开数字键盘：&quot; class=&quot;headerlink&quot; title=&quot;打开数字键盘：&quot;&gt;&lt;/a&gt;打开数字键盘：&lt;/h3&gt;&lt;p&gt; &lt;code&gt;&amp;lt;input type=&amp;quot;tel&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;隐藏地址栏：-setTimeout-function-window-scrollTo-0-1-0&quot;&gt;&lt;a href=&quot;#隐藏地址栏：-setTimeout-function-window-scrollTo-0-1-0&quot; class=&quot;headerlink&quot; title=&quot;隐藏地址栏： setTimeout(function(){ window.scrollTo(0, 1); }, 0);&quot;&gt;&lt;/a&gt;隐藏地址栏： &lt;code&gt;setTimeout(function(){ window.scrollTo(0, 1); }, 0);&lt;/code&gt;&lt;/h3&gt;&lt;h3 id=&quot;添加到主屏幕&quot;&gt;&lt;a href=&quot;#添加到主屏幕&quot; class=&quot;headerlink&quot; title=&quot;添加到主屏幕&quot;&gt;&lt;/a&gt;添加到主屏幕&lt;/h3&gt;&lt;p&gt;在iPhone,iPad,iTouch的safari上可以使用添加到主屏按钮将网站添加到主屏幕上：&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;apple-touch-icon&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;apple-touch-icon-iphone.png&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;apple-touch-icon&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;sizes&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;72x72&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;apple-touch-icon-ipad.png&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;apple-touch-icon&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;sizes&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;114x114&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;apple-touch-icon-iphone4.png&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;工具或库：&quot;&gt;&lt;a href=&quot;#工具或库：&quot; class=&quot;headerlink&quot; title=&quot;工具或库：&quot;&gt;&lt;/a&gt;工具或库：&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;click 有 300± ms 延迟 服用 &lt;a href=&quot;https://github.com/ftlabs/fastclick&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;fastclick&lt;/a&gt; 后, 可以解决 click 的延迟, 还可以防止 穿透(跨页面穿透除外), 嘿嘿嘿&lt;/li&gt;
+&lt;li&gt;区域滚动 overflow:auto 不靠谱&lt;ul&gt;
+&lt;li&gt;iscroll&lt;/li&gt;
+&lt;li&gt;saber-scroll&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;hammerjs. 一个触摸手势库&lt;/li&gt;
+&lt;li&gt;食指点击目标尺寸是44 x 44像素，拇指是72 x72像素 finger friendly design&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-WEBKIT-TAP-HIGHLIGHT-COLOR: RGBA(255,255,255,0)&lt;/code&gt;，可以屏蔽点击元素时出现的阴影, 常用于有事件代理的父元素&lt;/li&gt;
+&lt;li&gt;font icon：矢量图标, 自由变化大小, 颜色; 妈妈再也不用担心我的切图&lt;/li&gt;
+&lt;li&gt;base64：减少一个请求, 首屏图片无延迟; 图片没法gzip，而css可以&lt;/li&gt;
+&lt;li&gt;lazyload：有流量就会放肆，没流量就会克制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;CSS3&quot;&gt;&lt;a href=&quot;#CSS3&quot; class=&quot;headerlink&quot; title=&quot;CSS3&quot;&gt;&lt;/a&gt;CSS3&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;合理使用渐变/圆角/阴影&lt;/li&gt;
+&lt;li&gt;别太多, 低端机 hold 不住&lt;/li&gt;
+&lt;li&gt;代替js动画&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;性能好, 兼容好, why not?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;translate3d：开启GPU硬件加速, 提升动画渲染性能&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;避免事项&quot;&gt;&lt;a href=&quot;#避免事项&quot; class=&quot;headerlink&quot; title=&quot;避免事项&quot;&gt;&lt;/a&gt;避免事项&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;localStorage：每个域的最大长度为5MB&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;iframe：卡 cry, viewport 失效, iOS 宽高失效, fixed定位错误&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;fixed + input什么仇什么怨&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;移动商桥 ios/android 分版本 hack&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;调试&quot;&gt;&lt;a href=&quot;#调试&quot; class=&quot;headerlink&quot; title=&quot;调试&quot;&gt;&lt;/a&gt;调试&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;安卓chrome远程调试&lt;br&gt;chrome://inspect/#devices&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;weinre&lt;br&gt;npm安装：npm install -g weinre&lt;br&gt;启动weinre：weinre –boundHost -all- –httpPort 8081&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;browserSync 神器推荐&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;移动前端不得不了解的HTML5-head-头标签&quot;&gt;&lt;a href=&quot;#移动前端不得不了解的HTML5-head-头标签&quot; class=&quot;headerlink&quot; title=&quot;移动前端不得不了解的HTML5 head 头标签&quot;&gt;&lt;/a&gt;移动前端不得不了解的HTML5 head 头标签&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.css88.com/archives/6410&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;移动前端不得不了解的HTML5 head 头标签（2016最新版）&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;基本标签&quot;&gt;&lt;a href=&quot;#基本标签&quot; class=&quot;headerlink&quot; title=&quot;基本标签&quot;&gt;&lt;/a&gt;基本标签&lt;/h3&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;charset&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;http-equiv&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;x-ua-compatible&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;ie=edge&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--移动端的页面这个可以忽略，具体可以查看本文Internet Explorer浏览器部分--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;width=device-width, initial-scale=1&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--具体可以查看本文 为移动设备添加 viewport 部分--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 以上 3 个 meta 标签 *必须* 放在 head 的最前面；其他任何的 head 内容必须在这些标签的 *后面* --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;DOCTYPE&quot;&gt;&lt;a href=&quot;#DOCTYPE&quot; class=&quot;headerlink&quot; title=&quot;DOCTYPE&quot;&gt;&lt;/a&gt;DOCTYPE&lt;/h3&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;doctype&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 使用 HTML5 doctype，不区分大小写 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Charset&quot;&gt;&lt;a href=&quot;#Charset&quot; class=&quot;headerlink&quot; title=&quot;Charset&quot;&gt;&lt;/a&gt;Charset&lt;/h3&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;charset&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;html5 之前网页中会这样写：&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;http-equiv&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;Content-Type&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/html; charset=utf-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;lang属性：&quot;&gt;&lt;a href=&quot;#lang属性：&quot; class=&quot;headerlink&quot; title=&quot;lang属性：&quot;&gt;&lt;/a&gt;lang属性：&lt;/h3&gt;&lt;p&gt;简体中文：&lt;code&gt;&amp;lt;html lang=&amp;quot;zh-cmn-Hans&amp;quot;&amp;gt;&lt;/code&gt;&lt;br&gt;繁体中文：&lt;code&gt;&amp;lt;html lang=&amp;quot;zh-cmn-Hant&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;meta标签分类：&quot;&gt;&lt;a href=&quot;#meta标签分类：&quot; class=&quot;headerlink&quot; title=&quot;meta标签分类：&quot;&gt;&lt;/a&gt;meta标签分类：&lt;/h3&gt;&lt;p&gt;meta标签根据属性的不同，可分为两大部分：http-equiv 和 name 属性。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;http-equiv：相当于http的文件头作用，它可以向浏览器传回一些有用的信息，以帮助浏览器正确地显示网页内容。&lt;/li&gt;
+&lt;li&gt;name属性：主要用于描述网页，与之对应的属性值为content，content中的内容主要是便于浏览器，搜索引擎等机器人识别，等等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;推荐使用的meta标签&quot;&gt;&lt;a href=&quot;#推荐使用的meta标签&quot; class=&quot;headerlink&quot; title=&quot;推荐使用的meta标签:&quot;&gt;&lt;/a&gt;推荐使用的meta标签:&lt;/h3&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;62&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;63&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;65&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;66&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;67&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;68&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;69&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;70&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 设置文档的字符编码 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;charset&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;http-equiv&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;x-ua-compatible&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;ie=edge&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 以上 3 个 meta 标签 *必须* 放在 head 的最前面；其他任何的 head 内容必须在这些标签的 *后面* --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 允许控制资源的过度加载 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;http-equiv&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;Content-Security-Policy&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;default-src &#39;self&#39;&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 尽早地放置在文档中 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 仅应用于该标签下的内容 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- Web 应用的名称（仅当网站被用作为一个应用时才使用）--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;application-name&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;应用名称&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 针对页面的简短描述（限制 150 字符）--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 在*某些*情况下，该描述是被用作搜索结果展示片段的一部分 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;description&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;一个页面描述&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 控制搜索引擎的抓取和索引行为 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;robots&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;index,follow,noodp&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 所有的搜索引擎 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;googlebot&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;index,follow&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 仅对 Google 有效 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 告诉 Google 不显示网站链接的搜索框 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;google&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;nositelinkssearchbox&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 告诉 Google 不提供此页面的翻译 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;google&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;notranslate&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 验证 Google 搜索控制台的所有权 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;google-site-verification&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;verification_token&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 用来命名软件或用于构建网页（如 - WordPress、Dreamweaver）--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;generator&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;program&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 关于你的网站主题的简短描述 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;subject&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;你的网站主题&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 非常简短（少于 10 个字）的描述。主要用于学术论文。--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;abstract&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 完整的域名或网址 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;url&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;https://example.com/&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;directory&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;submission&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 基于网站内容给出一般的年龄分级 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;rating&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;General&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 允许控制 referrer 信息如何传递 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;referrer&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;never&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 禁用自动检测和格式化可能的电话号码 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;format-detection&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;telephone=no&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 通过设置为 “off” 完全退出 DNS 预取 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;http-equiv&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;x-dns-prefetch-control&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;off&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 在客户端存储 cookie，web 浏览器的客户端识别 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;http-equiv&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;set-cookie&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;name=value; expires=date; path=url&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 指定要显示在一个特定框架中的页面 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;http-equiv&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;Window-Target&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;_value&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 地理标签 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;ICBM&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;latitude, longitude&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;geo.position&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;latitude;longitude&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 国家代码 (ISO 3166-1): 强制性, 州代码 (ISO 3166-2): 可选; 如 content=&quot;US&quot; / content=&quot;US-NY&quot; --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;geo.region&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;country[-state]&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 如 content=&quot;New York City&quot; --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;geo.placename&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;city/town&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;SEO-优化部分：&quot;&gt;&lt;a href=&quot;#SEO-优化部分：&quot; class=&quot;headerlink&quot; title=&quot;SEO 优化部分：&quot;&gt;&lt;/a&gt;SEO 优化部分：&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;页面标题标签(head 头部必须)：&lt;br&gt;&lt;code&gt;&amp;lt;title&amp;gt;your title&amp;lt;/title&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;页面关键词 keywords：&lt;br&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;keywords&amp;quot; content=&amp;quot;your keywords&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;页面描述内容 description：&lt;br&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;description&amp;quot; content=&amp;quot;your description&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;定义网页作者 author：&lt;br&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;author&amp;quot; content=&amp;quot;author,email address&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;定义网页搜索引擎索引方式，robotterms 是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。&lt;br&gt;&lt;code&gt;&amp;lt;meta name=&amp;quot;robots&amp;quot; content=&amp;quot;index,follow&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;favicon-图标&quot;&gt;&lt;a href=&quot;#favicon-图标&quot; class=&quot;headerlink&quot; title=&quot;favicon 图标&quot;&gt;&lt;/a&gt;favicon 图标&lt;/h3&gt;&lt;p&gt;IE 11, Chrome, Firefox, Safari, Opera支持设置：&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;icon&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;path/to/favicon-16.png&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;sizes&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;16x16&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;image/png&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;icon&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;path/to/favicon-32.png&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;sizes&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;32x32&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;image/png&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;icon&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;path/to/favicon-48.png&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;sizes&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;48x48&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;image/png&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;icon&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;path/to/favicon-62.png&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;sizes&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;62x62&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;image/png&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;icon&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;path/to/favicon-192.png&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;sizes&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;192x192&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;image/png&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;viewport&quot;&gt;&lt;a href=&quot;#viewport&quot; class=&quot;headerlink&quot; title=&quot;viewport&quot;&gt;&lt;/a&gt;viewport&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;viewport 可以让布局在移动浏览器上显示的更好。 通常会写：&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;width=device-width, initial-scale=1.0&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;width=device-width 会导致 iPhone 5 添加到主屏后以 WebApp 全屏模式打开页面时出现黑边(&lt;a href=&quot;http://bigc.at/ios-webapp-viewport-meta.orz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://bigc.at/ios-webapp-viewport-meta.orz&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;content 参数：&lt;br&gt;  width viewport 宽度(数值/device-width)&lt;br&gt;  height viewport 高度(数值/device-height)&lt;br&gt;  initial-scale 初始缩放比例&lt;br&gt;  maximum-scale 最大缩放比例&lt;br&gt;  minimum-scale 最小缩放比例&lt;br&gt;  user-scalable 是否允许用户缩放(yes/no)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;示例：&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;viewport&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attribute&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;width=device-width,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           height=device-height,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           inital-scale=1.0,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           maximum-scale=1.0,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           user-scalable=no;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;           /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;MobileWeb-适配总结&quot;&gt;&lt;a href=&quot;#MobileWeb-适配总结&quot; class=&quot;headerlink&quot; title=&quot;MobileWeb 适配总结&quot;&gt;&lt;/a&gt;MobileWeb 适配总结&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/&quot;&gt;MobileWeb 适配总结&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;固定高度，宽度自适应&lt;/li&gt;
+&lt;li&gt;flex&lt;/li&gt;
+&lt;li&gt;使用rem来&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;浅谈移动前端的最佳实践&quot;&gt;&lt;a href=&quot;#浅谈移动前端的最佳实践&quot; class=&quot;headerlink&quot; title=&quot;浅谈移动前端的最佳实践&quot;&gt;&lt;/a&gt;浅谈移动前端的最佳实践&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/yexiaochai/p/4219523.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;浅谈移动前端的最佳实践&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;单页or多页：&quot;&gt;&lt;a href=&quot;#单页or多页：&quot; class=&quot;headerlink&quot; title=&quot;单页or多页：&quot;&gt;&lt;/a&gt;单页or多页：&lt;/h3&gt;&lt;p&gt;spa也就是我们常常说的web应用程序webapp，被认为是业内的发展趋势，主要有两个优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用户体验好&lt;/li&gt;
+&lt;li&gt;可以更好的降低服务器压力&lt;br&gt;但是单页有几个致命的缺点：&lt;/li&gt;
+&lt;li&gt;SEO支持不好，往往需要单独写程序处理SEO问题&lt;/li&gt;
+&lt;li&gt;webapp本身的内存管理难，Javascript、Css非常容易互相影响&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Jquery-VS-Zepto&quot;&gt;&lt;a href=&quot;#Jquery-VS-Zepto&quot; class=&quot;headerlink&quot; title=&quot;Jquery VS Zepto&quot;&gt;&lt;/a&gt;Jquery VS Zepto&lt;/h3&gt;&lt;p&gt;主要对比在使用场景：jQuery体积大，兼容性好，Zepto体积小，兼容性不够，适用于移动端&lt;/p&gt;
+&lt;h3 id=&quot;MVC框架选择&quot;&gt;&lt;a href=&quot;#MVC框架选择&quot; class=&quot;headerlink&quot; title=&quot;MVC框架选择&quot;&gt;&lt;/a&gt;MVC框架选择&lt;/h3&gt;&lt;p&gt;总结一句：不建议直接将业务库框架直接取来使用，更不建议使用过重的业务框架，最好是能明白框架想要解决的问题，与自己项目的实际需求，自己造轮子知根知底。&lt;/p&gt;
+&lt;h3 id=&quot;框架建议&quot;&gt;&lt;a href=&quot;#框架建议&quot; class=&quot;headerlink&quot; title=&quot;框架建议&quot;&gt;&lt;/a&gt;框架建议&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;第三方库（基础库）：&lt;br&gt;requireJS+Zepto+阉割版underscore（将其中不太用到的方法去掉，主要使用模板引擎一块）+ Fastclick&lt;/li&gt;
+&lt;li&gt;MVC库/UI库：&lt;br&gt;建议自己写，不要太臃肿，可以抄袭，可以借鉴，不要完全拿来就用&lt;br&gt;这样出来的一套框架比较轻量级，知根知底，不会出现改不动的情况，最后提一句：不经过调研，没有实际场景在框架中玩模式，玩高级理念死得快，不要为技术而技术。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;性能，网站是如何变慢的？&quot;&gt;&lt;a href=&quot;#性能，网站是如何变慢的？&quot; class=&quot;headerlink&quot; title=&quot;性能，网站是如何变慢的？&quot;&gt;&lt;/a&gt;性能，网站是如何变慢的？&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;尺寸——慢的根源&lt;br&gt;  所以，尺寸变大的主要原因是因为冗余代码的产生，如何消除冗余代码是一个重点，也是一个难点。&lt;/li&gt;
+&lt;li&gt;版本轮替——哪些能删的痛点&lt;br&gt;  业务团队不要依赖于框架的任何dom结构与css样式，特别不要将UI组件中的dom结构与样式单独抠出来使用，否则就准备肥皂吧&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;网络请求，请求是前端优化的生命，优化到最后，优化到极致，都会在请求数、请求量上做文章，常用并且实用的手段有：&lt;/p&gt;
+&lt;h4 id=&quot;CSS冗余的解决方案&quot;&gt;&lt;a href=&quot;#CSS冗余的解决方案&quot; class=&quot;headerlink&quot; title=&quot;CSS冗余的解决方案&quot;&gt;&lt;/a&gt;CSS冗余的解决方案&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;CSS Sprites：CSS Sprites可以有效的减低请求数，偶尔还可以降低请求量，但是随着发展，可能会有以下问题：&lt;ul&gt;
+&lt;li&gt;新增难&lt;/li&gt;
+&lt;li&gt;删除难&lt;/li&gt;
+&lt;li&gt;调整难&lt;/li&gt;
+&lt;li&gt;响应式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;快的假象&quot;&gt;&lt;a href=&quot;#快的假象&quot; class=&quot;headerlink&quot; title=&quot;快的假象&quot;&gt;&lt;/a&gt;快的假象&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;lazyload：&lt;br&gt; 我们常说的延迟加载是图片延迟加载，其实非图片也可延迟加载，看实际需求即可。&lt;ul&gt;
+&lt;li&gt;为img标签src设置统一的图片链接，而将真实链接地址装在自定义属性中。&lt;/li&gt;
+&lt;li&gt;所以开始时候图片是不会加载的，我们将满足条件的图片的src重置为自定义属性便可实现延迟加载功能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;fake页面：&lt;br&gt; 一个静态HTML页面，装载首屏的基本内容，让首页快速显示，然后js加载结束后会马上重新渲染整个页面，这个样子，用户就可以很快的看到页面响应，给用户一个快的错觉&lt;/li&gt;
+&lt;li&gt;预加载：&lt;br&gt; 这里的预加载是在浏览器空闲的时候加载后续页面所需资源，是一种浪费用户流量的行为，属于以空间换时间的做法，实施难度也比较高。预加载的前提是不影响主程序的情况下偷偷的加载，也就是在浏览器空闲的时候加载，但是浏览器空闲似乎变得不可控制&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;合并脚本js文件&quot;&gt;&lt;a href=&quot;#合并脚本js文件&quot; class=&quot;headerlink&quot; title=&quot;合并脚本js文件&quot;&gt;&lt;/a&gt;合并脚本js文件&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;为什么要降低请求数？&lt;br&gt; 每次http请求都会带上一些额外信息，会导致其它开销，比如域名解析、开启连接、发送请求等操作，上述spirit也因此产生。&lt;/li&gt;
+&lt;li&gt;浏览器并发数&lt;br&gt; chrome在请求资源下会有所限制，移动端的限制普遍在6个左右，这个时候在并发数被占满时，你的ajax便会被搁置，这在webapp中情况更加常见，所以网络限制的情况下请求数控制是必要的，而且可以降低服务器端的压力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;离线存储&quot;&gt;&lt;a href=&quot;#离线存储&quot; class=&quot;headerlink&quot; title=&quot;离线存储&quot;&gt;&lt;/a&gt;离线存储&lt;/h4&gt;&lt;p&gt;工作中实际使用的离线缓存有localstorage与Application cache，这两个皆是好东西，一个常用于ajax请求缓存，一个常用于静态资源缓存。&lt;/p&gt;
+&lt;h3 id=&quot;移动革命——Hybrid&quot;&gt;&lt;a href=&quot;#移动革命——Hybrid&quot; class=&quot;headerlink&quot; title=&quot;移动革命——Hybrid&quot;&gt;&lt;/a&gt;移动革命——Hybrid&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;拒绝native UI&lt;/li&gt;
+&lt;li&gt;交互模型 &lt;a href=&quot;http://images.cnitblog.com/blog/294743/201501/201903092504221.png&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://images.cnitblog.com/blog/294743/201501/201903092504221.png&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hybrid的调试&lt;/li&gt;
+&lt;li&gt;多webview&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;不恰当的需求&quot;&gt;&lt;a href=&quot;#不恰当的需求&quot; class=&quot;headerlink&quot; title=&quot;不恰当的需求&quot;&gt;&lt;/a&gt;不恰当的需求&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;唤醒app&lt;/li&gt;
+&lt;li&gt;回退关闭弹出层&lt;/li&gt;
+&lt;li&gt;全站IScroll化&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;移动WEB开发入门&quot;&gt;&lt;a href=&quot;#移动WEB开发入门&quot; class=&quot;headerlink&quot; title=&quot;移动WEB开发入门&quot;&gt;&lt;/a&gt;移动WEB开发入门&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://junmer.github.io/mobile-d
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+      <category term="web app" scheme="http://archmee.github.io/tags/web-app/"/>
+    
+  </entry>
   
   <entry>
     <title>IFE 2015 task3资料学习总结</title>
@@ -316,7 +545,7 @@
     <link href="http://archmee.github.io/201612/2016-12-12.html"/>
     <id>http://archmee.github.io/201612/2016-12-12.html</id>
     <published>2016-12-11T16:00:00.000Z</published>
-    <updated>2016-12-12T20:32:12.243Z</updated>
+    <updated>2017-04-07T22:23:03.061Z</updated>
     
     <content type="html">&lt;h1 id=&quot;javascript语言精粹简要笔记&quot;&gt;&lt;a href=&quot;#javascript语言精粹简要笔记&quot; class=&quot;headerlink&quot; title=&quot;javascript语言精粹简要笔记&quot;&gt;&lt;/a&gt;javascript语言精粹简要笔记&lt;/h1&gt;&lt;p&gt;由于个人很喜欢DC这本书的这种开篇方式，所以将其对莎士比亚著作的引用也写进来了，以下如未做特殊说明，引用内容均来自该书。&lt;/p&gt;
 &lt;p&gt;##1. 精华&lt;/p&gt;
@@ -420,7 +649,7 @@
 &lt;li&gt;第二个可选参数是基数，建议总是带上10作为基数&lt;/li&gt;
 &lt;li&gt;js没有真正的数组&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;js中的众多假值&lt;/p&gt;
-&lt;p&gt;  | 值 | 类型 |&lt;br&gt;  |:——–|:——–|&lt;br&gt;  | 0 | Number |&lt;br&gt;  | NaN | Number |&lt;br&gt;  | ‘’ | String |&lt;br&gt;  | false | Boolean |&lt;br&gt;  | null | Object |&lt;br&gt;  | undefined | Undefined |&lt;/p&gt;
+&lt;p&gt;  | 值 | 类型 |&lt;br&gt;  | ——– | ——– |&lt;br&gt;  | 0 | Number |&lt;br&gt;  | NaN | Number |&lt;br&gt;  | ‘’ | String |&lt;br&gt;  | false | Boolean |&lt;br&gt;  | null | Object |&lt;br&gt;  | undefined | Undefined |&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;hasOwnProperty可以被重写覆盖&lt;/li&gt;
 &lt;li&gt;js中的对象永远不会是真的空对象&lt;/li&gt;
@@ -1222,292 +1451,6 @@
       &lt;p&gt;最近在看智能社的JS视频教程，这两天学习了无缝滚动效果的实现，心想着感觉和轮播效果差不多，一冲动就徒手撸了一个图片轮播效果，其实两种东西差远了，如果非要说它们之间有什么关系的话，就是都要用JS&lt;/p&gt;
 &lt;p&gt;哈哈哈.gif&lt;/p&gt;
 &lt;p&gt;不过先声明，在实现这个轮播效果以前，
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 41~54 天</title>
-    <link href="http://archmee.github.io/201608/2016-08-27.html"/>
-    <id>http://archmee.github.io/201608/2016-08-27.html</id>
-    <published>2016-08-26T16:00:00.000Z</published>
-    <updated>2016-10-26T14:15:24.705Z</updated>
-    
-    <content type="html">&lt;p&gt;距离上一次更新博客已经时隔2周，这两周我在干嘛呢，主要是做了个播放器页面，看了《精通CSS》3~9章，以及开始学习智能社的js基础视频教程，所以下面主要整理了我看书的学习笔记。&lt;br&gt;速度这么慢，鬼知道我这两周经历了什么？？？&lt;/p&gt;
-&lt;h2 id=&quot;3-可视化格式模型&quot;&gt;&lt;a href=&quot;#3-可视化格式模型&quot; class=&quot;headerlink&quot; title=&quot;3. 可视化格式模型&quot;&gt;&lt;/a&gt;3. 可视化格式模型&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;背景会应用于由内容和内边距组成的区域，外边距是透明的，一般使用它控制元素之间的间隔&lt;/li&gt;
-&lt;li&gt;outline和border不同的是，它绘制在元素框之上，所以它们不影响元素的大小或者布局&lt;/li&gt;
-&lt;li&gt;增加padding、border、margin不会影响内容区域的尺寸，但是会增加元素框的总尺寸&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;外边距叠加&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;当两个或更多垂直外边距相遇时，它们将保留一个较大外边距&lt;/li&gt;
-&lt;li&gt;当A元素嵌入在B元素中时，如果B元素没有边框或内边距将两个元素的外边距分隔开，它们垂直方向的外边距也会叠加，并保留一个较大外边距&lt;/li&gt;
-&lt;li&gt;当一个元素为空（没有任何内容），这个元素本身的垂直外边距也会发生叠加，并保留一个较大外边距&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;只有普通文档流中块框的垂直外边距才会发生叠加，行内框、浮动框、绝对定位框等内联、内联块元素之间的外边距不会发生叠加&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;块级框&lt;/strong&gt;从上到下一个接一个地垂直排列，框之间的的垂直距离由框的垂直外边距计算出来&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;行内框&lt;/strong&gt;在一行中水平排列，可以使用水平方向的内边距、边框和外边距调整它们的水平间距，但是垂直方向的内边距、行框、外边距不影响行内框的高度。同样，在行内框上设置显示高度或宽度也没有影响&lt;br&gt;由一行形成的水平框称为行框，行框的高度总是足以容纳它包含的所有行内框，但是，设置行高可以增加这个框的高度&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;相对定位&lt;/strong&gt;：如果对一个元素进行相对定位，它将出现在它原来所在的位置，然后可以设置垂直和水平偏移，让这个元素相对于它的起点移动，在使用相对定位时，无论是否移动，元素仍然占据原来的空间&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;绝对定位&lt;/strong&gt;：绝对定位使位置与文档流无关，因此不占据空间，普通文档流中其他元素的布局会忽略该元素的存在。绝对定位元素的位置是相对于距离它最近的那个已定位的祖先元素确定的，如果没有已定位祖先元素，那么它的位置是相对于初始包含块的。根据用户代理的不同，初始包含块可能是画布或HTML元素&lt;/li&gt;
-&lt;li&gt;因为绝对定位元素的框与文档流无关，所以它们可能会覆盖文档流中的其他元素，可以通过z-index属性来控制这些框的叠放次序，值越高，就越层次越高&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;固定定位&lt;/strong&gt;：固定定位是绝对定位的一种，差异在于固定元素的包含块是视口(viewport)&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;浮动的框可以左右移动，直到它的外边缘碰到包含框或另一个浮动框的边缘。因为浮动框不在普通文档流中，所以普通文档流中的块框表现得就像浮动框不存在一样。但是，块框中的内联元素受到浮动元素的影响，会移动给浮动元素留出空间。&lt;br&gt;对元素进行清理实际上是为前面的浮动元素留出垂直空间&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;overflow属性定义包含的内容对于指定的尺寸太大的情况下元素应该怎么样。应用值为hidden或auto的overflow属性有一个很有用的副作用，它会自动地清理包含的任何浮动元素&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;4-背景图像效果&quot;&gt;&lt;a href=&quot;#4-背景图像效果&quot; class=&quot;headerlink&quot; title=&quot;4. 背景图像效果&quot;&gt;&lt;/a&gt;4. 背景图像效果&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;使用像素设置背景图像位置，那么图像左上角到元素左上角的距离就是指定的像素数。但使用百分比进行背景定位的工作方式不太一样，百分数定位并不对背景图像的左上角进行定位，而是使用图像左上角上对应的百分比作为对应点，再从对应点到元素左上角进行定位。&lt;/li&gt;
-&lt;li&gt;混合使用关键字（如left、top等）和单位（像素、百分比）在某些浏览器中会导致错误，而且可能使css失效&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;4-2-圆角框&quot;&gt;&lt;a href=&quot;#4-2-圆角框&quot; class=&quot;headerlink&quot; title=&quot;4.2 圆角框&quot;&gt;&lt;/a&gt;4.2 圆角框&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;固定宽度的圆角框&lt;br&gt; 需要顶部和底部两个圆角图片，可垂直扩展，这种只适用于宽度固定且单色的框。要想实现水平和垂直都可扩展的圆角，可用四个角的圆角图片来实现，且需要增加额外的html标记，在水平方向的扩展也很有局限性&lt;/li&gt;
-&lt;li&gt;山顶角&lt;br&gt; 使用位图角蒙版，白色蒙版将覆盖背景色，产生简单的曲线效果，但是仍然要添加无意义标记&lt;/li&gt;
-&lt;li&gt;CSS 3 允许&lt;strong&gt;使用多个背景图像&lt;/strong&gt;，使用background-image指定多个图像，然后用其他几个属性指定想要的位置、是否重复等属性，而且现在不能使用简写background的形式，必须在各个属性中分别指定&lt;/li&gt;
-&lt;li&gt;CSS 3 新增了&lt;strong&gt;border-radius&lt;/strong&gt;属性来绘制边框效果&lt;/li&gt;
-&lt;li&gt;CSS 3 新增了&lt;strong&gt;border-image&lt;/strong&gt;属性，该属性允许指定一个图像作为边框&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;4-3-投影&quot;&gt;&lt;a href=&quot;#4-3-投影&quot; class=&quot;headerlink&quot; title=&quot;4.3 投影&quot;&gt;&lt;/a&gt;4.3 投影&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;简单的CSS投影，使用专门制作的投影图像应用于元素背景，然后负偏移元素框使其达到阴影效果&lt;/li&gt;
-&lt;li&gt;CSS 3 支持 box-shadow直接创建投影，还可以和border-radius相互配合&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;4-4-不透明度&quot;&gt;&lt;a href=&quot;#4-4-不透明度&quot; class=&quot;headerlink&quot; title=&quot;4.4 不透明度&quot;&gt;&lt;/a&gt;4.4 不透明度&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;opacity，取值范围0~1，值越大越不透明，除了背景会生效外，应用它的元素的内容也会继承它，导致内容产生不透明度，这不是理想的效果&lt;/li&gt;
-&lt;li&gt;RGBa，a代表alpha透明度&lt;/li&gt;
-&lt;li&gt;PNG透明度，png图像格式最大的优点是它支持alpha透明度&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;4-5-图像替换&quot;&gt;&lt;a href=&quot;#4-5-图像替换&quot; class=&quot;headerlink&quot; title=&quot;4.5 图像替换&quot;&gt;&lt;/a&gt;4.5 图像替换&lt;/h3&gt;&lt;p&gt;由于不愿意将这些某些图像直接嵌入页面中，CSS作者发明了图像替换技术的概念。你可以像平常一样将文本添加到文档中，然后使用CSS隐藏文本并在它的位置上显示一个背景图像。这样的话，搜索引擎仍然可以搜索HTML文本，而且如果禁用CSS，文本仍然会显示。&lt;br&gt;后来发展了FIR（display:none OR visibility:none）、Phark（text-indent:-9999）、sFIR（flash技术和js）等图像替换方法&lt;/p&gt;
-&lt;p&gt;ps：下面的章节示例比较多，我并不打算照搬代码，所以只是记录了一些关键点&lt;/p&gt;
-&lt;h2 id=&quot;5-对链接应用样式&quot;&gt;&lt;a href=&quot;#5-对链接应用样式&quot; class=&quot;headerlink&quot; title=&quot;5. 对链接应用样式&quot;&gt;&lt;/a&gt;5. 对链接应用样式&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;对链接伪类应用样式顺序：link、visited、hover、focus、active&lt;/li&gt;
-&lt;li&gt;:target伪类可以为目标元素设置样式&lt;/li&gt;
-&lt;li&gt;绝不要使用链接更新服务器，或者用技术术语来说，链接应该只用于GET请求，绝不要用于POST请求&lt;/li&gt;
-&lt;li&gt;Pixy样式的翻转：不切换多个图像，而是使用一个图像并切换它的背景位置。使用单个图像的好处是减少了服务器请求的数量。&lt;/li&gt;
-&lt;li&gt;CSS精灵是更彻底的Pixy技术，它把所有图标都放在一张或几张图片上，通过切换位置来应用图像&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;6-对列表应用样式和创建导航条&quot;&gt;&lt;a href=&quot;#6-对列表应用样式和创建导航条&quot; class=&quot;headerlink&quot; title=&quot;6. 对列表应用样式和创建导航条&quot;&gt;&lt;/a&gt;6. 对列表应用样式和创建导航条&lt;/h2&gt;&lt;p&gt;主要讲了创建垂直导航条和水平导航条的技术，以及如何创建圆角按钮样式的链接，和鼠标移入的翻转效果&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;制作水平导航条，一般是把列表元素显示为内联元素或者使其浮动&lt;/li&gt;
-&lt;li&gt;有几种方法可以让父元素包含浮动的子元素。一个是添加一个进行清理的元素，但这会在页面中增加不必要的标记。另一种是让父元素浮动，并且使用某个元素（比如页脚）对它进行清理。第三种是用overflow:hidden技术，它产生的副作用会解决这个问题&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;7-对表单和数据表格应用样式&quot;&gt;&lt;a href=&quot;#7-对表单和数据表格应用样式&quot; class=&quot;headerlink&quot; title=&quot;7. 对表单和数据表格应用样式&quot;&gt;&lt;/a&gt;7. 对表单和数据表格应用样式&lt;/h2&gt;&lt;h3 id=&quot;表格&quot;&gt;&lt;a href=&quot;#表格&quot; class=&quot;headerlink&quot; title=&quot;表格&quot;&gt;&lt;/a&gt;表格&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;尽量避免使用表格来布局&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;表格特有的元素&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;caption：用于表格标题，样式caption-side决定了它显示在表格四周的位置&lt;/li&gt;
-&lt;li&gt;sumary：应用于表格标签，用来描述表格的内容&lt;/li&gt;
-&lt;li&gt;thead、tbody、tfoot：thead和tfoot只有1个，而tbody可以有多个&lt;/li&gt;
-&lt;li&gt;col和colgroup：colgroup可以使用col元素对一或多列定义和分组&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;border-collapse决定了表格单元格边框。collapse则水平垂直都合并，separte是默认值，即分别使用自己的边框&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;border-spacing决定了单元格之间的距离&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;表单&quot;&gt;&lt;a href=&quot;#表单&quot; class=&quot;headerlink&quot; title=&quot;表单&quot;&gt;&lt;/a&gt;表单&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;fieldset用来对相关信息块进行分组&lt;/li&gt;
-&lt;li&gt;label标签可以帮助添加结构和增加表单的可用性和可访问性&lt;br&gt;还有很多其他表单元素的应用以及对表单元素的样式处理&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;8-布局&quot;&gt;&lt;a href=&quot;#8-布局&quot; class=&quot;headerlink&quot; title=&quot;8. 布局&quot;&gt;&lt;/a&gt;8. 布局&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;在布局之前需要做的就是理清页面结构&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;先把页面划分为大的结构性区域，比如页眉页脚主内容区&lt;/li&gt;
-&lt;li&gt;然后，将注意力转移到内容区域本身，开始建立网格结构&lt;/li&gt;
-&lt;li&gt;最后，在各个内容区域中寻找不同的布局结构，给内一个内容块一个有意义的名称，分析它们之间的关系&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;主内容是页面上最重要的东西，所以应该在文档中首先出现，而用样式来决定它们的显示位置&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;然后介绍了2列、3列的基于浮动的&lt;strong&gt;定宽、流式和弹性布局&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用流式布局时，尺寸是用百分数而不是像素设置的，这使流式布局能够相对于浏览器窗口进行伸缩。&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;弹性布局相对于字号而不是浏览器宽度来设置元素的宽度。以em为单位设置宽度，可以确保在字号增加时整个布局随之扩大。&lt;br&gt;作者建议，用em为单位来设置容器的宽度，内部宽度仍然使用百分数，这样的话，内部宽度仍然是相对于字号的。这样就可以方便地修改布局的总尺寸，不必修改每个元素的宽度，这种解决方案更灵活、更容易维护。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;对于需要跨大区域的图像（比如站点页眉页脚或品牌区域中的图像）。可以考虑使用背景图像而不是图像标记&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;faux&lt;/strong&gt;列是一种对包含容器使用背景图像来制作视觉上和被包含的内容区等高的侧边栏效果的技术&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;等高列&lt;/strong&gt;的技术要点：对每一列设置一个很大的底内边距（大概是最短的列和最高的列之间的差值），然后再设置一个小于等于（这个取决于你是否需要间距效果）底内边距的负底外边距（注意是负，为了消除padding带来的视觉影响）&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;CSS3 列&lt;/strong&gt;：有几个主要属性&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;column-count：表示总共多少列&lt;/li&gt;
-&lt;li&gt;column-width：表示每列宽度&lt;/li&gt;
-&lt;li&gt;column-gap：每列之间的间隔&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;它的优点就是在可用空间小于已指定的列的宽度时，它会减少列数&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ps：之前我对css 3列的概念有误解，我一直认为display:table-cell就是所谓的css 3列，不过现在看来错了太离谱了。甚至我在上一个大作业中还用了table-cell来做瀑布流布局。。。所以后面会花点时间更正&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;9-bug和修复bug&quot;&gt;&lt;a href=&quot;#9-bug和修复bug&quot; class=&quot;headerlink&quot; title=&quot;9. bug和修复bug&quot;&gt;&lt;/a&gt;9. bug和修复bug&lt;/h2&gt;&lt;p&gt;这一章主要讲了很多出现在IE6及其更低版本的bug以及修复方式，因为作者认为IE6现在还占据很大一部分用户，所以应该重视。但是考虑到这本书是09年的，且这几年技术更新比较大，所以个人认为实用性一般。这里也只是简单的摘录了一下常用的bug和常用修复方案&lt;/p&gt;
-&lt;h3 id=&quot;捕捉bug&quot;&gt;&lt;a href=&quot;#捕捉bug&quot; class=&quot;headerlink&quot; title=&quot;捕捉bug&quot;&gt;&lt;/a&gt;捕捉bug&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;尽量在一开始就避免bug&lt;/li&gt;
-&lt;li&gt;隔离问题&lt;/li&gt;
-&lt;li&gt;创建基本测试案例&lt;/li&gt;
-&lt;li&gt;修复问题，而不是修复症状&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;拥有布局&quot;&gt;&lt;a href=&quot;#拥有布局&quot; class=&quot;headerlink&quot; title=&quot;拥有布局&quot;&gt;&lt;/a&gt;拥有布局&lt;/h3&gt;&lt;p&gt;Windows上的IE使用布局概念来控制元素的尺寸和定位。那些“拥有布局”（have layout）的元素负责本身及其子元素的尺寸设置和定位，如果一个元素“没有拥有布局”，那么它的尺寸和位置由最近的拥有布局的祖先元素控制&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;拥有布局概念是Windows的IE特有的，而且它不是CSS属性&lt;/li&gt;
-&lt;li&gt;可以使用JavaScript函数hasLayout查看一个元素是否拥有布局&lt;/li&gt;
-&lt;li&gt;hasLayout是一个只读属性，所以无法使用JavaScript进行设置&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;设置以下CSS属性会自动的使元素拥有布局&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;float&lt;/li&gt;
-&lt;li&gt;display: inline-block&lt;/li&gt;
-&lt;li&gt;width，height&lt;/li&gt;
-&lt;li&gt;zoom: 任何值&lt;/li&gt;
-&lt;li&gt;writing-mode（微软属性，不能通过检验）&lt;br&gt;在IE7中，以下属性也成了布局触发器&lt;/li&gt;
-&lt;li&gt;overflow: hidden, scroll, auto&lt;/li&gt;
-&lt;li&gt;min-width、max-width&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;部分问题解决方法&quot;&gt;&lt;a href=&quot;#部分问题解决方法&quot; class=&quot;headerlink&quot; title=&quot;部分问题解决方法&quot;&gt;&lt;/a&gt;部分问题解决方法&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;IE条件注释&lt;br&gt; 条件注释是一种专有的（因此是非标准的）对常规html注释的Microsoft扩展。条件注释能够根据条件显示代码块。尽管是非标准的，条件注释在其他所有浏览器看来是常规注释，因此本质上是无害的&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;如果要为IE指定特定样式表，可以这样做&lt;/p&gt;
-  &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--[if IE]&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/ie.css&quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;![end if]--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;也可以指定特定版本的浏览器&lt;/p&gt;
-  &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--[if IE 6]&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...样式表...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;![end if]--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;可以指定一组浏览器&lt;/p&gt;
-  &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--[if lt IE 6]&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...样式表...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;![end if]--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;  说明：lt是less than的意思，即小于，gt为大于&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;还可以指定IE以外的浏览器   &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--[if !IE]&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...给除了IE外的浏览器指定样式表...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;![end if]--&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;关于hack和过滤器&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;CSS被设计成具有很强的向前兼容性，这个特点意味着添加新的选择器，属性和值不会对老式浏览器产生严重的影响&lt;/li&gt;
-&lt;li&gt;作为一般规则，应该使用依赖于不被支持的CSS的过滤器，而不是依赖某种浏览器bug的过滤器，这可能比较安全。最好完全避免使用过滤器&lt;/li&gt;
-&lt;li&gt;明智的使用hack和过滤器，如果需要的hack比较多，那么最好将它们放在自己的样式表中&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;星号HTML hack&lt;br&gt; 一般认为html元素是网页上的根元素，但是IE的老版本（IE6及以下）有一个匿名的根元素，它包围着html元素。可以使用通用选择器指定包围在另一个元素中的html元素&lt;/p&gt;
- &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;* &lt;span class=&quot;tag&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;number&quot;&gt;1px&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;自选择器hack&lt;br&gt; 因为子选择器是CSS 3才出来的，所以在老版本浏览器不支持的情况下会忽略它&lt;/p&gt;
- &lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;html&amp;gt;body &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;本章的最后的最后，可以考虑一下分级浏览器支持。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;想了一下，估计博客后面更新的频率会越来越慢了，仔细评估了一下，写读书笔记博客太费时间而且没有多少意义，书上已经写的清清楚楚明明白白了，自己无非是做了一些摘录性质的工作，so……&lt;/p&gt;
-&lt;p&gt;总而言之言而总之，后期我更新的内容是大多是最近的学习内容，参考资料，技术总结，以及技术笔记demo展示等。哦，其实还是会写一些读书笔记的，可精可简，比如一本书的要点，点评或读后感什么的也不错&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;距离上一次更新博客已经时隔2周，这两周我在干嘛呢，主要是做了个播放器页面，看了《精通CSS》3~9章，以及开始学习智能社的js基础视频教程，所以下面主要整理了我看书的学习笔记。&lt;br&gt;速度这么慢，鬼知道我这两周经历了什么？？？&lt;/p&gt;
-&lt;h2 id=&quot;3-可视化格式模型&quot;&gt;
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 35~40 天</title>
-    <link href="http://archmee.github.io/201608/2016-08-13.html"/>
-    <id>http://archmee.github.io/201608/2016-08-13.html</id>
-    <published>2016-08-12T16:00:00.000Z</published>
-    <updated>2016-10-26T14:26:05.101Z</updated>
-    
-    <content type="html">&lt;p&gt;在8.12完成了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0001&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE2015的第一个任务的第7个作业&lt;/a&gt;，今天来写点日志，现在已经感觉对盒子模型和布局理解更深入一点了。&lt;/p&gt;
-&lt;p&gt;-&amp;gt;&lt;a href=&quot;https://github.com/Archmee/Front-End-Demo/tree/master/ife_task_007&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这是项目的github地址&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;已解决问题&quot;&gt;&lt;a href=&quot;#已解决问题&quot; class=&quot;headerlink&quot; title=&quot;已解决问题&quot;&gt;&lt;/a&gt;已解决问题&lt;/h2&gt;&lt;p&gt;这些已解决问题或记录，只是自己在遇到时随手记下来的，并且贴出了解决办法，并没有把每个问题的表现形式截图下来，问题和解决方式的描述也还有待调整，我争取看看有时间的时候完善补充一下。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;当a嵌入一个img时，a元素的高度和img不一样？（ 转自：&lt;a href=&quot;http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height）&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height）&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt; 这是 line-height 和 vertical-align 造成的，被称为幽灵空白节点，解决方案有以下几种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;让 vertical-align 失效：&lt;code&gt;img { display: block; }&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;vertical-align 默认为 baseline，更改为其他即可：&lt;code&gt;img { vertical-align:middle; }&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;直接修改 line-height 值：&lt;code&gt;a { line-height: 5px; }&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;修改 font-size：&lt;code&gt;a { font-size: 0; }&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;做banner的背景时找到一个新的css 3属性&lt;br&gt; &lt;code&gt;background-size: 100% 100%;&lt;/code&gt;，这样就可以控制背景图片的大小适应整个盒子&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;关于背景透明，文字不透明，解决方案 &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;两个DIV放在一个位置，文字DIV放上面，需要透明的DIV放下面&lt;/li&gt;
-&lt;li&gt;使用css属性opacity（文字背景都透明）或者rgba（背景透明文字不透明），参考：&lt;a href=&quot;http://www.cnblogs.com/PeunZhang/p/4089894.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/PeunZhang/p/4089894.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;font-family应该优先指定英文字体，然后再指定中文字体。同时声明中文字体的字体名称（英文）和显示名称（中文）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;关于li元素之间的间隔，是inline-block导致的，之前遇到过这个问题，也在博客中提过，是用&lt;code&gt;display:table-cell;&lt;/code&gt;解决的，但是我发现它和最上面的问题一有点类似，采用&lt;code&gt;vertical-align:middle;&lt;/code&gt;也解决了问题，仔细检查发现虽然间隔小了很多但还是有一点间隔。所以还是采用&lt;code&gt;font-size:0;&lt;/code&gt;的方式解决了，其实浮动应该可以。&lt;br&gt; 在写表单的时候，若多个表单元素放在一行的话，也会出现间隔，用 letter-spacing 可以解决&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;了解word-wrap和word-break&lt;br&gt;一下内容来自这篇博客：www.cnblogs.com/2050/archive/2012/08/10/2632256.html。&lt;/p&gt;
-&lt;p&gt; &lt;code&gt;word-wrap:break-word;&lt;/code&gt; 对长串英文不起作用，其实这是非常错误的，&lt;code&gt;word-wrap:break-word;&lt;/code&gt;照样能把一个长串英文或数字拆成多行。事实上，&lt;code&gt;word-wrap:break-word;&lt;/code&gt;与&lt;code&gt;word-break:break-all;&lt;/code&gt;共同点是都能把长单词强行断句，不同点是&lt;code&gt;word-wrap:break-word;&lt;/code&gt;会首先起一个新行来放置长单词，新的行还是放不下这个长单词则会对长单词进行强制断句；而&lt;code&gt;word-break:break-all;&lt;/code&gt;则不会把长单词放在一个新行里，当这一行放不下的时候就直接强制断句了&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;页面底部采用text-align来居中，版权信息可以正常显示，但是github logo总是不居中，检查它的左边刚好在居中位置，所以采用了&lt;code&gt;margin-left: -50%;&lt;/code&gt; 将图片向左边缩进了自身宽度的边距&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;屏幕宽度小于980px就隐藏头部github图标&lt;/p&gt;
- &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;at_rule&quot;&gt;@&lt;span class=&quot;keyword&quot;&gt;media&lt;/span&gt; screen and (max-width: &lt;span class=&quot;number&quot;&gt;980px&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;id&quot;&gt;#github-icon&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;display&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; none&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;之前主页的封面图是用背景来实现的，但是实际图片宽高大于盒子宽高，所以图片显示不完整，在网上找到解决方法是可以用background-size来缩放背景大小，我分别指定宽高为100%，就能适应盒子 大小了。&lt;br&gt;本来以为没问题了，但是今天在缩放窗口的时候发现，图片宽度会随着浏览器窗口调整导致挤压变形严重，在MDN看到一篇介绍background-size的文章，提到还有&lt;strong&gt;contain&lt;/strong&gt;和&lt;strong&gt;cover&lt;/strong&gt;属性可用，contain是按照原图宽高比例进行缩放，只要宽度发生变化，图片高度也会动态调整，这不是我期望的效果，而cover属性就能够填充整个盒子的宽高，并不会随着浏览器缩放调整大小，所以完美解决了这个问题&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;底部图标居中并底部对齐的问题，对copyright使用text-align:center可以居中，但是不能定位到底部，除非精确计算图标到版权文字的距离，但是不提倡这种硬编码方式。&lt;/p&gt;
-&lt;p&gt;刚开始的时候我直接对a元素绝对定位，并且对齐了底部，当然还要对copyright这个div设置相对定位，结果发现它居中的位置是图标的左边位置，所以对img采用了margin-left:-50%使其居中，刚开始看没问题，但是发现和ie不兼容，因为text-align:center根本没有对a+img元素生效，所以图标在浏览器窗口最左边并且使用了img的负边距，所以图标只有右边一半可见。而且这种实现就是，a元素应该在的位置是可点击的，采用负边距后，导致a元素变成了原来宽度加上img的偏移位置，这样可点击的区域也变大了，所以这种方式不是很好。&lt;br&gt;然后我给a元素外面嵌套了一层div.icon，对其使用绝对定位和50%的left，a元素就都到中间偏右一点的位置去了，当然还是以img撑开的a元素的左边进行定位的，所以要对之前在img上使用的负边距使用到a上，不过这次不使用margin了，而是对a进行相对定位以及-50%的left，perfect！！！&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;让整个块区域都是可点击区域，只需要把a样式设置为内联块，并且指定宽高就行（padding也可以）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;禁用链接 可对相关a元素使用 pointer-events: none; 但是IE9不兼容，可以添加disabled属性，对IE9有效&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;outline 设置a元素或者input元素等在聚焦时候的默认边框&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;注意在设置text input和submit input的大小时的区别，因为text input大小和其他盒子模型一样，真正宽高=设置的宽高+padding+margin+border，而submit input就不一样了，他的宽高=你设置的宽高+margin=可见区域+padding+border+margin。&lt;br&gt;用另一种方式来说就是，你设置的text input的宽高并不包括内边距和边框，而submit input的宽高则包括内边距和边框，注意我们讨论的区别都不包括margin，因为margin在其两者上表现上是相同的。&lt;br&gt;type=”button”和type=”submit”效果一样， type=”text” 和type=”password”效果一样&lt;br&gt;解决方式有两种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;第一种 是单独设置宽高，使其达到理想的盒子模型&lt;/li&gt;
-&lt;li&gt;第二种 是使用css3属性box-sizing: content-box;设置盒子的大小控制方式，content-box就是可以让该盒子和其他盒子一样，指定的宽高不包括padding、border、margin等，而border-box就是默认的表现，padding、border都在指定的宽高内进行&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;请看问题#14，在左右两个input元素高度一致时，左右不能对齐，就是不在同一条水平线上&lt;br&gt;已解决，办法是设置vertical-align为一个除了baseline外的值即可，可能还是跟inline-block元素的表现有关&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;默认字间距为2像素（只是目测了Chrome ^,^）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在写project.html页面时，在a元素中嵌入div，用作在鼠标经过图片时，弹出隐藏的文字框，显示文字部分有背景，在完全使用css的情况下，div和a元素盒子一样大小，需要显示的文字要底部对齐，用 &lt;code&gt;a div:hover&lt;/code&gt;来实现选择元素，在正常时，将文字和用text-indent隐藏，而hover时，添加背景和显示文字，并且用渐变方式实现背景(可以指定位置)，但是ie不兼容，文字和渐变背景都没有，然后我给盒子加了一个非渐变的默认背景，但是这样就是hover时整个盒子都有背景了，虽然不理想，但是不想为兼容性浪费太多时间，背景就先这样。&lt;br&gt;然后我又先后使用了&lt;code&gt;font-size:0;&lt;/code&gt;到&lt;code&gt;font-size:1em;&lt;/code&gt;，以及&lt;code&gt;opacity:1;&lt;/code&gt;到&lt;code&gt;opacity:0;&lt;/code&gt;达到隐藏显示文字的目的，但是ie仍不兼容，除了opacity能够在鼠标hover到文字上时可以达到效果，但是如果鼠标在div的非文字区域，就还是识别不到hover。&lt;br&gt;经过google，找到和我之前不一样的设置hover的方式，&lt;code&gt;a:hover div&lt;/code&gt; 选中元素，注意它是把hover添加到了a上，所以现在ie和其他浏览器都兼容了，甚至可以指定盒子不用完全和a一样大了，而指定自己想要的高度即可，这样我也可以不使用渐变背景来达到文字区域的背景了，ie也ok&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在project.html页面的瀑布流布局那里，a元素嵌入img和一个div，a和img都是inline-block的框，但是a元素始终没有img高，始终会少1px左右，虽然网上的方案都是像问题#1一样解决的，但是这里，只有问题1的第一种方法&lt;code&gt;img{ display:block ;}&lt;/code&gt; 才有效果，暂时不知道什么原因&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;待解决问题&quot;&gt;&lt;a href=&quot;#待解决问题&quot; class=&quot;headerlink&quot; title=&quot;待解决问题&quot;&gt;&lt;/a&gt;待解决问题&lt;/h2&gt;&lt;p&gt;其实看了百度学院老师review其他人的代码，发现自己也犯了几个同样的问题，需要对代码进行调整。目前已知的有：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;右上角github icon是背景方式呈现，不需要img标签，并且在a元素中包含说明文字，底部图标一样&lt;/li&gt;
-&lt;li&gt;底部link列表应该用dl而不是ul&lt;/li&gt;
-&lt;li&gt;项目相关的图片和css使用到的图标应该分开放置，方便以后做cdn之类的&lt;/li&gt;
-&lt;li&gt;日历并不是链接，没有可点击的事件，不需要使用a标签&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;不过都是些小问题，马上就可以调整好了。接下来会看下css和html代码规范，看还有没需要修改的或者语义不正确的地方。&lt;/p&gt;
-&lt;h2 id=&quot;截图&quot;&gt;&lt;a href=&quot;#截图&quot; class=&quot;headerlink&quot; title=&quot;截图&quot;&gt;&lt;/a&gt;截图&lt;/h2&gt;&lt;p&gt;上一次更新日志是前两个页面，现在放后面两个页面的截图:&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/2016-08-12_215651.jpg&quot; alt=&quot;项目&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/2016-08-12_215731.jpg&quot; alt=&quot;关于&quot;&gt;&lt;/p&gt;
-&lt;p&gt;–END–&lt;br&gt;假装有彩蛋&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在8.12完成了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0001&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE2015的第一个任务的第7个
     
     </summary>
     
