@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2017-04-07T22:10:48.646Z</updated>
+  <updated>2017-04-07T22:32:49.488Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://archmee.github.io/201704/2017-04-08.html"/>
     <id>http://archmee.github.io/201704/2017-04-08.html</id>
     <published>2017-04-07T16:00:00.000Z</published>
-    <updated>2017-04-07T22:10:48.646Z</updated>
+    <updated>2017-04-07T22:32:49.488Z</updated>
     
     <content type="html">&lt;p&gt;这可能是一篇流水账，但是用来梳理这40天都干了什么事情是一件很有意义的事情，尤其是对我自己而言。&lt;br&gt;首先，上一篇博客最后留下的计划都没有实现，因为我似乎忘了一件很重要的事情，那就是 &lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0004&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE2015 task4&lt;/a&gt; 还没有完成，我决定尝试一下。当然，计划往往就不是用来实现的。&lt;/p&gt;
 &lt;h2 id=&quot;事件大纲&quot;&gt;&lt;a href=&quot;#事件大纲&quot; class=&quot;headerlink&quot; title=&quot;事件大纲&quot;&gt;&lt;/a&gt;事件大纲&lt;/h2&gt;&lt;ol&gt;
@@ -52,15 +52,63 @@
 &lt;li&gt;优点：这个方法的优点就是一次读取，终身使用（app打开期间），由于分类保存在内存中，所以每当分类有新的更新或读取操作都会很快，但是我的理解是，分类这个东西一般只在某一段时间高频率的添加删除更新数据，一般分类创建后后期更新非常少，更多的时候大家都是对任务操作频率更高一点。&lt;br&gt;还有一个优点是由于我的分类设计为多级的（不限），所以整个category不管数据还是DOM都是以树状结构呈现的，所以要遍历category树是肯定的，所以直接从内存读取速度也会很快，但是仅限于app打开时的首次加载。&lt;/li&gt;
 &lt;li&gt;缺点：一次读取所有分类数据在app运行期间一直滞留在内存中很少使用，严重浪费内存，这一条已经足够了。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;我用表格来模拟一下在重构前后localStorage的变化&lt;br&gt;重构前：&lt;br&gt;| key      |    Value |&lt;br&gt;| ——– | ——– |&lt;br&gt;| category_list  | [分类对象1, 分类对象2, 分类对象3] |&lt;br&gt;| todoid1     |   todo对象 |&lt;br&gt;| … | … |&lt;/p&gt;
-&lt;p&gt;重构后：&lt;br&gt;| key      |    Value |&lt;br&gt;| ——– | ——– |&lt;br&gt;| topCatId  | catid1 |&lt;br&gt;| catid1  | 分类对象 |&lt;br&gt;| todoid1     |   todo对象 |&lt;br&gt;| … | … |&lt;/p&gt;
+&lt;p&gt;我用表格来模拟一下在重构前后localStorage的变化&lt;br&gt;重构前：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;key&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;category_list&lt;/td&gt;
+&lt;td&gt;[分类对象1, 分类对象2, 分类对象3]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;todoid1&lt;/td&gt;
+&lt;td&gt;todo对象&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;重构后：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;key&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;topCatId&lt;/td&gt;
+&lt;td&gt;catid1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;catid1&lt;/td&gt;
+&lt;td&gt;分类对象&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;todoid1&lt;/td&gt;
+&lt;td&gt;todo对象&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;可能有人发现多出了一个topCatId，好吧，其实前面忘了交代，考虑到让整个category更像只有一个根节点的树状，所以我要维护一个“顶级分类”，顶级分类下的子分类就是一级分类，下面的依次类推，而顶级分类仍然是一个分类对象，所以他要和其他分类放在一起组成一张“表”，所以我要拿到它的id确保它就是根节点。&lt;/p&gt;
 &lt;p&gt;重构之前也是有这个topCatId存在的，只是他没有被放置在localStorage中，而是写死在了程序中，那也就意味着不够灵活，如果发生变更，尤其是在程序员在更新程序时将其改变，那么也就意味着老用户在打开同一个网站或app时看不到原来的数据或者发生错误，因为程序在localStorage中得不到正确的数据，虽然用户原来的数据都还在。&lt;/p&gt;
 &lt;p&gt;而重构之后的方法则更为灵活，在程序初始化时，会读取topCatId，如果有，则开始遍历分类树了，如果没有，则新建一个“顶级分类”，将顶级分类的id存储为topCatId即可。perfect！&lt;/p&gt;
 &lt;h2 id=&quot;PC和客户端展示&quot;&gt;&lt;a href=&quot;#PC和客户端展示&quot; class=&quot;headerlink&quot; title=&quot;PC和客户端展示&quot;&gt;&lt;/a&gt;PC和客户端展示&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/201704080055.png&quot; alt=&quot;GTD tool pc端&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/201704080055.gif&quot; alt=&quot;GTD tool 移动端&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;The-Next&quot;&gt;&lt;a href=&quot;#The-Next&quot; class=&quot;headerlink&quot; title=&quot;The Next&quot;&gt;&lt;/a&gt;The Next&lt;/h2&gt;&lt;p&gt;下一步就是学习nodejs、es6、vue2、less、sass、gulp、webpack、requirejs、seajs&lt;br&gt;等balabalabalabala，计划总是会变的，who knows！&lt;br&gt;&lt;img src=&quot;http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_org.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://junmer.github.io/mobile-dev-get-started/#/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://junmer.github.io/mobile-dev-get-started/#/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/jtyjty99999/mobileTech&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/jtyjty99999/mobileTech&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/21&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/21&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/22&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/22&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/23&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/23&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/32&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/32&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.css88.com/archives/6410&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.css88.com/archives/6410&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://isux.tencent.com/web-app-rem.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://isux.tencent.com/web-app-rem.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/yexiaochai/p/4219523.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/yexiaochai/p/4219523.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/rubyisaPM/p/4380056.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/rubyisaPM/p/4380056.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.html-js.com/article/2402&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.html-js.com/article/2402&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.html-js.com/article/2400&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.html-js.com/article/2400&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cplus.com/css3/css3-3d-transform.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3cplus.com/css3/css3-3d-transform.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cplus.com/blog/tags/429.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3cplus.com/blog/tags/429.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://junmer.github.io/mobile-dev-get-started/#/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://junmer.github.io/mobile-dev-get-started/#/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/jtyjty99999/mobileTech&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/jtyjty99999/mobileTech&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/21&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/21&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/22&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/22&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/23&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/23&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/maxzhang/maxzhang.github.com/issues/32&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/maxzhang/maxzhang.github.com/issues/32&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.css88.com/archives/6410&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.css88.com/archives/6410&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://isux.tencent.com/web-app-rem.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://isux.tencent.com/web-app-rem.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/yexiaochai/p/4219523.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/yexiaochai/p/4219523.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/rubyisaPM/p/4380056.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/rubyisaPM/p/4380056.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.html-js.com/article/2402&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.html-js.com/article/2402&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.html-js.com/article/2400&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.html-js.com/article/2400&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cplus.com/css3/css3-3d-transform.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3cplus.com/css3/css3-3d-transform.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.w3cplus.com/blog/tags/429.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.w3cplus.com/blog/tags/429.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://gaohaoyang.github.io/2015/06/17/web-app/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://gaohaoyang.github.io/2015/06/17/web-app/&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -545,7 +593,7 @@
     <link href="http://archmee.github.io/201612/2016-12-12.html"/>
     <id>http://archmee.github.io/201612/2016-12-12.html</id>
     <published>2016-12-11T16:00:00.000Z</published>
-    <updated>2017-04-07T22:23:03.061Z</updated>
+    <updated>2017-04-07T22:32:35.835Z</updated>
     
     <content type="html">&lt;h1 id=&quot;javascript语言精粹简要笔记&quot;&gt;&lt;a href=&quot;#javascript语言精粹简要笔记&quot; class=&quot;headerlink&quot; title=&quot;javascript语言精粹简要笔记&quot;&gt;&lt;/a&gt;javascript语言精粹简要笔记&lt;/h1&gt;&lt;p&gt;由于个人很喜欢DC这本书的这种开篇方式，所以将其对莎士比亚著作的引用也写进来了，以下如未做特殊说明，引用内容均来自该书。&lt;/p&gt;
 &lt;p&gt;##1. 精华&lt;/p&gt;
@@ -648,9 +696,43 @@
 &lt;li&gt;Unicode把一对字符视为一个单一字符，js认为一对字符是两个不同的字符&lt;/li&gt;
 &lt;li&gt;第二个可选参数是基数，建议总是带上10作为基数&lt;/li&gt;
 &lt;li&gt;js没有真正的数组&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;js中的众多假值&lt;/p&gt;
-&lt;p&gt;  | 值 | 类型 |&lt;br&gt;  | ——– | ——– |&lt;br&gt;  | 0 | Number |&lt;br&gt;  | NaN | Number |&lt;br&gt;  | ‘’ | String |&lt;br&gt;  | false | Boolean |&lt;br&gt;  | null | Object |&lt;br&gt;  | undefined | Undefined |&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;js中的众多假值，如下表：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;值&lt;/th&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;Number&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NaN&lt;/td&gt;
+&lt;td&gt;Number&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;“abc”&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;false&lt;/td&gt;
+&lt;td&gt;Boolean&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;td&gt;Object&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;undefined&lt;/td&gt;
+&lt;td&gt;Undefined&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
 &lt;li&gt;hasOwnProperty可以被重写覆盖&lt;/li&gt;
 &lt;li&gt;js中的对象永远不会是真的空对象&lt;/li&gt;
 &lt;/ul&gt;

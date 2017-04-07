@@ -69,15 +69,63 @@
 <li>优点：这个方法的优点就是一次读取，终身使用（app打开期间），由于分类保存在内存中，所以每当分类有新的更新或读取操作都会很快，但是我的理解是，分类这个东西一般只在某一段时间高频率的添加删除更新数据，一般分类创建后后期更新非常少，更多的时候大家都是对任务操作频率更高一点。<br>还有一个优点是由于我的分类设计为多级的（不限），所以整个category不管数据还是DOM都是以树状结构呈现的，所以要遍历category树是肯定的，所以直接从内存读取速度也会很快，但是仅限于app打开时的首次加载。</li>
 <li>缺点：一次读取所有分类数据在app运行期间一直滞留在内存中很少使用，严重浪费内存，这一条已经足够了。</li>
 </ul>
-<p>我用表格来模拟一下在重构前后localStorage的变化<br>重构前：<br>| key      |    Value |<br>| ——– | ——– |<br>| category_list  | [分类对象1, 分类对象2, 分类对象3] |<br>| todoid1     |   todo对象 |<br>| … | … |</p>
-<p>重构后：<br>| key      |    Value |<br>| ——– | ——– |<br>| topCatId  | catid1 |<br>| catid1  | 分类对象 |<br>| todoid1     |   todo对象 |<br>| … | … |</p>
+<p>我用表格来模拟一下在重构前后localStorage的变化<br>重构前：</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>category_list</td>
+<td>[分类对象1, 分类对象2, 分类对象3]</td>
+</tr>
+<tr>
+<td>todoid1</td>
+<td>todo对象</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>重构后：</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>topCatId</td>
+<td>catid1</td>
+</tr>
+<tr>
+<td>catid1</td>
+<td>分类对象</td>
+</tr>
+<tr>
+<td>todoid1</td>
+<td>todo对象</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
 <p>可能有人发现多出了一个topCatId，好吧，其实前面忘了交代，考虑到让整个category更像只有一个根节点的树状，所以我要维护一个“顶级分类”，顶级分类下的子分类就是一级分类，下面的依次类推，而顶级分类仍然是一个分类对象，所以他要和其他分类放在一起组成一张“表”，所以我要拿到它的id确保它就是根节点。</p>
 <p>重构之前也是有这个topCatId存在的，只是他没有被放置在localStorage中，而是写死在了程序中，那也就意味着不够灵活，如果发生变更，尤其是在程序员在更新程序时将其改变，那么也就意味着老用户在打开同一个网站或app时看不到原来的数据或者发生错误，因为程序在localStorage中得不到正确的数据，虽然用户原来的数据都还在。</p>
 <p>而重构之后的方法则更为灵活，在程序初始化时，会读取topCatId，如果有，则开始遍历分类树了，如果没有，则新建一个“顶级分类”，将顶级分类的id存储为topCatId即可。perfect！</p>
 <h2 id="PC和客户端展示"><a href="#PC和客户端展示" class="headerlink" title="PC和客户端展示"></a>PC和客户端展示</h2><p><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/201704080055.png" alt="GTD tool pc端"></p>
 <p><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/201704080055.gif" alt="GTD tool 移动端"></p>
 <h2 id="The-Next"><a href="#The-Next" class="headerlink" title="The Next"></a>The Next</h2><p>下一步就是学习nodejs、es6、vue2、less、sass、gulp、webpack、requirejs、seajs<br>等balabalabalabala，计划总是会变的，who knows！<br><img src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_org.png" alt=""></p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://junmer.github.io/mobile-dev-get-started/#/" target="_blank" rel="external">https://junmer.github.io/mobile-dev-get-started/#/</a><br><a href="https://github.com/jtyjty99999/mobileTech" target="_blank" rel="external">https://github.com/jtyjty99999/mobileTech</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/21" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/21</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/22" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/22</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/23" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/23</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/32" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/32</a><br><a href="http://www.css88.com/archives/6410" target="_blank" rel="external">http://www.css88.com/archives/6410</a><br><a href="http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/" target="_blank" rel="external">http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/</a><br><a href="https://isux.tencent.com/web-app-rem.html" target="_blank" rel="external">https://isux.tencent.com/web-app-rem.html</a><br><a href="http://www.cnblogs.com/yexiaochai/p/4219523.html" target="_blank" rel="external">http://www.cnblogs.com/yexiaochai/p/4219523.html</a><br><a href="http://www.cnblogs.com/rubyisaPM/p/4380056.html" target="_blank" rel="external">http://www.cnblogs.com/rubyisaPM/p/4380056.html</a><br><a href="http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/" target="_blank" rel="external">http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/</a><br><a href="http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/" target="_blank" rel="external">http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/</a><br><a href="http://www.html-js.com/article/2402" target="_blank" rel="external">http://www.html-js.com/article/2402</a><br><a href="http://www.html-js.com/article/2400" target="_blank" rel="external">http://www.html-js.com/article/2400</a><br><a href="http://www.w3cplus.com/css3/css3-3d-transform.html" target="_blank" rel="external">http://www.w3cplus.com/css3/css3-3d-transform.html</a><br><a href="http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html" target="_blank" rel="external">http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html</a><br><a href="http://www.w3cplus.com/blog/tags/429.html" target="_blank" rel="external">http://www.w3cplus.com/blog/tags/429.html</a><br><a href="http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/" target="_blank" rel="external">http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://junmer.github.io/mobile-dev-get-started/#/" target="_blank" rel="external">https://junmer.github.io/mobile-dev-get-started/#/</a><br><a href="https://github.com/jtyjty99999/mobileTech" target="_blank" rel="external">https://github.com/jtyjty99999/mobileTech</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/21" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/21</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/22" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/22</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/23" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/23</a><br><a href="https://github.com/maxzhang/maxzhang.github.com/issues/32" target="_blank" rel="external">https://github.com/maxzhang/maxzhang.github.com/issues/32</a><br><a href="http://www.css88.com/archives/6410" target="_blank" rel="external">http://www.css88.com/archives/6410</a><br><a href="http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/" target="_blank" rel="external">http://www.meow.re/original/2015/04/27/screen-adaptation-in-mobileweb/</a><br><a href="https://isux.tencent.com/web-app-rem.html" target="_blank" rel="external">https://isux.tencent.com/web-app-rem.html</a><br><a href="http://www.cnblogs.com/yexiaochai/p/4219523.html" target="_blank" rel="external">http://www.cnblogs.com/yexiaochai/p/4219523.html</a><br><a href="http://www.cnblogs.com/rubyisaPM/p/4380056.html" target="_blank" rel="external">http://www.cnblogs.com/rubyisaPM/p/4380056.html</a><br><a href="http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/" target="_blank" rel="external">http://www.codingserf.com/index.php/2014/07/responsive-and-mobile-1/</a><br><a href="http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/" target="_blank" rel="external">http://www.codingserf.com/index.php/2014/08/responsive-and-mobile-2/</a><br><a href="http://www.html-js.com/article/2402" target="_blank" rel="external">http://www.html-js.com/article/2402</a><br><a href="http://www.html-js.com/article/2400" target="_blank" rel="external">http://www.html-js.com/article/2400</a><br><a href="http://www.w3cplus.com/css3/css3-3d-transform.html" target="_blank" rel="external">http://www.w3cplus.com/css3/css3-3d-transform.html</a><br><a href="http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html" target="_blank" rel="external">http://www.w3cplus.com/mobile/mobile-terminal-refactoring-slider.html</a><br><a href="http://www.w3cplus.com/blog/tags/429.html" target="_blank" rel="external">http://www.w3cplus.com/blog/tags/429.html</a><br><a href="http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/" target="_blank" rel="external">http://www.codingserf.com/index.php/2014/02/css3-transitions-animations/</a><br><a href="https://gaohaoyang.github.io/2015/06/17/web-app/" target="_blank" rel="external">https://gaohaoyang.github.io/2015/06/17/web-app/</a></p>
 
   </section>
 </article>
