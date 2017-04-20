@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 281~285 天——安全 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/demo">demo</a>
+      
+  
+      
+        <a href="/about">about</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201704/2017-04-20-1.html">前端之旅第 281~285 天——安全</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">April 20 2017</p>
+  </section>
+
+  <section class="article-entry">
+    <p>这几天主要学习了JavaScript模块化的前世今生，工程化等方面知识，还包括安全防护、性能优化等方面知识，算是正式完成了<a href="https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0004" target="_blank" rel="external">IFE2015 spring task4</a>，由于主要任务是优化，所以从软件界面上几乎没什么变化，不再截图。<br>由于每篇内容相对独立，所以上面所述方面的学习笔记，将分别记录在接下来的几篇博客中。</p>
+<h2 id="Web安全"><a href="#Web安全" class="headerlink" title="Web安全"></a>Web安全</h2><h3 id="浅谈Web安全性（前端向）"><a href="#浅谈Web安全性（前端向）" class="headerlink" title="浅谈Web安全性（前端向）"></a>浅谈Web安全性（前端向）</h3><h4 id="攻击种类"><a href="#攻击种类" class="headerlink" title="攻击种类"></a>攻击种类</h4><p>Web基本攻击大致可以分为三大类</p>
+<ul>
+<li>资源枚举<br>  别有用心的人会遍历你站点所有可访问的目录，然后把一些常见的备胎文件名（比如“sql.bak”、“index-副本.html”）一个个都枚举一下，如果运气好枚举到了就直接下载。</li>
+<li>参数操纵<br>  这里包括了SQL注入、XPath注入、cgi命令执行，还有XXS和会话劫持等。前三个的攻击主要是在服务端触发的，后二者的攻击则是侧重于客户端。</li>
+<li>其它攻击<br>  其它攻击包括有前面未提及的CSRF攻击、钓鱼攻击和拒绝服务攻击等。</li>
+</ul>
+<h4 id="攻击层面"><a href="#攻击层面" class="headerlink" title="攻击层面"></a>攻击层面</h4><p>常见的攻击层面有三种：</p>
+<ul>
+<li>传统WEB应用程序<ol>
+<li>表单输入</li>
+<li>cookie</li>
+<li>报头</li>
+<li>请求参数</li>
+<li>上传文件</li>
+</ol>
+</li>
+<li>Web服务<ol>
+<li>上述“传统WEB服务”的全部方法；</li>
+<li>WSDL文档</li>
+</ol>
+</li>
+<li>AJAX应用程序<br>  即上述的“一”和“二”的合集</li>
+</ul>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>综上所述，我们可以这样审视我们的WEB站点：</p>
+<ol>
+<li>永远不要相信客户端传来的任何信息，对这些信息都应先进行编码或过滤处理；</li>
+<li>谨慎返回用户输入的信息</li>
+<li>使用黑名单和白名单处理（即“不允许哪些敏感信息”或“只允许哪些信息”，白名单的效果更好但局限性高）；</li>
+<li>检查、验证请求来源，对每一个重要的操作都进行重新验证；</li>
+<li>使用SSL防止第三方监听通信（但无法阻止XSS、CSRF、SQL注入攻击）；</li>
+<li>不要将重要文件、备份文件存放在公众可访问到的地方；</li>
+<li>会话ID无序化；</li>
+<li>对用户上传的文件进行验证（不单单是格式验证，比方一张gif图片还应将其转为二进制并验证其每帧颜色值&lt;无符号8位&gt;和宽高值&lt;无符号16位&gt;）；</li>
+<li>WSDL文档应当要求用户注册后才能获取；</li>
+</ol>
+<p>虽然我们有一些必要的手段来防止WEB攻击，但永远不会有一枚silver bullet来彻底解决问题，先不谈那些数不胜数的已知的、可被攻击的漏洞，对于谜一样的0-day漏洞，我们所能做的只是提前发现并及时修补它们。</p>
+<h3 id="有关XSS"><a href="#有关XSS" class="headerlink" title="有关XSS"></a>有关XSS</h3><h4 id="XSS的原理分析与解剖"><a href="#XSS的原理分析与解剖" class="headerlink" title="XSS的原理分析与解剖"></a>XSS的原理分析与解剖</h4><ul>
+<li>黑客对此漏洞的偏爱，原因不需要多，只需要一个：Xss几乎每个网站都存在，google、baidu、360等都存在。</li>
+<li>记住一句话“xss就是在页面执行你想要的js”</li>
+</ul>
+<h4 id="XSS的原理分析与解剖（第二篇）"><a href="#XSS的原理分析与解剖（第二篇）" class="headerlink" title="XSS的原理分析与解剖（第二篇）"></a>XSS的原理分析与解剖（第二篇）</h4><p>常见XSS</p>
+<ul>
+<li>反射型XSS</li>
+<li>储蓄型XSS</li>
+<li>DOM XSS</li>
+<li>XSF(Flash XSS)</li>
+<li>挖掘XSS</li>
+</ul>
+<h4 id="XSS的原理分析与解剖：第三章（技巧篇）"><a href="#XSS的原理分析与解剖：第三章（技巧篇）" class="headerlink" title="XSS的原理分析与解剖：第三章（技巧篇）"></a>XSS的原理分析与解剖：第三章（技巧篇）</h4><ul>
+<li>第三方劫持 (外调J/C)：就是把资源域的服务器的权限拿下，替换相关资源，采用‘迂回式’的渗透方式。<br>  PS： J/C指的是javascript、css，不经常使用的就不说了。</li>
+<li>XSS downloader（XSS下载器）：这个技术其实就是把反射和储蓄结合起来，把核心代码写在网站上，然后以XSS触发并调用代码，实现攻击。</li>
+<li>XCS：XCS就是利用浏览器来玩XSS，它的功能比普通上的XSS还要强大，因为利用浏览器协议漏洞，可以调用浏览器的API来实现下载覆盖本地文件(可以把它这个功能理解为挂马)。</li>
+<li>页面渲染XSS</li>
+</ul>
+<h4 id="XSS的原理分析与解剖：第四章（编码与绕过）"><a href="#XSS的原理分析与解剖：第四章（编码与绕过）" class="headerlink" title="XSS的原理分析与解剖：第四章（编码与绕过）"></a>XSS的原理分析与解剖：第四章（编码与绕过）</h4><p>编码</p>
+<ul>
+<li>URL编码</li>
+<li>unicode编码</li>
+<li>HTML编码</li>
+<li>CSS编码</li>
+</ul>
+<h4 id="XSS防护"><a href="#XSS防护" class="headerlink" title="XSS防护"></a>XSS防护</h4><ol>
+<li>验证输入并且基于语境和按照正确的顺序转义不可信数据</li>
+<li>始终遵循白名单优于黑名单的做法</li>
+<li>使用 UTF-8 为默认的字符编码以及设置 content 为 text/html</li>
+<li>不要将用户可以控制的文本放在<meta>标签前。通过使用不同的字符集注射可以导致XSS</li>
+<li>使用&lt;!DOCTYPE html&gt;</li>
+<li>使用推荐的 HTTP 响应头进行 XSS 防护</li>
+<li>防止 CRLF 注入/HTTP 响应拆分</li>
+<li>禁止 TRACE 和其他非必要方法</li>
+</ol>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://www.2cto.com/article/201412/363743.html" target="_blank" rel="external">http://www.2cto.com/article/201412/363743.html</a><br><a href="http://www.freebuf.com/articles/web/40520.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/40520.html</a><br><a href="http://www.freebuf.com/articles/web/42727.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/42727.html</a><br><a href="http://www.freebuf.com/articles/44481.html" target="_blank" rel="external">http://www.freebuf.com/articles/44481.html</a><br><a href="http://www.freebuf.com/articles/web/55505.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/55505.html</a><br><a href="http://www.freebuf.com/author/black-hole" target="_blank" rel="external">http://www.freebuf.com/author/black-hole</a><br><a href="http://www.fooying.com/chinese-translationthe-ultimate-xss-protection-cheatsheet-for-developers/" target="_blank" rel="external">http://www.fooying.com/chinese-translationthe-ultimate-xss-protection-cheatsheet-for-developers/</a><br><a href="https://github.com/knownsec/KCon" target="_blank" rel="external">https://github.com/knownsec/KCon</a></p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=这几天主要学习了JavaScript模块"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>

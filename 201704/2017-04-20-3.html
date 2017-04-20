@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 281~285 天——模块化 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/demo">demo</a>
+      
+  
+      
+        <a href="/about">about</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201704/2017-04-20-3.html">前端之旅第 281~285 天——模块化</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">April 20 2017</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="最主要的目的："><a href="#最主要的目的：" class="headerlink" title="最主要的目的："></a>最主要的目的：</h2><ul>
+<li>解决命名冲突</li>
+<li>依赖管理</li>
+<li>提高代码可读性</li>
+<li>代码解耦，提高复用性</li>
+</ul>
+<p>前端模块化框架肩负着 模块管理、资源加载 两项重要的功能，这两项功能与工具、性能、业务、部署等工程环节都有着非常紧密的联系。因此，模块化框架的设计应该最高优先级考虑工程需要。</p>
+<h2 id="CMD-or-AMD-or-xMD"><a href="#CMD-or-AMD-or-xMD" class="headerlink" title="CMD or AMD or xMD"></a>CMD or AMD or xMD</h2><ul>
+<li><p>CommonJS 主要用于服务器端，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于”假死”状态。由于CommonJS无法直接应用于浏览器端，所以在CommonJS从服务端向前端进军的过程中，分裂出了：</p>
+<ol>
+<li>Modules/1.x派 认为，在现有基础上进行改进即可满足浏览器端的需要，既然浏览器端需要function包装，需要异步加载，那么新增一个方案，能把现有模块转化为适合浏览器端的就行了。</li>
+<li>Modules/Async派 认为浏览器与服务器环境差别太大，不能沿用旧的模块标准。既然浏览器必须异步加载代码，那么模块在定义的时候就必须指明所依赖的模块，然后把本模块的代码写在回调函数里。这就是后来从CommonJS分离出去的AMD</li>
+<li>Modules/2.0派 有点像“中间派”，既不想丢掉旧的规范，也不想像AMD那样推到重来。最终采用了Modules/Wrappings的方式</li>
+</ol>
+</li>
+<li><p>UMD 是 “Universal Module Definition” 的缩写，提供了一系列模式同时兼容 CommonJS 和 AMD ，代价是代码有些丑陋。</p>
+</li>
+<li><p>AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。<br>由于requirejs有不甚优雅的地方，所以必然会有新东西来完善它，这就是后起之秀seajs，seajs的作者是国内大牛淘宝前端布道者玉伯。seajs全面拥抱Modules/Wrappings规范，不用requirejs那样回调的方式来编写模块。而它也不是完全按照Modules/Wrappings规范</p>
+</li>
+<li><p>CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。</p>
+</li>
+</ul>
+<p><strong>AMD和CMD的区别</strong></p>
+<pre><code>1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
+2. CMD 推崇依赖就近，AMD 推崇依赖前置。
+</code></pre><h2 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h2><p>对于前端工程化的内容，内容太对不是三言两语可以讲清楚的，而且它也不像其他几个方面那样可以通过看一时半会别人的博客就能够学会的。当然如果是相关工具的话，在我前面博客中提到的gulp就算是前端工程化的一方面了，还有后面应该会学习的Webpack。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/lvdabao/p/js-modules-develop.html" target="_blank" rel="external">http://www.cnblogs.com/lvdabao/p/js-modules-develop.html</a><br><a href="http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html" target="_blank" rel="external">http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html</a><br><a href="https://github.com/seajs/seajs/issues/588" target="_blank" rel="external">https://github.com/seajs/seajs/issues/588</a><br><a href="https://github.com/seajs/seajs/issues/547" target="_blank" rel="external">https://github.com/seajs/seajs/issues/547</a><br><a href="https://github.com/fouber/blog/issues/4" target="_blank" rel="external">https://github.com/fouber/blog/issues/4</a><br><a href="https://github.com/seajs/seajs/issues/277" target="_blank" rel="external">https://github.com/seajs/seajs/issues/277</a><br><a href="https://github.com/seajs/seajs/issues/454" target="_blank" rel="external">https://github.com/seajs/seajs/issues/454</a><br><a href="https://github.com/seajs/seajs/issues/1605" target="_blank" rel="external">https://github.com/seajs/seajs/issues/1605</a><br><a href="http://div.io/topic/430" target="_blank" rel="external">http://div.io/topic/430</a><br><a href="http://div.io/topic/439" target="_blank" rel="external">http://div.io/topic/439</a><br><a href="https://segmentfault.com/a/1190000000733959" target="_blank" rel="external">https://segmentfault.com/a/1190000000733959</a><br><a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/10/javascript_module.html</a><br><a href="http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html</a><br><a href="http://www.ruanyifeng.com/blog/2012/11/require_js.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2012/11/require_js.html</a><br><a href="http://lishaopeng.com/2016/02/05/js-module/" target="_blank" rel="external">http://lishaopeng.com/2016/02/05/js-module/</a><br><a href="http://lishaopeng.com/2016/02/11/js-module2/" target="_blank" rel="external">http://lishaopeng.com/2016/02/11/js-module2/</a><br><a href="http://lishaopeng.com/2016/02/19/js-module3/" target="_blank" rel="external">http://lishaopeng.com/2016/02/19/js-module3/</a><br><a href="https://justineo.github.io/singles/writing-modular-js/" target="_blank" rel="external">https://justineo.github.io/singles/writing-modular-js/</a><br><a href="http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html" target="_blank" rel="external">http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html</a><br><a href="https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88" target="_blank" rel="external">https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88</a>)<br><a href="https://github.com/amdjs/amdjs-api/wiki/require-(%E4%B8%AD%E6%96%87%E7%89%88" target="_blank" rel="external">https://github.com/amdjs/amdjs-api/wiki/require-(%E4%B8%AD%E6%96%87%E7%89%88</a>)<br><a href="http://requirejs.org/" target="_blank" rel="external">http://requirejs.org/</a><br><a href="http://www.requirejs.cn/" target="_blank" rel="external">http://www.requirejs.cn/</a><br><a href="http://cyj.me/why-seajs/requirejs/" target="_blank" rel="external">http://cyj.me/why-seajs/requirejs/</a><br><a href="http://huangxuan.me/2015/07/09/js-module-7day/" target="_blank" rel="external">http://huangxuan.me/2015/07/09/js-module-7day/</a><br><a href="https://ecomfe.github.io/blog/dissecting-amd-preface/" target="_blank" rel="external">https://ecomfe.github.io/blog/dissecting-amd-preface/</a><br><a href="https://ecomfe.github.io/blog/dissecting-amd-what/" target="_blank" rel="external">https://ecomfe.github.io/blog/dissecting-amd-what/</a><br><a href="https://ecomfe.github.io/blog/dissecting-amd-how/" target="_blank" rel="external">https://ecomfe.github.io/blog/dissecting-amd-how/</a><br><a href="https://ecomfe.github.io/blog/dissecting-amd-loader/" target="_blank" rel="external">https://ecomfe.github.io/blog/dissecting-amd-loader/</a><br><a href="http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html" target="_blank" rel="external">http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html</a><br><a href="http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html" target="_blank" rel="external">http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html</a><br><a href="http://www.cnblogs.com/snandy/archive/2012/05/24/2514700.html" target="_blank" rel="external">http://www.cnblogs.com/snandy/archive/2012/05/24/2514700.html</a><br><a href="http://www.cnblogs.com/snandy/archive/2012/06/06/2536969.html" target="_blank" rel="external">http://www.cnblogs.com/snandy/archive/2012/06/06/2536969.html</a><br><a href="http://www.cnblogs.com/snandy/archive/2012/06/07/2537477.html" target="_blank" rel="external">http://www.cnblogs.com/snandy/archive/2012/06/07/2537477.html</a><br><a href="http://www.cnblogs.com/snandy/archive/2012/06/08/2538001.html" target="_blank" rel="external">http://www.cnblogs.com/snandy/archive/2012/06/08/2538001.html</a></p>
+<p><a href="http://div.io/topic/586" target="_blank" rel="external">http://div.io/topic/586</a><br><a href="http://www.infoq.com/cn/articles/yunlong-on-fis" target="_blank" rel="external">http://www.infoq.com/cn/articles/yunlong-on-fis</a></p>
+<p>—-IFE2015 task4的终结线——-</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="最主要的目的："><a hre"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>

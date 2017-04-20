@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 281~285 天——性能 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/.">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/demo">demo</a>
+      
+  
+      
+        <a href="/about">about</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201704/2017-04-20-2.html">前端之旅第 281~285 天——性能</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">April 20 2017</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="Yahoo军规"><a href="#Yahoo军规" class="headerlink" title="Yahoo军规"></a>Yahoo军规</h2><h3 id="网页内容"><a href="#网页内容" class="headerlink" title="网页内容"></a>网页内容</h3><ul>
+<li>减少http请求次数<ul>
+<li>组合文件：将所有同类型文件组合到一起(images, css, js等)</li>
+<li>CSS Sprites</li>
+<li>Image Maps</li>
+<li>Inline images(比如base64格式)</li>
+</ul>
+</li>
+<li>减少DNS查询次数：每个引用的新域名(比如cdn)具有DNS查询的前端代价，你必须确保这个代价确实是值得的。</li>
+<li>避免页面跳转</li>
+<li>缓存Ajax</li>
+<li>延迟加载</li>
+<li>提前加载<ul>
+<li>有条件</li>
+<li>无条件</li>
+<li>有预期的加载</li>
+</ul>
+</li>
+<li>减少DOM元素数量</li>
+<li>根据域名划分内容（动静分离）</li>
+<li>减少iframe数量</li>
+<li>避免404</li>
+</ul>
+<h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><ul>
+<li>使用CDN</li>
+<li>添加Expires 或Cache-Control报文头</li>
+<li>Gzip压缩传输文件（对pdf作用不大）</li>
+<li>配置ETags</li>
+<li>尽早flush输出</li>
+<li>使用GET Ajax请求数据</li>
+<li>避免空的图片src</li>
+</ul>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><ul>
+<li>减少Cookie大小</li>
+<li>页面内容使用无cookie域名（动静分离）</li>
+</ul>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><ul>
+<li>将样式表置顶</li>
+<li>用<link>代替@import</li>
+<li>避免CSS表达式（IE）</li>
+<li>避免使用Filters（IE）</li>
+</ul>
+<h3 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h3><ul>
+<li>将脚本置底或者使用deffer、async关键字</li>
+<li>使用外部Javascirpt和CSS文件（尤其是会重复访问的网页）</li>
+<li>精简Javascript和CSS（打包压缩）</li>
+<li>去除重复脚本</li>
+<li>减少DOM访问</li>
+<li>使用智能事件处理（比如事件代理）</li>
+</ul>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><ul>
+<li>优化图像（去除一些无用信息）</li>
+<li>优化CSS Sprite</li>
+<li>不要在HTML中缩放图片</li>
+<li>使用小且可缓存的favicon.ico</li>
+</ul>
+<h3 id="移动客户端"><a href="#移动客户端" class="headerlink" title="移动客户端"></a>移动客户端</h3><ul>
+<li>保持单个内容小于25KB</li>
+<li>打包组建成符合文档</li>
+</ul>
+<h2 id="给网页设计师和前端开发者看的前端性能优化"><a href="#给网页设计师和前端开发者看的前端性能优化" class="headerlink" title="给网页设计师和前端开发者看的前端性能优化"></a>给网页设计师和前端开发者看的前端性能优化</h2><h3 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h3><ul>
+<li>将样式表放在文档的顶部</li>
+<li>将JavaScript放在底部（可能的地方）</li>
+<li>尽可能减少HTTP请求</li>
+<li>从多个域名提供资源服务能增加浏览器并行下载的资源数量。</li>
+</ul>
+<h3 id="HTTP-请求与-DNS-查询"><a href="#HTTP-请求与-DNS-查询" class="headerlink" title="HTTP 请求与 DNS 查询"></a>HTTP 请求与 DNS 查询</h3><ul>
+<li>浏览器受限于有多少请求可以并行发生。这也是为什么我们经常要使用子域名或者CDN；以便允许这些请求在数个域名上发生，允许同时发生多得多数量的请求。然而，一个新的域名被引用，HTTP请求会受制于一个耗时的DNS查询（某个介于20到120毫秒之间的值）</li>
+<li>DNS查询代价很高，因此你需要决定什么才是对你的网站更合适的；承担查询的消耗或者只是由一个域名提供所有服务。</li>
+</ul>
+<h3 id="DNS-预取"><a href="#DNS-预取" class="headerlink" title="DNS 预取"></a>DNS 预取</h3><p>如果你的网站不得不访问第三方域名的资源，这就牵涉到了DNS查询。幸运的是，有一个相当快又简单的办法来加速这个过程：DNS预取。DNS预取所做的恰恰就是凭证领餐，如下html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"dns-prefetch"</span> <span class="attribute">href</span>=<span class="value">"foo.com"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>那行简单的内容将会告诉支持的浏览器去开始预取那个域名的DNS</p>
+<h3 id="资源预取"><a href="#资源预取" class="headerlink" title="资源预取"></a>资源预取</h3><p>虽然作者给出了和DNS预取类似的方法，但是作者似乎也不太肯定，所以可以看下作者推荐的资料</p>
+<h3 id="CSS-与性能"><a href="#CSS-与性能" class="headerlink" title="CSS 与性能"></a>CSS 与性能</h3><ul>
+<li>永远不要从其他资源域名提供服务 因为这会引起DNS查询并进一步延迟渲染。</li>
+<li>先提供服务 因此浏览器可以继续忙下去。</li>
+<li>合并它 因为不管怎样浏览器会获取所有CSS，你最好将所有这些压缩于一个HTTP请求。</li>
+<li>压缩并简化它 以便浏览器需要下载的少一些。</li>
+<li>缓存它的一切 以便上述的过程尽可能少的发生。</li>
+</ul>
+<h3 id="压缩与简化"><a href="#压缩与简化" class="headerlink" title="压缩与简化"></a>压缩与简化</h3><p>对于你的文本资源，有两个实在很简单的事情是你能（而且也应该）做的；简化他们移除任何注释和空格，并且进一步的压缩它们大小。</p>
+<p>.htaccess评估每一个到达请求，因此实际它有很多开销。这取自 Apache 文档 ：</p>
+<blockquote>
+<p>你应该完全避免使用.htaccess文件，如果你可以直接访问http主服务器的配置文件的话。 使用.htaccess文件使你的Apache http server慢下来。任何你能包含进一个.htaccess文件的指令最好设置在一个<a href="http://httpd.apache.org/docs/2.2/mod/core.html#directory" target="_blank" rel="external">字典块</a>,因为它具有同样的效用并且有更好的性能。</p>
+</blockquote>
+<p>压缩（Gzip）将任何基于文本的输入，基于重复的/可重复的字符串对其进行压缩。</p>
+<h3 id="优化图像"><a href="#优化图像" class="headerlink" title="优化图像"></a>优化图像</h3><ul>
+<li>Spriting (精灵)</li>
+<li>视网膜图像<br>  一旦图像解压并在浏览器中渲染，有四倍数量于平常的像素需要存储于内存，视网膜图像消耗了内存并不很多的移动设备<br>  如果统计数据表明有足够富余，你就可以针对矢量图形优化，或者用字体图标代替位图。</li>
+<li>渐进的 JPGs</li>
+<li>完全不用图片，如果用适量纯CSS可以完成某种效果，那么久应该使用纯CSS来实现</li>
+</ul>
+<h2 id="CSS-Sprites：鱼翅还是三鹿？"><a href="#CSS-Sprites：鱼翅还是三鹿？" class="headerlink" title="CSS Sprites：鱼翅还是三鹿？"></a>CSS Sprites：鱼翅还是三鹿？</h2><p>缺点</p>
+<ul>
+<li>拼合图片的时间成本会增加</li>
+<li>编码和维护的时间成本会增加</li>
+<li>不是所有图片都是背景</li>
+<li>错误的使用 Sprites 影响可访问性</li>
+</ul>
+<h2 id="编写高效的-CSS-选择器"><a href="#编写高效的-CSS-选择器" class="headerlink" title="编写高效的 CSS 选择器"></a>编写高效的 CSS 选择器</h2><ul>
+<li>浏览器解析选择器是从右到左的方式。</li>
+<li>你的关键选择器会决定浏览器的工作量，因此，我们应该重视一下关键选择器（即匹配规则的最右一个选择器）</li>
+<li>拥有一个明确的关键选择器最大的好处就是你可以避免使用过度限制选择器</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html" target="_blank" rel="external">http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html</a><br><a href="http://www.oschina.net/translate/front-end-performance-for-web-designers-and-front-end-developers" target="_blank" rel="external">http://www.oschina.net/translate/front-end-performance-for-web-designers-and-front-end-developers</a><br><a href="https://developer.yahoo.com/performance/rules.html" target="_blank" rel="external">https://developer.yahoo.com/performance/rules.html</a><br><a href="http://www.zhangxinxu.com/wordpress/2013/04/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2013/04/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</a><br><a href="http://www.cnblogs.com/mofish/archive/2010/10/12/1849062.html" target="_blank" rel="external">http://www.cnblogs.com/mofish/archive/2010/10/12/1849062.html</a><br><a href="https://www.qianduan.net/css-sprites-useful-technique-or-potential-nuisance/" target="_blank" rel="external">https://www.qianduan.net/css-sprites-useful-technique-or-potential-nuisance/</a><br><a href="http://www.cnblogs.com/leefreeman/p/3993449.html" target="_blank" rel="external">http://www.cnblogs.com/leefreeman/p/3993449.html</a><br><a href="http://www.cnblogs.com/leefreeman/p/3998757.html" target="_blank" rel="external">http://www.cnblogs.com/leefreeman/p/3998757.html</a><br><a href="http://web.jobbole.com/35339/" target="_blank" rel="external">http://web.jobbole.com/35339/</a></p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="Yahoo军规"><a hre"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
