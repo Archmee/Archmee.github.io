@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>扑克旋转</title>
+	<style>
+		.container {
+			margin: 50px auto;
+			width: 150px;
+			animation: rotate 3s ease-in-out 3 alternate;
+		}
+		img {
+			width: 100%;
+			border: 1px solid #999;
+		}
+
+		@keyframes rotate {
+			0% {
+				transform: rotate(0);
+			}
+			60% {
+				transform: rotate(480deg);
+			}
+			
+			100% {
+				transform: rotate(0);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">	
+		<img class="rotate" src="http://www.w3cplus.com/sites/default/files/blogs/2013/1311/cardKingClub.png" alt="">
+	</div>
+</body>
+</html>

@@ -43,7 +43,7 @@
   </h1>
 
   <section class="article-meta">
-    <p class="article-date">April 20 2017</p>
+    <p class="article-date">April 21 2017</p>
   </section>
 
   <section class="article-entry">
@@ -68,7 +68,7 @@
 <li>或者用bind方法 method.bind(this)</li>
 </ul>
 <p>但是现在有了箭头函数就不用麻烦了<br><code>() =&gt; { this is outer this }</code><br>当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，它的this是继承外面的，因此内部的this就是外层代码块的this。</p>
-<h3 id="template-string"><a href="#template-string" class="headerlink" title="template string"></a>template string</h3><p>用<code>\</code>`<code>符号包起来的字符串中可以像模板中一样在</code>${}<code>中插值</code><span>${data.name}</span>`</p>
+<h3 id="template-string"><a href="#template-string" class="headerlink" title="template string"></a>template string</h3><p>用``符号包起来的字符串中可以像模板中一样在<code>${}</code>中插值<code>&lt;span&gt;${data.name}&lt;/span&gt;</code></p>
 <h3 id="destructuring（解构）"><a href="#destructuring（解构）" class="headerlink" title="destructuring（解构）"></a>destructuring（解构）</h3><p>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cat = <span class="string">'ken'</span></span><br><span class="line"><span class="keyword">let</span> dog = <span class="string">'lili'</span></span><br><span class="line"><span class="keyword">let</span> zoo = &#123;cat, dog&#125; <span class="comment">//相当于将后面所有对象拷贝到zoo</span></span><br><span class="line"><span class="comment">// zoo = &#123;cat: 'ken', dog: 'lili'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = &#123;type: <span class="string">'animal'</span>, many: <span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">let</span> &#123; type, many&#125; = dog <span class="comment">//将dog对象中的值分别拷贝到前面的变量中</span></span><br><span class="line"><span class="comment">// 现在type 和 many分别是两个变量其值为dog中对应值</span></span><br></pre></td></tr></table></figure></p>
 <p>注意上面代码中提取值时key值要保证相同，因为对象内部属性是无序的，所以不要设想是按照循序赋值</p>
 <h3 id="default，rest"><a href="#default，rest" class="headerlink" title="default，rest"></a>default，rest</h3><ul>

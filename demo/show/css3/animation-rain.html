@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rain...</title>
+	<style>
+		.wrapper {
+			position: relative;
+			margin: 100px 0 0 200px;
+		}
+		.sun {
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background-color: gold;
+		}
+
+		.cloud-wrapper {
+			position: relative;
+			top: 5px;
+		}
+		.cloud div {
+			position: absolute;
+			z-index: 5;
+			margin: 5px;
+			background-color: #DDD;
+		}
+		.shadow div {
+			position: absolute;
+			z-index: 1;
+			border: 5px solid #FFF;
+		}
+
+		.cloud div:nth-child(1), 
+		.shadow div:nth-child(1) {
+			top: -50px;
+			left: 110px;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
+		.cloud div:nth-child(2), 
+		.shadow div:nth-child(2) {
+			top: -80px;
+			left: 25px;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+		}
+		.cloud div:nth-child(3),
+		.shadow div:nth-child(3)  {
+			top: -20px;
+			left: 0px;
+			width: 200px;
+			height: 50px;
+			border-radius: 50px;
+		}
+
+		.rain-wrapper {
+			position: relative;
+			top: 50px;
+			left: 35px;
+		}
+		.rain-wrapper .rain-container {
+			float: left;
+			margin-left: 20px;
+			transform: rotate(30deg);
+		}
+		.rain-wrapper .rain-container div {
+			width: 10px;
+			height: 60px;
+			border-radius: 5px;
+			background-color: darkturquoise;
+		}
+
+		.sun {
+			animation: pulse 0.75s ease-in-out 1s both;
+		}
+		.cloud-wrapper {
+			animation: pulse .75s ease-in-out 2s both;
+		}
+		/*雨滴顺序出现*/
+		.rain-wrapper .rain-container:nth-child(1) div {
+			animation: pulse 0.75s ease-in-out 3.5s both;
+		}
+		.rain-wrapper .rain-container:nth-child(2) div{
+			animation: pulse 0.75s ease-in-out 3.9s both;
+		}
+		.rain-wrapper .rain-container:nth-child(3) div{
+			animation: pulse 0.75s ease-in-out 4.3s both;
+		}
+		
+		@keyframes pulse {
+			0%, 20%, 40%, 60%, 80%, 100% {
+				transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+			}
+			0% {
+				opacity: 0;
+				transform: scale3d(.3, .3, .3);
+			}
+			20% {
+				opacity: 0;
+				transform: scale3d(1.1, 1.1, 1.1);
+			}
+			40% {
+				opacity: 1;
+				transform: scale3d(.9, .9, .9);
+			}
+			60% {
+				opacity: 1;
+				transform: scale3d(1.03, 1.03, 1.03);
+			}
+			
+			100% {
+				opacity: 1;
+				transform: scale3d(1, 1, 1);
+			}
+
+		}
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="sun"></div>
+		<div class="cloud-wrapper">
+			<div class="cloud">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="shadow">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<div class="rain-wrapper">
+			<div class="rain-container">
+				<div></div>
+			</div>
+			<div class="rain-container">
+				<div></div>
+			</div>
+			<div class="rain-container">
+				<div></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

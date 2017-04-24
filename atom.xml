@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2017-04-20T17:43:50.782Z</updated>
+  <updated>2017-04-24T16:20:55.188Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -16,11 +16,134 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>前端之旅第 286 天</title>
+    <link href="http://archmee.github.io/201704/2017-04-21.html"/>
+    <id>http://archmee.github.io/201704/2017-04-21.html</id>
+    <published>2017-04-20T16:00:00.000Z</published>
+    <updated>2017-04-24T16:20:55.188Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;mocha&quot;&gt;&lt;a href=&quot;#mocha&quot; class=&quot;headerlink&quot; title=&quot;mocha&quot;&gt;&lt;/a&gt;mocha&lt;/h2&gt;&lt;p&gt;mocha是一个测试框架，使用入门都是很简单的，通过阮一峰的博客可以快速入门 &lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;测试框架 Mocha 实例教程&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;ES6&quot;&gt;&lt;a href=&quot;#ES6&quot; class=&quot;headerlink&quot; title=&quot;ES6&quot;&gt;&lt;/a&gt;ES6&lt;/h2&gt;&lt;p&gt;由于ES6新增内容其实是很多的，但是我们不能全部都学，而且很大一部分只适用于Nodejs，所以暂时只需要学习20%的部分来应付80%的工作即可&lt;/p&gt;
+&lt;h3 id=&quot;let&quot;&gt;&lt;a href=&quot;#let&quot; class=&quot;headerlink&quot; title=&quot;let&quot;&gt;&lt;/a&gt;let&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;实际上为js提供了块级作用域，用它所声明的变量，只在let命令所在的代码块内有效。&lt;/li&gt;
+&lt;li&gt;解决了以前在循环中需要闭包才能解决的对循环变量的引用问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;const&quot;&gt;&lt;a href=&quot;#const&quot; class=&quot;headerlink&quot; title=&quot;const&quot;&gt;&lt;/a&gt;const&lt;/h3&gt;&lt;p&gt;也用来声明变量，但是声明的是常量。一旦声明，常量的值就不能改变。const有一个很好的应用场景，就是当我们引用第三方库的时声明的变量，用const来声明可以避免未来不小心重命名而导致出现bug&lt;/p&gt;
+&lt;h3 id=&quot;class-extends-super&quot;&gt;&lt;a href=&quot;#class-extends-super&quot; class=&quot;headerlink&quot; title=&quot;class, extends, super&quot;&gt;&lt;/a&gt;class, extends, super&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;class 声明类&lt;/li&gt;
+&lt;li&gt;extends 继承&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;super 它指代父类的实例（即父类的this对象）。子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。如果不调用super方法，子类就得不到this对象。&lt;/p&gt;
+&lt;p&gt;  ES6的继承机制，实质是先创造父类的实例对象this（所以必须先调用super方法），然后再用子类的构造函数修改this。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;arrow-function-箭头函数&quot;&gt;&lt;a href=&quot;#arrow-function-箭头函数&quot; class=&quot;headerlink&quot; title=&quot;arrow function(箭头函数)&quot;&gt;&lt;/a&gt;arrow function(箭头函数)&lt;/h3&gt;&lt;p&gt;箭头函数简化了编程工作，对比：&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;i&lt;/span&gt;)&lt;/span&gt;&amp;#123; &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; &amp;#125; &lt;span class=&quot;comment&quot;&gt;//ES5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(i) =&amp;gt; &amp;#123;i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&amp;#125; &lt;span class=&quot;comment&quot;&gt;//ES6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;以前在setTimeout中的this指向全局对象，为了解决这个问题可以&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在setTimeout调用前保存对this的引用&lt;/li&gt;
+&lt;li&gt;或者用bind方法 method.bind(this)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;但是现在有了箭头函数就不用麻烦了&lt;br&gt;&lt;code&gt;() =&amp;gt; { this is outer this }&lt;/code&gt;&lt;br&gt;当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，它的this是继承外面的，因此内部的this就是外层代码块的this。&lt;/p&gt;
+&lt;h3 id=&quot;template-string&quot;&gt;&lt;a href=&quot;#template-string&quot; class=&quot;headerlink&quot; title=&quot;template string&quot;&gt;&lt;/a&gt;template string&lt;/h3&gt;&lt;p&gt;用``符号包起来的字符串中可以像模板中一样在&lt;code&gt;${}&lt;/code&gt;中插值&lt;code&gt;&amp;lt;span&amp;gt;${data.name}&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;destructuring（解构）&quot;&gt;&lt;a href=&quot;#destructuring（解构）&quot; class=&quot;headerlink&quot; title=&quot;destructuring（解构）&quot;&gt;&lt;/a&gt;destructuring（解构）&lt;/h3&gt;&lt;p&gt;ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; cat = &lt;span class=&quot;string&quot;&gt;&#39;ken&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; dog = &lt;span class=&quot;string&quot;&gt;&#39;lili&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; zoo = &amp;#123;cat, dog&amp;#125; &lt;span class=&quot;comment&quot;&gt;//相当于将后面所有对象拷贝到zoo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// zoo = &amp;#123;cat: &#39;ken&#39;, dog: &#39;lili&#39;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; dog = &amp;#123;type: &lt;span class=&quot;string&quot;&gt;&#39;animal&#39;&lt;/span&gt;, many: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &amp;#123; type, many&amp;#125; = dog &lt;span class=&quot;comment&quot;&gt;//将dog对象中的值分别拷贝到前面的变量中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 现在type 和 many分别是两个变量其值为dog中对应值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;注意上面代码中提取值时key值要保证相同，因为对象内部属性是无序的，所以不要设想是按照循序赋值&lt;/p&gt;
+&lt;h3 id=&quot;default，rest&quot;&gt;&lt;a href=&quot;#default，rest&quot; class=&quot;headerlink&quot; title=&quot;default，rest&quot;&gt;&lt;/a&gt;default，rest&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;default(函数形参默认值)&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sum&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;a = 1, b = 2&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a+b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sum(); &lt;span class=&quot;comment&quot;&gt;//3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sum(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sum(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rest arguments&lt;br&gt;有点类似于ES6以前的arguments可以获取形参集合，不过arguments是个对象，而rest是个数组&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;test&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;...types&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(types);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;test(&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;b&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;c&#39;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;ES6-Module：import，export&quot;&gt;&lt;a href=&quot;#ES6-Module：import，export&quot; class=&quot;headerlink&quot; title=&quot;ES6 Module：import，export&quot;&gt;&lt;/a&gt;ES6 Module：import，export&lt;/h3&gt;&lt;p&gt;之前我们可以用AMD、CMD、UMD、CommonJs等规范来实现模块化，而现在，ES6 Module还是不能用，所以还是继续用原来的吧，不过ES6 Module规范已经出了，接下来就是看各个厂商的实现了。&lt;/p&gt;
+&lt;p&gt;顾名思义，import导入模块，export到处模块，如果熟悉模块化编程的话很容易理解它们是如何工作的&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//index.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123;animal, ...&amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;./content&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//content.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function animal()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;string&quot;&gt;&#39;Hello!&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export &amp;#123;animal, ...&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;export命令除了输出变量，还可以输出函数，甚至是类&lt;/li&gt;
+&lt;li&gt;大括号里面的变量名，必须与被导入模块（content.js）对外接口的名称相同。&lt;/li&gt;
+&lt;li&gt;as关键字可以指定别名&lt;/li&gt;
+&lt;li&gt;整体导入用星号（*）指定一个对象，所有输出值都导入在这个对象上面。要使用as指定别名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ES6模块系统和AMD相比有一些不一样的思想，总结一下就是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;按需引入 vs 全局引入&lt;/li&gt;
+&lt;li&gt;多点暴漏 vs 全局暴漏&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;以上内容皆来自博客&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000004365693&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30分钟掌握ES6/ES2015核心内容（上）&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000004368132&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30分钟掌握ES6/ES2015核心内容（下）&lt;/a&gt;&lt;br&gt;如果需要深入学习，可以看：&lt;br&gt;&lt;a href=&quot;http://es6.ruanyifeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMAScript 6入门&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.infoq.com/cn/es6-in-depth/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;深入浅出ES6&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;mocha&quot;&gt;&lt;a href=&quot;#mocha&quot; class=&quot;headerlink&quot; title=&quot;mocha&quot;&gt;&lt;/a&gt;mocha&lt;/h2&gt;&lt;p&gt;mocha是一个测试框架，使用入门都是很简单的，通过阮一峰的博客可以快速入门 &lt;a href=&quot;http://www
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端之旅第 281~285 天——模块化</title>
+    <link href="http://archmee.github.io/201704/2017-04-20-3.html"/>
+    <id>http://archmee.github.io/201704/2017-04-20-3.html</id>
+    <published>2017-04-19T17:43:00.000Z</published>
+    <updated>2017-04-24T16:21:54.085Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;最主要的目的：&quot;&gt;&lt;a href=&quot;#最主要的目的：&quot; class=&quot;headerlink&quot; title=&quot;最主要的目的：&quot;&gt;&lt;/a&gt;最主要的目的：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;解决命名冲突&lt;/li&gt;
+&lt;li&gt;依赖管理&lt;/li&gt;
+&lt;li&gt;提高代码可读性&lt;/li&gt;
+&lt;li&gt;代码解耦，提高复用性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前端模块化框架肩负着 模块管理、资源加载 两项重要的功能，这两项功能与工具、性能、业务、部署等工程环节都有着非常紧密的联系。因此，模块化框架的设计应该最高优先级考虑工程需要。&lt;/p&gt;
+&lt;h2 id=&quot;CMD-or-AMD-or-xMD&quot;&gt;&lt;a href=&quot;#CMD-or-AMD-or-xMD&quot; class=&quot;headerlink&quot; title=&quot;CMD or AMD or xMD&quot;&gt;&lt;/a&gt;CMD or AMD or xMD&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;CommonJS 主要用于服务器端，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于”假死”状态。由于CommonJS无法直接应用于浏览器端，所以在CommonJS从服务端向前端进军的过程中，分裂出了：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Modules/1.x派 认为，在现有基础上进行改进即可满足浏览器端的需要，既然浏览器端需要function包装，需要异步加载，那么新增一个方案，能把现有模块转化为适合浏览器端的就行了。&lt;/li&gt;
+&lt;li&gt;Modules/Async派 认为浏览器与服务器环境差别太大，不能沿用旧的模块标准。既然浏览器必须异步加载代码，那么模块在定义的时候就必须指明所依赖的模块，然后把本模块的代码写在回调函数里。这就是后来从CommonJS分离出去的AMD&lt;/li&gt;
+&lt;li&gt;Modules/2.0派 有点像“中间派”，既不想丢掉旧的规范，也不想像AMD那样推到重来。最终采用了Modules/Wrappings的方式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UMD 是 “Universal Module Definition” 的缩写，提供了一系列模式同时兼容 CommonJS 和 AMD ，代价是代码有些丑陋。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。&lt;br&gt;由于requirejs有不甚优雅的地方，所以必然会有新东西来完善它，这就是后起之秀seajs，seajs的作者是国内大牛淘宝前端布道者玉伯。seajs全面拥抱Modules/Wrappings规范，不用requirejs那样回调的方式来编写模块。而它也不是完全按照Modules/Wrappings规范&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AMD和CMD的区别&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
+2. CMD 推崇依赖就近，AMD 推崇依赖前置。
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;前端工程化&quot;&gt;&lt;a href=&quot;#前端工程化&quot; class=&quot;headerlink&quot; title=&quot;前端工程化&quot;&gt;&lt;/a&gt;前端工程化&lt;/h2&gt;&lt;p&gt;对于前端工程化的内容，内容太对不是三言两语可以讲清楚的，而且它也不像其他几个方面那样可以通过看一时半会别人的博客就能够学会的。当然如果是相关工具的话，在我前面博客中提到的gulp就算是前端工程化的一方面了，还有后面应该会学习的Webpack。&lt;/p&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/lvdabao/p/js-modules-develop.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/lvdabao/p/js-modules-develop.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/588&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/588&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/547&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/547&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/fouber/blog/issues/4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/fouber/blog/issues/4&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/277&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/277&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/454&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/454&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/1605&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/1605&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://div.io/topic/430&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/430&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://div.io/topic/439&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/439&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000000733959&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://segmentfault.com/a/1190000000733959&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/10/javascript_module.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/10/javascript_module.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/11/require_js.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/11/require_js.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/05/js-module/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/05/js-module/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/11/js-module2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/11/js-module2/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/19/js-module3/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/19/js-module3/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://justineo.github.io/singles/writing-modular-js/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://justineo.github.io/singles/writing-modular-js/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88&lt;/a&gt;)&lt;br&gt;&lt;a href=&quot;https://github.com/amdjs/amdjs-api/wiki/require-(%E4%B8%AD%E6%96%87%E7%89%88&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/amdjs/amdjs-api/wiki/require-(%E4%B8%AD%E6%96%87%E7%89%88&lt;/a&gt;)&lt;br&gt;&lt;a href=&quot;http://requirejs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://requirejs.org/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.requirejs.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.requirejs.cn/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://cyj.me/why-seajs/requirejs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cyj.me/why-seajs/requirejs/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://huangxuan.me/2015/07/09/js-module-7day/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://huangxuan.me/2015/07/09/js-module-7day/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-preface/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-preface/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-what/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-what/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-how/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-how/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-loader/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-loader/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/24/2514700.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/24/2514700.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/06/2536969.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/06/2536969.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/07/2537477.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/07/2537477.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/08/2538001.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/08/2538001.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://div.io/topic/586&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/586&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.infoq.com/cn/articles/yunlong-on-fis&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.infoq.com/cn/articles/yunlong-on-fis&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;—-IFE2015 task4的终结线——-&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;最主要的目的：&quot;&gt;&lt;a href=&quot;#最主要的目的：&quot; class=&quot;headerlink&quot; title=&quot;最主要的目的：&quot;&gt;&lt;/a&gt;最主要的目的：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;解决命名冲突&lt;/li&gt;
+&lt;li&gt;依赖管理&lt;/li&gt;
+&lt;li&gt;提高代码可读性&lt;/li&gt;
+&lt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
     <title>前端之旅第 281~285 天——性能</title>
     <link href="http://archmee.github.io/201704/2017-04-20-2.html"/>
     <id>http://archmee.github.io/201704/2017-04-20-2.html</id>
-    <published>2017-04-19T16:00:00.000Z</published>
-    <updated>2017-04-20T17:43:50.782Z</updated>
+    <published>2017-04-19T17:42:00.000Z</published>
+    <updated>2017-04-24T16:21:46.401Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Yahoo军规&quot;&gt;&lt;a href=&quot;#Yahoo军规&quot; class=&quot;headerlink&quot; title=&quot;Yahoo军规&quot;&gt;&lt;/a&gt;Yahoo军规&lt;/h2&gt;&lt;h3 id=&quot;网页内容&quot;&gt;&lt;a href=&quot;#网页内容&quot; class=&quot;headerlink&quot; title=&quot;网页内容&quot;&gt;&lt;/a&gt;网页内容&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;减少http请求次数&lt;ul&gt;
@@ -143,134 +266,11 @@
   </entry>
   
   <entry>
-    <title>前端之旅第 286 天</title>
-    <link href="http://archmee.github.io/201704/2017-04-21.html"/>
-    <id>http://archmee.github.io/201704/2017-04-21.html</id>
-    <published>2017-04-19T16:00:00.000Z</published>
-    <updated>2017-04-24T00:27:56.077Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;mocha&quot;&gt;&lt;a href=&quot;#mocha&quot; class=&quot;headerlink&quot; title=&quot;mocha&quot;&gt;&lt;/a&gt;mocha&lt;/h2&gt;&lt;p&gt;mocha是一个测试框架，使用入门都是很简单的，通过阮一峰的博客可以快速入门 &lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;测试框架 Mocha 实例教程&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;ES6&quot;&gt;&lt;a href=&quot;#ES6&quot; class=&quot;headerlink&quot; title=&quot;ES6&quot;&gt;&lt;/a&gt;ES6&lt;/h2&gt;&lt;p&gt;由于ES6新增内容其实是很多的，但是我们不能全部都学，而且很大一部分只适用于Nodejs，所以暂时只需要学习20%的部分来应付80%的工作即可&lt;/p&gt;
-&lt;h3 id=&quot;let&quot;&gt;&lt;a href=&quot;#let&quot; class=&quot;headerlink&quot; title=&quot;let&quot;&gt;&lt;/a&gt;let&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;实际上为js提供了块级作用域，用它所声明的变量，只在let命令所在的代码块内有效。&lt;/li&gt;
-&lt;li&gt;解决了以前在循环中需要闭包才能解决的对循环变量的引用问题&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;const&quot;&gt;&lt;a href=&quot;#const&quot; class=&quot;headerlink&quot; title=&quot;const&quot;&gt;&lt;/a&gt;const&lt;/h3&gt;&lt;p&gt;也用来声明变量，但是声明的是常量。一旦声明，常量的值就不能改变。const有一个很好的应用场景，就是当我们引用第三方库的时声明的变量，用const来声明可以避免未来不小心重命名而导致出现bug&lt;/p&gt;
-&lt;h3 id=&quot;class-extends-super&quot;&gt;&lt;a href=&quot;#class-extends-super&quot; class=&quot;headerlink&quot; title=&quot;class, extends, super&quot;&gt;&lt;/a&gt;class, extends, super&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;class 声明类&lt;/li&gt;
-&lt;li&gt;extends 继承&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;super 它指代父类的实例（即父类的this对象）。子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。如果不调用super方法，子类就得不到this对象。&lt;/p&gt;
-&lt;p&gt;  ES6的继承机制，实质是先创造父类的实例对象this（所以必须先调用super方法），然后再用子类的构造函数修改this。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;arrow-function-箭头函数&quot;&gt;&lt;a href=&quot;#arrow-function-箭头函数&quot; class=&quot;headerlink&quot; title=&quot;arrow function(箭头函数)&quot;&gt;&lt;/a&gt;arrow function(箭头函数)&lt;/h3&gt;&lt;p&gt;箭头函数简化了编程工作，对比：&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;i&lt;/span&gt;)&lt;/span&gt;&amp;#123; &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; &amp;#125; &lt;span class=&quot;comment&quot;&gt;//ES5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(i) =&amp;gt; &amp;#123;i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&amp;#125; &lt;span class=&quot;comment&quot;&gt;//ES6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;以前在setTimeout中的this指向全局对象，为了解决这个问题可以&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在setTimeout调用前保存对this的引用&lt;/li&gt;
-&lt;li&gt;或者用bind方法 method.bind(this)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;但是现在有了箭头函数就不用麻烦了&lt;br&gt;&lt;code&gt;() =&amp;gt; { this is outer this }&lt;/code&gt;&lt;br&gt;当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，它的this是继承外面的，因此内部的this就是外层代码块的this。&lt;/p&gt;
-&lt;h3 id=&quot;template-string&quot;&gt;&lt;a href=&quot;#template-string&quot; class=&quot;headerlink&quot; title=&quot;template string&quot;&gt;&lt;/a&gt;template string&lt;/h3&gt;&lt;p&gt;用&lt;code&gt;\&lt;/code&gt;`&lt;code&gt;符号包起来的字符串中可以像模板中一样在&lt;/code&gt;${}&lt;code&gt;中插值&lt;/code&gt;&lt;span&gt;${data.name}&lt;/span&gt;`&lt;/p&gt;
-&lt;h3 id=&quot;destructuring（解构）&quot;&gt;&lt;a href=&quot;#destructuring（解构）&quot; class=&quot;headerlink&quot; title=&quot;destructuring（解构）&quot;&gt;&lt;/a&gt;destructuring（解构）&lt;/h3&gt;&lt;p&gt;ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; cat = &lt;span class=&quot;string&quot;&gt;&#39;ken&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; dog = &lt;span class=&quot;string&quot;&gt;&#39;lili&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; zoo = &amp;#123;cat, dog&amp;#125; &lt;span class=&quot;comment&quot;&gt;//相当于将后面所有对象拷贝到zoo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// zoo = &amp;#123;cat: &#39;ken&#39;, dog: &#39;lili&#39;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; dog = &amp;#123;type: &lt;span class=&quot;string&quot;&gt;&#39;animal&#39;&lt;/span&gt;, many: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &amp;#123; type, many&amp;#125; = dog &lt;span class=&quot;comment&quot;&gt;//将dog对象中的值分别拷贝到前面的变量中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 现在type 和 many分别是两个变量其值为dog中对应值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;注意上面代码中提取值时key值要保证相同，因为对象内部属性是无序的，所以不要设想是按照循序赋值&lt;/p&gt;
-&lt;h3 id=&quot;default，rest&quot;&gt;&lt;a href=&quot;#default，rest&quot; class=&quot;headerlink&quot; title=&quot;default，rest&quot;&gt;&lt;/a&gt;default，rest&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;default(函数形参默认值)&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sum&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;a = 1, b = 2&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a+b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sum(); &lt;span class=&quot;comment&quot;&gt;//3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sum(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sum(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;rest arguments&lt;br&gt;有点类似于ES6以前的arguments可以获取形参集合，不过arguments是个对象，而rest是个数组&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;test&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;...types&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(types);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;test(&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;b&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;c&#39;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;ES6-Module：import，export&quot;&gt;&lt;a href=&quot;#ES6-Module：import，export&quot; class=&quot;headerlink&quot; title=&quot;ES6 Module：import，export&quot;&gt;&lt;/a&gt;ES6 Module：import，export&lt;/h3&gt;&lt;p&gt;之前我们可以用AMD、CMD、UMD、CommonJs等规范来实现模块化，而现在，ES6 Module还是不能用，所以还是继续用原来的吧，不过ES6 Module规范已经出了，接下来就是看各个厂商的实现了。&lt;/p&gt;
-&lt;p&gt;顾名思义，import导入模块，export到处模块，如果熟悉模块化编程的话很容易理解它们是如何工作的&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//index.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123;animal, ...&amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;./content&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//content.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function animal()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;string&quot;&gt;&#39;Hello!&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export &amp;#123;animal, ...&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;export命令除了输出变量，还可以输出函数，甚至是类&lt;/li&gt;
-&lt;li&gt;大括号里面的变量名，必须与被导入模块（content.js）对外接口的名称相同。&lt;/li&gt;
-&lt;li&gt;as关键字可以指定别名&lt;/li&gt;
-&lt;li&gt;整体导入用星号（*）指定一个对象，所有输出值都导入在这个对象上面。要使用as指定别名&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ES6模块系统和AMD相比有一些不一样的思想，总结一下就是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;按需引入 vs 全局引入&lt;/li&gt;
-&lt;li&gt;多点暴漏 vs 全局暴漏&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;以上内容皆来自博客&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000004365693&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30分钟掌握ES6/ES2015核心内容（上）&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000004368132&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30分钟掌握ES6/ES2015核心内容（下）&lt;/a&gt;&lt;br&gt;如果需要深入学习，可以看：&lt;br&gt;&lt;a href=&quot;http://es6.ruanyifeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMAScript 6入门&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.infoq.com/cn/es6-in-depth/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;深入浅出ES6&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;mocha&quot;&gt;&lt;a href=&quot;#mocha&quot; class=&quot;headerlink&quot; title=&quot;mocha&quot;&gt;&lt;/a&gt;mocha&lt;/h2&gt;&lt;p&gt;mocha是一个测试框架，使用入门都是很简单的，通过阮一峰的博客可以快速入门 &lt;a href=&quot;http://www
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 281~285 天——模块化</title>
-    <link href="http://archmee.github.io/201704/2017-04-20-3.html"/>
-    <id>http://archmee.github.io/201704/2017-04-20-3.html</id>
-    <published>2017-04-19T16:00:00.000Z</published>
-    <updated>2017-04-20T17:57:24.589Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;最主要的目的：&quot;&gt;&lt;a href=&quot;#最主要的目的：&quot; class=&quot;headerlink&quot; title=&quot;最主要的目的：&quot;&gt;&lt;/a&gt;最主要的目的：&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;解决命名冲突&lt;/li&gt;
-&lt;li&gt;依赖管理&lt;/li&gt;
-&lt;li&gt;提高代码可读性&lt;/li&gt;
-&lt;li&gt;代码解耦，提高复用性&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;前端模块化框架肩负着 模块管理、资源加载 两项重要的功能，这两项功能与工具、性能、业务、部署等工程环节都有着非常紧密的联系。因此，模块化框架的设计应该最高优先级考虑工程需要。&lt;/p&gt;
-&lt;h2 id=&quot;CMD-or-AMD-or-xMD&quot;&gt;&lt;a href=&quot;#CMD-or-AMD-or-xMD&quot; class=&quot;headerlink&quot; title=&quot;CMD or AMD or xMD&quot;&gt;&lt;/a&gt;CMD or AMD or xMD&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;CommonJS 主要用于服务器端，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于”假死”状态。由于CommonJS无法直接应用于浏览器端，所以在CommonJS从服务端向前端进军的过程中，分裂出了：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Modules/1.x派 认为，在现有基础上进行改进即可满足浏览器端的需要，既然浏览器端需要function包装，需要异步加载，那么新增一个方案，能把现有模块转化为适合浏览器端的就行了。&lt;/li&gt;
-&lt;li&gt;Modules/Async派 认为浏览器与服务器环境差别太大，不能沿用旧的模块标准。既然浏览器必须异步加载代码，那么模块在定义的时候就必须指明所依赖的模块，然后把本模块的代码写在回调函数里。这就是后来从CommonJS分离出去的AMD&lt;/li&gt;
-&lt;li&gt;Modules/2.0派 有点像“中间派”，既不想丢掉旧的规范，也不想像AMD那样推到重来。最终采用了Modules/Wrappings的方式&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;UMD 是 “Universal Module Definition” 的缩写，提供了一系列模式同时兼容 CommonJS 和 AMD ，代价是代码有些丑陋。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。&lt;br&gt;由于requirejs有不甚优雅的地方，所以必然会有新东西来完善它，这就是后起之秀seajs，seajs的作者是国内大牛淘宝前端布道者玉伯。seajs全面拥抱Modules/Wrappings规范，不用requirejs那样回调的方式来编写模块。而它也不是完全按照Modules/Wrappings规范&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;AMD和CMD的区别&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
-2. CMD 推崇依赖就近，AMD 推崇依赖前置。
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;前端工程化&quot;&gt;&lt;a href=&quot;#前端工程化&quot; class=&quot;headerlink&quot; title=&quot;前端工程化&quot;&gt;&lt;/a&gt;前端工程化&lt;/h2&gt;&lt;p&gt;对于前端工程化的内容，内容太对不是三言两语可以讲清楚的，而且它也不像其他几个方面那样可以通过看一时半会别人的博客就能够学会的。当然如果是相关工具的话，在我前面博客中提到的gulp就算是前端工程化的一方面了，还有后面应该会学习的Webpack。&lt;/p&gt;
-&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/lvdabao/p/js-modules-develop.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/lvdabao/p/js-modules-develop.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/588&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/588&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/547&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/547&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/fouber/blog/issues/4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/fouber/blog/issues/4&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/277&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/277&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/454&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/454&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/1605&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/1605&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://div.io/topic/430&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/430&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://div.io/topic/439&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/439&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000000733959&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://segmentfault.com/a/1190000000733959&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/10/javascript_module.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/10/javascript_module.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/11/require_js.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/11/require_js.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/05/js-module/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/05/js-module/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/11/js-module2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/11/js-module2/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/19/js-module3/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/19/js-module3/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://justineo.github.io/singles/writing-modular-js/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://justineo.github.io/singles/writing-modular-js/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88&lt;/a&gt;)&lt;br&gt;&lt;a href=&quot;https://github.com/amdjs/amdjs-api/wiki/require-(%E4%B8%AD%E6%96%87%E7%89%88&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/amdjs/amdjs-api/wiki/require-(%E4%B8%AD%E6%96%87%E7%89%88&lt;/a&gt;)&lt;br&gt;&lt;a href=&quot;http://requirejs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://requirejs.org/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.requirejs.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.requirejs.cn/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://cyj.me/why-seajs/requirejs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cyj.me/why-seajs/requirejs/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://huangxuan.me/2015/07/09/js-module-7day/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://huangxuan.me/2015/07/09/js-module-7day/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-preface/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-preface/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-what/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-what/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-how/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-how/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-loader/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-loader/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/24/2514700.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/24/2514700.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/06/2536969.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/06/2536969.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/07/2537477.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/07/2537477.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/08/2538001.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/08/2538001.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://div.io/topic/586&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/586&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.infoq.com/cn/articles/yunlong-on-fis&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.infoq.com/cn/articles/yunlong-on-fis&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;—-IFE2015 task4的终结线——-&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;最主要的目的：&quot;&gt;&lt;a href=&quot;#最主要的目的：&quot; class=&quot;headerlink&quot; title=&quot;最主要的目的：&quot;&gt;&lt;/a&gt;最主要的目的：&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;解决命名冲突&lt;/li&gt;
-&lt;li&gt;依赖管理&lt;/li&gt;
-&lt;li&gt;提高代码可读性&lt;/li&gt;
-&lt;
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
     <title>前端之旅第 281~285 天——安全</title>
     <link href="http://archmee.github.io/201704/2017-04-20-1.html"/>
     <id>http://archmee.github.io/201704/2017-04-20-1.html</id>
-    <published>2017-04-19T16:00:00.000Z</published>
-    <updated>2017-04-20T17:43:41.659Z</updated>
+    <published>2017-04-19T17:41:00.000Z</published>
+    <updated>2017-04-24T16:21:49.507Z</updated>
     
     <content type="html">&lt;p&gt;这几天主要学习了JavaScript模块化的前世今生，工程化等方面知识，还包括安全防护、性能优化等方面知识，算是正式完成了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0004&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE2015 spring task4&lt;/a&gt;，由于主要任务是优化，所以从软件界面上几乎没什么变化，不再截图。&lt;br&gt;由于每篇内容相对独立，所以上面所述方面的学习笔记，将分别记录在接下来的几篇博客中。&lt;/p&gt;
 &lt;h2 id=&quot;Web安全&quot;&gt;&lt;a href=&quot;#Web安全&quot; class=&quot;headerlink&quot; title=&quot;Web安全&quot;&gt;&lt;/a&gt;Web安全&lt;/h2&gt;&lt;h3 id=&quot;浅谈Web安全性（前端向）&quot;&gt;&lt;a href=&quot;#浅谈Web安全性（前端向）&quot; class=&quot;headerlink&quot; title=&quot;浅谈Web安全性（前端向）&quot;&gt;&lt;/a&gt;浅谈Web安全性（前端向）&lt;/h3&gt;&lt;h4 id=&quot;攻击种类&quot;&gt;&lt;a href=&quot;#攻击种类&quot; class=&quot;headerlink&quot; title=&quot;攻击种类&quot;&gt;&lt;/a&gt;攻击种类&lt;/h4&gt;&lt;p&gt;Web基本攻击大致可以分为三大类&lt;/p&gt;
