@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://archmee.github.io/"/>
-  <updated>2017-04-20T17:43:41.659Z</updated>
+  <updated>2017-04-20T17:43:50.782Z</updated>
   <id>http://archmee.github.io/</id>
   
   <author>
@@ -14,156 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>前端之旅第 281~285 天——安全</title>
-    <link href="http://archmee.github.io/201704/2017-04-20-1.html"/>
-    <id>http://archmee.github.io/201704/2017-04-20-1.html</id>
-    <published>2017-04-19T16:00:00.000Z</published>
-    <updated>2017-04-20T17:43:41.659Z</updated>
-    
-    <content type="html">&lt;p&gt;这几天主要学习了JavaScript模块化的前世今生，工程化等方面知识，还包括安全防护、性能优化等方面知识，算是正式完成了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0004&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE2015 spring task4&lt;/a&gt;，由于主要任务是优化，所以从软件界面上几乎没什么变化，不再截图。&lt;br&gt;由于每篇内容相对独立，所以上面所述方面的学习笔记，将分别记录在接下来的几篇博客中。&lt;/p&gt;
-&lt;h2 id=&quot;Web安全&quot;&gt;&lt;a href=&quot;#Web安全&quot; class=&quot;headerlink&quot; title=&quot;Web安全&quot;&gt;&lt;/a&gt;Web安全&lt;/h2&gt;&lt;h3 id=&quot;浅谈Web安全性（前端向）&quot;&gt;&lt;a href=&quot;#浅谈Web安全性（前端向）&quot; class=&quot;headerlink&quot; title=&quot;浅谈Web安全性（前端向）&quot;&gt;&lt;/a&gt;浅谈Web安全性（前端向）&lt;/h3&gt;&lt;h4 id=&quot;攻击种类&quot;&gt;&lt;a href=&quot;#攻击种类&quot; class=&quot;headerlink&quot; title=&quot;攻击种类&quot;&gt;&lt;/a&gt;攻击种类&lt;/h4&gt;&lt;p&gt;Web基本攻击大致可以分为三大类&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;资源枚举&lt;br&gt;  别有用心的人会遍历你站点所有可访问的目录，然后把一些常见的备胎文件名（比如“sql.bak”、“index-副本.html”）一个个都枚举一下，如果运气好枚举到了就直接下载。&lt;/li&gt;
-&lt;li&gt;参数操纵&lt;br&gt;  这里包括了SQL注入、XPath注入、cgi命令执行，还有XXS和会话劫持等。前三个的攻击主要是在服务端触发的，后二者的攻击则是侧重于客户端。&lt;/li&gt;
-&lt;li&gt;其它攻击&lt;br&gt;  其它攻击包括有前面未提及的CSRF攻击、钓鱼攻击和拒绝服务攻击等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;攻击层面&quot;&gt;&lt;a href=&quot;#攻击层面&quot; class=&quot;headerlink&quot; title=&quot;攻击层面&quot;&gt;&lt;/a&gt;攻击层面&lt;/h4&gt;&lt;p&gt;常见的攻击层面有三种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;传统WEB应用程序&lt;ol&gt;
-&lt;li&gt;表单输入&lt;/li&gt;
-&lt;li&gt;cookie&lt;/li&gt;
-&lt;li&gt;报头&lt;/li&gt;
-&lt;li&gt;请求参数&lt;/li&gt;
-&lt;li&gt;上传文件&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;Web服务&lt;ol&gt;
-&lt;li&gt;上述“传统WEB服务”的全部方法；&lt;/li&gt;
-&lt;li&gt;WSDL文档&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;AJAX应用程序&lt;br&gt;  即上述的“一”和“二”的合集&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot; title=&quot;解决方案&quot;&gt;&lt;/a&gt;解决方案&lt;/h4&gt;&lt;p&gt;综上所述，我们可以这样审视我们的WEB站点：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;永远不要相信客户端传来的任何信息，对这些信息都应先进行编码或过滤处理；&lt;/li&gt;
-&lt;li&gt;谨慎返回用户输入的信息&lt;/li&gt;
-&lt;li&gt;使用黑名单和白名单处理（即“不允许哪些敏感信息”或“只允许哪些信息”，白名单的效果更好但局限性高）；&lt;/li&gt;
-&lt;li&gt;检查、验证请求来源，对每一个重要的操作都进行重新验证；&lt;/li&gt;
-&lt;li&gt;使用SSL防止第三方监听通信（但无法阻止XSS、CSRF、SQL注入攻击）；&lt;/li&gt;
-&lt;li&gt;不要将重要文件、备份文件存放在公众可访问到的地方；&lt;/li&gt;
-&lt;li&gt;会话ID无序化；&lt;/li&gt;
-&lt;li&gt;对用户上传的文件进行验证（不单单是格式验证，比方一张gif图片还应将其转为二进制并验证其每帧颜色值&amp;lt;无符号8位&amp;gt;和宽高值&amp;lt;无符号16位&amp;gt;）；&lt;/li&gt;
-&lt;li&gt;WSDL文档应当要求用户注册后才能获取；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;虽然我们有一些必要的手段来防止WEB攻击，但永远不会有一枚silver bullet来彻底解决问题，先不谈那些数不胜数的已知的、可被攻击的漏洞，对于谜一样的0-day漏洞，我们所能做的只是提前发现并及时修补它们。&lt;/p&gt;
-&lt;h3 id=&quot;有关XSS&quot;&gt;&lt;a href=&quot;#有关XSS&quot; class=&quot;headerlink&quot; title=&quot;有关XSS&quot;&gt;&lt;/a&gt;有关XSS&lt;/h3&gt;&lt;h4 id=&quot;XSS的原理分析与解剖&quot;&gt;&lt;a href=&quot;#XSS的原理分析与解剖&quot; class=&quot;headerlink&quot; title=&quot;XSS的原理分析与解剖&quot;&gt;&lt;/a&gt;XSS的原理分析与解剖&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;黑客对此漏洞的偏爱，原因不需要多，只需要一个：Xss几乎每个网站都存在，google、baidu、360等都存在。&lt;/li&gt;
-&lt;li&gt;记住一句话“xss就是在页面执行你想要的js”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;XSS的原理分析与解剖（第二篇）&quot;&gt;&lt;a href=&quot;#XSS的原理分析与解剖（第二篇）&quot; class=&quot;headerlink&quot; title=&quot;XSS的原理分析与解剖（第二篇）&quot;&gt;&lt;/a&gt;XSS的原理分析与解剖（第二篇）&lt;/h4&gt;&lt;p&gt;常见XSS&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;反射型XSS&lt;/li&gt;
-&lt;li&gt;储蓄型XSS&lt;/li&gt;
-&lt;li&gt;DOM XSS&lt;/li&gt;
-&lt;li&gt;XSF(Flash XSS)&lt;/li&gt;
-&lt;li&gt;挖掘XSS&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;XSS的原理分析与解剖：第三章（技巧篇）&quot;&gt;&lt;a href=&quot;#XSS的原理分析与解剖：第三章（技巧篇）&quot; class=&quot;headerlink&quot; title=&quot;XSS的原理分析与解剖：第三章（技巧篇）&quot;&gt;&lt;/a&gt;XSS的原理分析与解剖：第三章（技巧篇）&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;第三方劫持 (外调J/C)：就是把资源域的服务器的权限拿下，替换相关资源，采用‘迂回式’的渗透方式。&lt;br&gt;  PS： J/C指的是javascript、css，不经常使用的就不说了。&lt;/li&gt;
-&lt;li&gt;XSS downloader（XSS下载器）：这个技术其实就是把反射和储蓄结合起来，把核心代码写在网站上，然后以XSS触发并调用代码，实现攻击。&lt;/li&gt;
-&lt;li&gt;XCS：XCS就是利用浏览器来玩XSS，它的功能比普通上的XSS还要强大，因为利用浏览器协议漏洞，可以调用浏览器的API来实现下载覆盖本地文件(可以把它这个功能理解为挂马)。&lt;/li&gt;
-&lt;li&gt;页面渲染XSS&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;XSS的原理分析与解剖：第四章（编码与绕过）&quot;&gt;&lt;a href=&quot;#XSS的原理分析与解剖：第四章（编码与绕过）&quot; class=&quot;headerlink&quot; title=&quot;XSS的原理分析与解剖：第四章（编码与绕过）&quot;&gt;&lt;/a&gt;XSS的原理分析与解剖：第四章（编码与绕过）&lt;/h4&gt;&lt;p&gt;编码&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;URL编码&lt;/li&gt;
-&lt;li&gt;unicode编码&lt;/li&gt;
-&lt;li&gt;HTML编码&lt;/li&gt;
-&lt;li&gt;CSS编码&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;XSS防护&quot;&gt;&lt;a href=&quot;#XSS防护&quot; class=&quot;headerlink&quot; title=&quot;XSS防护&quot;&gt;&lt;/a&gt;XSS防护&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;验证输入并且基于语境和按照正确的顺序转义不可信数据&lt;/li&gt;
-&lt;li&gt;始终遵循白名单优于黑名单的做法&lt;/li&gt;
-&lt;li&gt;使用 UTF-8 为默认的字符编码以及设置 content 为 text/html&lt;/li&gt;
-&lt;li&gt;不要将用户可以控制的文本放在&lt;meta&gt;标签前。通过使用不同的字符集注射可以导致XSS&lt;/li&gt;
-&lt;li&gt;使用&amp;lt;!DOCTYPE html&amp;gt;&lt;/li&gt;
-&lt;li&gt;使用推荐的 HTTP 响应头进行 XSS 防护&lt;/li&gt;
-&lt;li&gt;防止 CRLF 注入/HTTP 响应拆分&lt;/li&gt;
-&lt;li&gt;禁止 TRACE 和其他非必要方法&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.2cto.com/article/201412/363743.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.2cto.com/article/201412/363743.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/articles/web/40520.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.freebuf.com/articles/web/40520.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/articles/web/42727.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.freebuf.com/articles/web/42727.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/articles/44481.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.freebuf.com/articles/44481.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/articles/web/55505.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.freebuf.com/articles/web/55505.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/author/black-hole&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.freebuf.com/author/black-hole&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.fooying.com/chinese-translationthe-ultimate-xss-protection-cheatsheet-for-developers/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.fooying.com/chinese-translationthe-ultimate-xss-protection-cheatsheet-for-developers/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/knownsec/KCon&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/knownsec/KCon&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这几天主要学习了JavaScript模块化的前世今生，工程化等方面知识，还包括安全防护、性能优化等方面知识，算是正式完成了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 281~285 天——模块化</title>
-    <link href="http://archmee.github.io/201704/2017-04-20-3.html"/>
-    <id>http://archmee.github.io/201704/2017-04-20-3.html</id>
-    <published>2017-04-19T16:00:00.000Z</published>
-    <updated>2017-04-20T17:57:24.589Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;最主要的目的：&quot;&gt;&lt;a href=&quot;#最主要的目的：&quot; class=&quot;headerlink&quot; title=&quot;最主要的目的：&quot;&gt;&lt;/a&gt;最主要的目的：&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;解决命名冲突&lt;/li&gt;
-&lt;li&gt;依赖管理&lt;/li&gt;
-&lt;li&gt;提高代码可读性&lt;/li&gt;
-&lt;li&gt;代码解耦，提高复用性&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;前端模块化框架肩负着 模块管理、资源加载 两项重要的功能，这两项功能与工具、性能、业务、部署等工程环节都有着非常紧密的联系。因此，模块化框架的设计应该最高优先级考虑工程需要。&lt;/p&gt;
-&lt;h2 id=&quot;CMD-or-AMD-or-xMD&quot;&gt;&lt;a href=&quot;#CMD-or-AMD-or-xMD&quot; class=&quot;headerlink&quot; title=&quot;CMD or AMD or xMD&quot;&gt;&lt;/a&gt;CMD or AMD or xMD&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;CommonJS 主要用于服务器端，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于”假死”状态。由于CommonJS无法直接应用于浏览器端，所以在CommonJS从服务端向前端进军的过程中，分裂出了：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Modules/1.x派 认为，在现有基础上进行改进即可满足浏览器端的需要，既然浏览器端需要function包装，需要异步加载，那么新增一个方案，能把现有模块转化为适合浏览器端的就行了。&lt;/li&gt;
-&lt;li&gt;Modules/Async派 认为浏览器与服务器环境差别太大，不能沿用旧的模块标准。既然浏览器必须异步加载代码，那么模块在定义的时候就必须指明所依赖的模块，然后把本模块的代码写在回调函数里。这就是后来从CommonJS分离出去的AMD&lt;/li&gt;
-&lt;li&gt;Modules/2.0派 有点像“中间派”，既不想丢掉旧的规范，也不想像AMD那样推到重来。最终采用了Modules/Wrappings的方式&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;UMD 是 “Universal Module Definition” 的缩写，提供了一系列模式同时兼容 CommonJS 和 AMD ，代价是代码有些丑陋。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。&lt;br&gt;由于requirejs有不甚优雅的地方，所以必然会有新东西来完善它，这就是后起之秀seajs，seajs的作者是国内大牛淘宝前端布道者玉伯。seajs全面拥抱Modules/Wrappings规范，不用requirejs那样回调的方式来编写模块。而它也不是完全按照Modules/Wrappings规范&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;AMD和CMD的区别&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
-2. CMD 推崇依赖就近，AMD 推崇依赖前置。
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;前端工程化&quot;&gt;&lt;a href=&quot;#前端工程化&quot; class=&quot;headerlink&quot; title=&quot;前端工程化&quot;&gt;&lt;/a&gt;前端工程化&lt;/h2&gt;&lt;p&gt;对于前端工程化的内容，内容太对不是三言两语可以讲清楚的，而且它也不像其他几个方面那样可以通过看一时半会别人的博客就能够学会的。当然如果是相关工具的话，在我前面博客中提到的gulp就算是前端工程化的一方面了，还有后面应该会学习的Webpack。&lt;/p&gt;
-&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/lvdabao/p/js-modules-develop.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/lvdabao/p/js-modules-develop.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/588&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/588&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/547&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/547&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/fouber/blog/issues/4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/fouber/blog/issues/4&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/277&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/277&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/454&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/454&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/1605&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/1605&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://div.io/topic/430&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/430&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://div.io/topic/439&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/439&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000000733959&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://segmentfault.com/a/1190000000733959&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/10/javascript_module.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/10/javascript_module.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/11/require_js.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/11/require_js.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/05/js-module/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/05/js-module/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/11/js-module2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/11/js-module2/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/19/js-module3/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/19/js-module3/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://justineo.github.io/singles/writing-modular-js/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://justineo.github.io/singles/writing-modular-js/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88&lt;/a&gt;)&lt;br&gt;&lt;a href=&quot;https://github.com/amdjs/amdjs-api/wiki/require-(%E4%B8%AD%E6%96%87%E7%89%88&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/amdjs/amdjs-api/wiki/require-(%E4%B8%AD%E6%96%87%E7%89%88&lt;/a&gt;)&lt;br&gt;&lt;a href=&quot;http://requirejs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://requirejs.org/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.requirejs.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.requirejs.cn/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://cyj.me/why-seajs/requirejs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cyj.me/why-seajs/requirejs/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://huangxuan.me/2015/07/09/js-module-7day/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://huangxuan.me/2015/07/09/js-module-7day/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-preface/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-preface/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-what/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-what/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-how/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-how/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-loader/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-loader/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/24/2514700.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/24/2514700.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/06/2536969.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/06/2536969.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/07/2537477.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/07/2537477.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/08/2538001.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/08/2538001.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://div.io/topic/586&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/586&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.infoq.com/cn/articles/yunlong-on-fis&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.infoq.com/cn/articles/yunlong-on-fis&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;—-IFE2015 task4的终结线——-&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;最主要的目的：&quot;&gt;&lt;a href=&quot;#最主要的目的：&quot; class=&quot;headerlink&quot; title=&quot;最主要的目的：&quot;&gt;&lt;/a&gt;最主要的目的：&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;解决命名冲突&lt;/li&gt;
-&lt;li&gt;依赖管理&lt;/li&gt;
-&lt;li&gt;提高代码可读性&lt;/li&gt;
-&lt;
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
   
   <entry>
     <title>前端之旅第 281~285 天——性能</title>
@@ -282,6 +132,224 @@
     <summary type="html">
     
       &lt;h2 id=&quot;Yahoo军规&quot;&gt;&lt;a href=&quot;#Yahoo军规&quot; class=&quot;headerlink&quot; title=&quot;Yahoo军规&quot;&gt;&lt;/a&gt;Yahoo军规&lt;/h2&gt;&lt;h3 id=&quot;网页内容&quot;&gt;&lt;a href=&quot;#网页内容&quot; class=&quot;headerlink&quot; titl
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端之旅第 286 天</title>
+    <link href="http://archmee.github.io/201704/2017-04-21.html"/>
+    <id>http://archmee.github.io/201704/2017-04-21.html</id>
+    <published>2017-04-19T16:00:00.000Z</published>
+    <updated>2017-04-24T00:27:56.077Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;mocha&quot;&gt;&lt;a href=&quot;#mocha&quot; class=&quot;headerlink&quot; title=&quot;mocha&quot;&gt;&lt;/a&gt;mocha&lt;/h2&gt;&lt;p&gt;mocha是一个测试框架，使用入门都是很简单的，通过阮一峰的博客可以快速入门 &lt;a href=&quot;http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;测试框架 Mocha 实例教程&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;ES6&quot;&gt;&lt;a href=&quot;#ES6&quot; class=&quot;headerlink&quot; title=&quot;ES6&quot;&gt;&lt;/a&gt;ES6&lt;/h2&gt;&lt;p&gt;由于ES6新增内容其实是很多的，但是我们不能全部都学，而且很大一部分只适用于Nodejs，所以暂时只需要学习20%的部分来应付80%的工作即可&lt;/p&gt;
+&lt;h3 id=&quot;let&quot;&gt;&lt;a href=&quot;#let&quot; class=&quot;headerlink&quot; title=&quot;let&quot;&gt;&lt;/a&gt;let&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;实际上为js提供了块级作用域，用它所声明的变量，只在let命令所在的代码块内有效。&lt;/li&gt;
+&lt;li&gt;解决了以前在循环中需要闭包才能解决的对循环变量的引用问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;const&quot;&gt;&lt;a href=&quot;#const&quot; class=&quot;headerlink&quot; title=&quot;const&quot;&gt;&lt;/a&gt;const&lt;/h3&gt;&lt;p&gt;也用来声明变量，但是声明的是常量。一旦声明，常量的值就不能改变。const有一个很好的应用场景，就是当我们引用第三方库的时声明的变量，用const来声明可以避免未来不小心重命名而导致出现bug&lt;/p&gt;
+&lt;h3 id=&quot;class-extends-super&quot;&gt;&lt;a href=&quot;#class-extends-super&quot; class=&quot;headerlink&quot; title=&quot;class, extends, super&quot;&gt;&lt;/a&gt;class, extends, super&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;class 声明类&lt;/li&gt;
+&lt;li&gt;extends 继承&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;super 它指代父类的实例（即父类的this对象）。子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。如果不调用super方法，子类就得不到this对象。&lt;/p&gt;
+&lt;p&gt;  ES6的继承机制，实质是先创造父类的实例对象this（所以必须先调用super方法），然后再用子类的构造函数修改this。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;arrow-function-箭头函数&quot;&gt;&lt;a href=&quot;#arrow-function-箭头函数&quot; class=&quot;headerlink&quot; title=&quot;arrow function(箭头函数)&quot;&gt;&lt;/a&gt;arrow function(箭头函数)&lt;/h3&gt;&lt;p&gt;箭头函数简化了编程工作，对比：&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;i&lt;/span&gt;)&lt;/span&gt;&amp;#123; &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;; &amp;#125; &lt;span class=&quot;comment&quot;&gt;//ES5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(i) =&amp;gt; &amp;#123;i + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;;&amp;#125; &lt;span class=&quot;comment&quot;&gt;//ES6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;以前在setTimeout中的this指向全局对象，为了解决这个问题可以&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在setTimeout调用前保存对this的引用&lt;/li&gt;
+&lt;li&gt;或者用bind方法 method.bind(this)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;但是现在有了箭头函数就不用麻烦了&lt;br&gt;&lt;code&gt;() =&amp;gt; { this is outer this }&lt;/code&gt;&lt;br&gt;当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，它的this是继承外面的，因此内部的this就是外层代码块的this。&lt;/p&gt;
+&lt;h3 id=&quot;template-string&quot;&gt;&lt;a href=&quot;#template-string&quot; class=&quot;headerlink&quot; title=&quot;template string&quot;&gt;&lt;/a&gt;template string&lt;/h3&gt;&lt;p&gt;用&lt;code&gt;\&lt;/code&gt;`&lt;code&gt;符号包起来的字符串中可以像模板中一样在&lt;/code&gt;${}&lt;code&gt;中插值&lt;/code&gt;&lt;span&gt;${data.name}&lt;/span&gt;`&lt;/p&gt;
+&lt;h3 id=&quot;destructuring（解构）&quot;&gt;&lt;a href=&quot;#destructuring（解构）&quot; class=&quot;headerlink&quot; title=&quot;destructuring（解构）&quot;&gt;&lt;/a&gt;destructuring（解构）&lt;/h3&gt;&lt;p&gt;ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; cat = &lt;span class=&quot;string&quot;&gt;&#39;ken&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; dog = &lt;span class=&quot;string&quot;&gt;&#39;lili&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; zoo = &amp;#123;cat, dog&amp;#125; &lt;span class=&quot;comment&quot;&gt;//相当于将后面所有对象拷贝到zoo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// zoo = &amp;#123;cat: &#39;ken&#39;, dog: &#39;lili&#39;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; dog = &amp;#123;type: &lt;span class=&quot;string&quot;&gt;&#39;animal&#39;&lt;/span&gt;, many: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &amp;#123; type, many&amp;#125; = dog &lt;span class=&quot;comment&quot;&gt;//将dog对象中的值分别拷贝到前面的变量中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 现在type 和 many分别是两个变量其值为dog中对应值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;注意上面代码中提取值时key值要保证相同，因为对象内部属性是无序的，所以不要设想是按照循序赋值&lt;/p&gt;
+&lt;h3 id=&quot;default，rest&quot;&gt;&lt;a href=&quot;#default，rest&quot; class=&quot;headerlink&quot; title=&quot;default，rest&quot;&gt;&lt;/a&gt;default，rest&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;default(函数形参默认值)&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sum&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;a = 1, b = 2&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; a+b;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sum(); &lt;span class=&quot;comment&quot;&gt;//3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sum(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sum(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rest arguments&lt;br&gt;有点类似于ES6以前的arguments可以获取形参集合，不过arguments是个对象，而rest是个数组&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;test&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;...types&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(types);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;test(&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;b&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;c&#39;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;ES6-Module：import，export&quot;&gt;&lt;a href=&quot;#ES6-Module：import，export&quot; class=&quot;headerlink&quot; title=&quot;ES6 Module：import，export&quot;&gt;&lt;/a&gt;ES6 Module：import，export&lt;/h3&gt;&lt;p&gt;之前我们可以用AMD、CMD、UMD、CommonJs等规范来实现模块化，而现在，ES6 Module还是不能用，所以还是继续用原来的吧，不过ES6 Module规范已经出了，接下来就是看各个厂商的实现了。&lt;/p&gt;
+&lt;p&gt;顾名思义，import导入模块，export到处模块，如果熟悉模块化编程的话很容易理解它们是如何工作的&lt;br&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//index.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; &amp;#123;animal, ...&amp;#125; &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;./content&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//content.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;function animal()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return &lt;span class=&quot;string&quot;&gt;&#39;Hello!&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export &amp;#123;animal, ...&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;export命令除了输出变量，还可以输出函数，甚至是类&lt;/li&gt;
+&lt;li&gt;大括号里面的变量名，必须与被导入模块（content.js）对外接口的名称相同。&lt;/li&gt;
+&lt;li&gt;as关键字可以指定别名&lt;/li&gt;
+&lt;li&gt;整体导入用星号（*）指定一个对象，所有输出值都导入在这个对象上面。要使用as指定别名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ES6模块系统和AMD相比有一些不一样的思想，总结一下就是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;按需引入 vs 全局引入&lt;/li&gt;
+&lt;li&gt;多点暴漏 vs 全局暴漏&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;以上内容皆来自博客&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000004365693&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30分钟掌握ES6/ES2015核心内容（上）&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000004368132&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;30分钟掌握ES6/ES2015核心内容（下）&lt;/a&gt;&lt;br&gt;如果需要深入学习，可以看：&lt;br&gt;&lt;a href=&quot;http://es6.ruanyifeng.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ECMAScript 6入门&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.infoq.com/cn/es6-in-depth/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;深入浅出ES6&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;mocha&quot;&gt;&lt;a href=&quot;#mocha&quot; class=&quot;headerlink&quot; title=&quot;mocha&quot;&gt;&lt;/a&gt;mocha&lt;/h2&gt;&lt;p&gt;mocha是一个测试框架，使用入门都是很简单的，通过阮一峰的博客可以快速入门 &lt;a href=&quot;http://www
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端之旅第 281~285 天——模块化</title>
+    <link href="http://archmee.github.io/201704/2017-04-20-3.html"/>
+    <id>http://archmee.github.io/201704/2017-04-20-3.html</id>
+    <published>2017-04-19T16:00:00.000Z</published>
+    <updated>2017-04-20T17:57:24.589Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;最主要的目的：&quot;&gt;&lt;a href=&quot;#最主要的目的：&quot; class=&quot;headerlink&quot; title=&quot;最主要的目的：&quot;&gt;&lt;/a&gt;最主要的目的：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;解决命名冲突&lt;/li&gt;
+&lt;li&gt;依赖管理&lt;/li&gt;
+&lt;li&gt;提高代码可读性&lt;/li&gt;
+&lt;li&gt;代码解耦，提高复用性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前端模块化框架肩负着 模块管理、资源加载 两项重要的功能，这两项功能与工具、性能、业务、部署等工程环节都有着非常紧密的联系。因此，模块化框架的设计应该最高优先级考虑工程需要。&lt;/p&gt;
+&lt;h2 id=&quot;CMD-or-AMD-or-xMD&quot;&gt;&lt;a href=&quot;#CMD-or-AMD-or-xMD&quot; class=&quot;headerlink&quot; title=&quot;CMD or AMD or xMD&quot;&gt;&lt;/a&gt;CMD or AMD or xMD&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;CommonJS 主要用于服务器端，因为所有的模块都存放在本地硬盘，可以同步加载完成，等待时间就是硬盘的读取时间。但是，对于浏览器，这却是一个大问题，因为模块都放在服务器端，等待时间取决于网速的快慢，可能要等很长时间，浏览器处于”假死”状态。由于CommonJS无法直接应用于浏览器端，所以在CommonJS从服务端向前端进军的过程中，分裂出了：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Modules/1.x派 认为，在现有基础上进行改进即可满足浏览器端的需要，既然浏览器端需要function包装，需要异步加载，那么新增一个方案，能把现有模块转化为适合浏览器端的就行了。&lt;/li&gt;
+&lt;li&gt;Modules/Async派 认为浏览器与服务器环境差别太大，不能沿用旧的模块标准。既然浏览器必须异步加载代码，那么模块在定义的时候就必须指明所依赖的模块，然后把本模块的代码写在回调函数里。这就是后来从CommonJS分离出去的AMD&lt;/li&gt;
+&lt;li&gt;Modules/2.0派 有点像“中间派”，既不想丢掉旧的规范，也不想像AMD那样推到重来。最终采用了Modules/Wrappings的方式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;UMD 是 “Universal Module Definition” 的缩写，提供了一系列模式同时兼容 CommonJS 和 AMD ，代价是代码有些丑陋。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。&lt;br&gt;由于requirejs有不甚优雅的地方，所以必然会有新东西来完善它，这就是后起之秀seajs，seajs的作者是国内大牛淘宝前端布道者玉伯。seajs全面拥抱Modules/Wrappings规范，不用requirejs那样回调的方式来编写模块。而它也不是完全按照Modules/Wrappings规范&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;AMD和CMD的区别&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
+2. CMD 推崇依赖就近，AMD 推崇依赖前置。
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;前端工程化&quot;&gt;&lt;a href=&quot;#前端工程化&quot; class=&quot;headerlink&quot; title=&quot;前端工程化&quot;&gt;&lt;/a&gt;前端工程化&lt;/h2&gt;&lt;p&gt;对于前端工程化的内容，内容太对不是三言两语可以讲清楚的，而且它也不像其他几个方面那样可以通过看一时半会别人的博客就能够学会的。当然如果是相关工具的话，在我前面博客中提到的gulp就算是前端工程化的一方面了，还有后面应该会学习的Webpack。&lt;/p&gt;
+&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/lvdabao/p/js-modules-develop.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/lvdabao/p/js-modules-develop.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/588&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/588&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/547&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/547&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/fouber/blog/issues/4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/fouber/blog/issues/4&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/277&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/277&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/454&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/454&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/seajs/seajs/issues/1605&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/seajs/seajs/issues/1605&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://div.io/topic/430&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/430&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://div.io/topic/439&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/439&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000000733959&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://segmentfault.com/a/1190000000733959&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/10/javascript_module.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/10/javascript_module.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/11/require_js.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ruanyifeng.com/blog/2012/11/require_js.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/05/js-module/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/05/js-module/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/11/js-module2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/11/js-module2/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://lishaopeng.com/2016/02/19/js-module3/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lishaopeng.com/2016/02/19/js-module3/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://justineo.github.io/singles/writing-modular-js/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://justineo.github.io/singles/writing-modular-js/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88&lt;/a&gt;)&lt;br&gt;&lt;a href=&quot;https://github.com/amdjs/amdjs-api/wiki/require-(%E4%B8%AD%E6%96%87%E7%89%88&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/amdjs/amdjs-api/wiki/require-(%E4%B8%AD%E6%96%87%E7%89%88&lt;/a&gt;)&lt;br&gt;&lt;a href=&quot;http://requirejs.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://requirejs.org/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.requirejs.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.requirejs.cn/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://cyj.me/why-seajs/requirejs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cyj.me/why-seajs/requirejs/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://huangxuan.me/2015/07/09/js-module-7day/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://huangxuan.me/2015/07/09/js-module-7day/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-preface/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-preface/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-what/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-what/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-how/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-how/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://ecomfe.github.io/blog/dissecting-amd-loader/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ecomfe.github.io/blog/dissecting-amd-loader/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/22/2513652.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/23/2513712.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/05/24/2514700.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/05/24/2514700.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/06/2536969.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/06/2536969.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/07/2537477.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/07/2537477.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/snandy/archive/2012/06/08/2538001.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/snandy/archive/2012/06/08/2538001.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://div.io/topic/586&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://div.io/topic/586&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.infoq.com/cn/articles/yunlong-on-fis&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.infoq.com/cn/articles/yunlong-on-fis&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;—-IFE2015 task4的终结线——-&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;最主要的目的：&quot;&gt;&lt;a href=&quot;#最主要的目的：&quot; class=&quot;headerlink&quot; title=&quot;最主要的目的：&quot;&gt;&lt;/a&gt;最主要的目的：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;解决命名冲突&lt;/li&gt;
+&lt;li&gt;依赖管理&lt;/li&gt;
+&lt;li&gt;提高代码可读性&lt;/li&gt;
+&lt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
+    
+    
+      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端之旅第 281~285 天——安全</title>
+    <link href="http://archmee.github.io/201704/2017-04-20-1.html"/>
+    <id>http://archmee.github.io/201704/2017-04-20-1.html</id>
+    <published>2017-04-19T16:00:00.000Z</published>
+    <updated>2017-04-20T17:43:41.659Z</updated>
+    
+    <content type="html">&lt;p&gt;这几天主要学习了JavaScript模块化的前世今生，工程化等方面知识，还包括安全防护、性能优化等方面知识，算是正式完成了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0004&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IFE2015 spring task4&lt;/a&gt;，由于主要任务是优化，所以从软件界面上几乎没什么变化，不再截图。&lt;br&gt;由于每篇内容相对独立，所以上面所述方面的学习笔记，将分别记录在接下来的几篇博客中。&lt;/p&gt;
+&lt;h2 id=&quot;Web安全&quot;&gt;&lt;a href=&quot;#Web安全&quot; class=&quot;headerlink&quot; title=&quot;Web安全&quot;&gt;&lt;/a&gt;Web安全&lt;/h2&gt;&lt;h3 id=&quot;浅谈Web安全性（前端向）&quot;&gt;&lt;a href=&quot;#浅谈Web安全性（前端向）&quot; class=&quot;headerlink&quot; title=&quot;浅谈Web安全性（前端向）&quot;&gt;&lt;/a&gt;浅谈Web安全性（前端向）&lt;/h3&gt;&lt;h4 id=&quot;攻击种类&quot;&gt;&lt;a href=&quot;#攻击种类&quot; class=&quot;headerlink&quot; title=&quot;攻击种类&quot;&gt;&lt;/a&gt;攻击种类&lt;/h4&gt;&lt;p&gt;Web基本攻击大致可以分为三大类&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;资源枚举&lt;br&gt;  别有用心的人会遍历你站点所有可访问的目录，然后把一些常见的备胎文件名（比如“sql.bak”、“index-副本.html”）一个个都枚举一下，如果运气好枚举到了就直接下载。&lt;/li&gt;
+&lt;li&gt;参数操纵&lt;br&gt;  这里包括了SQL注入、XPath注入、cgi命令执行，还有XXS和会话劫持等。前三个的攻击主要是在服务端触发的，后二者的攻击则是侧重于客户端。&lt;/li&gt;
+&lt;li&gt;其它攻击&lt;br&gt;  其它攻击包括有前面未提及的CSRF攻击、钓鱼攻击和拒绝服务攻击等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;攻击层面&quot;&gt;&lt;a href=&quot;#攻击层面&quot; class=&quot;headerlink&quot; title=&quot;攻击层面&quot;&gt;&lt;/a&gt;攻击层面&lt;/h4&gt;&lt;p&gt;常见的攻击层面有三种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;传统WEB应用程序&lt;ol&gt;
+&lt;li&gt;表单输入&lt;/li&gt;
+&lt;li&gt;cookie&lt;/li&gt;
+&lt;li&gt;报头&lt;/li&gt;
+&lt;li&gt;请求参数&lt;/li&gt;
+&lt;li&gt;上传文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Web服务&lt;ol&gt;
+&lt;li&gt;上述“传统WEB服务”的全部方法；&lt;/li&gt;
+&lt;li&gt;WSDL文档&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;AJAX应用程序&lt;br&gt;  即上述的“一”和“二”的合集&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot; title=&quot;解决方案&quot;&gt;&lt;/a&gt;解决方案&lt;/h4&gt;&lt;p&gt;综上所述，我们可以这样审视我们的WEB站点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;永远不要相信客户端传来的任何信息，对这些信息都应先进行编码或过滤处理；&lt;/li&gt;
+&lt;li&gt;谨慎返回用户输入的信息&lt;/li&gt;
+&lt;li&gt;使用黑名单和白名单处理（即“不允许哪些敏感信息”或“只允许哪些信息”，白名单的效果更好但局限性高）；&lt;/li&gt;
+&lt;li&gt;检查、验证请求来源，对每一个重要的操作都进行重新验证；&lt;/li&gt;
+&lt;li&gt;使用SSL防止第三方监听通信（但无法阻止XSS、CSRF、SQL注入攻击）；&lt;/li&gt;
+&lt;li&gt;不要将重要文件、备份文件存放在公众可访问到的地方；&lt;/li&gt;
+&lt;li&gt;会话ID无序化；&lt;/li&gt;
+&lt;li&gt;对用户上传的文件进行验证（不单单是格式验证，比方一张gif图片还应将其转为二进制并验证其每帧颜色值&amp;lt;无符号8位&amp;gt;和宽高值&amp;lt;无符号16位&amp;gt;）；&lt;/li&gt;
+&lt;li&gt;WSDL文档应当要求用户注册后才能获取；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;虽然我们有一些必要的手段来防止WEB攻击，但永远不会有一枚silver bullet来彻底解决问题，先不谈那些数不胜数的已知的、可被攻击的漏洞，对于谜一样的0-day漏洞，我们所能做的只是提前发现并及时修补它们。&lt;/p&gt;
+&lt;h3 id=&quot;有关XSS&quot;&gt;&lt;a href=&quot;#有关XSS&quot; class=&quot;headerlink&quot; title=&quot;有关XSS&quot;&gt;&lt;/a&gt;有关XSS&lt;/h3&gt;&lt;h4 id=&quot;XSS的原理分析与解剖&quot;&gt;&lt;a href=&quot;#XSS的原理分析与解剖&quot; class=&quot;headerlink&quot; title=&quot;XSS的原理分析与解剖&quot;&gt;&lt;/a&gt;XSS的原理分析与解剖&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;黑客对此漏洞的偏爱，原因不需要多，只需要一个：Xss几乎每个网站都存在，google、baidu、360等都存在。&lt;/li&gt;
+&lt;li&gt;记住一句话“xss就是在页面执行你想要的js”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;XSS的原理分析与解剖（第二篇）&quot;&gt;&lt;a href=&quot;#XSS的原理分析与解剖（第二篇）&quot; class=&quot;headerlink&quot; title=&quot;XSS的原理分析与解剖（第二篇）&quot;&gt;&lt;/a&gt;XSS的原理分析与解剖（第二篇）&lt;/h4&gt;&lt;p&gt;常见XSS&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;反射型XSS&lt;/li&gt;
+&lt;li&gt;储蓄型XSS&lt;/li&gt;
+&lt;li&gt;DOM XSS&lt;/li&gt;
+&lt;li&gt;XSF(Flash XSS)&lt;/li&gt;
+&lt;li&gt;挖掘XSS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;XSS的原理分析与解剖：第三章（技巧篇）&quot;&gt;&lt;a href=&quot;#XSS的原理分析与解剖：第三章（技巧篇）&quot; class=&quot;headerlink&quot; title=&quot;XSS的原理分析与解剖：第三章（技巧篇）&quot;&gt;&lt;/a&gt;XSS的原理分析与解剖：第三章（技巧篇）&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;第三方劫持 (外调J/C)：就是把资源域的服务器的权限拿下，替换相关资源，采用‘迂回式’的渗透方式。&lt;br&gt;  PS： J/C指的是javascript、css，不经常使用的就不说了。&lt;/li&gt;
+&lt;li&gt;XSS downloader（XSS下载器）：这个技术其实就是把反射和储蓄结合起来，把核心代码写在网站上，然后以XSS触发并调用代码，实现攻击。&lt;/li&gt;
+&lt;li&gt;XCS：XCS就是利用浏览器来玩XSS，它的功能比普通上的XSS还要强大，因为利用浏览器协议漏洞，可以调用浏览器的API来实现下载覆盖本地文件(可以把它这个功能理解为挂马)。&lt;/li&gt;
+&lt;li&gt;页面渲染XSS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;XSS的原理分析与解剖：第四章（编码与绕过）&quot;&gt;&lt;a href=&quot;#XSS的原理分析与解剖：第四章（编码与绕过）&quot; class=&quot;headerlink&quot; title=&quot;XSS的原理分析与解剖：第四章（编码与绕过）&quot;&gt;&lt;/a&gt;XSS的原理分析与解剖：第四章（编码与绕过）&lt;/h4&gt;&lt;p&gt;编码&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;URL编码&lt;/li&gt;
+&lt;li&gt;unicode编码&lt;/li&gt;
+&lt;li&gt;HTML编码&lt;/li&gt;
+&lt;li&gt;CSS编码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;XSS防护&quot;&gt;&lt;a href=&quot;#XSS防护&quot; class=&quot;headerlink&quot; title=&quot;XSS防护&quot;&gt;&lt;/a&gt;XSS防护&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;验证输入并且基于语境和按照正确的顺序转义不可信数据&lt;/li&gt;
+&lt;li&gt;始终遵循白名单优于黑名单的做法&lt;/li&gt;
+&lt;li&gt;使用 UTF-8 为默认的字符编码以及设置 content 为 text/html&lt;/li&gt;
+&lt;li&gt;不要将用户可以控制的文本放在&lt;meta&gt;标签前。通过使用不同的字符集注射可以导致XSS&lt;/li&gt;
+&lt;li&gt;使用&amp;lt;!DOCTYPE html&amp;gt;&lt;/li&gt;
+&lt;li&gt;使用推荐的 HTTP 响应头进行 XSS 防护&lt;/li&gt;
+&lt;li&gt;防止 CRLF 注入/HTTP 响应拆分&lt;/li&gt;
+&lt;li&gt;禁止 TRACE 和其他非必要方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.2cto.com/article/201412/363743.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.2cto.com/article/201412/363743.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/articles/web/40520.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.freebuf.com/articles/web/40520.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/articles/web/42727.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.freebuf.com/articles/web/42727.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/articles/44481.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.freebuf.com/articles/44481.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/articles/web/55505.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.freebuf.com/articles/web/55505.html&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/author/black-hole&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.freebuf.com/author/black-hole&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.fooying.com/chinese-translationthe-ultimate-xss-protection-cheatsheet-for-developers/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.fooying.com/chinese-translationthe-ultimate-xss-protection-cheatsheet-for-developers/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/knownsec/KCon&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/knownsec/KCon&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这几天主要学习了JavaScript模块化的前世今生，工程化等方面知识，还包括安全防护、性能优化等方面知识，算是正式完成了&lt;a href=&quot;https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0
     
     </summary>
     
@@ -1467,39 +1535,6 @@
     <summary type="html">
     
       &lt;p&gt;今天完成了JS高程的第14章，并且开始做百度前端学院2015任务二：JS部分。&lt;br&gt;看了一篇学习资料 &lt;a href=&quot;http://www.ibm.com/developerworks/cn/web/1308_caiys_jsload/index.html&quot; targe
-    
-    </summary>
-    
-      <category term="tech" scheme="http://archmee.github.io/categories/tech/"/>
-    
-    
-      <category term="Front End" scheme="http://archmee.github.io/tags/Front-End/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端之旅第 84~95 天</title>
-    <link href="http://archmee.github.io/201610/2016-10-09.html"/>
-    <id>http://archmee.github.io/201610/2016-10-09.html</id>
-    <published>2016-10-08T16:00:00.000Z</published>
-    <updated>2016-10-26T14:19:24.952Z</updated>
-    
-    <content type="html">&lt;p&gt;在国庆节前后接近两周的时间学习了JS高程7~13章，第7章还属于比较重要的语法知识，而从第8章开始后面就是BOM和DOM等部分，讲解了大量api的用法，遂不打算一一做笔记了，这里仅仅列一下第7章的纲要&lt;/p&gt;
-&lt;h2 id=&quot;7-函数表达式&quot;&gt;&lt;a href=&quot;#7-函数表达式&quot; class=&quot;headerlink&quot; title=&quot;7.函数表达式&quot;&gt;&lt;/a&gt;7.函数表达式&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;在使用递归调用时，用arguments.callee比使用函数名更保险&lt;/li&gt;
-&lt;li&gt;闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常见方式，就是在一个函数内部创建另一个函数&lt;/li&gt;
-&lt;li&gt;闭包会引用包含函数的整个活动对象&lt;/li&gt;
-&lt;li&gt;可以用匿名函数模仿块级作用域减少向全局作用域添加过多的变量和函数&lt;/li&gt;
-&lt;li&gt;JS用特权方法来访问私有变量和函数&lt;/li&gt;
-&lt;li&gt;JS是以对象字面量的方式来创建单例对象的&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;至于这段时间的主要工作，其一是想快点把JS高程刷完，并且同时刷百度前端学院的一些题，书完了之后，就做百度前端学院的大作业，2015春季和2016春季都可以选择&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在国庆节前后接近两周的时间学习了JS高程7~13章，第7章还属于比较重要的语法知识，而从第8章开始后面就是BOM和DOM等部分，讲解了大量api的用法，遂不打算一一做笔记了，这里仅仅列一下第7章的纲要&lt;/p&gt;
-&lt;h2 id=&quot;7-函数表达式&quot;&gt;&lt;a href=&quot;#7-函数表
     
     </summary>
     

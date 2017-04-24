@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>前端之旅第 286 天 | 神无</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+      
+        <a class="active" href="/./">home</a>
+        
+
+      
+  
+      
+        <a href="/archives">archive</a>
+      
+  
+      
+        <a href="/demo">demo</a>
+      
+  
+      
+        <a href="/about">about</a>
+      
+  
+      
+        <a href="/atom.xml">rss</a>
+      
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/201704/2017-04-21.html">前端之旅第 286 天</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">April 20 2017</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="mocha"><a href="#mocha" class="headerlink" title="mocha"></a>mocha</h2><p>mocha是一个测试框架，使用入门都是很简单的，通过阮一峰的博客可以快速入门 <a href="http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html" target="_blank" rel="external">测试框架 Mocha 实例教程</a></p>
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><p>由于ES6新增内容其实是很多的，但是我们不能全部都学，而且很大一部分只适用于Nodejs，所以暂时只需要学习20%的部分来应付80%的工作即可</p>
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><ul>
+<li>实际上为js提供了块级作用域，用它所声明的变量，只在let命令所在的代码块内有效。</li>
+<li>解决了以前在循环中需要闭包才能解决的对循环变量的引用问题</li>
+</ul>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>也用来声明变量，但是声明的是常量。一旦声明，常量的值就不能改变。const有一个很好的应用场景，就是当我们引用第三方库的时声明的变量，用const来声明可以避免未来不小心重命名而导致出现bug</p>
+<h3 id="class-extends-super"><a href="#class-extends-super" class="headerlink" title="class, extends, super"></a>class, extends, super</h3><ul>
+<li>class 声明类</li>
+<li>extends 继承</li>
+<li><p>super 它指代父类的实例（即父类的this对象）。子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类没有自己的this对象，而是继承父类的this对象，然后对其进行加工。如果不调用super方法，子类就得不到this对象。</p>
+<p>  ES6的继承机制，实质是先创造父类的实例对象this（所以必须先调用super方法），然后再用子类的构造函数修改this。</p>
+</li>
+</ul>
+<h3 id="arrow-function-箭头函数"><a href="#arrow-function-箭头函数" class="headerlink" title="arrow function(箭头函数)"></a>arrow function(箭头函数)</h3><p>箭头函数简化了编程工作，对比：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123; <span class="keyword">return</span> i + <span class="number">1</span>; &#125; <span class="comment">//ES5</span></span><br><span class="line">(i) =&gt; &#123;i + <span class="number">1</span>;&#125; <span class="comment">//ES6</span></span><br></pre></td></tr></table></figure></p>
+<p>以前在setTimeout中的this指向全局对象，为了解决这个问题可以</p>
+<ul>
+<li>在setTimeout调用前保存对this的引用</li>
+<li>或者用bind方法 method.bind(this)</li>
+</ul>
+<p>但是现在有了箭头函数就不用麻烦了<br><code>() =&gt; { this is outer this }</code><br>当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，它的this是继承外面的，因此内部的this就是外层代码块的this。</p>
+<h3 id="template-string"><a href="#template-string" class="headerlink" title="template string"></a>template string</h3><p>用<code>\</code>`<code>符号包起来的字符串中可以像模板中一样在</code>${}<code>中插值</code><span>${data.name}</span>`</p>
+<h3 id="destructuring（解构）"><a href="#destructuring（解构）" class="headerlink" title="destructuring（解构）"></a>destructuring（解构）</h3><p>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cat = <span class="string">'ken'</span></span><br><span class="line"><span class="keyword">let</span> dog = <span class="string">'lili'</span></span><br><span class="line"><span class="keyword">let</span> zoo = &#123;cat, dog&#125; <span class="comment">//相当于将后面所有对象拷贝到zoo</span></span><br><span class="line"><span class="comment">// zoo = &#123;cat: 'ken', dog: 'lili'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = &#123;type: <span class="string">'animal'</span>, many: <span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">let</span> &#123; type, many&#125; = dog <span class="comment">//将dog对象中的值分别拷贝到前面的变量中</span></span><br><span class="line"><span class="comment">// 现在type 和 many分别是两个变量其值为dog中对应值</span></span><br></pre></td></tr></table></figure></p>
+<p>注意上面代码中提取值时key值要保证相同，因为对象内部属性是无序的，所以不要设想是按照循序赋值</p>
+<h3 id="default，rest"><a href="#default，rest" class="headerlink" title="default，rest"></a>default，rest</h3><ul>
+<li><p>default(函数形参默认值)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a = 1, b = 2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line">sum(); <span class="comment">//3</span></span><br><span class="line">sum(<span class="number">2</span>); <span class="comment">//4</span></span><br><span class="line">sum(<span class="number">3</span>, <span class="number">3</span>); <span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rest arguments<br>有点类似于ES6以前的arguments可以获取形参集合，不过arguments是个对象，而rest是个数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">...types</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(types);</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>); <span class="comment">//['a', 'b', 'c']</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="ES6-Module：import，export"><a href="#ES6-Module：import，export" class="headerlink" title="ES6 Module：import，export"></a>ES6 Module：import，export</h3><p>之前我们可以用AMD、CMD、UMD、CommonJs等规范来实现模块化，而现在，ES6 Module还是不能用，所以还是继续用原来的吧，不过ES6 Module规范已经出了，接下来就是看各个厂商的实现了。</p>
+<p>顾名思义，import导入模块，export到处模块，如果熟悉模块化编程的话很容易理解它们是如何工作的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;animal, ...&#125; <span class="keyword">from</span> <span class="string">'./content'</span></span><br><span class="line"></span><br><span class="line">//content.js</span><br><span class="line">function animal()&#123;</span><br><span class="line">    return <span class="string">'Hello!'</span></span><br><span class="line">&#125;</span><br><span class="line">export &#123;animal, ...&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>export命令除了输出变量，还可以输出函数，甚至是类</li>
+<li>大括号里面的变量名，必须与被导入模块（content.js）对外接口的名称相同。</li>
+<li>as关键字可以指定别名</li>
+<li>整体导入用星号（*）指定一个对象，所有输出值都导入在这个对象上面。要使用as指定别名</li>
+</ul>
+<p>ES6模块系统和AMD相比有一些不一样的思想，总结一下就是：</p>
+<ul>
+<li>按需引入 vs 全局引入</li>
+<li>多点暴漏 vs 全局暴漏</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>以上内容皆来自博客<br><a href="https://segmentfault.com/a/1190000004365693" target="_blank" rel="external">30分钟掌握ES6/ES2015核心内容（上）</a><br><a href="https://segmentfault.com/a/1190000004368132" target="_blank" rel="external">30分钟掌握ES6/ES2015核心内容（下）</a><br>如果需要深入学习，可以看：<br><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6入门</a><br><a href="http://www.infoq.com/cn/es6-in-depth/" target="_blank" rel="external">深入浅出ES6</a></p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 神无 </p>
+      <p class="subtitle"> 舍悟离迷，六尘不改。 </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <p> share it if you like it. </p>
+    <!-- <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="mocha"><a href="
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+ -->
+  </section>
+</div>
+
+
+  
+</main>
+
+</body>
+</html>
