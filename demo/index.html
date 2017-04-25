@@ -38,16 +38,17 @@
 
   <main class="page">
   <div>
-    <p><strong>自己实现的动画函数move.js</strong> [<a href="https://github.com/Archmee/move.js" target="_blank" rel="external">github</a>]</p>
+    <p>PS：以下代码特殊说明，均使用原生语言开发</p>
+<p><strong>自己实现的动画函数move.js</strong> [<a href="https://github.com/Archmee/move.js" target="_blank" rel="external">github</a>]</p>
 <ul>
-<li>优点是兼容性好</li>
-<li>缺点是资源消耗大</li>
+<li>优点是兼容性好，优化后支持requestAnimationFrame技术，否则使用定时器</li>
+<li>缺点是资源消耗大，针对现代浏览器最好使用CSS3</li>
 </ul>
-<p><strong>IFE任务</strong> [<a href="https://github.com/Archmee/IFE-2015-Spring-Task" target="_blank" rel="external">github</a>]</p>
+<p><strong>百度前端学院IFE任务</strong> [<a href="https://github.com/Archmee/IFE-2015-Spring-Task" target="_blank" rel="external">github</a>]</p>
 <ul>
-<li>一个静态博客 [<a href="https://archmee.github.io/demo/show/ife_task_1_7/">show</a>] [<a href="https://github.com/Archmee/IFE-2015-Spring-Task/tree/master/ife_task_1_7" target="_blank" rel="external">github</a>]</li>
+<li>一个静态博客 [<a href="https://archmee.github.io/demo/show/ife_task_1_7/">show</a>]</li>
 <li>IFE任务2 [<a href="https://github.com/Archmee/IFE-2015-Spring-Task/tree/master/ife_task_2" target="_blank" rel="external">github</a>]<ul>
-<li>一个通用库util.js实现，包括mini $、ajax、dom处理、和一些js缺失的功能函数 [<a href="https://github.com/Archmee/IFE-2015-Spring-Task/blob/master/ife_task_2/js/util.js" target="_blank" rel="external">github</a>]</li>
+<li>一个通用库<strong>util.js</strong>实现，包括mini $、ajax、dom处理、和一些js缺失的功能函数 [<a href="https://github.com/Archmee/IFE-2015-Spring-Task/blob/master/ife_task_2/js/util.js" target="_blank" rel="external">github</a>]</li>
 <li>兴趣列表 [<a href="https://archmee.github.io/demo/show/ife_task_2/task0002_1.html">show</a>]</li>
 <li>倒计时 [<a href="https://archmee.github.io/demo/show/ife_task_2/task0002_2.html">show</a>]</li>
 <li>面向对象的轮播 [<a href="https://archmee.github.io/demo/show/ife_task_2/task0002_3.html">show</a>]</li>
@@ -55,10 +56,23 @@
 <li>拖拽交互 [<a href="https://archmee.github.io/demo/show/ife_task_2/task0002_5.html">show</a>]</li>
 </ul>
 </li>
-<li>一个任务管理工具-PC [<a href="https://archmee.github.io/demo/show/ife_task_3">show</a>]</li>
-<li>一个任务管理工具-适配移动端 [<a href="https://archmee.github.io/demo/show/ife_task_4">show</a>]</li>
-<li><p>优化后的任务管理工具 [<a href="https://archmee.github.io/demo/show/ife_task_5">show</a>]</p>
-<p><img src="https://archmee.github.io/demo/show/ife_task_5/ife_task_5.png" alt="todo"><br>可扫码访问</p>
+<li>基于SPA的任务管理工具 - PC版 [<a href="https://archmee.github.io/demo/show/ife_task_3">show</a>]<ul>
+<li>本地存储采用localStorage，以下两个都是对该项目的扩展</li>
+</ul>
+</li>
+<li>扩展基于SPA的任务管理工具 - 适配移动端 [<a href="https://archmee.github.io/demo/show/ife_task_4">show</a>]<ul>
+<li>使用CSS3的media query技术完美适配移动端</li>
+</ul>
+</li>
+<li><p>优化后的基于SPA的任务管理工具 [<a href="https://archmee.github.io/demo/show/ife_task_5">show</a>]</p>
+<ul>
+<li>使用CSS3动画切换页面</li>
+<li>使用Less处理CSS</li>
+<li>模板是artTemplate</li>
+<li>使用requirejs模块化</li>
+<li>使用gulp增强工作流，压缩验证CSS、js、图片等</li>
+</ul>
+<p><img src="https://archmee.github.io/demo/show/ife_task_5/ife_task_5.png" alt="todo"><br>推荐扫码访问</p>
 </li>
 </ul>
 <p><strong>其他</strong></p>
@@ -68,7 +82,6 @@
 <li><a href="https://archmee.github.io/demo/show/lunbo/">简易轮播效果</a></li>
 <li><a href="https://archmee.github.io/demo/show/dropdown-menu/">几款漂亮的菜单效果</a></li>
 </ul>
-<p>PS：以上代码特殊说明，均使用原生语言开发</p>
 <p><strong>CSS3 Demo</strong></p>
 <ul>
 <li><a href="https://archmee.github.io/demo/show/css3/bangbangtang.html">催眠棒棒糖</a></li>
