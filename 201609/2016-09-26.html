@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>前端之旅第 78~83 天 | 神无</title>
+  <title>前端之旅：《JS高级编程》第6章 学习笔记 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201609/2016-09-26.html">前端之旅第 78~83 天</a>
+    <a href="/201609/2016-09-26.html">前端之旅：《JS高级编程》第6章 学习笔记</a>
   </h1>
 
   <section class="article-meta">
@@ -88,7 +88,7 @@
 <li><strong>组合继承</strong>：将原型链和借用构造函数的技术组合到一块，其背后的思想是使用原型链实现对原型属性和方法的继承。其缺点是在构造函数中和用实例覆盖子类型的原型对象的过程中，调用了2次父类型的构造函数，导致父类型的实例属性有2份，1份在子类型原型对象中，1份在子类型实例中。</li>
 <li><strong>原型式继承</strong>：它的实现思路是在函数内借助给定的参数（对象）覆盖函数中一个全新的对象的原型，然后返回这个全新的对象，利用该函数实现了继承，每个实例都可以对自己的属性和方法进行自定义。这个技术和<u>原型继承</u>的思路差不多，用对象实例去重写子类型的原型，只是它把步骤放到了函数里面，并且是返回了一个被更改过原型的空白对象。<br>  ES5的<code>Object.create()</code>方法规范化了原型式继承，它用来创建并返回一个继承后的子对象。</li>
 <li><strong>寄生式继承</strong>：是和原型式继承紧密相关的一种方式，但是原型式继承返回的子类型没有任何自定义的属性和方法，所以寄生式继承是完成了二次封装，用来完善子类型的属性和方法。思路是创建一个函数，在函数中调用原型式继承中封装的步骤，然后定义子类型中应有的属性和方法。但是也没有解决方法复用的问题，相当于每个实例中都有一份自己的方法</li>
-<li><strong>寄生组合式继承</strong>：通过借用构造函数继承来继承属性，通过原型链的混成形式来继承方法。基本思路是：不必为了指定子类型的原型而调用父类型的构造函数，我们需要的只是父类型的原型对象的一个副本而已。只是利用一个中间对象的实例覆盖了子类型的原型对象，而在子类型的构造函数中又调用父类型构造函数以达到继承属性的目的。（最常用最常用）</li>
+<li><strong>寄生组合式继承</strong>：通过借用构造函数来继承属性，通过原型链的混成形式来继承方法。基本思路是：不必为了指定子类型的原型而调用父类型的构造函数，我们需要的只是父类型的原型对象的一个副本而已。只是利用一个中间对象的实例覆盖了子类型的原型对象，而在子类型的构造函数中又调用父类型构造函数以达到继承属性的目的。（最常用最常用）</li>
 </ul>
 <p>有关方法：</p>
 <ul>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>前端之旅第 13 天 | 神无</title>
+  <title>前端之旅：《Head First HTML &amp; CSS》12 学习笔记 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201607/2016-07-18.html">前端之旅第 13 天</a>
+    <a href="/201607/2016-07-18.html">前端之旅：《Head First HTML & CSS》12 学习笔记</a>
   </h1>
 
   <section class="article-meta">
@@ -69,7 +69,7 @@
 </tr>
 <tr>
 <td>time</td>
-<td>表现日期时间, 详细可以查看<a href="http://www.w3school.com.cn/tags/tag_time.asp" target="_blank" rel="external">w3school</a></td>
+<td>表现日期时间, 详细可以查看<a href="http://www.w3school.com.cn/tags/tag_time.asp" target="_blank" rel="noopener">w3school</a></td>
 </tr>
 <tr>
 <td>section</td>
@@ -142,9 +142,9 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><p>简单的使用video播放视频<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">video</span> <span class="attribute">controls</span> <span class="attribute">autoplay</span> <span class="attribute">width</span>=<span class="value">"320"</span> <span class="attribute">height</span>=<span class="value">"200"</span> <span class="attribute">src</span>=<span class="value">"video/tweetship.mp4"</span> <span class="attribute">poster</span>=<span class="value">"images/poster.png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>如果要为多种浏览器提供多种视频格式支持，可用 source 列出可用视频格式，浏览器会从上至下查找，对于每个source元素，浏览器会加载每个视频文件的元数据，查看能不能播放这个视频，直到找到它能播放的视频格式。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">video</span> <span class="attribute">controls</span> <span class="attribute">autoplay</span> <span class="attribute">width</span>=<span class="value">"320"</span> <span class="attribute">height</span>=<span class="value">"200"</span> <span class="attribute">poster</span>=<span class="value">"images/poster.png"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.mp4"</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.webm"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.ogv"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">p</span>&gt;</span>Sorry! your browser doesn't support the video element.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>但是这样做导致浏览器在播放视频之前做了太多检查工作，会影响效率，我们可以为每个 source 提供 type 属性帮助浏览器确定视频类型<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">video</span> <span class="attribute">controls</span> <span class="attribute">autoplay</span> <span class="attribute">width</span>=<span class="value">"320"</span> <span class="attribute">height</span>=<span class="value">"200"</span> <span class="attribute">poster</span>=<span class="value">"images/poster.png"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.mp4"</span> <span class="attribute">type</span>=<span class="value">'video/mp4; codecs="avcl.42E01E, mp4a.40.2"'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.webm"</span> <span class="attribute">type</span>=<span class="value">'video/webm; codecs="vp8, vorbis"'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">source</span> <span class="attribute">src</span>=<span class="value">"video/tweetsip.ogv"</span> <span class="attribute">type</span>=<span class="value">'video/ogg; codecs="theora, vorbis"'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>Sorry! your browser doesn't support the video element.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><p>简单的使用video播放视频<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span> <span class="attr">autoplay</span> <span class="attr">width</span>=<span class="string">"320"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">src</span>=<span class="string">"video/tweetship.mp4"</span> <span class="attr">poster</span>=<span class="string">"images/poster.png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>如果要为多种浏览器提供多种视频格式支持，可用 source 列出可用视频格式，浏览器会从上至下查找，对于每个source元素，浏览器会加载每个视频文件的元数据，查看能不能播放这个视频，直到找到它能播放的视频格式。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span> <span class="attr">autoplay</span> <span class="attr">width</span>=<span class="string">"320"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">poster</span>=<span class="string">"images/poster.png"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"video/tweetsip.mp4"</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"video/tweetsip.webm"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"video/tweetsip.ogv"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Sorry! your browser doesn't support the video element.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>但是这样做导致浏览器在播放视频之前做了太多检查工作，会影响效率，我们可以为每个 source 提供 type 属性帮助浏览器确定视频类型<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span> <span class="attr">autoplay</span> <span class="attr">width</span>=<span class="string">"320"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">poster</span>=<span class="string">"images/poster.png"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"video/tweetsip.mp4"</span> <span class="attr">type</span>=<span class="string">'video/mp4; codecs="avcl.42E01E, mp4a.40.2"'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"video/tweetsip.webm"</span> <span class="attr">type</span>=<span class="string">'video/webm; codecs="vp8, vorbis"'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"video/tweetsip.ogv"</span> <span class="attr">type</span>=<span class="string">'video/ogg; codecs="theora, vorbis"'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Sorry! your browser doesn't support the video element.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p><code>type</code> 属性首先说明了视频文件的MIME类型，然后codecs参数指定哪个编码器对视频和音频编码，来创建编码的视频文件。</p>
 <blockquote>
 <p>如果要支持IE9或其他老版本浏览器用flash，可以在source列表最后添加object元素</p>
@@ -153,7 +153,7 @@
 <li>CDN（Content delivery Network）是内容分发网络的简称</li>
 </ul>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
-<li>导航条中的<code>li</code>元素之间产生了边距，不知为何，看了这篇<a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/" target="_blank" rel="external">《去除inline-block元素间间距的N种方法》</a> 后知道这是inline-block导致的，文章中使用了很多方式来解决这个问题，而我采用了在ul的样式中写入<code>display:table;</code>的方式</li>
+<li>导航条中的<code>li</code>元素之间产生了边距，不知为何，看了这篇<a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/" target="_blank" rel="noopener">《去除inline-block元素间间距的N种方法》</a> 后知道这是inline-block导致的，文章中使用了很多方式来解决这个问题，而我采用了在ul的样式中写入<code>display:table;</code>的方式</li>
 <li>IE9不支持本章节的视频播放，暂未找到理想的解决办法</li>
 </ol>
 

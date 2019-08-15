@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>前端之旅第 35~40 天 | 神无</title>
+  <title>前端之旅：完成 IFE2015的 task1 的问题修复记录 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201608/2016-08-13.html">前端之旅第 35~40 天</a>
+    <a href="/201608/2016-08-13.html">前端之旅：完成 IFE2015的 task1 的问题修复记录</a>
   </h1>
 
   <section class="article-meta">
@@ -47,11 +47,11 @@
   </section>
 
   <section class="article-entry">
-    <p>在8.12完成了<a href="https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0001" target="_blank" rel="external">IFE2015的第一个任务的第7个作业</a>，今天来写点日志，现在已经感觉对盒子模型和布局理解更深入一点了。</p>
-<p>-&gt;<a href="https://github.com/Archmee/Front-End-Demo/tree/master/ife_task_007" target="_blank" rel="external">这是项目的github地址</a>。</p>
+    <p>在8.12完成了<a href="https://github.com/baidu-ife/ife/tree/master/2015_spring/task/task0001" target="_blank" rel="noopener">IFE2015的第一个任务的第7个作业</a>，今天来写点日志，现在已经感觉对盒子模型和布局理解更深入一点了。</p>
+<p>-&gt;<a href="https://github.com/Archmee/Front-End-Demo/tree/master/ife_task_007" target="_blank" rel="noopener">这是项目的github地址</a>。</p>
 <h2 id="已解决问题"><a href="#已解决问题" class="headerlink" title="已解决问题"></a>已解决问题</h2><p>这些已解决问题或记录，只是自己在遇到时随手记下来的，并且贴出了解决办法，并没有把每个问题的表现形式截图下来，问题和解决方式的描述也还有待调整，我争取看看有时间的时候完善补充一下。</p>
 <ol>
-<li><p>当a嵌入一个img时，a元素的高度和img不一样？（ 转自：<a href="http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height）" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height）</a></p>
+<li><p>当a嵌入一个img时，a元素的高度和img不一样？（ 转自：<a href="http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height）" target="_blank" rel="noopener">http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height）</a></p>
 <p> 这是 line-height 和 vertical-align 造成的，被称为幽灵空白节点，解决方案有以下几种：</p>
 <ul>
 <li>让 vertical-align 失效：<code>img { display: block; }</code></li>
@@ -65,20 +65,20 @@
 <li><p>关于背景透明，文字不透明，解决方案 </p>
 <ul>
 <li>两个DIV放在一个位置，文字DIV放上面，需要透明的DIV放下面</li>
-<li>使用css属性opacity（文字背景都透明）或者rgba（背景透明文字不透明），参考：<a href="http://www.cnblogs.com/PeunZhang/p/4089894.html" target="_blank" rel="external">http://www.cnblogs.com/PeunZhang/p/4089894.html</a></li>
+<li>使用css属性opacity（文字背景都透明）或者rgba（背景透明文字不透明），参考：<a href="http://www.cnblogs.com/PeunZhang/p/4089894.html" target="_blank" rel="noopener">http://www.cnblogs.com/PeunZhang/p/4089894.html</a></li>
 </ul>
 </li>
 <li><p>font-family应该优先指定英文字体，然后再指定中文字体。同时声明中文字体的字体名称（英文）和显示名称（中文）</p>
 </li>
 <li><p>关于li元素之间的间隔，是inline-block导致的，之前遇到过这个问题，也在博客中提过，是用<code>display:table-cell;</code>解决的，但是我发现它和最上面的问题一有点类似，采用<code>vertical-align:middle;</code>也解决了问题，仔细检查发现虽然间隔小了很多但还是有一点间隔。所以还是采用<code>font-size:0;</code>的方式解决了，其实浮动应该可以。<br> 在写表单的时候，若多个表单元素放在一行的话，也会出现间隔，用 letter-spacing 可以解决</p>
 </li>
-<li><p>了解word-wrap和word-break<br>一下内容来自这篇博客：www.cnblogs.com/2050/archive/2012/08/10/2632256.html。</p>
+<li><p>了解word-wrap和word-break<br>一下内容来自这篇博客：<a href="http://www.cnblogs.com/2050/archive/2012/08/10/2632256.html。" target="_blank" rel="noopener">www.cnblogs.com/2050/archive/2012/08/10/2632256.html。</a></p>
 <p> <code>word-wrap:break-word;</code> 对长串英文不起作用，其实这是非常错误的，<code>word-wrap:break-word;</code>照样能把一个长串英文或数字拆成多行。事实上，<code>word-wrap:break-word;</code>与<code>word-break:break-all;</code>共同点是都能把长单词强行断句，不同点是<code>word-wrap:break-word;</code>会首先起一个新行来放置长单词，新的行还是放不下这个长单词则会对长单词进行强制断句；而<code>word-break:break-all;</code>则不会把长单词放在一个新行里，当这一行放不下的时候就直接强制断句了</p>
 </li>
 <li><p>页面底部采用text-align来居中，版权信息可以正常显示，但是github logo总是不居中，检查它的左边刚好在居中位置，所以采用了<code>margin-left: -50%;</code> 将图片向左边缩进了自身宽度的边距</p>
 </li>
 <li><p>屏幕宽度小于980px就隐藏头部github图标</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">media</span> screen and (max-width: <span class="number">980px</span>) </span>&#123;</span><br><span class="line">    <span class="id">#github-icon</span> <span class="rules">&#123;</span><br><span class="line">        <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> screen and (max-width: <span class="number">980px</span>) &#123;</span><br><span class="line">    <span class="selector-id">#github-icon</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>之前主页的封面图是用背景来实现的，但是实际图片宽高大于盒子宽高，所以图片显示不完整，在网上找到解决方法是可以用background-size来缩放背景大小，我分别指定宽高为100%，就能适应盒子 大小了。<br>本来以为没问题了，但是今天在缩放窗口的时候发现，图片宽度会随着浏览器窗口调整导致挤压变形严重，在MDN看到一篇介绍background-size的文章，提到还有<strong>contain</strong>和<strong>cover</strong>属性可用，contain是按照原图宽高比例进行缩放，只要宽度发生变化，图片高度也会动态调整，这不是我期望的效果，而cover属性就能够填充整个盒子的宽高，并不会随着浏览器缩放调整大小，所以完美解决了这个问题</p>
 </li>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>前端之旅第 41~54 天 | 神无</title>
+  <title>前端之旅：《精通CSS》3~9章学习笔记 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201608/2016-08-27.html">前端之旅第 41~54 天</a>
+    <a href="/201608/2016-08-27.html">前端之旅：《精通CSS》3~9章学习笔记</a>
   </h1>
 
   <section class="article-meta">
@@ -187,16 +187,16 @@
 <li><p>IE条件注释<br> 条件注释是一种专有的（因此是非标准的）对常规html注释的Microsoft扩展。条件注释能够根据条件显示代码块。尽管是非标准的，条件注释在其他所有浏览器看来是常规注释，因此本质上是无害的</p>
 <ul>
 <li><p>如果要为IE指定特定样式表，可以这样做</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if IE]&gt;</span><br><span class="line">    &lt;link rel="stylesheet" type="text/css" href="/css/ie.css"&gt;</span><br><span class="line">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if IE]&gt;</span></span><br><span class="line"><span class="comment">    &lt;link rel="stylesheet" type="text/css" href="/css/ie.css"&gt;</span></span><br><span class="line"><span class="comment">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>也可以指定特定版本的浏览器</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if IE 6]&gt;</span><br><span class="line">    ...样式表...</span><br><span class="line">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if IE 6]&gt;</span></span><br><span class="line"><span class="comment">    ...样式表...</span></span><br><span class="line"><span class="comment">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>可以指定一组浏览器</p>
-  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 6]&gt;</span><br><span class="line">    ...样式表...</span><br><span class="line">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 6]&gt;</span></span><br><span class="line"><span class="comment">    ...样式表...</span></span><br><span class="line"><span class="comment">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
 <p>  说明：lt是less than的意思，即小于，gt为大于</p>
 </li>
-<li>还可以指定IE以外的浏览器   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if !IE]&gt;</span><br><span class="line">    ...给除了IE外的浏览器指定样式表...</span><br><span class="line">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
+<li>还可以指定IE以外的浏览器   <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if !IE]&gt;</span></span><br><span class="line"><span class="comment">    ...给除了IE外的浏览器指定样式表...</span></span><br><span class="line"><span class="comment">&lt;![end if]--&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -208,10 +208,10 @@
 </ul>
 </li>
 <li><p>星号HTML hack<br> 一般认为html元素是网页上的根元素，但是IE的老版本（IE6及以下）有一个匿名的根元素，它包围着html元素。可以使用通用选择器指定包围在另一个元素中的html元素</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* <span class="tag">html</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">1px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">1px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>自选择器hack<br> 因为子选择器是CSS 3才出来的，所以在老版本浏览器不支持的情况下会忽略它</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">html&gt;body &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>&gt;<span class="selector-tag">body</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>本章的最后的最后，可以考虑一下分级浏览器支持。</p>

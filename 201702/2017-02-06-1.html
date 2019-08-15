@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>IFE 2015 task3资料学习摘录 | 神无</title>
+  <title>前端之旅：学习笔记和资料 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201702/2017-02-06-1.html">IFE 2015 task3资料学习摘录</a>
+    <a href="/201702/2017-02-06-1.html">前端之旅：学习笔记和资料</a>
   </h1>
 
   <section class="article-meta">
@@ -64,7 +64,7 @@
 <li>然后在每个作用域链上的活动对象上查找该对象的原型链（如果有原型）</li>
 </ol>
 </li>
-<li><p>注意，由于<em>每个</em>（标准的）函数都在创建的时候保存了[[Scope]]，所以理论上来讲，ECMAScript中的<em>所有函数</em>都是<em>闭包</em>。<br>闭包是一个代码块（在ECMAScript是一个函数）和以静态方式/词法方式进行存储的所有父作用域的一个集合体。所以，通过这些存储的作用域，函数可以很容易的找到自由变量。</p>
+<li><p>注意，由于_每个<em>（标准的）函数都在创建的时候保存了[[Scope]]，所以理论上来讲，ECMAScript中的</em>所有函数_都是_闭包_。<br>闭包是一个代码块（在ECMAScript是一个函数）和以静态方式/词法方式进行存储的所有父作用域的一个集合体。所以，通过这些存储的作用域，函数可以很容易的找到自由变量。</p>
 </li>
 </ul>
 <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><ul>
@@ -96,7 +96,7 @@
 <li><p>激活其它上下文的某个上下文被称为 调用者(caller) 。被激活的上下文被称为被调用者(callee) 。被调用者同时也可能是调用者(比如一个在全局上下文中被调用的函数调用某些自身的内部方法)。</p>
 </li>
 </ul>
-<h2 id="深入理解作用域"><a href="#深入理解作用域" class="headerlink" title="深入理解作用域"></a>深入理解作用域</h2><p>来自 <a href="http://www.laruence.com/2009/05/28/863.html" target="_blank" rel="external">Javascript作用域原理：</a></p>
+<h2 id="深入理解作用域"><a href="#深入理解作用域" class="headerlink" title="深入理解作用域"></a>深入理解作用域</h2><p>来自 <a href="http://www.laruence.com/2009/05/28/863.html" target="_blank" rel="noopener">Javascript作用域原理：</a></p>
 <ul>
 <li>在JS中“一切皆是对象, 函数也是”</li>
 <li>在对应作用域内，函数定义会提升，但函数表达式没有提升</li>
@@ -111,23 +111,23 @@
 <li>JS作为一门解释执行的语言其实是有预编译的过程的, JS在执行每一段代码之前, 都会首先处理<code>var</code>关键字和<code>function</code>定义式(函数定义式和函数表达式)。</li>
 <li>JS的预编译是以段为处理单元的… 而段是按<code>script</code>标记来分的，所以一个script就是一个处理单元。　</li>
 </ul>
-<p>来自 <a href="http://www.cnblogs.com/lhb25/archive/2011/09/06/javascript-scope-chain.html" target="_blank" rel="external">理解 JavaScript 作用域和作用域链</a></p>
+<p>来自 <a href="http://www.cnblogs.com/lhb25/archive/2011/09/06/javascript-scope-chain.html" target="_blank" rel="noopener">理解 JavaScript 作用域和作用域链</a></p>
 <ul>
 <li>函数对象和其它对象一样，拥有可以通过代码访问的属性和一系列仅供JS引擎访问的内部属性。其中一个内部属性是<code>[[Scope]]</code>，由ECMA-262标准第三版定义，该内部属性包含了函数被创建的作用域中对象的集合，这个集合被称为函数的作用域链，它决定了哪些数据能被函数访问。</li>
-<li><p>在定义函数时，它的作用域链中会填入一个全局对象，该全局对象包含了所有全局变量，如下图所示（注意：图片只例举了全部变量中的一部分）：<br><img src="http://pic002.cnblogs.com/images/2011/36987/2011090414435366.jpg" alt=""></p>
+<li><p>在定义函数时，它的作用域链中会填入一个全局对象，该全局对象包含了所有全局变量，如下图所示（注意：图片只例举了全部变量中的一部分）：<br><img src="http://pic002.cnblogs.com/images/2011/36987/2011090414435366.jpg" alt></p>
 </li>
-<li><p>执行此函数时会创建一个称为“运行时上下文(execution context)”的内部对象，运行时上下文定义了函数执行时的环境。每个运行时上下文都有自己的作用域链，用于标识符解析，当运行时上下文被创建时，它的作用域链初始化为当前运行函数的[[Scope]]所包含的对象。<br>而形参和变量按照它们出现在函数中的顺序被复制到运行时上下文的作用域链中。它们共同组成了一个新的对象，叫“活动对象(activation object)”，该对象包含了函数的所有局部变量、命名参数、<code>arguments</code>以及<code>this</code>，然后此对象会被加入到作用域链的前端，当运行期上下文被销毁，活动对象也随之销毁。新的作用域链如下图所示：<br><img src="http://pic002.cnblogs.com/images/2011/36987/2011090414444843.jpg" alt=""></p>
+<li><p>执行此函数时会创建一个称为“运行时上下文(execution context)”的内部对象，运行时上下文定义了函数执行时的环境。每个运行时上下文都有自己的作用域链，用于标识符解析，当运行时上下文被创建时，它的作用域链初始化为当前运行函数的[[Scope]]所包含的对象。<br>而形参和变量按照它们出现在函数中的顺序被复制到运行时上下文的作用域链中。它们共同组成了一个新的对象，叫“活动对象(activation object)”，该对象包含了函数的所有局部变量、命名参数、<code>arguments</code>以及<code>this</code>，然后此对象会被加入到作用域链的前端，当运行期上下文被销毁，活动对象也随之销毁。新的作用域链如下图所示：<br><img src="http://pic002.cnblogs.com/images/2011/36987/2011090414444843.jpg" alt></p>
 </li>
 <li><p>从作用域链的结构可以看出，在运行期上下文的作用域链中，标识符所在的位置越深，读写速度就会越慢。如上图所示，因为全局变量总是存在于运行期上下文作用域链的最末端，因此在标识符解析的时候，查找全局变量是最慢的。所以，在编写代码的时候应尽量少使用全局变量，尽可能使用局部变量。</p>
 </li>
-<li>函数每次执行时对应的运行期上下文都是独一无二的，所以多次调用同一个函数就会导致创建多个运行期上下文，当函数执行完毕，执行上下文会被销毁。每一个运行期上下文都和一个作用域链关联。一般情况下，在运行期上下文运行的过程中，其作用域链只会被<code>with</code>语句和<code>catch</code>语句影响。<br>当代码运行到with语句时，运行期上下文的作用域链临时被改变了。一个新的可变对象被创建，它包含了参数指定的对象的所有属性。这个对象将被推入作用域链的头部，这意味着该函数的所有局部变量现在处于第二个作用域链对象中，因此访问代价更高了。如下图所示：<br><img src="http://pic002.cnblogs.com/images/2011/36987/2011090414454524.jpg" alt=""><br>当try代码块中发生错误时，执行过程会跳转到catch语句，然后把异常对象推入一个可变对象并置于作用域链的头部。在catch代码块内部，函数的所有局部变量将会被放在第二个作用域链对象中，此时的作用域链图和上图类似。<br>因此在程序中应避免使用with语句，由于try-catch语句在代码调试和异常处理中非常有用，因此不建议完全避免，可通过优化代码来减少catch语句对性能的影响。一个很好的模式是将错误委托给一个函数处理。</li>
+<li>函数每次执行时对应的运行期上下文都是独一无二的，所以多次调用同一个函数就会导致创建多个运行期上下文，当函数执行完毕，执行上下文会被销毁。每一个运行期上下文都和一个作用域链关联。一般情况下，在运行期上下文运行的过程中，其作用域链只会被<code>with</code>语句和<code>catch</code>语句影响。<br>当代码运行到with语句时，运行期上下文的作用域链临时被改变了。一个新的可变对象被创建，它包含了参数指定的对象的所有属性。这个对象将被推入作用域链的头部，这意味着该函数的所有局部变量现在处于第二个作用域链对象中，因此访问代价更高了。如下图所示：<br><img src="http://pic002.cnblogs.com/images/2011/36987/2011090414454524.jpg" alt><br>当try代码块中发生错误时，执行过程会跳转到catch语句，然后把异常对象推入一个可变对象并置于作用域链的头部。在catch代码块内部，函数的所有局部变量将会被放在第二个作用域链对象中，此时的作用域链图和上图类似。<br>因此在程序中应避免使用with语句，由于try-catch语句在代码调试和异常处理中非常有用，因此不建议完全避免，可通过优化代码来减少catch语句对性能的影响。一个很好的模式是将错误委托给一个函数处理。</li>
 </ul>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>学习时，发现部分链接已经无效，并且自己补充了一些。</p>
-<p>js基础：<br><a href="http://weizhifeng.net/javascript-the-core.html" target="_blank" rel="external">http://weizhifeng.net/javascript-the-core.html</a><br><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/" target="_blank" rel="external">http://dmitrysoshnikov.com/ecmascript/javascript-the-core/</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1643" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1643</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1644" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1644</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1645" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1645</a></p>
-<p>面向对象：<br><a href="http://www.ruanyifeng.com/blog/2010/05/object-ooriented_javascript_encapsulation.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2010/05/object-ooriented_javascript_encapsulation.html</a><br><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html</a><br><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1642" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1642</a><br><a href="http://www.cnblogs.com/fool/archive/2010/10/16/1853126.html" target="_blank" rel="external">http://www.cnblogs.com/fool/archive/2010/10/16/1853126.html</a><br><a href="http://www.cnblogs.com/sanshi/archive/2009/07/08/1519036.html" target="_blank" rel="external">http://www.cnblogs.com/sanshi/archive/2009/07/08/1519036.html</a></p>
-<p>this：<br><a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html</a><br><a href="http://www.ibm.com/developerworks/cn/web/1207_wangqf_jsthis/index.html" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/web/1207_wangqf_jsthis/index.html</a><br><a href="http://www.cnblogs.com/justany/archive/2012/11/01/the_keyword_this_in_javascript.html" target="_blank" rel="external">http://www.cnblogs.com/justany/archive/2012/11/01/the_keyword_this_in_javascript.html</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1647" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1647</a></p>
-<p>原型：<br><a href="http://blog.jobbole.com/9648/" target="_blank" rel="external">http://blog.jobbole.com/9648/</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1641" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1641</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1648" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1648</a><br><a href="http://www.cnblogs.com/wangfupeng1988/p/3977924.html" target="_blank" rel="external">http://www.cnblogs.com/wangfupeng1988/p/3977924.html</a></p>
-<p>闭包：<br><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html</a><br><a href="http://www.cnblogs.com/rubylouvre/archive/2009/07/24/1530074.html" target="_blank" rel="external">http://www.cnblogs.com/rubylouvre/archive/2009/07/24/1530074.html</a><br><a href="http://coolshell.cn/articles/6731.html" target="_blank" rel="external">http://coolshell.cn/articles/6731.html</a><br><a href="http://kb.cnblogs.com/page/105708/" target="_blank" rel="external">http://kb.cnblogs.com/page/105708/</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1646" target="_blank" rel="external">http://www.nowamagic.net/librarys/veda/detail/1646</a></p>
+<p>js基础：<br><a href="http://weizhifeng.net/javascript-the-core.html" target="_blank" rel="noopener">http://weizhifeng.net/javascript-the-core.html</a><br><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/" target="_blank" rel="noopener">http://dmitrysoshnikov.com/ecmascript/javascript-the-core/</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1643" target="_blank" rel="noopener">http://www.nowamagic.net/librarys/veda/detail/1643</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1644" target="_blank" rel="noopener">http://www.nowamagic.net/librarys/veda/detail/1644</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1645" target="_blank" rel="noopener">http://www.nowamagic.net/librarys/veda/detail/1645</a></p>
+<p>面向对象：<br><a href="http://www.ruanyifeng.com/blog/2010/05/object-ooriented_javascript_encapsulation.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2010/05/object-ooriented_javascript_encapsulation.html</a><br><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html</a><br><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1642" target="_blank" rel="noopener">http://www.nowamagic.net/librarys/veda/detail/1642</a><br><a href="http://www.cnblogs.com/fool/archive/2010/10/16/1853126.html" target="_blank" rel="noopener">http://www.cnblogs.com/fool/archive/2010/10/16/1853126.html</a><br><a href="http://www.cnblogs.com/sanshi/archive/2009/07/08/1519036.html" target="_blank" rel="noopener">http://www.cnblogs.com/sanshi/archive/2009/07/08/1519036.html</a></p>
+<p>this：<br><a href="http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html</a><br><a href="http://www.ibm.com/developerworks/cn/web/1207_wangqf_jsthis/index.html" target="_blank" rel="noopener">http://www.ibm.com/developerworks/cn/web/1207_wangqf_jsthis/index.html</a><br><a href="http://www.cnblogs.com/justany/archive/2012/11/01/the_keyword_this_in_javascript.html" target="_blank" rel="noopener">http://www.cnblogs.com/justany/archive/2012/11/01/the_keyword_this_in_javascript.html</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1647" target="_blank" rel="noopener">http://www.nowamagic.net/librarys/veda/detail/1647</a></p>
+<p>原型：<br><a href="http://blog.jobbole.com/9648/" target="_blank" rel="noopener">http://blog.jobbole.com/9648/</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1641" target="_blank" rel="noopener">http://www.nowamagic.net/librarys/veda/detail/1641</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1648" target="_blank" rel="noopener">http://www.nowamagic.net/librarys/veda/detail/1648</a><br><a href="http://www.cnblogs.com/wangfupeng1988/p/3977924.html" target="_blank" rel="noopener">http://www.cnblogs.com/wangfupeng1988/p/3977924.html</a></p>
+<p>闭包：<br><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html</a><br><a href="http://www.cnblogs.com/rubylouvre/archive/2009/07/24/1530074.html" target="_blank" rel="noopener">http://www.cnblogs.com/rubylouvre/archive/2009/07/24/1530074.html</a><br><a href="http://coolshell.cn/articles/6731.html" target="_blank" rel="noopener">http://coolshell.cn/articles/6731.html</a><br><a href="http://kb.cnblogs.com/page/105708/" target="_blank" rel="noopener">http://kb.cnblogs.com/page/105708/</a><br><a href="http://www.nowamagic.net/librarys/veda/detail/1646" target="_blank" rel="noopener">http://www.nowamagic.net/librarys/veda/detail/1646</a></p>
 
   </section>
 </article>

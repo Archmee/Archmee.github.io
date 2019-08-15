@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>前端之旅第 274~280 天 | 神无</title>
+  <title>前端之旅：GTD任务工具改版 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201704/2017-04-15.html">前端之旅第 274~280 天</a>
+    <a href="/201704/2017-04-15.html">前端之旅：GTD任务工具改版</a>
   </h1>
 
   <section class="article-meta">
@@ -55,32 +55,32 @@
 <li>4.15 学习gulp基本用法</li>
 </ul>
 <p>关于jshint我已经写了篇blog，这里不再介绍，下面来谈谈其他几个小点。</p>
-<h2 id="artTemplate"><a href="#artTemplate" class="headerlink" title="artTemplate"></a>artTemplate</h2><p>要说模板引擎众多，诸如Mustcache，和基于Mustcache的Handlebars、或者Underscore的template，或者jQuery自带的，但是最后我相中了doT和artTemplate，而选择artTemplate是因为官网文档友好，入门简单。而且维护者比较勤，距离我在代码中使用artTemplate才几天，我刚打开官网看到又有更新动态，从文档的更新可以看出作者在加入新功能和优化。<br><a href="https://github.com/aui/art-template" target="_blank" rel="external">artTemplate官网</a>，介绍如是</p>
+<h2 id="artTemplate"><a href="#artTemplate" class="headerlink" title="artTemplate"></a>artTemplate</h2><p>要说模板引擎众多，诸如Mustcache，和基于Mustcache的Handlebars、或者Underscore的template，或者jQuery自带的，但是最后我相中了doT和artTemplate，而选择artTemplate是因为官网文档友好，入门简单。而且维护者比较勤，距离我在代码中使用artTemplate才几天，我刚打开官网看到又有更新动态，从文档的更新可以看出作者在加入新功能和优化。<br><a href="https://github.com/aui/art-template" target="_blank" rel="noopener">artTemplate官网</a>，介绍如是</p>
 <blockquote>
 <p>art-template 是一个性能出众、设计巧妙的模板引擎，无论在 NodeJS 还是在浏览器中都可以运行。</p>
 </blockquote>
-<p>虽然官网介绍有预编译什么高级功能，但对我目前没什么用，我只需要基础功能即可。<br>artTemplate分为原生语法和简单语法，我选择了简单语法。<br>准备写从如何从下载到正式跑通的基础入门，但是不幸的是，官网文档更新后我都有点不认识了，所以要学习的同学请查看官网。<br><img src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_org.png" alt=""> <img src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_org.png" alt=""> <img src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_org.png" alt=""></p>
+<p>虽然官网介绍有预编译什么高级功能，但对我目前没什么用，我只需要基础功能即可。<br>artTemplate分为原生语法和简单语法，我选择了简单语法。<br>准备写从如何从下载到正式跑通的基础入门，但是不幸的是，官网文档更新后我都有点不认识了，所以要学习的同学请查看官网。<br><img src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_org.png" alt> <img src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_org.png" alt> <img src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_org.png" alt></p>
 <h2 id="CSS预处理器Less"><a href="#CSS预处理器Less" class="headerlink" title="CSS预处理器Less"></a>CSS预处理器Less</h2><p>由于CSS不具备编程能力，而随着现代Web应用开发的复杂度增加，预处理器和后处理器应运而生。预处理器有诸如Less、Sass、Stylus，Less虽稍弱一点但是简单，所以我选择了Less，等以后需要更强大功能的时候再选择其他的，后处理器有诸如PostCSS，它们之间的区别，在我给出的参考资料中有介绍，我就不献丑了。</p>
 <h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h3><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><ul>
 <li>安装nodejs和npm</li>
 <li>再安装<code>npm install less -g</code></li>
 <li>然后在命令行编译<code>lessc file.less &gt; file.css</code></li>
-<li>在html文件中引入css文件而不是less<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4>在浏览器端直接引入less文件，我没用过，不发言。<h4 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h4>安装一个图形化编译软件，比如<a href="http://koala-app.com/index-zh.html" target="_blank" rel="external">koala</a>，将less项目拖入，它会在less改变时自动编译成css<h4 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h4>结合IDE使用，比如SublimeText有专门的less2css插件。<h4 id="方法五"><a href="#方法五" class="headerlink" title="方法五"></a>方法五</h4>结合自动化构建工具使用，比如我用gulp，然后用gulp-less插件仍然可以完成编译工作</li>
+<li>在html文件中引入css文件而不是less<h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4>在浏览器端直接引入less文件，我没用过，不发言。<h4 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h4>安装一个图形化编译软件，比如<a href="http://koala-app.com/index-zh.html" target="_blank" rel="noopener">koala</a>，将less项目拖入，它会在less改变时自动编译成css<h4 id="方法四"><a href="#方法四" class="headerlink" title="方法四"></a>方法四</h4>结合IDE使用，比如SublimeText有专门的less2css插件。<h4 id="方法五"><a href="#方法五" class="headerlink" title="方法五"></a>方法五</h4>结合自动化构建工具使用，比如我用gulp，然后用gulp-less插件仍然可以完成编译工作</li>
 </ul>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>慕课网也有<a href="http://www.imooc.com/course/list?c=sassless" target="_blank" rel="external">less的入门课程</a><br>至于其它事宜，请查看<a href="http://lesscss.org/" target="_blank" rel="external">官网</a>，或者<a href="http://www.lesscss.net/" target="_blank" rel="external">Less中文网</a></p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>慕课网也有<a href="http://www.imooc.com/course/list?c=sassless" target="_blank" rel="noopener">less的入门课程</a><br>至于其它事宜，请查看<a href="http://lesscss.org/" target="_blank" rel="noopener">官网</a>，或者<a href="http://www.lesscss.net/" target="_blank" rel="noopener">Less中文网</a></p>
 <p>关于各种预处理器的对比文章：</p>
 <ul>
-<li><a href="http://efe.baidu.com/blog/revisiting-css-preprocessors/" target="_blank" rel="external">再谈 CSS 预处理器</a></li>
-<li><a href="http://caibaojian.com/css-processor.html" target="_blank" rel="external">CSS 预处理器与 CSS 后处理器</a></li>
+<li><a href="http://efe.baidu.com/blog/revisiting-css-preprocessors/" target="_blank" rel="noopener">再谈 CSS 预处理器</a></li>
+<li><a href="http://caibaojian.com/css-processor.html" target="_blank" rel="noopener">CSS 预处理器与 CSS 后处理器</a></li>
 </ul>
 <h2 id="使用gulp改善开发流程"><a href="#使用gulp改善开发流程" class="headerlink" title="使用gulp改善开发流程"></a>使用gulp改善开发流程</h2><blockquote>
 <p>用自动化构建工具增强你的工作流程！</p>
 </blockquote>
 <p>gulp和Grunt属于同一个对比行列，区别是gulp是基于流，而Grunt基于文件；gulp采用js语言编程控制，而Grunt使用配置文件。</p>
-<p><a href="http://gulpjs.com" target="_blank" rel="external">gulp官网</a> 和 <a href="http://www.gulpjs.com.cn/" target="_blank" rel="external">gulp 中文网</a> 提供了入门、文档、API、插件等介绍和使用方法<br>要想了解一个gulp插件如何使用的方法，直接到<a href="http://gulpjs.com/plugins/" target="_blank" rel="external">gulp插件官网</a>搜索你需要的插件，然后点进去就可以找到了。</p>
+<p><a href="http://gulpjs.com" target="_blank" rel="noopener">gulp官网</a> 和 <a href="http://www.gulpjs.com.cn/" target="_blank" rel="noopener">gulp 中文网</a> 提供了入门、文档、API、插件等介绍和使用方法<br>要想了解一个gulp插件如何使用的方法，直接到<a href="http://gulpjs.com/plugins/" target="_blank" rel="noopener">gulp插件官网</a>搜索你需要的插件，然后点进去就可以找到了。</p>
 <p>我现在使用了这几个插件：</p>
-<p>gulp-less：这里有一篇<a href="http://www.ydcss.com/archives/34" target="_blank" rel="external">gulp-less入门文章</a><br>gulp-browser-sync：这是一个开发时自动刷新浏览器的插件<br>gulp-imagemin：压缩图片<br>gulp-clean-css：压缩css<br>gulp-csslint：校验css<br>gulp-uglify：混淆压缩js<br>gulp-rename：重命名输出文件<br>gulp-concat：连接文件</p>
-<p>del不属于gulp插件，只是一个npm插件，用于清理文件文件夹：<a href="http://www.gulpjs.com.cn/docs/recipes/delete-files-folder/" target="_blank" rel="external">http://www.gulpjs.com.cn/docs/recipes/delete-files-folder/</a></p>
+<p>gulp-less：这里有一篇<a href="http://www.ydcss.com/archives/34" target="_blank" rel="noopener">gulp-less入门文章</a><br>gulp-browser-sync：这是一个开发时自动刷新浏览器的插件<br>gulp-imagemin：压缩图片<br>gulp-clean-css：压缩css<br>gulp-csslint：校验css<br>gulp-uglify：混淆压缩js<br>gulp-rename：重命名输出文件<br>gulp-concat：连接文件</p>
+<p>del不属于gulp插件，只是一个npm插件，用于清理文件文件夹：<a href="http://www.gulpjs.com.cn/docs/recipes/delete-files-folder/" target="_blank" rel="noopener">http://www.gulpjs.com.cn/docs/recipes/delete-files-folder/</a></p>
 <p>本来我还可以加入更多插件的，比如文件合并的gulp-concat，还有压缩js的gulp-uglify等，但是考虑后期代码还要做其他工作，暂时不想引入，所以后面再说</p>
 <p>——真的是一条分割线—–</p>
 

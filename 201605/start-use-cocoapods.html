@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <title>开始使用 CocoaPods | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -52,8 +52,8 @@
 <p>CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects.</p>
 </blockquote>
 <p>简单翻译就是一个用于 Swift 和 OC 的 Cocoa 项目的依赖管理器。</p>
-<h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p><a href="https://cocoapods.org/" target="_blank" rel="external">CocoaPods官网</a> 指明了此软件是基于 Ruby 开发环境的，但是这里默认你已经安装好了 Ruby 环境（OS X系统已经默认安装了）。接下来用一条指令即可安装CocoaPods<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install cocoapods</span><br></pre></td></tr></table></figure></p>
-<p>但是等你安装报错才发现，我们身处大局域网之内，很难连上 Internet。<br>针对这个问题，国内已经有网站提供了镜像，比如<a href="https://ruby.taobao.org/" target="_blank" rel="external">淘宝提供RubyGem</a>，所以我们只需要替换下镜像的地址即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources <span class="operator">-l</span> <span class="comment">#列出镜像地址,默认是 https://rubygems.org/</span></span><br><span class="line">$ gem sources --remove https://rubygems.org/ <span class="comment">#将其移除</span></span><br><span class="line">$ gem sources <span class="operator">-a</span> https://ruby.taobao.org/ <span class="comment">#添加新的源</span></span><br><span class="line">$ gem sources <span class="operator">-l</span> <span class="comment">#可以查看是否已经添加成功了</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="下载和安装"><a href="#下载和安装" class="headerlink" title="下载和安装"></a>下载和安装</h2><p><a href="https://cocoapods.org/" target="_blank" rel="noopener">CocoaPods官网</a> 指明了此软件是基于 Ruby 开发环境的，但是这里默认你已经安装好了 Ruby 环境（OS X系统已经默认安装了）。接下来用一条指令即可安装CocoaPods<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem install cocoapods</span><br></pre></td></tr></table></figure></p>
+<p>但是等你安装报错才发现，我们身处大局域网之内，很难连上 Internet。<br>针对这个问题，国内已经有网站提供了镜像，比如<a href="https://ruby.taobao.org/" target="_blank" rel="noopener">淘宝提供RubyGem</a>，所以我们只需要替换下镜像的地址即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources -l <span class="comment">#列出镜像地址,默认是 https://rubygems.org/</span></span><br><span class="line">$ gem sources --remove https://rubygems.org/ <span class="comment">#将其移除</span></span><br><span class="line">$ gem sources -a https://ruby.taobao.org/ <span class="comment">#添加新的源</span></span><br><span class="line">$ gem sources -l <span class="comment">#可以查看是否已经添加成功了</span></span><br></pre></td></tr></table></figure></p>
 <p>再次执行安装命令，通关了～<br>接下来执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod setup <span class="comment">#官方没有这一步，我看的其他博客，不知道缺少这一步会怎样</span></span><br></pre></td></tr></table></figure></p>
 <p>在执行这一步时，我等了半个小时都没什么反应，还以为是卡死了，Google下来发现这是安装了一个什么包，大概有700M上下，所以最好耐心一点。</p>
 <p>。。。。。。</p>
@@ -61,11 +61,11 @@
 <p>该命令会创建一个名为 Podfile 的文件，大概长这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">platform :ios, <span class="string">'8.0'</span> <span class="comment">#指定运行平台</span></span><br><span class="line"><span class="comment">#use_frameworks! #如果使用swift的话就取消该注释</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'MyApp'</span> <span class="keyword">do</span> <span class="comment">#'MyApp'是你的项目名称</span></span><br><span class="line">  pod <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 2.6'</span> <span class="comment">#引入一个库就要新建一个条目，后面指定的版本号不是必须的，默认安装最新版，但是估计有时候会有特殊需求</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
 <p>当然你也可以手工创建一个Podfile文件，当然如果你不按照以上格式来的话肯定会报错，我最初就根据一个视频的步骤直接写了最核心的那一条<code>pod &#39;AFNetworking&#39;</code>，然后就跳坑了，保存文件当然不会提示你有什么错误，但是后面就会了。以上，根据自己的需求编辑保存好Podfile，执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod install <span class="comment">#在项目中安装你引入的三方依赖</span></span><br></pre></td></tr></table></figure></p>
 <p>该命令会读取刚才的Podfile文件，然后将你需要的依赖安装好，此时你的项目目录会多出来几个陌生的文件，不用管它，我们只需要记住之前打开工程文件是 xx.xcodeproj，而现在和以后都请打开刚才生成的 xx.xcworkspace工程文件。</p>
-<h2 id="在项目中引入库文件"><a href="#在项目中引入库文件" class="headerlink" title="在项目中引入库文件"></a>在项目中引入库文件</h2><p>这个需要看你使用的第三方库而定，比如我使用了SDWebImage，就用如下代码引入<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;SDWebImage/UIImageView+WebCache.h&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="在项目中引入库文件"><a href="#在项目中引入库文件" class="headerlink" title="在项目中引入库文件"></a>在项目中引入库文件</h2><p>这个需要看你使用的第三方库而定，比如我使用了SDWebImage，就用如下代码引入<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;SDWebImage/UIImageView+WebCache.h&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 <p>当然，不同的库肯定不一样，关于你使用的库，在CocoaPods的官网搜索库名，里面会详细介绍该库用法以及API。</p>
 <h2 id="移除CocoaPods"><a href="#移除CocoaPods" class="headerlink" title="移除CocoaPods"></a>移除CocoaPods</h2><p>如果后来不想在项目中使用 CocoPods 了，怎么办呢?<br><code>pod --help</code> 查看帮助发现有个参数<code>deintegrate</code>，后面介绍说<code>Deintegrate CocoaPods from your project</code>，大意就是取消项目中集成的CocoaPods，执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod deintegrate</span><br></pre></td></tr></table></figure></p>
 <p>通过终端打印结果可以看出，它从项目中移除了好些东西，但是还有文件没有删除干净，比如Podfile.lock和Pods文件夹以及工程文件xx.xcworkspace，删除之，个人觉得之前创建的Podfile还是先备份一下，万一后悔了呢！！！</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://cocoapods.org/" target="_blank" rel="external">CocoaPods官网</a><br><a href="http://www.cnblogs.com/wayne23/p/3912882.html" target="_blank" rel="external">http://www.cnblogs.com/wayne23/p/3912882.html</a><br><a href="http://www.jianshu.com/p/ea36b56bb17b" target="_blank" rel="external">http://www.jianshu.com/p/ea36b56bb17b</a><br><a href="http://www.cocoachina.com/bbs/read.php?tid=1682495" target="_blank" rel="external">http://www.cocoachina.com/bbs/read.php?tid=1682495</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://cocoapods.org/" target="_blank" rel="noopener">CocoaPods官网</a><br><a href="http://www.cnblogs.com/wayne23/p/3912882.html" target="_blank" rel="noopener">http://www.cnblogs.com/wayne23/p/3912882.html</a><br><a href="http://www.jianshu.com/p/ea36b56bb17b" target="_blank" rel="noopener">http://www.jianshu.com/p/ea36b56bb17b</a><br><a href="http://www.cocoachina.com/bbs/read.php?tid=1682495" target="_blank" rel="noopener">http://www.cocoachina.com/bbs/read.php?tid=1682495</a></p>
 
   </section>
 </article>

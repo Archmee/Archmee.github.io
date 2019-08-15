@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>前端之旅第 286 天 | 神无</title>
+  <title>前端之旅：es6 和 mocha | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201704/2017-04-21.html">前端之旅第 286 天</a>
+    <a href="/201704/2017-04-21.html">前端之旅：es6 和 mocha</a>
   </h1>
 
   <section class="article-meta">
@@ -47,7 +47,7 @@
   </section>
 
   <section class="article-entry">
-    <h2 id="mocha"><a href="#mocha" class="headerlink" title="mocha"></a>mocha</h2><p>mocha是一个测试框架，使用入门都是很简单的，通过阮一峰的博客可以快速入门 <a href="http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html" target="_blank" rel="external">测试框架 Mocha 实例教程</a></p>
+    <h2 id="mocha"><a href="#mocha" class="headerlink" title="mocha"></a>mocha</h2><p>mocha是一个测试框架，使用入门都是很简单的，通过阮一峰的博客可以快速入门 <a href="http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html" target="_blank" rel="noopener">测试框架 Mocha 实例教程</a></p>
 <h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><p>由于ES6新增内容其实是很多的，但是我们不能全部都学，而且很大一部分只适用于Nodejs，所以暂时只需要学习20%的部分来应付80%的工作即可</p>
 <h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><ul>
 <li>实际上为js提供了块级作用域，用它所声明的变量，只在let命令所在的代码块内有效。</li>
@@ -69,18 +69,18 @@
 </ul>
 <p>但是现在有了箭头函数就不用麻烦了<br><code>() =&gt; { this is outer this }</code><br>当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，它的this是继承外面的，因此内部的this就是外层代码块的this。</p>
 <h3 id="template-string"><a href="#template-string" class="headerlink" title="template string"></a>template string</h3><p>用``符号包起来的字符串中可以像模板中一样在<code>${}</code>中插值<code>&lt;span&gt;${data.name}&lt;/span&gt;</code></p>
-<h3 id="destructuring（解构）"><a href="#destructuring（解构）" class="headerlink" title="destructuring（解构）"></a>destructuring（解构）</h3><p>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cat = <span class="string">'ken'</span></span><br><span class="line"><span class="keyword">let</span> dog = <span class="string">'lili'</span></span><br><span class="line"><span class="keyword">let</span> zoo = &#123;cat, dog&#125; <span class="comment">//相当于将后面所有对象拷贝到zoo</span></span><br><span class="line"><span class="comment">// zoo = &#123;cat: 'ken', dog: 'lili'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = &#123;type: <span class="string">'animal'</span>, many: <span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">let</span> &#123; type, many&#125; = dog <span class="comment">//将dog对象中的值分别拷贝到前面的变量中</span></span><br><span class="line"><span class="comment">// 现在type 和 many分别是两个变量其值为dog中对应值</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="destructuring（解构）"><a href="#destructuring（解构）" class="headerlink" title="destructuring（解构）"></a>destructuring（解构）</h3><p>ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cat = <span class="string">'ken'</span></span><br><span class="line"><span class="keyword">let</span> dog = <span class="string">'lili'</span></span><br><span class="line"><span class="keyword">let</span> zoo = &#123;cat, dog&#125; <span class="comment">//相当于将后面所有对象拷贝到zoo</span></span><br><span class="line"><span class="comment">// zoo = &#123;cat: 'ken', dog: 'lili'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = &#123;<span class="attr">type</span>: <span class="string">'animal'</span>, <span class="attr">many</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">let</span> &#123; type, many&#125; = dog <span class="comment">//将dog对象中的值分别拷贝到前面的变量中</span></span><br><span class="line"><span class="comment">// 现在type 和 many分别是两个变量其值为dog中对应值</span></span><br></pre></td></tr></table></figure></p>
 <p>注意上面代码中提取值时key值要保证相同，因为对象内部属性是无序的，所以不要设想是按照循序赋值</p>
 <h3 id="default，rest"><a href="#default，rest" class="headerlink" title="default，rest"></a>default，rest</h3><ul>
 <li><p>default(函数形参默认值)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a = 1, b = 2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line">sum(); <span class="comment">//3</span></span><br><span class="line">sum(<span class="number">2</span>); <span class="comment">//4</span></span><br><span class="line">sum(<span class="number">3</span>, <span class="number">3</span>); <span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a = <span class="number">1</span>, b = <span class="number">2</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line">sum(); <span class="comment">//3</span></span><br><span class="line">sum(<span class="number">2</span>); <span class="comment">//4</span></span><br><span class="line">sum(<span class="number">3</span>, <span class="number">3</span>); <span class="comment">//6</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>rest arguments<br>有点类似于ES6以前的arguments可以获取形参集合，不过arguments是个对象，而rest是个数组</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">...types</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(types);</span><br><span class="line">&#125;</span><br><span class="line">test(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>); <span class="comment">//['a', 'b', 'c']</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="ES6-Module：import，export"><a href="#ES6-Module：import，export" class="headerlink" title="ES6 Module：import，export"></a>ES6 Module：import，export</h3><p>之前我们可以用AMD、CMD、UMD、CommonJs等规范来实现模块化，而现在，ES6 Module还是不能用，所以还是继续用原来的吧，不过ES6 Module规范已经出了，接下来就是看各个厂商的实现了。</p>
-<p>顾名思义，import导入模块，export到处模块，如果熟悉模块化编程的话很容易理解它们是如何工作的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;animal, ...&#125; <span class="keyword">from</span> <span class="string">'./content'</span></span><br><span class="line"></span><br><span class="line">//content.js</span><br><span class="line">function animal()&#123;</span><br><span class="line">    return <span class="string">'Hello!'</span></span><br><span class="line">&#125;</span><br><span class="line">export &#123;animal, ...&#125;</span><br></pre></td></tr></table></figure></p>
+<p>顾名思义，import导入模块，export到处模块，如果熟悉模块化编程的话很容易理解它们是如何工作的<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123;animal, ...&#125; <span class="keyword">from</span> <span class="string">'./content'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//content.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">animal</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello!'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;animal, ...&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>export命令除了输出变量，还可以输出函数，甚至是类</li>
 <li>大括号里面的变量名，必须与被导入模块（content.js）对外接口的名称相同。</li>
@@ -92,7 +92,7 @@
 <li>按需引入 vs 全局引入</li>
 <li>多点暴漏 vs 全局暴漏</li>
 </ul>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>以上内容皆来自博客<br><a href="https://segmentfault.com/a/1190000004365693" target="_blank" rel="external">30分钟掌握ES6/ES2015核心内容（上）</a><br><a href="https://segmentfault.com/a/1190000004368132" target="_blank" rel="external">30分钟掌握ES6/ES2015核心内容（下）</a><br>如果需要深入学习，可以看：<br><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ECMAScript 6入门</a><br><a href="http://www.infoq.com/cn/es6-in-depth/" target="_blank" rel="external">深入浅出ES6</a></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>以上内容皆来自博客<br><a href="https://segmentfault.com/a/1190000004365693" target="_blank" rel="noopener">30分钟掌握ES6/ES2015核心内容（上）</a><br><a href="https://segmentfault.com/a/1190000004368132" target="_blank" rel="noopener">30分钟掌握ES6/ES2015核心内容（下）</a><br>如果需要深入学习，可以看：<br><a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">ECMAScript 6入门</a><br><a href="http://www.infoq.com/cn/es6-in-depth/" target="_blank" rel="noopener">深入浅出ES6</a></p>
 
   </section>
 </article>

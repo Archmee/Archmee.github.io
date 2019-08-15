@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>前端之旅第 7 天 | 神无</title>
+  <title>前端之旅：《Head First HTML &amp; CSS》第9章 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201607/2016-07-12.html">前端之旅第 7 天</a>
+    <a href="/201607/2016-07-12.html">前端之旅：《Head First HTML & CSS》第9章</a>
   </h1>
 
   <section class="article-meta">
@@ -90,16 +90,16 @@
 <h3 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h3><p>媒体查询可以针对将要显示页面的设备类型来调整页面的样式。</p>
 <ol>
 <li><p>用link标记指定相应设备的样式文件，这样可以给指定设备指定单独的css文件，比如</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"lounge.css"</span> <span class="attribute">media</span>=<span class="value">"screen"</span>&gt;</span><span class="comment">&lt;!--针对屏幕设备--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"lounge-mobile.css"</span> <span class="attribute">media</span>=<span class="value">"screen and (max-device-width: 480px)"</span>&gt;</span><span class="comment">&lt;!--针对屏幕宽度不超过480px的设备--&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"lounge.css"</span> <span class="attr">media</span>=<span class="string">"screen"</span>&gt;</span><span class="comment">&lt;!--针对屏幕设备--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"lounge-mobile.css"</span> <span class="attr">media</span>=<span class="string">"screen and (max-device-width: 480px)"</span>&gt;</span><span class="comment">&lt;!--针对屏幕宽度不超过480px的设备--&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>也可以在css文件中针对相应设备使用媒体查询，但是这样会导致css文件变得庞大</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">media</span> screen and (max-device-width: <span class="number">480px</span>) </span>&#123; </span><br><span class="line"><span class="comment">/*针对屏幕宽度不超过480px的设备指定css样式*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="at_rule">@<span class="keyword">media</span> print </span>&#123;</span><br><span class="line"><span class="comment">/*针对打印机指定css样式*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*这里可以写所有设备通用的规则*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> screen and (max-device-width: <span class="number">480px</span>) &#123; </span><br><span class="line"><span class="comment">/*针对屏幕宽度不超过480px的设备指定css样式*/</span></span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> print &#123;</span><br><span class="line"><span class="comment">/*针对打印机指定css样式*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*这里可以写所有设备通用的规则*/</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <ul>
 <li>查询中还有很多属性可以使用，如min-device-width以及设备的方向orientation</li>
 <li>max-device-width和min-device-width媒体属性依赖于设备的实际屏幕而不是你的浏览器窗口宽度，而max-width和min-width则表示浏览器窗口的最大和最小宽度而不是屏幕大小。</li>
-<li>可以在<a href="http://www.w3.org/TR/css3-mediaqueries" target="_blank" rel="external">http://www.w3.org/TR/css3-mediaqueries</a> 网站了解css3媒体查询规范细节</li>
+<li>可以在<a href="http://www.w3.org/TR/css3-mediaqueries" target="_blank" rel="noopener">http://www.w3.org/TR/css3-mediaqueries</a> 网站了解css3媒体查询规范细节</li>
 </ul>
 <blockquote>
 <p>IE8以及以前版本浏览器不支持媒体查询</p>

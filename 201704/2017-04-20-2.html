@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>前端之旅第 281~285 天——性能 | 神无</title>
+  <title>前端之旅：性能优化 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201704/2017-04-20-2.html">前端之旅第 281~285 天——性能</a>
+    <a href="/201704/2017-04-20-2.html">前端之旅：性能优化</a>
   </h1>
 
   <section class="article-meta">
@@ -117,7 +117,7 @@
 <li>浏览器受限于有多少请求可以并行发生。这也是为什么我们经常要使用子域名或者CDN；以便允许这些请求在数个域名上发生，允许同时发生多得多数量的请求。然而，一个新的域名被引用，HTTP请求会受制于一个耗时的DNS查询（某个介于20到120毫秒之间的值）</li>
 <li>DNS查询代价很高，因此你需要决定什么才是对你的网站更合适的；承担查询的消耗或者只是由一个域名提供所有服务。</li>
 </ul>
-<h3 id="DNS-预取"><a href="#DNS-预取" class="headerlink" title="DNS 预取"></a>DNS 预取</h3><p>如果你的网站不得不访问第三方域名的资源，这就牵涉到了DNS查询。幸运的是，有一个相当快又简单的办法来加速这个过程：DNS预取。DNS预取所做的恰恰就是凭证领餐，如下html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"dns-prefetch"</span> <span class="attribute">href</span>=<span class="value">"foo.com"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="DNS-预取"><a href="#DNS-预取" class="headerlink" title="DNS 预取"></a>DNS 预取</h3><p>如果你的网站不得不访问第三方域名的资源，这就牵涉到了DNS查询。幸运的是，有一个相当快又简单的办法来加速这个过程：DNS预取。DNS预取所做的恰恰就是凭证领餐，如下html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"foo.com"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>那行简单的内容将会告诉支持的浏览器去开始预取那个域名的DNS</p>
 <h3 id="资源预取"><a href="#资源预取" class="headerlink" title="资源预取"></a>资源预取</h3><p>虽然作者给出了和DNS预取类似的方法，但是作者似乎也不太肯定，所以可以看下作者推荐的资料</p>
 <h3 id="CSS-与性能"><a href="#CSS-与性能" class="headerlink" title="CSS 与性能"></a>CSS 与性能</h3><ul>
@@ -130,7 +130,7 @@
 <h3 id="压缩与简化"><a href="#压缩与简化" class="headerlink" title="压缩与简化"></a>压缩与简化</h3><p>对于你的文本资源，有两个实在很简单的事情是你能（而且也应该）做的；简化他们移除任何注释和空格，并且进一步的压缩它们大小。</p>
 <p>.htaccess评估每一个到达请求，因此实际它有很多开销。这取自 Apache 文档 ：</p>
 <blockquote>
-<p>你应该完全避免使用.htaccess文件，如果你可以直接访问http主服务器的配置文件的话。 使用.htaccess文件使你的Apache http server慢下来。任何你能包含进一个.htaccess文件的指令最好设置在一个<a href="http://httpd.apache.org/docs/2.2/mod/core.html#directory" target="_blank" rel="external">字典块</a>,因为它具有同样的效用并且有更好的性能。</p>
+<p>你应该完全避免使用.htaccess文件，如果你可以直接访问http主服务器的配置文件的话。 使用.htaccess文件使你的Apache http server慢下来。任何你能包含进一个.htaccess文件的指令最好设置在一个<a href="http://httpd.apache.org/docs/2.2/mod/core.html#directory" target="_blank" rel="noopener">字典块</a>,因为它具有同样的效用并且有更好的性能。</p>
 </blockquote>
 <p>压缩（Gzip）将任何基于文本的输入，基于重复的/可重复的字符串对其进行压缩。</p>
 <h3 id="优化图像"><a href="#优化图像" class="headerlink" title="优化图像"></a>优化图像</h3><ul>
@@ -151,7 +151,7 @@
 <li>你的关键选择器会决定浏览器的工作量，因此，我们应该重视一下关键选择器（即匹配规则的最右一个选择器）</li>
 <li>拥有一个明确的关键选择器最大的好处就是你可以避免使用过度限制选择器</li>
 </ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html" target="_blank" rel="external">http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html</a><br><a href="http://www.oschina.net/translate/front-end-performance-for-web-designers-and-front-end-developers" target="_blank" rel="external">http://www.oschina.net/translate/front-end-performance-for-web-designers-and-front-end-developers</a><br><a href="https://developer.yahoo.com/performance/rules.html" target="_blank" rel="external">https://developer.yahoo.com/performance/rules.html</a><br><a href="http://www.zhangxinxu.com/wordpress/2013/04/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" target="_blank" rel="external">http://www.zhangxinxu.com/wordpress/2013/04/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</a><br><a href="http://www.cnblogs.com/mofish/archive/2010/10/12/1849062.html" target="_blank" rel="external">http://www.cnblogs.com/mofish/archive/2010/10/12/1849062.html</a><br><a href="https://www.qianduan.net/css-sprites-useful-technique-or-potential-nuisance/" target="_blank" rel="external">https://www.qianduan.net/css-sprites-useful-technique-or-potential-nuisance/</a><br><a href="http://www.cnblogs.com/leefreeman/p/3993449.html" target="_blank" rel="external">http://www.cnblogs.com/leefreeman/p/3993449.html</a><br><a href="http://www.cnblogs.com/leefreeman/p/3998757.html" target="_blank" rel="external">http://www.cnblogs.com/leefreeman/p/3998757.html</a><br><a href="http://web.jobbole.com/35339/" target="_blank" rel="external">http://web.jobbole.com/35339/</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html" target="_blank" rel="noopener">http://www.cnblogs.com/developersupport/p/webpage-performance-best-practices.html</a><br><a href="http://www.oschina.net/translate/front-end-performance-for-web-designers-and-front-end-developers" target="_blank" rel="noopener">http://www.oschina.net/translate/front-end-performance-for-web-designers-and-front-end-developers</a><br><a href="https://developer.yahoo.com/performance/rules.html" target="_blank" rel="noopener">https://developer.yahoo.com/performance/rules.html</a><br><a href="http://www.zhangxinxu.com/wordpress/2013/04/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" target="_blank" rel="noopener">http://www.zhangxinxu.com/wordpress/2013/04/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</a><br><a href="http://www.cnblogs.com/mofish/archive/2010/10/12/1849062.html" target="_blank" rel="noopener">http://www.cnblogs.com/mofish/archive/2010/10/12/1849062.html</a><br><a href="https://www.qianduan.net/css-sprites-useful-technique-or-potential-nuisance/" target="_blank" rel="noopener">https://www.qianduan.net/css-sprites-useful-technique-or-potential-nuisance/</a><br><a href="http://www.cnblogs.com/leefreeman/p/3993449.html" target="_blank" rel="noopener">http://www.cnblogs.com/leefreeman/p/3993449.html</a><br><a href="http://www.cnblogs.com/leefreeman/p/3998757.html" target="_blank" rel="noopener">http://www.cnblogs.com/leefreeman/p/3998757.html</a><br><a href="http://web.jobbole.com/35339/" target="_blank" rel="noopener">http://web.jobbole.com/35339/</a></p>
 
   </section>
 </article>

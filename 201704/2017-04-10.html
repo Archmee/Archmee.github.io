@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>让你的代码接受考验——使用jshint | 神无</title>
+  <title>前端之旅：使用jshint | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201704/2017-04-10.html">让你的代码接受考验——使用jshint</a>
+    <a href="/201704/2017-04-10.html">前端之旅：使用jshint</a>
   </h1>
 
   <section class="article-meta">
@@ -47,7 +47,7 @@
   </section>
 
   <section class="article-entry">
-    <h2 id="了解jshint"><a href="#了解jshint" class="headerlink" title="了解jshint"></a>了解jshint</h2><p>安装：<a href="http://jshint.com/install/" target="_blank" rel="external">http://jshint.com/install/</a><br>文档：<a href="http://jshint.com/docs/" target="_blank" rel="external">http://jshint.com/docs/</a><br>所有配置项：<a href="http://jshint.com/docs/options/" target="_blank" rel="external">http://jshint.com/docs/options/</a></p>
+    <h2 id="了解jshint"><a href="#了解jshint" class="headerlink" title="了解jshint"></a>了解jshint</h2><p>安装：<a href="http://jshint.com/install/" target="_blank" rel="noopener">http://jshint.com/install/</a><br>文档：<a href="http://jshint.com/docs/" target="_blank" rel="noopener">http://jshint.com/docs/</a><br>所有配置项：<a href="http://jshint.com/docs/options/" target="_blank" rel="noopener">http://jshint.com/docs/options/</a></p>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>jshint有一系列的默认警告，但是它也被设计可配置的。<br>官网上说有三种主要方法配置jshint</p>
 <ul>
 <li>命令行通过 –config 选项手动指定配置文件</li>
@@ -65,7 +65,7 @@
 <li>jshint兼容的jslint：/<em> jslint vars: true </em>/</li>
 <li>globals: /<em> globals MY_LIB: false </em>/，你也可以指定一个黑名单确保某些全局名称没有被使用：/<em> globals -BAD_LIB </em>/</li>
 <li>exported：/<em> exported EXPORTED_LIB </em>/，告诉jshint在当前文件中定义的却未使用或在其他地方使用的全局变量</li>
-<li>ignore：告诉jshint要忽略的代码块，在ignore:start 和 ignore:end 之间的代码将不会被传递给jshint：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Code here will be linted with JSHint.</span></span><br><span class="line"><span class="comment">/* jshint ignore:start */</span></span><br><span class="line"><span class="comment">// Code here will be ignored by JSHint.</span></span><br><span class="line"><span class="comment">/* jshint ignore:end */</span></span><br><span class="line"><span class="string">``</span><span class="string">`	</span><br><span class="line">另外，也可以通过行尾注释来忽略单行</span><br><span class="line">ignoreThis(); // jshint ignore:line</span><br><span class="line"></span><br><span class="line">### jsint选项</span><br><span class="line">jshint选项有两种类型的选项：强制的 和 宽松的</span><br><span class="line"></span><br><span class="line">jshint --verbose jsfile，可以查看具体的代码警告，每种警告都有一个号码，可以通过jshint配置来忽略该警告：</span><br><span class="line">`</span><span class="string">``</span>js</span><br><span class="line"><span class="comment">/* jshint -W034 */</span></span><br></pre></td></tr></table></figure>
+<li>ignore：告诉jshint要忽略的代码块，在ignore:start 和 ignore:end 之间的代码将不会被传递给jshint：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Code here will be linted with JSHint.</span></span><br><span class="line"><span class="comment">/* jshint ignore:start */</span></span><br><span class="line"><span class="comment">// Code here will be ignored by JSHint.</span></span><br><span class="line"><span class="comment">/* jshint ignore:end */</span></span><br><span class="line"><span class="string">``</span><span class="string">`	</span></span><br><span class="line"><span class="string">另外，也可以通过行尾注释来忽略单行</span></span><br><span class="line"><span class="string">ignoreThis(); // jshint ignore:line</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">### jsint选项</span></span><br><span class="line"><span class="string">jshint选项有两种类型的选项：强制的 和 宽松的</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">jshint --verbose jsfile，可以查看具体的代码警告，每种警告都有一个号码，可以通过jshint配置来忽略该警告：</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>js</span><br><span class="line"><span class="comment">/* jshint -W034 */</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ol>
@@ -74,8 +74,8 @@
 </ol>
 <p>上面这个功能特别有用的地方就在于，当你知道某个有警告的代码是安全的，你可以禁用它，在随后的代码中在重新打开，比如<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> y = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="comment">/*jshint -W089 */</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> y) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*jshint +W089 */</span></span><br></pre></td></tr></table></figure></p>
 <p>其他细节描述需要自己去看文档，我懒得翻译了</p>
-<h2 id="SublimeText插件"><a href="#SublimeText插件" class="headerlink" title="SublimeText插件"></a>SublimeText插件</h2><p>如果按照上述方法安装了jshint，那么久可以在命令行中开始使用了，但是对于经常开发的同学会不方便，所以是可以作为IDE的插件来使用的。<br>由于我使用的是ST3，那么我就只谈谈我如何基于ST3来使用的。<br>官网推荐了三个基于ST的插件，最强大的是SublimeLinter3（基于ST3），不过强大也就意味着复杂，安装配置都稍显复杂，因为SublimeLinter3只是一个代码校验工具管理器，它可以对多种语言进行校验，而jshint只是它的可安装的插件，所以如果要成功用上jshint，还要单独安装jshint插件并配置，差不多同时需要安装Nodejs、SublimeLinter3、jshint的npm插件、以及SublimeLinter3-jshint，详细的安装过程可参考<a href="https://gaohaoyang.github.io/2015/03/26/sublimeLinter/" target="_blank" rel="external">这篇博客</a>。<br>虽然繁琐，但是如果你的开发需要同时验证多种语言的话还是不错的一个解决方案，比如对CSS校验它就提供了SublimeLinter3-csslint，当然csslint也是一个可单独安装使用的工具，只是SublimeLinter3对它提供了支持。</p>
-<p>不过对于仅仅只想验证js代码的我来说，SublimeLinter就太麻烦了，所以我选择了<a href="https://github.com/victorporof/Sublime-JSHint" target="_blank" rel="external">Sublime-JSHint Gutter</a>，进入ST的install package面板，输入<code>JSHint Gutter</code>即可一键安装（注意：不需要再单独安装jshint的npm插件）。如果英文吃力的话可以参考这篇博客 <a href="https://jinlong.github.io/2014/10/25/jshint-configuration/" target="_blank" rel="external">JSHint 配置浅析</a>。</p>
+<h2 id="SublimeText插件"><a href="#SublimeText插件" class="headerlink" title="SublimeText插件"></a>SublimeText插件</h2><p>如果按照上述方法安装了jshint，那么久可以在命令行中开始使用了，但是对于经常开发的同学会不方便，所以是可以作为IDE的插件来使用的。<br>由于我使用的是ST3，那么我就只谈谈我如何基于ST3来使用的。<br>官网推荐了三个基于ST的插件，最强大的是SublimeLinter3（基于ST3），不过强大也就意味着复杂，安装配置都稍显复杂，因为SublimeLinter3只是一个代码校验工具管理器，它可以对多种语言进行校验，而jshint只是它的可安装的插件，所以如果要成功用上jshint，还要单独安装jshint插件并配置，差不多同时需要安装Nodejs、SublimeLinter3、jshint的npm插件、以及SublimeLinter3-jshint，详细的安装过程可参考<a href="https://gaohaoyang.github.io/2015/03/26/sublimeLinter/" target="_blank" rel="noopener">这篇博客</a>。<br>虽然繁琐，但是如果你的开发需要同时验证多种语言的话还是不错的一个解决方案，比如对CSS校验它就提供了SublimeLinter3-csslint，当然csslint也是一个可单独安装使用的工具，只是SublimeLinter3对它提供了支持。</p>
+<p>不过对于仅仅只想验证js代码的我来说，SublimeLinter就太麻烦了，所以我选择了<a href="https://github.com/victorporof/Sublime-JSHint" target="_blank" rel="noopener">Sublime-JSHint Gutter</a>，进入ST的install package面板，输入<code>JSHint Gutter</code>即可一键安装（注意：不需要再单独安装jshint的npm插件）。如果英文吃力的话可以参考这篇博客 <a href="https://jinlong.github.io/2014/10/25/jshint-configuration/" target="_blank" rel="noopener">JSHint 配置浅析</a>。</p>
 <p>按下 <code>Ctrl+Shift+j</code> 让你的代码接受考验吧。<br>如果有问题的话记得在package setting中打开JSHint Gutter的菜单看看有什么配置需要更改的就好了，比如node的PATH指向是否正确。</p>
 
   </section>

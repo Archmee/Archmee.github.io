@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   <title>iOS开发之OC高级笔记 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -48,7 +48,7 @@
 
   <section class="article-entry">
     <h2 id="OC-33章：init"><a href="#OC-33章：init" class="headerlink" title="OC-33章：init"></a>OC-33章：init</h2><p>alloc负责分配对象空间，init负责初始化对象。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSMutableArray</span> *things = [[<span class="built_in">NSMutableArray</span> alloc] init]</span><br></pre></td></tr></table></figure></p>
-<p>init方法可以被重写覆盖，像description方法一样。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype) init &#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init]; <span class="comment">//初始化父类</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="comment">//初始化自己的代码</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>init方法可以被重写覆盖，像description方法一样。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">instancetype</span>) init &#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init]; <span class="comment">//初始化父类</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="comment">//初始化自己的代码</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>instancetype</strong> 关键字会告诉编译器返回什么类型的对象。自己编写的或是覆盖的任何初始化方法都应该返回 instancetype 类型的值。如果返回具体的类类型，会在继承的时候导致强制转换，所以使用 instancetype 确保可以安全的继承初始化方法。当然也可以使用 <strong>id</strong> 类型，但是更推荐 instancetype。</p>
 <p>对于实现自己的初始化方法的注意事项：</p>
 <ul>
@@ -64,7 +64,7 @@
 <li>如果某个类的指定初始化方法和父类不同，就必须覆盖父类的指定初始化方法，并调用新的指定初始化方法。</li>
 <li>如果某个类有多个初始化方法，就应该在相应头文件中明确地注明哪个方法是指定初始化方法。</li>
 </ul>
-<p>禁用初始化方法<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)init &#123;</span><br><span class="line">    [<span class="built_in">NSException</span> raise:<span class="string">@"BNRWallSafeInitialization"</span></span><br><span class="line">                format:<span class="string">@"Use initWithSecretCode: not init"</span>]; <span class="comment">//抛出异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>禁用初始化方法<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">instancetype</span>)init &#123;</span><br><span class="line">    [<span class="built_in">NSException</span> raise:<span class="string">@"BNRWallSafeInitialization"</span></span><br><span class="line">                format:<span class="string">@"Use initWithSecretCode: not init"</span>]; <span class="comment">//抛出异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="OC-34章：再谈属性"><a href="#OC-34章：再谈属性" class="headerlink" title="OC-34章：再谈属性"></a>OC-34章：再谈属性</h2><p>属性的特性：</p>
 <ul>
 <li>存取类型<ul>
@@ -119,7 +119,7 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//NSString+YourClass.h</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSString</span> (<span class="title">YourClass</span>)</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//NSString+YourClass.m</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSString</span> (<span class="title">YourClass</span>)</span></span><br><span class="line"><span class="comment">//此处实现增加的新方法</span></span><br><span class="line">-(<span class="keyword">void</span>)test &#123;&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>调用自己增加的新方法</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先需要导入头文件</span></span><br><span class="line">@import <span class="string">"NSString+YourClass.h"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后在代码中直接基于基类调用</span></span><br><span class="line">[<span class="built_in">NSString</span> test]; <span class="comment">//注意此处原来NSString是没有test方法的</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先需要导入头文件</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">"NSString+YourClass.h"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后在代码中直接基于基类调用</span></span><br><span class="line">[<span class="built_in">NSString</span> test]; <span class="comment">//注意此处原来NSString是没有test方法的</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>–END–</p>

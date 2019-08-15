@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>IFE 2015 task3资料学习总结 | 神无</title>
+  <title>前端之旅：总结 this、闭包、作用域作用域链、原型和原型链 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201703/2017-02-06-2.html">IFE 2015 task3资料学习总结</a>
+    <a href="/201703/2017-02-06-2.html">前端之旅：总结 this、闭包、作用域作用域链、原型和原型链</a>
   </h1>
 
   <section class="article-meta">
@@ -72,8 +72,8 @@
 <h2 id="作用域作用域链"><a href="#作用域作用域链" class="headerlink" title="作用域作用域链"></a>作用域作用域链</h2><p>作用域是？<br>简单的说，作用域就是变量与函数的可访问范围，即作用域控制着标识符(变量/函数/形参等等)的可见性和生命周期。在JavaScript中，标识符的作用域只有全局作用域和函数作用域两种。没有用var声明的都属于全局作用域，if/for/while等语句块没有内部作用域，在其中声明的变量将属于当前函数的作用域。</p>
 <p>那么作用域链是什么呢？<br>在定义函数的时候该函数内部会有一个[[scope]]属性，它指向定义该函数的函数的作用域链，这个链的底端是全局对象，顶端是当前活动对象。<br>作用域链的形成是从函数调用开始的，首先在全局环境中，当前活动对象就是GO，当执行一个函数的时候，会为该函数创建一个执行上下文(excution context)，在执行上下文中有初始化后的this，活动对象AO、变量对象VO等属性，然后将活动对象加入到作用域链顶端，加入的过程可能是在[[scope chain]]中加入，也可能是直接链接到<code>__parent__</code>。因为我看过的资料关于这个链的实现的描述大概分两种：</p>
 <ul>
-<li>js高程是一种类似数组的方式并且按函数调用栈的顺序保存其“作用域”的引用，<a href="http://www.cnblogs.com/lhb25/archive/2011/09/06/javascript-scope-chain.html" target="_blank" rel="external">如图</a><br><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/2011090414454524_scope_chain.jpg" alt="scope_chain实现"></li>
-<li>其他资料也有描述的是一个<code>__parent__</code>的内部属性来维护“父作用域”的引用，<a href="http://www.nowamagic.net/librarys/veda/detail/1645" target="_blank" rel="external">比如下图</a><br><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/2012_03_21_09_parent_scope.png" alt="parent实现"></li>
+<li>js高程是一种类似数组的方式并且按函数调用栈的顺序保存其“作用域”的引用，<a href="http://www.cnblogs.com/lhb25/archive/2011/09/06/javascript-scope-chain.html" target="_blank" rel="noopener">如图</a><br><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/2011090414454524_scope_chain.jpg" alt="scope_chain实现"></li>
+<li>其他资料也有描述的是一个<code>__parent__</code>的内部属性来维护“父作用域”的引用，<a href="http://www.nowamagic.net/librarys/veda/detail/1645" target="_blank" rel="noopener">比如下图</a><br><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/2012_03_21_09_parent_scope.png" alt="parent实现"></li>
 </ul>
 <p>虽然两种方式都可行，但是参照js原型链的实现方式，可能第二种方法更靠谱，复杂度为O(n)。因为如果按照第一种方式，每次都要拷贝父作用域的作用域链很麻烦，而且耗费内存，复杂度估计O(2n)。</p>
 <p>作用域链的用途是什么呢，用来遍历查找标识符，闭包就是利用这点实现的。<br>查找一个标识符的顺序是：从作用域链的顶端，也就是自身的活动对象开始，如果存在则返回，如果不存在将继续搜索父函数的活动对象，依次查找，直到找到为止。如果整个作用域链上都无法找到（到全局对象结束），则返回undefined。</p>
@@ -92,7 +92,7 @@
 <li>每个函数都有一个<code>prototype</code>属性，它指向一个对象，该对象就是在当该函数用作构造函数创建对象实例时，作为其对象实例的原型。通过该函数构造的所有对象共享该原型中的方法和属性。函数是一个对象，它有自己的原型但不是<code>prototype</code>。</li>
 <li>每个对象都有一个原型，根据浏览器不同一般表示为<code>[[Prototype]]</code>或者<code>__proto__</code>(好像已被最新标准实现)，这才是我们真正谈论的原型，它从哪里来呢，就是我们在第一点提到的构造函数的那个<code>prototype</code>属性。</li>
 </ol>
-<p>那么原型链是什么，用来干什么？<br>所有对象都有一个原型，而每个原型又有自己的一个原型，就样形成了原型链，原型链的顶端是[[object prototype]]，该原型对象的的原型为null，就是原型链的终点。<br>当查找一个对象的属性时，js会从对象自己开始，然后从对象原型开始向上遍历原型链，直到找到指定属性为止，但如果直到原型链终点都仍然没有找到指定的属性，就会返回undefined。<br>下面看一张图总结原型原型链，是鸟哥<a href="http://www.laruence.com/2010/05/13/1462.html" target="_blank" rel="external">文章中提到的一张图</a>，被我改进了一下，不过相交的地方不太好，有空重构一下。<br><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/20170310_prototype.jpg" alt="prototype"></p>
+<p>那么原型链是什么，用来干什么？<br>所有对象都有一个原型，而每个原型又有自己的一个原型，就样形成了原型链，原型链的顶端是[[object prototype]]，该原型对象的的原型为null，就是原型链的终点。<br>当查找一个对象的属性时，js会从对象自己开始，然后从对象原型开始向上遍历原型链，直到找到指定属性为止，但如果直到原型链终点都仍然没有找到指定的属性，就会返回undefined。<br>下面看一张图总结原型原型链，是鸟哥<a href="http://www.laruence.com/2010/05/13/1462.html" target="_blank" rel="noopener">文章中提到的一张图</a>，被我改进了一下，不过相交的地方不太好，有空重构一下。<br><img src="https://raw.githubusercontent.com/Archmee/lkd2d97zvb5fvz89feyhwr98v/master/gitblog/images/20170310_prototype.jpg" alt="prototype"></p>
 <p><strong>注意事项</strong><br>如果在对象实例中重写了原型链上的方法或属性，那么该实例中的方法或属性会屏蔽原型链中的同名方法或属性，如果想要访问原型链上的同名方法或属性，只能通过delete删除在该实例上定义的同名方法或属性。</p>
 <p>最后，我总结了一条关于原型原型链和作用域作用域链的明显区别：<br>原型原型链是用于在对象中查找属性和方法等标识符，作用域作用域链是用于查找变量和函数等标识符。</p>
 <hr>

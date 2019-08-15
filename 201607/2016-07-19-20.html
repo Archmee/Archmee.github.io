@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>前端之旅第 14、15 天 | 神无</title>
+  <title>前端之旅：《Head First HTML &amp; CSS》13-14章 学习笔记 | 神无</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/app.css" type="text/css">
+  <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
 </head>
-
+</html>
 <body>
   <nav class="app-nav">
   
@@ -39,7 +39,7 @@
   <main class="post">
   <article>
   <h1 class="article-title">
-    <a href="/201607/2016-07-19-20.html">前端之旅第 14、15 天</a>
+    <a href="/201607/2016-07-19-20.html">前端之旅：《Head First HTML & CSS》13-14章 学习笔记</a>
   </h1>
 
   <section class="article-meta">
@@ -52,12 +52,12 @@
 <li><code>&lt;table&gt;</code>标记表格、<code>&lt;tr&gt;</code>标记表格行、<code>&lt;th&gt;</code>定义表头单元格（可以是顶部，也可以在左侧）、<code>&lt;td&gt;</code>定义表内容单元格，<code>&lt;caption&gt;</code>定义表格标题（caption-side 规则可以指定表格标题的显示位置）</li>
 <li>HTML表格允许你使用HTML标记指定表格的结构，而CSS表格显示则提供了一种可以用类似表格的表现方式显示块级元素</li>
 <li><p>表格单元格没有外边距，单元格之间的空间叫做 border-spacing（边框间距），border-spacing为所有单元格设置一个共同的间距，也就是说它是针对整个表格，而不是为单独的单元格设置。<br>border-spacing还可以在垂直方向和水平方向设置不同的边框间距</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">table</span> <span class="rules">&#123;</span><br><span class="line">   <span class="rule"><span class="attribute">border-spacing</span>:<span class="value"> <span class="number">10px</span> <span class="number">5px</span></span></span>; <span class="comment">/*10px的水平边框间距，5px的垂直边框间距*/</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">   <span class="attribute">border-spacing</span>: <span class="number">10px</span> <span class="number">5px</span>; <span class="comment">/*10px的水平边框间距，5px的垂直边框间距*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>border-collapse 规则可折叠表格边框，使单元格之间没有间距<code>border-collapse:collapse;</code></p>
 </li>
 <li><p>nth-child 伪类可选择位于父元素下的第n个子元素，第0个代表没有选中，而且<strong>不限制于元素类型</strong></p>
-  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*可以直接指定奇偶数段落*/</span></span><br><span class="line"><span class="tag">p</span><span class="pseudo">:nth-child(even)</span> <span class="rules">&#123; <span class="comment">/*odd是奇数*/</span></span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> red</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="comment">/*还可以使用简单的多项式指定*/</span></span><br><span class="line"><span class="tag">p</span><span class="pseudo">:nth-child(2n+1)</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> white</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*可以直接指定奇偶数段落*/</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-child(even)</span> &#123; <span class="comment">/*odd是奇数*/</span></span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*还可以使用简单的多项式指定*/</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-child(2n+1)</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>nth-of-type 伪类可指定位于父元素下的同类型的第n个元素，<strong>要限制元素类型</strong>（书上没有讲这个）</p>
 </li>
@@ -150,7 +150,7 @@
 </tr>
 </tbody>
 </table>
-<p>使用方式是用上表的名称结合css相应属性<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">trasform</span>:<span class="value"> <span class="function">rotate</span>(<span class="number">45deg</span>)</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-moz-trasform</span>:<span class="value"> <span class="function">rotate</span>(<span class="number">45deg</span>)</span></span>; <span class="comment">/*支持firefox*/</span></span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-trasform</span>:<span class="value"> <span class="function">rotate</span>(<span class="number">45deg</span>)</span></span>; <span class="comment">/*支持Chrome等*/</span></span><br><span class="line">    <span class="rule"><span class="attribute">-ms-trasform</span>:<span class="value"> <span class="function">rotate</span>(<span class="number">45deg</span>)</span></span>;<span class="comment">/*支持IE*/</span></span><br><span class="line">    <span class="rule"><span class="attribute">-o-trasform</span>:<span class="value"> <span class="function">rotate</span>(<span class="number">45deg</span>)</span></span>;<span class="comment">/*支持Opera*/</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>使用方式是用上表的名称结合css相应属性<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">trasform</span>: <span class="built_in">rotate</span>(45deg);</span><br><span class="line">    <span class="attribute">-moz-trasform</span>: <span class="built_in">rotate</span>(45deg); <span class="comment">/*支持firefox*/</span></span><br><span class="line">    <span class="attribute">-webkit-trasform</span>: <span class="built_in">rotate</span>(45deg); <span class="comment">/*支持Chrome等*/</span></span><br><span class="line">    <span class="attribute">-ms-trasform</span>: <span class="built_in">rotate</span>(45deg);<span class="comment">/*支持IE*/</span></span><br><span class="line">    <span class="attribute">-o-trasform</span>: <span class="built_in">rotate</span>(45deg);<span class="comment">/*支持Opera*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="3-CSS变换与过渡"><a href="#3-CSS变换与过渡" class="headerlink" title="3. CSS变换与过渡"></a>3. CSS变换与过渡</h3><p>可以对元素做充分的2D和3D变换，Demo</p>
 <p><script async src="http://jsfiddle.net/1jdux83p/1/embed/html,css,result/"></script></p>
 <blockquote>
